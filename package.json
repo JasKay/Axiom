@@ -1,0 +1,20 @@
+{
+  "name": "church-presenter-web",
+  "version": "0.2.0",
+  "private": true,
+  "scripts": {
+    "build": "node build.cjs",
+    "test": "npm run build && node --test tests/*.test.cjs"
+  },
+  "dependencies": {
+    "pdfjs-dist": "6.4.299",
+    "pptx-browser": "4.1.5"
+  },
+  "engines": {
+    "node": ">=24"
+  },
+  "devDependencies": {
+    "fake-indexeddb": "6.2.5",
+    "jsdom": "30.1.2"
+  }
+}
