@@ -1,15 +1,53 @@
 {
-  "name": "church-presenter",
-  "version": "0.2.0",
+  "name": "axiom",
+  "version": "0.3.0",
   "private": true,
-  "description": "Offline church presentation MVP",
+  "description": "Axiom \u2014 a focused presentation studio for your whole service",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "test": "node --test tests/*.test.js",
+    "package": "electron-builder --publish never",
     "prepare": "node ../build.cjs"
   },
   "devDependencies": {
-    "electron": "^44.0.0"
+    "electron": "^44.0.0",
+    "electron-builder": "26.15.3"
+  },
+  "productName": "Axiom",
+  "author": "Kay Jasanya",
+  "build": {
+    "appId": "com.kayjasanya.axiom",
+    "productName": "Axiom",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "app/**/*",
+      "package.json"
+    ],
+    "artifactName": "Axiom-${version}-${os}-${arch}.${ext}",
+    "mac": {
+      "target": [
+        "dmg"
+      ],
+      "category": "public.app-category.productivity",
+      "identity": null,
+      "icon": "build/icon.icns"
+    },
+    "win": {
+      "target": [
+        "zip"
+      ],
+      "signExecutable": false,
+      "icon": "build/icon.ico"
+    },
+    "linux": {
+      "target": [
+        "AppImage"
+      ],
+      "category": "Office"
+    }
   }
 }

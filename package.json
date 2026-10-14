@@ -1,6 +1,6 @@
 {
-  "name": "church-presenter-web",
-  "version": "0.2.0",
+  "name": "axiom",
+  "version": "0.3.0",
   "private": true,
   "scripts": {
     "build": "node build.cjs",
@@ -11,7 +11,7 @@
     "pptx-browser": "4.1.5"
   },
   "engines": {
-    "node": ">=24"
+    "node": "24.x"
   },
   "devDependencies": {
     "fake-indexeddb": "6.2.5",

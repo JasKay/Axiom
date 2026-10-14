@@ -4,3 +4,10 @@ dist/
 .DS_Store
 *.log
 desktop/app/
+.vercel
+
+desktop/release/
+desktop/node_modules/
+.env
+.env.*
+!.env.example

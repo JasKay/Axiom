@@ -1,6 +1,6 @@
-# Church Presenter 0.2
+# Axiom 0.3
 
-A church presentation workspace with a web app and a desktop shell using the same interface. This release is prepared for GitHub and Vercel; it has not been published to either account yet.
+A church presentation workspace with a web app and a desktop shell using the same interface. Website: https://axiom-theta-one.vercel.app · Source: https://github.com/JasKay/Axiom.
 
 ## Run the website locally
 
@@ -51,7 +51,7 @@ Files are processed locally in the browser. The PowerPoint renderer may request 
 
 Limits: 100 MB per image/video, 60 MB per document, 150 pages per document, 15 MB per Bible JSON, 200 MB for a workspace backup import. Browser storage capacity and mobile memory vary. Large document imports can take time.
 
-Bible schema: `{"translation":"Name","verses":[{"book":"John","chapter":3,"verse":16,"text":"Verse text"}]}`. No Bible text or translation catalogue is bundled. Import a translation you have permission to store/display. Book names match the imported file; references support one chapter at a time.
+Bible schema: `{"translation":"Name","verses":[{"book":"John","chapter":3,"verse":16,"text":"Verse text"}]}`. KJV passage lookup is available online through bible-api.com. NIV, NLT, TPT and MSG appear in the translation selector, but need an authorized imported file or licensed provider connection. No copyrighted full translation is bundled. Import a translation you have permission to store/display. Book names match the imported file; references support one chapter at a time.
 
 Services reference the same library item, so editing that item affects its use in other services. Duplicate an item to make an independent version. Removing an item from a service keeps it in the library. Library deletion requires removing its service references first. Undo can restore deletes during the current session.
 
@@ -73,10 +73,21 @@ npm start
 
 The desktop shell loads desktop/app/, generated from the same web build. Electron uses a local secure custom scheme, isolated sandboxed renderers, and blocks external page navigation/new windows. It places the output on the first external display when connected. Without one, output opens as a normal window. F toggles fullscreen and Esc exits it. The desktop workspace is separate from the browser workspace; export/import to transfer it.
 
-Desktop source is included; signed installers and auto-updates are not included.
+Desktop downloads are published through GitHub Releases: Mac Intel and Apple Silicon DMGs, plus a Windows x64 portable ZIP. These early packages are unsigned and not notarized; operating systems may warn or block launch. Production signing/notarization and automatic updates are not configured. Windows packages are built but must be rehearsed on Windows hardware.
 
 ## Validation
 
-`npm test` runs parsing/state tests, DOM integration for the operator workflow, and actual PDF/PPTX-to-canvas fixture rendering with a check for visible page marks. Syntax checks pass. Physical projector positioning, browser install prompts, service-worker offline behaviour, desktop startup and real video/audio codecs still require a rehearsal on your target hardware. Real browser layout was not visually inspected in this build environment.
+`npm test` runs parsing/state tests, DOM integration for the operator workflow, and actual PDF/PPTX-to-canvas fixture rendering with a check for visible page marks. Syntax checks pass. Physical projector positioning, browser install prompts, service-worker offline behaviour, desktop startup and real video/audio codecs still require a rehearsal on your target hardware. Desktop and mobile layouts were inspected in Chrome. A generated H.264/AAC MP4 was tested in the actual audience window, including play, pause, restart and clear-text continuity.
 
 This is a first release of the defined core workflow. It does not yet include stage/confidence displays, collaboration/cloud accounts, streaming outputs, automatic speech-triggered verses, CCLI integrations, live PowerPoint animations or multiple independent output channels.
+
+
+## 0.3 update
+
+Axiom has a new visual identity and responsive studio layout. Download Axiom opens platform-specific real desktop downloads; Install web app remains a separate browser option. The original browser storage name is preserved to retain existing services.
+
+The audience content security policy now permits embedded video data. The private preview has native video controls, the operator live monitor plays muted, and the audience output offers a Play button only when autoplay permission is required. Unsupported formats show an error instead. Codec support still depends on platform/browser; H.264/AAC MP4 is the tested format.
+
+## Bible connections
+
+See [licensed Bible setup](docs/BIBLE-INTEGRATION.md). No API key or licensed NIV/NLT/TPT/MSG text ships with the app. Imported translations can coexist and remain available offline. Online KJV requires a network connection; saved presentation slides remain local. Licensed API.Bible content is search-preview only until presentation, export and offline rights are implemented and approved.
