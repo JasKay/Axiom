@@ -12,3 +12,75 @@
 /* Readable utility labels and predictable mobile workspace controls. */
 .page-heading p{color:#7e748a}.secondary{color:#7c7189}details label{color:#796c87}.page-actions button{color:#82718f}.sidebar-footer{border:0}.sidebar-footer summary{color:#b9afca;font-size:11px}.sidebar-footer[open]>*:not(summary){margin-top:8px}.sidebar-footer small{display:block}.slide-card small,.library-card small{color:#806c92}
 @media(max-width:700px){.sidebar-footer{display:block;grid-column:1/-1;padding-top:8px;margin:0}.sidebar-footer[open]{display:grid;grid-template-columns:1fr 1fr}.sidebar-footer summary{grid-column:1/-1}.sidebar-section #service-name,.sidebar-section>.button-row,.sidebar-section>#delete-service{display:block}.sidebar-section>.button-row{display:flex}.sidebar-section>#delete-service{grid-column:auto;font-size:10px}.sidebar-section #service-name{font-size:14px}.sidebar-section>.button-row button{font-size:9px}.sidebar-footer #help{display:block}}
+
+/* Desktop studio: stable controls, independently scrollable work areas. */
+@media(min-width:1000px){
+ body:not(.output-body){height:100dvh;display:flex;flex-direction:column;overflow:hidden}
+ .app-header{flex:0 0 auto;padding:16px 24px;gap:16px}
+ .brand small{display:block}
+ .header-tools{flex-wrap:nowrap}
+ .app-layout{flex:1;min-height:0;grid-template-columns:184px minmax(0,1fr) 304px;overflow:hidden}
+ .sidebar,main,.inspector{min-height:0;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#c8c1d5 transparent}
+ .sidebar{padding:26px 14px;scrollbar-color:#51485f transparent}
+ .sidebar-footer{flex-shrink:0;padding-top:28px}
+ main{padding:28px clamp(20px,2.2vw,40px) 40px}
+ .page-heading{gap:18px;align-items:flex-start;margin-bottom:24px}
+ .page-heading>div{min-width:0}
+ .page-heading h1{font-size:clamp(26px,2vw,36px);line-height:1.15;overflow-wrap:anywhere}
+ .page-heading .badge{margin-top:8px}
+ .toolbar{gap:8px;margin-bottom:28px}
+ .toolbar button{padding:10px 12px}
+ .planner{grid-template-columns:140px minmax(0,1fr);gap:20px;align-items:start}
+ .running-order{padding-right:16px}
+ .page-browser{min-width:0}
+ .page-browser>.section-heading{align-items:flex-start;min-height:28px}
+ #item-title{font-size:12px;line-height:1.5;overflow-wrap:anywhere;flex:1;min-width:80px}
+ .slide-grid{grid-template-columns:repeat(auto-fill,minmax(min(100%,210px),1fr));align-items:start}
+ .slide-card{width:100%;max-width:360px;text-align:left}
+ .slide-card small{font-size:11px;padding:12px;overflow-wrap:anywhere}
+ .page-actions{justify-content:flex-start;gap:4px}
+ .page-actions>button{flex:0 1 auto;padding:9px 10px;font-size:11px}
+ .inspector{grid-column:auto;display:block;columns:auto;border-top:0;border-left:1px solid var(--line);padding:24px 18px 28px}
+ .inspector>.section-heading{margin-bottom:12px}
+ .inspector .stage{min-height:0}
+ .inspector>.button-row{gap:6px;margin-top:8px}
+ .inspector>.button-row button{min-height:34px;font-size:11px}
+ .inspector>details{margin-top:18px;padding-bottom:14px}
+ .live-header{margin-top:18px;padding-top:0}
+ .go-live{margin-top:12px;min-height:42px}
+ .blackout{min-height:36px}
+ .library-grid{grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:20px}
+ .library-card{max-width:380px}
+ #bible-view{max-width:1000px}
+ button:focus-visible,a:focus-visible,summary:focus-visible{outline:2px solid #7960bc;outline-offset:3px}
+}
+@media(min-width:1400px){
+ .app-layout{grid-template-columns:210px minmax(0,1fr) 340px}
+ .planner{grid-template-columns:176px minmax(0,1fr);gap:28px}
+ .sidebar{padding:30px 18px}
+ .inspector{padding:28px 22px}
+ .slide-grid{gap:20px}
+}
+@media(min-width:1800px){
+ .app-layout{grid-template-columns:232px minmax(0,1fr) 380px}
+ main{padding:36px 44px 48px}
+ .planner{grid-template-columns:200px minmax(0,1fr);gap:32px}
+ .slide-grid{grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:24px}
+ .inspector{padding:30px 24px}
+}
+@media(min-width:1000px) and (max-width:1150px){
+ .app-header{padding:14px 18px;gap:12px}
+ .brand{font-size:22px;gap:9px}
+ .brand small{letter-spacing:1.2px;font-size:6px}
+ .header-tools{gap:5px}
+ .header-tools button{padding:9px 8px;font-size:11px}
+ #save-status{max-width:110px;margin-right:3px;line-height:1.4}
+ .app-layout{grid-template-columns:170px minmax(0,1fr) 284px}
+ main{padding:24px 18px 32px}
+ .planner{grid-template-columns:122px minmax(0,1fr);gap:14px}
+ .running-order{padding-right:12px}
+ .sidebar{padding:24px 10px}
+ .nav-item{padding:12px 9px;font-size:11px}
+ .page-heading{flex-wrap:wrap;gap:8px}
+ .page-heading .badge{margin-top:0}
+}
