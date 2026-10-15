@@ -84,3 +84,24 @@
  .page-heading{flex-wrap:wrap;gap:8px}
  .page-heading .badge{margin-top:0}
 }
+
+/* SermonGPT: a focused listening desk, with operator review before projection. */
+.sermon-beta{font-size:8px;letter-spacing:1px;margin-left:5px;color:#c0aedc}
+#sermon-view{max-width:1100px}
+.sermon-hero{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;padding:28px;background:linear-gradient(120deg,#eae2f7,#f5f2fb);border:1px solid #e2d7ef;border-radius:18px;margin-bottom:22px}
+.sermon-hero h2{font-size:clamp(22px,2vw,30px);letter-spacing:-.8px;color:#4e3e65;line-height:1.2}
+.sermon-hero p{color:#7a688b;line-height:1.6;margin-top:10px;font-size:13px}
+.sermon-hero .badge{white-space:nowrap}
+.sermon-listener,.sermon-manual{border:1px solid var(--line);background:#fff;border-radius:16px;padding:22px;margin-bottom:22px}
+.sermon-listening-bar{display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:12px;color:#6c597e}
+.sermon-listening-bar>div{line-height:1.6}
+.sermon-listening-bar button{flex-shrink:0}
+.sermon-pulse{display:inline-block;width:8px;height:8px;border-radius:50%;background:#b8a8ca;margin-right:8px}
+.sermon-listener:has([aria-pressed=true]) .sermon-pulse{background:#4f9c7b;box-shadow:0 0 0 5px #4f9c7b18}
+#sermon-session{display:block;font-size:10px;margin-left:16px;color:#887d92}
+#sermon-transcript{font-size:17px;line-height:1.7;min-height:76px;max-height:190px;overflow-y:auto;margin:20px 0;color:#4b4356;white-space:pre-wrap;overflow-wrap:anywhere}
+.sermon-listener>.secondary{line-height:1.7;font-size:11px}
+.sermon-manual label{margin-bottom:10px}.sermon-manual .button-row{margin-top:12px;flex-wrap:wrap}.sermon-manual .button-row>button{flex:0 1 auto}
+#sermon-results{display:grid;gap:16px}.sermon-card{padding:24px;border-radius:16px;border:1px solid #ded4ec;background:#fff}.sermon-card h2{font-size:24px;color:#514064}.sermon-card .eyebrow{margin-bottom:8px}.sermon-trigger{font-size:12px;color:#8b7a9a;line-height:1.7;margin:12px 0;overflow-wrap:anywhere}.sermon-passage{white-space:pre-wrap;line-height:1.8;font-size:17px;color:#51415f;border-left:3px solid #b19acb;padding-left:18px;margin:20px 0}.sermon-card .button-row{margin-top:16px}.sermon-card .button-row>button{flex:0 1 auto}.sermon-about{color:#7d7089;font-size:12px;line-height:1.8}.sermon-about p{margin:10px 0}
+@media(max-width:700px){.sidebar{grid-template-columns:repeat(2,minmax(0,1fr))}.sermon-hero{padding:20px;flex-direction:column;gap:12px}.sermon-listening-bar{align-items:flex-start;flex-direction:column}.sermon-listening-bar button{width:100%}.sermon-listener,.sermon-manual,.sermon-card{padding:18px}.sermon-passage{font-size:16px}}
+.sermon-hero{padding:22px 24px;margin-bottom:18px}.sermon-hero .eyebrow{margin-bottom:10px}.sermon-listener{padding:20px;margin-bottom:16px}#sermon-transcript{min-height:42px;max-height:110px;margin:16px 0}.sermon-manual{padding:16px 20px;margin:0 0 22px}.sermon-manual summary{margin-bottom:0;font-size:12px}.sermon-manual[open] summary{margin-bottom:16px}.sermon-manual textarea{font-size:14px;text-transform:none}.sermon-manual label{font-size:11px;text-transform:none;letter-spacing:0}.sermon-manual .button-row{margin-top:12px}
