@@ -16,7 +16,7 @@ test('matches supported paraphrases without treating generic sermon language as 
 const {JSDOM,VirtualConsole}=require('jsdom'),{indexedDB,IDBKeyRange}=require('fake-indexeddb'),path=require('node:path');
 test('review is required before projection, session clear stops audio, and errors release listening state',async()=>{
  const messages=[],errors=[];let rec,aborts=0;const vc=new VirtualConsole();vc.on('jsdomError',e=>errors.push(e.message));
- const dom=await JSDOM.fromFile(path.resolve(__dirname,'../web/index.html'),{runScripts:'dangerously',resources:'usable',pretendToBeVisual:true,virtualConsole:vc,beforeParse(w){
+ const dom=await JSDOM.fromFile(path.resolve(__dirname,'../web/studio.html'),{runScripts:'dangerously',resources:'usable',pretendToBeVisual:true,virtualConsole:vc,beforeParse(w){
   w.structuredClone=structuredClone;w.indexedDB=indexedDB;w.IDBKeyRange=IDBKeyRange;w.BroadcastChannel=class{postMessage(d){messages.push(d)}};
   w.SpeechRecognition=class{constructor(){rec=this}start(){this.onstart?.()}abort(){aborts++;this.onend?.()}};
   w.HTMLMediaElement.prototype.pause=function(){};w.HTMLMediaElement.prototype.play=()=>Promise.resolve();

@@ -11,3 +11,9 @@ desktop/node_modules/
 .env
 .env.*
 !.env.example
+.env*
+
+.agents/
+skills-lock.json
+artifacts/
+!.env.example

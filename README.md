@@ -1,6 +1,12 @@
-# Axiom 0.3
+# Axiom 0.4
 
 A church presentation workspace with a web app and a desktop shell using the same interface. Website: https://axiom-theta-one.vercel.app · Source: https://github.com/JasKay/Axiom.
+
+## Worship platform (0.4)
+
+The public website now lives at `/`, shared church planning at `/workspace.html`, and the offline presentation studio at `/studio.html`. Includes timed service plans, templates, username accounts, church roles, invitations, live team comments, private files, and Congregation Connect with QR links, scriptures, local notes, and prayer requests. AI preparation runs locally in the browser after an optional model download; no paid API or card is required. Hosting and storage use free tiers with usage limits.
+
+See [platform architecture, setup, and limits](docs/WORSHIP-PLATFORM.md). Use `npm run dev` for the full-stack local preview; configure the environment and run both documented migrations for cloud features. The original device-local studio remains usable without accounts. The sections below describe its existing presentation capabilities.
 
 ## Run the website locally
 

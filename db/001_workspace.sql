@@ -1,0 +1,14 @@
+CREATE SCHEMA IF NOT EXISTS axiom;
+CREATE TABLE IF NOT EXISTS axiom.migrations (name text PRIMARY KEY, applied_at timestamptz NOT NULL DEFAULT now());
+CREATE TABLE IF NOT EXISTS axiom.churches (id uuid PRIMARY KEY, name text NOT NULL CHECK(length(name) BETWEEN 1 AND 120), created_by text NOT NULL, created_at timestamptz NOT NULL DEFAULT now());
+CREATE TABLE IF NOT EXISTS axiom.members (church_id uuid NOT NULL REFERENCES axiom.churches ON DELETE CASCADE,user_id text NOT NULL,name text NOT NULL,email text NOT NULL,role text NOT NULL CHECK(role IN ('owner','admin','editor','viewer')),PRIMARY KEY(church_id,user_id));
+CREATE TABLE IF NOT EXISTS axiom.workspaces (church_id uuid PRIMARY KEY REFERENCES axiom.churches ON DELETE CASCADE,project jsonb NOT NULL,revision integer NOT NULL DEFAULT 1,updated_by text NOT NULL,updated_at timestamptz NOT NULL DEFAULT now());
+CREATE TABLE IF NOT EXISTS axiom.invitations (id uuid PRIMARY KEY,church_id uuid NOT NULL REFERENCES axiom.churches ON DELETE CASCADE,email text NOT NULL,role text NOT NULL CHECK(role IN ('admin','editor','viewer')),token_hash text UNIQUE NOT NULL,created_by text NOT NULL,expires_at timestamptz NOT NULL DEFAULT now()+interval '7 days',accepted_at timestamptz);
+CREATE INDEX IF NOT EXISTS invitations_church ON axiom.invitations(church_id);
+CREATE TABLE IF NOT EXISTS axiom.comments (id uuid PRIMARY KEY,church_id uuid NOT NULL REFERENCES axiom.churches ON DELETE CASCADE,service_id text NOT NULL,author_id text NOT NULL,author_name text NOT NULL,body text NOT NULL CHECK(length(body) BETWEEN 1 AND 2000),created_at timestamptz NOT NULL DEFAULT now());
+CREATE INDEX IF NOT EXISTS comments_service ON axiom.comments(church_id,service_id,created_at);
+CREATE TABLE IF NOT EXISTS axiom.public_services (token text PRIMARY KEY,church_id uuid NOT NULL REFERENCES axiom.churches ON DELETE CASCADE,service_id text NOT NULL,snapshot jsonb NOT NULL,live jsonb,enabled boolean NOT NULL DEFAULT true,updated_at timestamptz NOT NULL DEFAULT now(),UNIQUE(church_id,service_id));
+CREATE TABLE IF NOT EXISTS axiom.prayers (id uuid PRIMARY KEY,service_token text NOT NULL REFERENCES axiom.public_services ON DELETE CASCADE,name text NOT NULL DEFAULT '',body text NOT NULL CHECK(length(body) BETWEEN 1 AND 3000),created_at timestamptz NOT NULL DEFAULT now());
+CREATE TABLE IF NOT EXISTS axiom.audit (id bigserial PRIMARY KEY,church_id uuid NOT NULL REFERENCES axiom.churches ON DELETE CASCADE,user_id text NOT NULL,action text NOT NULL,created_at timestamptz NOT NULL DEFAULT now());
+CREATE TABLE IF NOT EXISTS axiom.rate_limits (key text PRIMARY KEY,count integer NOT NULL,expires_at timestamptz NOT NULL);
+INSERT INTO axiom.migrations(name) VALUES('001_workspace') ON CONFLICT DO NOTHING;

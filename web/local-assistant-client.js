@@ -1,0 +1,4 @@
+(function(){let worker,busy=false;
+function generate(prompt,mode,onUpdate){if(busy)return Promise.reject(Error('The local assistant is already working'));busy=true;return new Promise((resolve,reject)=>{if(!worker)worker=new Worker('vendor/local-assistant.js',{type:'module'});worker.onmessage=({data})=>{if(data.type==='done'){busy=false;resolve(data.text);}else if(data.type==='error'){busy=false;reject(Error(data.text));}else onUpdate(data);};worker.onerror=()=>{busy=false;worker?.terminate();worker=null;reject(Error('The local AI runtime could not start. Please use a recent browser and try again.'));};worker.postMessage({prompt,mode});generate.reject=reject;});}
+function cancel(){worker?.terminate();worker=null;busy=false;generate.reject?.(Error('Local generation stopped. Your service is unchanged.'));}
+window.AxiomLocal={generate,cancel};})();
