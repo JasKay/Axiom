@@ -1,0 +1,47 @@
+﻿/* One Axiom palette for planning, media operations, and congregation pages. */
+:root{--ink:#183c35;--muted:#69766f;--paper:#f6f7f3;--line:#dfe4dc;--green:#d6e7b9;--accent:#183c35;--lime:#a8c878;--surface:#fff;--soft:#eaf0df}
+body:not(.output-body){background:var(--paper);color:var(--ink)}
+button,input,textarea,select,progress{accent-color:var(--lime)}
+button:focus-visible,a:focus-visible,summary:focus-visible{outline-color:#729943}
+/* Studio and desktop keep their controls and layout, using the planning palette. */
+.app-header{background:#fbfcf8;border-color:var(--line)}
+.brand{color:var(--ink)}.brand-icon{background:var(--ink);color:var(--green)}.brand-icon span{color:var(--lime)}.brand small,#save-status{color:#819078}
+.app-layout .sidebar{background:#f0f3e9;color:var(--ink)}
+.sidebar .eyebrow,.sidebar-footer small{color:#819078}
+.sidebar .nav-item{color:#6d7c62}.sidebar .nav-item.active{background:#dfe8d1;color:var(--ink);box-shadow:inset 3px 0 #91a970}
+.sidebar .nav-item:not(:disabled):hover{background:#e5edda;color:var(--ink)}
+.sidebar-section{border-color:var(--line)}
+.sidebar input,.sidebar select{background:#fff;border-color:#dce3d4;color:var(--ink)}
+.sidebar button:not(.nav-item),.sidebar-footer .file-button{color:#647858;border-color:#dce3d4}
+.sidebar .quiet{border-color:transparent}.sidebar-footer .danger{color:#b45e68}
+.app-layout .sidebar,.app-layout main,.app-layout .inspector{scrollbar-color:#c9d6ba transparent}
+.app-layout .eyebrow,.section-heading h2,.page-heading p,.secondary{color:#819074}
+.section-heading .secondary,.empty{color:#87967b}
+.app-header button,.app-layout button,.app-layout .file-button{color:#647858;border-color:var(--line)}
+.app-header button:not(:disabled):hover,.app-layout button:not(:disabled):hover,.app-layout .file-button:hover{background:#edf3e4;border-color:#c9d8b7;box-shadow:0 3px 10px #183c3508}
+.app-header .primary,.app-layout .primary,.app-layout .go-live,#open-output{background:var(--ink);border-color:var(--ink);color:#fff;box-shadow:0 4px 12px #183c3517}
+.app-header .primary:not(:disabled):hover,.app-layout .primary:not(:disabled):hover,.app-layout .go-live:not(:disabled):hover,#open-output:not(:disabled):hover{background:#285448!important;border-color:#285448;color:#fff}
+.app-header .download-button{background:var(--soft);border-color:#d6e1c9;color:#647e4d}
+.app-layout input,.app-layout textarea,.app-layout select{background:#fff;border-color:#dce3d4;color:var(--ink)}
+.app-layout input:focus,.app-layout textarea:focus,.app-layout select:focus{border-color:#91a970;box-shadow:0 0 0 3px #a8c87824}
+.app-layout label,.app-layout summary,.live-header h2{color:#738567}
+.badge,.inspector .badge{background:#e7efdd;color:#77945a}
+.playlist-entry{background:#fff;border-color:var(--line)}.playlist-entry.selected{background:#eaf0df;border-color:#a5bc87;box-shadow:0 4px 14px #183c350a}
+.playlist-entry>button{color:var(--ink)}.playlist-entry small,.entry-actions button{color:#819174}
+.slide-card{background:#fff;border-color:#fff;box-shadow:0 3px 15px #183c3506}.slide-card.selected{border-color:#91a970;box-shadow:0 0 0 3px #a8c87824}
+.slide-card small{background:#fff;color:#819174}.slide-card.selected small{color:#607e49}
+.app-layout .stage{border-color:var(--line)}.page-actions button{color:#819174}
+.inspector{background:#fff;border-color:var(--line)}.live-dot{background:#7a9d57;box-shadow:0 0 0 3px #a8c87824}
+.app-layout details{border-color:var(--line)}.app-layout details input,.app-layout details textarea,.app-layout details select{background:#fafbf8;border-color:#dfe6d7}
+.app-layout .blackout{background:#f0f3e9;color:#647858;border-color:var(--line)}
+.app-layout .danger{color:#b45e68}
+.library-card{background:#fff;border-color:var(--line);box-shadow:0 4px 20px #183c3505}.library-card-info h2{color:var(--ink)}.library-card small{color:#819174}
+.bible-tools,.sermon-hero{background:linear-gradient(120deg,#e5edda,#f2f5eb);border-color:#d6e1c9}
+.bible-tools h2,.sermon-hero h2,.sermon-card h2{color:var(--ink)}.sermon-hero p,.sermon-listening-bar,.sermon-about{color:#738567}
+.verse,.sermon-card{border-color:var(--line);color:var(--ink)}.verse input{accent-color:#91a970}.verse strong{color:#6e8d50}
+.sermon-beta,.sermon-trigger,#sermon-session{color:#819174}.sermon-pulse{background:#a5bc87}.sermon-passage{color:var(--ink);border-left-color:#a8c878}#sermon-transcript{color:var(--ink)}
+dialog{background:#fff;color:var(--ink);border-color:var(--line);box-shadow:0 25px 100px #183c3533}dialog::backdrop{background:#142d286b}dialog p{color:#819174}
+#notice{background:var(--ink);color:#f6f7f3;box-shadow:0 10px 40px #183c3522}
+.download-card{background:#f2f5eb;color:#647e4d;border-color:var(--line)}.download-card:hover{background:#e5edda;border-color:#a5bc87}.download-card small{color:#819174}
+.entry-kind.scripture{background:#e4eed7;color:#7c955b}
+/* Projection snapshots retain their saved backgrounds, text colours, and blackout. */
