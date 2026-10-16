@@ -9,3 +9,5 @@ Church invitations assign both an audience and an editing role. Existing owners 
 Server endpoints enforce audience membership. Tech never receives private study notes; members receive no staff workspace, files or comments. Web studio access requires Tech membership while online. Prepared Tech browsers retain offline presentation access. The standalone desktop presentation engine remains usable locally without a cloud account; desktop installers must be rebuilt separately to ship these source updates.
 
 Apply db/004_audience_experiences.sql through npm run migrate before deployment. No paid service or new provider is introduced.
+
+New accounts choose AxiomLead, Axiom Pro, or AxiomU before creating their own workspace. Invitations still assign the church group. Church owners can use Change experience in the header; other members cannot change their own group. The free public alias is https://axiomchurch.vercel.app (axiom.vercel.app was already taken). Reassign the public alias after a CLI deployment with vercel alias set <new-production-deployment-url> axiomchurch.vercel.app if it is not attached automatically.
