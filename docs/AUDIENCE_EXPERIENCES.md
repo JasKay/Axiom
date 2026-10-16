@@ -10,4 +10,6 @@ Server endpoints enforce audience membership. Tech never receives private study 
 
 Apply db/004_audience_experiences.sql through npm run migrate before deployment. No paid service or new provider is introduced.
 
-New accounts choose AxiomLead, Axiom Pro, or AxiomU before creating their own workspace. Invitations still assign the church group. Church owners can use Change experience in the header; other members cannot change their own group. The free public alias is https://axiomchurch.vercel.app (axiom.vercel.app was already taken). Reassign the public alias after a CLI deployment with vercel alias set <new-production-deployment-url> axiomchurch.vercel.app if it is not attached automatically.
+New accounts choose AxiomLead, Axiom Pro, or AxiomU before creating their own workspace. Invitations still assign the church group. Church owners can use Change experience in the header; other members cannot change their own group. The public production domain is https://axiomworship.vercel.app and is attached to the Vercel project for future deployments. axiom.vercel.app was already taken.
+
+AxiomLead includes four editable starter templates (Sunday worship, prayer evening, Bible study, communion). Its service desk uses tabs for the running order, preparation notes, private study notes, congregation publication, and team files/conversation.
