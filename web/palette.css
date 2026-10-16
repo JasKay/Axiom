@@ -45,3 +45,4 @@ dialog{background:#fff;color:var(--ink);border-color:var(--line);box-shadow:0 25
 .download-card{background:#f2f5eb;color:#647e4d;border-color:var(--line)}.download-card:hover{background:#e5edda;border-color:#a5bc87}.download-card small{color:#819174}
 .entry-kind.scripture{background:#e4eed7;color:#7c955b}
 /* Projection snapshots retain their saved backgrounds, text colours, and blackout. */
+.app-header a.quiet{color:#647858;text-decoration:none}.app-header a.quiet:hover{color:#183c35}
