@@ -1,8 +1,8 @@
 {
   "id": "./",
-  "name": "Axiom",
-  "short_name": "Axiom",
-  "start_url": "./studio.html",
+  "name": "Axiom Pro Workspace",
+  "short_name": "Axiom Pro",
+  "start_url": "./tech-media.html",
   "scope": "./",
   "display": "standalone",
   "background_color": "#f6f7f3",

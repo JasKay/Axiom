@@ -23,7 +23,7 @@ test('review is required before projection, session clear stops audio, and error
  }});
  try{await new Promise(r=>dom.window.addEventListener('load',()=>setTimeout(r,100)));const w=dom.window,d=w.document,$=id=>d.getElementById(id);
  w.AxiomBibles.search=async()=>({canPresent:true,verses:[{book:'2 Timothy',chapter:1,verse:7,text:'Verified passage fixture.'}]});
- d.querySelector('[data-view=sermon]').click();assert.equal($('sermon-view').hidden,false);assert.equal($('view-title').textContent,'SermonGPT');
+ d.querySelector('[data-view=sermon]').click();assert.equal($('sermon-view').hidden,false);assert.equal($('view-title').textContent,'AxiomAI');
  const initial=messages.length;$('sermon-example').click();assert.equal(d.querySelectorAll('.sermon-card').length,1);assert.equal(messages.length,initial);
  const review=d.querySelector('.sermon-card .primary');review.click();await new Promise(r=>setTimeout(r,10));assert.equal(review.textContent,'Go Live →');assert.equal(messages.length,initial);
  review.click();assert.equal(messages.at(-1).state.slide.text,'Verified passage fixture.');assert.equal($('sermon-view').hidden,false);

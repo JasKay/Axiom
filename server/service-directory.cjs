@@ -1,0 +1,6 @@
+
+'use strict';
+const {db}=require('./db.cjs');
+async function directory(church,audience){const [workspace,activity,handoffs,published]=await Promise.all([db().query('SELECT project,updated_at FROM axiom.workspaces WHERE church_id=$1',[church]),db().query('SELECT service_id,worked_at FROM axiom.service_activity WHERE church_id=$1',[church]),db().query('SELECT service_id FROM axiom.handoffs WHERE church_id=$1',[church]),db().query('SELECT service_id FROM axiom.public_services WHERE church_id=$1 AND enabled=true',[church])]);const row=workspace.rows[0];if(!row)return [];return row.project.services.map(service=>({id:service.id,name:service.name,date:service.date||'',archived:!!service.archived,lastWorkedAt:activity.rows.find(a=>a.service_id===service.id)?.worked_at||null,available:audience==='lead'||(audience==='pro'?handoffs:published).rows.some(p=>p.service_id===service.id)})).sort((a,b)=>(new Date(b.lastWorkedAt||0)-new Date(a.lastWorkedAt||0))||Number(b.id===row.project.activeServiceId)-Number(a.id===row.project.activeServiceId));}
+async function touch(client,church,serviceId){await client.query('INSERT INTO axiom.service_activity(church_id,service_id) VALUES($1,$2) ON CONFLICT(church_id,service_id) DO UPDATE SET worked_at=now()',[church,serviceId]);}
+module.exports={directory,touch};

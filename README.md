@@ -90,10 +90,17 @@ This is a first release of the defined core workflow. It does not yet include st
 
 ## 0.3 update
 
-Axiom has a new visual identity and responsive studio layout. Download Axiom opens platform-specific real desktop downloads; Install web app remains a separate browser option. The original browser storage name is preserved to retain existing services.
+Axiom has a new visual identity and responsive studio layout. Download desktop opens platform-specific desktop downloads. Browser installation is no longer offered. The original browser storage name is preserved to retain existing services.
 
 The audience content security policy now permits embedded video data. The private preview has native video controls, the operator live monitor plays muted, and the audience output offers a Play button only when autoplay permission is required. Unsupported formats show an error instead. Codec support still depends on platform/browser; H.264/AAC MP4 is the tested format.
 
 ## Bible connections
 
 See [licensed Bible setup](docs/BIBLE-INTEGRATION.md). No API key or licensed NIV/NLT/TPT/MSG text ships with the app. Imported translations can coexist and remain available offline. Online KJV requires a network connection; saved presentation slides remain local. Licensed API.Bible content is search-preview only until presentation, export and offline rights are implemented and approved.
+
+
+## Church-first accounts
+
+A Pastor or Program team member registers their church and its first AxiomLead account together. Church leadership creates role-specific invitation codes so other leaders, Tech teams and congregation members join the same church. Code holders receive the assigned experience automatically. Codes expire after seven days, have a configurable use limit and can be revoked.
+
+Apply the workspace schema, including `db/005_church_join_codes.sql` and `db/006_service_activity.sql`, before deploying this account flow. See [church experiences and signup testing](docs/AUDIENCE_EXPERIENCES.md) for access rules and isolated integration-test instructions. Existing accounts and church memberships are retained.

@@ -1,0 +1,95 @@
+/* AxiomLead: service preparation and sharing, with secondary controls tucked away. */
+body[data-audience=lead] .workspace-main{margin:0 auto;align-self:start;padding:28px 32px;max-width:1500px}
+body[data-audience=lead] .workspace-heading{margin-bottom:20px;gap:16px;align-items:center;display:flex}
+body[data-audience=lead] .workspace-heading h1{font:600 28px/1.25 Manrope,system-ui,sans-serif;margin:6px 0;letter-spacing:-1px}
+body[data-audience=lead] .workspace-heading .eyebrow{font-size:9px;letter-spacing:1px}
+body[data-audience=lead] .heading-actions{margin:0}
+body[data-audience=lead] .button{min-height:38px;padding:9px 14px;font-size:12px}
+body[data-audience=lead] .workspace-sidebar{padding:22px 16px}
+body[data-audience=lead] .workspace-sidebar nav{margin-top:18px}
+body[data-audience=lead] .workspace-nav{padding:10px;font-size:16px}
+body[data-audience=lead] .workspace-nav>span{font-size:12px}
+body[data-audience=lead] .sidebar-services{margin-top:24px}
+body[data-audience=lead] .service-nav-item{white-space:normal;padding:10px}
+body[data-audience=lead] .service-nav-item span{display:block;font-size:12px;overflow:hidden;text-overflow:ellipsis}
+body[data-audience=lead] .service-nav-item small{display:block;font-size:10px;margin-top:3px;color:var(--muted)}
+.sidebar-empty{display:block;font-size:11px;color:var(--muted);padding:10px}
+.service-details{margin:0 0 18px;border-bottom:1px solid var(--line);padding-bottom:14px}
+.service-details>summary{display:inline-block;font-size:12px;color:var(--muted);cursor:pointer;list-style:none}
+.service-details>summary:after{content:' ▾';color:#7f946c}
+.service-details[open]>summary:after{content:' ▴'}
+body[data-audience=lead] .service-settings{margin:14px 0 0;padding:14px;border-radius:7px;background:#eff3e8;gap:12px}
+body[data-audience=lead] .service-desk-tabs{margin:0 0 18px;gap:8px}
+body[data-audience=lead] .service-desk-tabs button{font-size:12px;padding:12px 14px}
+body[data-audience=lead] .plan-card,body[data-audience=lead] .detail-card{border-radius:8px}
+body[data-audience=lead] .plan-card-heading{padding:16px 20px}
+body[data-audience=lead] .plan-card-heading h2,body[data-audience=lead] .detail-card h2{font:600 17px/1.4 Manrope,system-ui,sans-serif;letter-spacing:-.4px}
+body[data-audience=lead] .plan-card-heading p{font-size:11px;margin-top:4px}
+body[data-audience=lead] .plan-entry{padding:15px 20px;gap:12px;grid-template-columns:44px 28px minmax(0,1fr) auto}
+body[data-audience=lead] .entry-title{font-size:14px;margin:0 0 5px}
+body[data-audience=lead] .entry-meta{font-size:10px}
+body[data-audience=lead] .entry-controls{max-width:120px;gap:4px}
+body[data-audience=lead] .entry-controls .edit{flex-basis:auto}
+body[data-audience=lead] .entry-controls button{font-size:11px;padding:3px 6px}
+body[data-audience=lead] .plan-empty{padding:28px 20px}
+body[data-audience=lead] .plan-empty h3{margin:0 0 8px}
+body[data-audience=lead] .plan-empty p{margin:0}
+body[data-audience=lead] .plan-footer{padding:10px 20px}
+body[data-audience=lead] .service-desk-panel>.detail-card{padding:20px;max-width:100%}
+body[data-audience=lead] .service-desk-panel textarea{font-size:14px;line-height:1.8;min-height:0}
+body[data-audience=lead] #service-notes{min-height:240px}
+body[data-audience=lead] .detail-card label{font-size:12px;margin-bottom:14px}
+body[data-audience=lead] .detail-card small{font-size:11px;margin-top:10px}
+body[data-audience=lead] #service-notes-form{margin-bottom:10px}
+.secondary-notes{border-top:1px solid var(--line);padding-top:14px;margin-top:18px}
+.secondary-notes>summary{cursor:pointer;color:var(--muted);font-size:12px;list-style:none}
+.secondary-notes>summary:before{content:'+ ';color:#81966c}
+.secondary-notes[open]>summary:before{content:'− '}
+.secondary-notes p{font-size:11px!important;margin:10px 0}
+.secondary-notes textarea{margin-top:12px}
+.publish-status{display:inline-block;font-size:11px;color:var(--muted);margin:0 14px}
+body[data-audience=lead] #desk-congregation .detail-card{max-width:850px}
+body[data-audience=lead] .desk-resources{grid-template-columns:1fr 1fr;gap:16px}
+body[data-audience=lead] .comment{padding:10px 0}
+body[data-audience=lead] .comment p{font-size:12px}
+body[data-audience=lead] #comment-text{margin-top:12px;min-height:85px}
+body[data-audience=lead] #comment-help:empty{display:none}
+body[data-audience=lead] .church-links-grid{padding:16px;gap:12px}
+body[data-audience=lead] .church-link-card{padding:16px;gap:14px;display:flex;align-items:stretch;flex-direction:column}
+body[data-audience=lead] .church-link-card h3{font:600 14px/1.4 Manrope,system-ui,sans-serif;letter-spacing:-.3px}
+body[data-audience=lead] .church-link-card input{font-size:10px;margin:0;background:white;border:1px solid var(--line);padding:8px}
+body[data-audience=lead] .church-link-actions{align-items:start;gap:15px;margin:0}
+.link-management{font-size:11px;flex:1}
+.link-management summary{cursor:pointer;padding:10px 0;list-style:none;color:var(--muted)}
+.link-management[open] summary{padding-bottom:8px}
+.link-management small{display:block;font-size:10px!important;line-height:1.6;margin-bottom:6px}
+.link-management .subtle-button{display:block;font-size:11px;padding:5px 0}
+body[data-audience=lead] .team-member{padding:12px 20px;gap:12px}
+body[data-audience=lead] .member-info strong{font-size:12px}
+body[data-audience=lead] .member-info small{font-size:10px;margin-top:3px}
+body[data-audience=lead] #church-invitation-links{margin-bottom:20px}
+.member-controls{position:relative;font-size:11px;flex-shrink:0}
+.member-controls summary{cursor:pointer;list-style:none;padding:6px 0;color:var(--muted)}
+.member-controls>div{display:grid;gap:8px;margin-top:8px}
+.member-controls select{max-width:180px!important;width:180px}
+.invitation-history{padding:12px 20px;border-top:1px solid var(--line)}
+.invitation-history summary{font-size:11px;color:var(--muted);cursor:pointer}
+.invitation-history .invitation-row{padding:12px 0}
+#history-search{width:250px;font-size:13px;background:#fff}
+.history-service{display:flex;align-items:center;justify-content:space-between;gap:20px;background:white;border:0;border-bottom:1px solid var(--line);padding:18px 20px;width:100%;text-align:left;color:var(--ink)}
+.history-service:last-child{border-bottom:0}.history-service:hover{background:#f1f5e9}.history-service strong{display:block;font-size:14px;font-weight:600}.history-service small{display:block;font-size:11px;color:var(--muted);margin-top:4px}.history-service>span:last-child{font-size:12px;color:var(--muted)}.history-empty{font-size:13px;padding:25px;color:var(--muted);margin:0}
+body[data-audience=lead] #member-share-status{margin-inline:12px}
+@media(max-width:1100px){body[data-audience=lead] .church-links-grid{grid-template-columns:1fr}.workspace-header .experience-badge{font-size:10px}body[data-audience=lead] .workspace-main{padding:24px}body[data-audience=lead] .entry-controls{max-width:90px}}
+@media(max-width:650px){body[data-audience=lead] .workspace-main{padding:20px 16px}body[data-audience=lead] .workspace-heading{flex-wrap:wrap;gap:12px}body[data-audience=lead] .workspace-heading h1{font-size:25px!important}body[data-audience=lead] .heading-actions{width:100%;justify-content:flex-end}body[data-audience=lead] .workspace-sidebar{padding:14px 16px}body[data-audience=lead] .workspace-sidebar nav{margin-top:12px}body[data-audience=lead] .sidebar-services{margin-top:12px}body[data-audience=lead] .service-nav-item{min-width:120px;max-width:200px;padding:8px}body[data-audience=lead] .workspace-nav>span{font-size:10px}body[data-audience=lead] .workspace-nav{gap:6px;padding:8px}body[data-audience=lead] .service-desk-tabs{gap:0}body[data-audience=lead] .service-desk-tabs button{padding:11px 9px;font-size:11px}body[data-audience=lead] .plan-card-heading{padding:14px}body[data-audience=lead] .plan-entry{padding:14px 12px;grid-template-columns:35px minmax(0,1fr) auto;gap:8px}body[data-audience=lead] .entry-kind{display:none}body[data-audience=lead] .entry-title{font-size:13px}body[data-audience=lead] .entry-controls{max-width:55px}body[data-audience=lead] .entry-controls .edit{flex-basis:100%}body[data-audience=lead] .entry-controls button{font-size:10px}body[data-audience=lead] .desk-resources{grid-template-columns:1fr}body[data-audience=lead] .service-desk-panel>.detail-card{padding:16px}body[data-audience=lead] .service-desk-panel textarea{font-size:16px}body[data-audience=lead] .detail-card .button{font-size:11px}body[data-audience=lead] .team-member{padding:12px 14px;flex-wrap:nowrap}.member-controls select{width:130px;max-width:130px!important;font-size:12px}#history-search{width:100%;font-size:16px}.history-service{padding:16px}.service-settings label{font-size:11px}body[data-audience=lead] .workspace-header-actions .experience-badge{max-width:130px}}
+
+body[data-audience=lead] .entry-meta .pill.draft{display:none}.activity-options{margin-bottom:16px}.activity-options[open] summary{margin-bottom:14px}
+@media(max-width:650px){body[data-audience=lead] .service-settings{grid-template-columns:repeat(2,minmax(0,1fr))}body[data-audience=lead] .service-settings label,body[data-audience=lead] .service-settings input{min-width:0}}
+@media(max-width:360px){body[data-audience=lead] .service-settings{grid-template-columns:minmax(0,1fr)}}
+
+body[data-audience=lead][data-workspace-tab=team] .sidebar-services{display:none}
+@media(max-width:650px){body[data-audience=lead] .heading-actions{width:auto;margin-left:auto}.workspace-header-actions #user-button .button{max-width:105px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}body[data-audience=lead][data-workspace-tab=history] .sidebar-services{display:none}}
+@media(max-width:360px){.workspace-header-actions{min-width:0;gap:6px}.workspace-header-actions #user-button .button{max-width:80px;padding-inline:8px}.workspace-header-actions .experience-badge{max-width:100px}}
+
+.service-actions{position:relative}.service-actions summary{cursor:pointer;list-style:none;font-size:12px;padding:10px}.service-actions>div{position:absolute;right:0;top:100%;z-index:5;min-width:155px;display:grid;padding:8px;background:white;border:1px solid #dce4d5;border-radius:8px;box-shadow:0 8px 25px #16372b15}.service-actions button{text-align:left;white-space:nowrap}#delete-service{color:#a43c32}.history-filter{display:flex;align-items:center;gap:10px;margin:0 0 16px;font-size:12px}.history-filter select{width:auto}
+
+.invitation-team{display:block;margin-top:12px;color:#66735f;font-size:11px}

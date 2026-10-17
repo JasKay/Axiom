@@ -1,3 +1,46 @@
-const tour=document.getElementById('tour-dialog'),steps=[{title:'AxiomLead: give Sunday a shape.',description:'Pastors and Program Teams prepare study notes and the running order, then send a service handoff to Tech. Private study notes stay in AxiomLead.',type:'order'},{title:'Axiom Pro: bring the plan to life.',description:'Tech receives the handoff and production notes in Axiom Pro. Prepare songs, videos, scripture, and slides, then choose exactly what goes live.',type:'stage'},{title:'AxiomU: carry the message with you.',description:'Members revisit the published service summary, key highlights, scriptures, and church news, with private notes on their phone.',type:'ready'}];let step=0;
-function drawTour(){const s=steps[step];document.getElementById('tour-title').textContent=s.title;document.getElementById('tour-description').textContent=s.description;document.getElementById('tour-count').textContent=`${step+1} of ${steps.length}`;document.getElementById('tour-back').disabled=step===0;document.getElementById('tour-next').textContent=step===2?'Open your Axiom workspace ↗':'Next →';document.querySelectorAll('.tour-progress i').forEach((el,i)=>el.classList.toggle('done',i<=step));const stage=document.getElementById('tour-stage');stage.replaceChildren();if(s.type==='order'){for(const [i,text]of ['Welcome & gathering','Opening worship','Scripture & message','Prayer & response'].entries()){const row=document.createElement('div');row.className='tour-row';row.textContent=`0${i+1}    ${text}`;stage.append(row);}}else{const title=document.createElement('strong');title.textContent=s.type==='stage'?'You are welcome here.':'Ready for the moment.';const small=document.createElement('span');small.textContent=s.type==='stage'?'AUDIENCE PREVIEW · ILLUSTRATIVE DEMO':'✓ RUNNING ORDER   ✓ MEDIA   ✓ LOCAL SAVE';stage.append(title,small);}}
-document.querySelectorAll('[data-demo-open]').forEach(b=>b.onclick=()=>{step=0;drawTour();tour.showModal();});document.getElementById('tour-close').onclick=()=>tour.close();document.getElementById('tour-back').onclick=()=>{if(step>0)step--;drawTour();};document.getElementById('tour-next').onclick=()=>{if(step===2){location.href='workspace.html';return;}step++;drawTour();};tour.addEventListener('click',e=>{if(e.target===tour)tour.close();});document.getElementById('year').textContent=new Date().getFullYear();
+'use strict';
+const tabs = [...document.querySelectorAll('[data-product]')];
+const captions = {
+  lead: 'AxiomLead · Build the running order and give your media team a clear handoff.',
+  pro: 'Axiom Pro · Prepare privately and choose exactly what goes live.',
+  u: 'AxiomU · Revisit published messages, scripture and church updates.'
+};
+function selectProduct(name, focus = false) {
+  tabs.forEach(tab => {
+    const selected = tab.dataset.product === name;
+    tab.setAttribute('aria-selected', String(selected));
+    tab.tabIndex = selected ? 0 : -1;
+    document.getElementById(tab.getAttribute('aria-controls')).hidden = !selected;
+    if (selected && focus) tab.focus();
+  });
+  document.getElementById('product-caption').textContent = captions[name];
+}
+tabs.forEach((tab, index) => {
+  tab.addEventListener('click', () => selectProduct(tab.dataset.product));
+  tab.addEventListener('keydown', event => {
+    let next;
+    if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
+    if (event.key === 'ArrowLeft') next = (index + tabs.length - 1) % tabs.length;
+    if (event.key === 'Home') next = 0;
+    if (event.key === 'End') next = tabs.length - 1;
+    if (next === undefined) return;
+    event.preventDefault();
+    selectProduct(tabs[next].dataset.product, true);
+  });
+});
+document.querySelectorAll('[data-open-product]').forEach(link => {
+  link.addEventListener('click', () => selectProduct(link.dataset.openProduct));
+});
+const menu = document.querySelector('.menu-toggle');
+const nav = document.getElementById('main-nav');
+function closeMenu() { menu.setAttribute('aria-expanded', 'false'); nav.classList.remove('is-open'); }
+menu.addEventListener('click', () => {
+  const expanded = menu.getAttribute('aria-expanded') !== 'true';
+  menu.setAttribute('aria-expanded', String(expanded));
+  nav.classList.toggle('is-open', expanded);
+});
+nav.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && menu.getAttribute('aria-expanded') === 'true') { closeMenu(); menu.focus(); }
+});
+document.getElementById('year').textContent = new Date().getFullYear();
