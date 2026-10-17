@@ -24,3 +24,4 @@
 }
 @media(min-width:1350px){.app-layout{grid-template-columns:190px minmax(0,1fr) 300px}.planner{grid-template-columns:160px minmax(0,1fr)}}
 @media(max-width:899px){.preview-monitor,.output-monitor{margin-bottom:22px}.preview-monitor>.go-live{margin:12px 0}.preview-monitor>#editor{margin:14px 0}.output-monitor>.live-header{margin-bottom:12px}}
+@media(min-width:900px){.slide-grid[data-layout=thumbnails] .slide-card{height:100%;align-self:stretch}.slide-grid[data-layout=thumbnails] .stage{height:0;flex-grow:1}.slide-grid[data-layout=thumbnails] .stage .slide-text{font-size:clamp(9px,1vw,15px)!important}}
