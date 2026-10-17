@@ -53,3 +53,9 @@ Apply `db/006_service_activity.sql` with the workspace migrations before deployi
 Pro navigation includes SVG icons. Church services live in the sidebar; device-only drafts are under a collapsed section. Download desktop, Tools (undo/redo, backup import/export, shortcuts), save status and the signed-in account appear at the bottom. Only Open live screen remains in the top-right controls. Presentation and Content Library each support Thumbnails, Full page and List views, remembered separately on the device.
 
 New or resent agendas show an Agenda received notice in Presentation and an agenda attachment in the matching Messages thread. Review agenda opens the shared agenda and notes immediately. Read indicators are stored per service and account on the device. Preparing an updated service remains explicit and confirms replacement of an existing local copy. Receiving or reviewing an agenda never overwrites Tech preparation automatically.
+
+## Long desktop presentations
+
+At desktop widths (900px and above), the slide grid and running order have their own scroll areas. The toolbar, slide frame, Private preview and Live output remain in place. Preview and output monitors share the fixed right column even at the desktop app's minimum window size. Thumbnail mode fits roughly five visible rows at typical desktop sizes, reducing the number of rows at very small windows to keep thumbnails usable. Full page and List views keep the same independent scrolling. Dragging a slide moves it within its item, preserves slide IDs and the live output cursor, and supports undo. Dragging near the grid edge scrolls the grid.
+
+Verified with 200 slides at 1440×1000, 1280×800, 1024×768 and 900×650 in all three view modes, including selection of the last page, reordering and undo.
