@@ -102,4 +102,4 @@ function sizeSlideGrid(){const grid=$('slides');if(!grid||!grid.clientHeight)ret
 if(typeof ResizeObserver!=='undefined'){const slideGridObserver=new ResizeObserver(sizeSlideGrid);slideGridObserver.observe($('slides'));}
 $('slides').addEventListener('dragover',e=>{if(!e.dataTransfer.types.includes('application/x-axiom-slide'))return;e.preventDefault();const grid=$('slides'),bounds=grid.getBoundingClientRect();if(e.clientY<bounds.top+45)grid.scrollTop-=18;else if(e.clientY>bounds.bottom-45)grid.scrollTop+=18;});
 
-window.AxiomSaveForUpdate=async()=>{if(!project)throw Error('Wait for your workspace to open before updating.');clearTimeout(saveTimer);saveTimer=null;await saveQueue;await WebStore.save(clone(project));};
+window.AxiomSaveForUpdate=async()=>{if(!project)throw Error('Wait for your workspace to open before updating.');if(slide()){const draft=editorValue(),title=$('edit-item-title').value.trim();if(JSON.stringify(draft)!==JSON.stringify(slide())||(title&&title!==item().title))mutate(()=>{item().slides[page]=draft;if(title)item().title=title;});}clearTimeout(saveTimer);saveTimer=null;await saveQueue;await WebStore.save(clone(project));};
