@@ -1,14 +1,12 @@
-Axiom Pro 0.4.1 improves desktop workspace reliability.
+Axiom Pro 0.4.2 improves scrolling and Windows updates.
 
-- Image, background and video imports recognize Windows files even when MIME metadata is missing.
-- PDF and PowerPoint imports support up to 200 pages/slides.
-- Desktop workspaces save atomically in the app data directory, with a previous snapshot retained.
-- Existing browser-based workspace data is imported when available and kept intact.
-- Failed workspace loading now offers recovery instead of leaving import controls in a broken state.
-- Recovery archives the original saved file before starting a new workspace.
-- Backup export uses the native Save dialog.
-- Release checks now exercise images, videos, PDF, PowerPoint, Bible lookup, backgrounds, editing, live output, backups, persistence and recovery on Windows and Mac.
+- Presentation and Content Library each have a bounded scroll area with visible scrollbars.
+- Full page previews retain their size; selecting a slide keeps your scroll position.
+- Private preview and Live output stay fixed while browsing long presentations.
+- Windows: Update and restart downloads and verifies the installer in Axiom, saves the current workspace, installs and restarts the app.
+- Updates never install automatically on app exit. An open live output requires confirmation before updating.
+- Releases include updater metadata and blockmaps for future in-app Windows updates.
 
-Includes all 0.4.0 presentation layout and optional update-check improvements. No account is required for standalone desktop use. Close Axiom and run the installer to update. Saved services keep the same app identity and storage location. Cloud-team collaboration requires the online church workspace.
+Install 0.4.2 once using the installer if you are on 0.4.1 or earlier. Those older versions only open a download link. Subsequent Windows updates can use Update and restart inside Axiom. Mac updates continue to use the DMG download.
 
-Packages are unsigned; macOS packages are not notarized. Online Bible lookup requires an internet connection. Live speech recognition depends on browser/provider support; typed scripture matching remains available in the desktop app.
+Includes 0.4.1 import, native persistence, backup and recovery fixes. Packages remain unsigned; macOS packages are not notarized. Saved data keeps the same app identity and location.

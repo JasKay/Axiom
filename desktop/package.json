@@ -1,6 +1,6 @@
 {
   "name": "axiom",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "private": true,
   "description": "Axiom \u2014 a focused presentation studio for your whole service",
   "main": "main.js",
@@ -10,10 +10,10 @@
     "prepare": "node ../build.cjs"
   },
   "devDependencies": {
+    "@electron/asar": "3.4.1",
     "electron": "^44.0.0",
     "electron-builder": "26.15.3",
-    "playwright-core": "1.64.1",
-    "@electron/asar": "3.4.1"
+    "playwright-core": "1.64.1"
   },
   "productName": "Axiom",
   "author": "Kay Jasanya",
@@ -29,7 +29,8 @@
       "app/**/*",
       "package.json",
       "updates.cjs",
-      "workspace.cjs"
+      "workspace.cjs",
+      "native-updater.cjs"
     ],
     "artifactName": "Axiom-${version}-${os}-${arch}.${ext}",
     "mac": {
@@ -45,7 +46,8 @@
         "nsis",
         "zip"
       ],
-      "icon": "build/icon.ico"
+      "icon": "build/icon.ico",
+      "verifyUpdateCodeSignature": false
     },
     "linux": {
       "target": [
@@ -59,6 +61,15 @@
       "allowToChangeInstallationDirectory": true,
       "deleteAppDataOnUninstall": false,
       "runAfterFinish": true
+    },
+    "publish": {
+      "provider": "github",
+      "owner": "JasKay",
+      "repo": "Axiom",
+      "releaseType": "release"
     }
+  },
+  "dependencies": {
+    "electron-updater": "6.8.10"
   }
 }

@@ -44,8 +44,14 @@ jobs:
         run: node desktop/verify-package.cjs
       - name: Test the native packaged application
         run: node desktop/smoke.cjs
+      - name: Test wheel scrolling and scrollbar dragging
+        run: node desktop/scrolling.cjs
       - name: Test native imports, editing, output, backup and persistence
         run: node desktop/features.cjs
+      - name: Verify installed Windows in-app upgrade and restart
+        if: runner.os == 'Windows'
+        timeout-minutes: 12
+        run: node desktop/installed-update.cjs
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
           name: desktop-${{ runner.os }}
@@ -54,6 +60,8 @@ jobs:
             desktop/release/*.exe
             desktop/release/*.zip
             desktop/release/*.dmg
+            desktop/release/latest.yml
+            desktop/release/*.exe.blockmap
   publish:
     needs: package
     runs-on: ubuntu-latest
@@ -75,7 +83,7 @@ jobs:
           set -euo pipefail
           tag="$GITHUB_REF_NAME"
           version="${tag#v}"
-          for file in "Axiom-$version-win-x64.exe" "Axiom-$version-win-x64.zip" "Axiom-$version-mac-arm64.dmg" "Axiom-$version-mac-x64.dmg"; do
+          for file in "Axiom-$version-win-x64.exe" "Axiom-$version-win-x64.zip" "Axiom-$version-mac-arm64.dmg" "Axiom-$version-mac-x64.dmg" "latest.yml" "Axiom-$version-win-x64.exe.blockmap"; do
             test -s "artifacts/$file"
           done
           (cd artifacts && sha256sum * > SHA256SUMS.txt)

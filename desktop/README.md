@@ -1,6 +1,6 @@
 # Axiom desktop
 
-Version 0.4.1 packages the current Axiom Pro interface and includes optional update notifications. Standalone presentation needs no sign-up.
+Version 0.4.2 packages the current Axiom Pro interface and includes optional update notifications. Standalone presentation needs no sign-up.
 
 Build from the repository root with `npm ci` and `npm run build`, then run `npm ci --prefix desktop`.
 
@@ -10,9 +10,11 @@ Build from the repository root with `npm ci` and `npm run build`, then run `npm 
 - Verify exact packaged source: `node desktop/verify-package.cjs`
 - Test the native packaged app: `node desktop/smoke.cjs`
 
-Push a matching version tag (for example `v0.4.1`) to run `.github/workflows/desktop-release.yml`. It builds on Windows and macOS, checks packaged file hashes and source commit, runs each native app with a 200-slide presentation, and publishes only after both platforms pass. All four files and SHA256SUMS are attached to the release. Homepage downloads should be changed only after those assets are published.
+Push a matching version tag (for example `v0.4.2`) to run `.github/workflows/desktop-release.yml`. It builds on Windows and macOS, checks packaged file hashes and source commit, runs each native app with a 200-slide presentation, and publishes only after both platforms pass. All four files and SHA256SUMS are attached to the release. Homepage downloads should be changed only after those assets are published.
 
-The sidebar shows the running desktop version and Check for updates. The main process checks the latest stable public GitHub release, with the public website download manifest as a fallback, and accepts only the exact official platform installer URL. Checks also run after startup; a newer version shows a notice without interrupting presentation. Download update opens that installer in the browser. Users choose when to close Axiom and run it. Version 0.3.0 users must download 0.4.1 once to get this feature.
+The sidebar shows the running version and Check for updates. Windows uses electron-updater with the public JasKay/Axiom GitHub release feed. Update and restart downloads and checks the SHA-512 metadata, flushes the workspace, runs the NSIS installer and restarts. autoDownload and autoInstallOnAppQuit are disabled. Open live output requires confirmation. Packages remain unsigned; Authenticode verification is disabled until a signing identity is configured, while download checksum verification stays enabled. Release assets include latest.yml and the installer blockmap. Mac retains the official DMG download flow.
+
+Versions 0.4.1 and earlier need one installer update to gain this capability. The installed Windows upgrade test builds a baseline in an isolated directory and verifies download, installation, restart and preserved workspace against the release installer.
 
 The app ID, product name, user-data location and `presenter://app` origin stay unchanged, preserving saved services and media. Installer updates do not delete app data. Export/Import under Tools remains available for backups and transfers. Standalone local storage is separate from church cloud workspaces.
 

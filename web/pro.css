@@ -27,3 +27,19 @@
 @media(min-width:900px){.slide-grid[data-layout=thumbnails] .slide-card{height:100%;align-self:stretch}.slide-grid[data-layout=thumbnails] .stage{height:0;flex-grow:1}.slide-grid[data-layout=thumbnails] .stage .slide-text{font-size:clamp(9px,1vw,15px)!important}}
 @media(min-width:900px){.preview-monitor,.output-monitor{gap:6px}.preview-monitor>.stage,.output-monitor>.stage{flex:0 0 auto;aspect-ratio:16/9;height:auto;max-height:none}}
 #desktop-updates{font-size:10px;text-align:left;line-height:1.6}.desktop-update-notice{font-size:10px;text-align:left;background:#e6efdb;color:var(--ink);line-height:1.6}.update-instructions{font-size:12px;line-height:1.8;color:var(--muted);margin:14px 0 20px}#update-description{font-size:14px;line-height:1.7}
+
+/* Each content pane owns a bounded scroll area; headers and monitors remain visible. */
+@media(min-width:900px){
+ .app-layout{grid-template-rows:minmax(0,1fr)}.planner{grid-template-rows:minmax(0,1fr)}
+ .running-order,.page-browser{align-self:stretch;min-height:0}#playlist{flex:1}
+ #slides,#library-grid{overflow-y:scroll;overflow-x:hidden;scrollbar-gutter:stable;overscroll-behavior:contain;overflow-anchor:none;scrollbar-width:auto;scrollbar-color:#91a18a #edf1e8}
+ #slides[data-layout=full],#slides[data-layout=list]{grid-auto-rows:max-content}
+ #slides[data-layout=full] .slide-card{display:block;width:100%;height:auto;max-width:none}
+ #slides[data-layout=full] .stage{height:auto;min-height:0;aspect-ratio:16/9}
+ #library-view:not([hidden]){display:flex;flex-direction:column;flex:1;min-height:0;overflow:hidden}
+ #library-view>.view-switch,#library-view>.search-line{flex:0 0 auto}
+ #library-grid{flex:1;min-height:0;align-content:start;grid-auto-rows:max-content;padding:3px 8px 8px 3px}
+ #slides::-webkit-scrollbar,#library-grid::-webkit-scrollbar,#playlist::-webkit-scrollbar{width:12px}
+ #slides::-webkit-scrollbar-thumb,#library-grid::-webkit-scrollbar-thumb,#playlist::-webkit-scrollbar-thumb{background:#91a18a;border:3px solid #edf1e8;border-radius:9px}
+ #slides::-webkit-scrollbar-track,#library-grid::-webkit-scrollbar-track,#playlist::-webkit-scrollbar-track{background:#edf1e8}
+}
