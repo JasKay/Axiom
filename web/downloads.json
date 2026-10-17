@@ -1,20 +1,20 @@
 {
-  "version": "0.4.0",
+  "version": "0.4.1",
   "files": [
     {
       "label": "Mac \u00b7 Apple Silicon",
       "detail": "M1, M2, M3, M4 and later \u00b7 DMG",
-      "url": "https://github.com/JasKay/Axiom/releases/download/v0.4.0/Axiom-0.4.0-mac-arm64.dmg"
+      "url": "https://github.com/JasKay/Axiom/releases/download/v0.4.1/Axiom-0.4.1-mac-arm64.dmg"
     },
     {
       "label": "Mac \u00b7 Intel",
       "detail": "Intel Macs \u00b7 DMG",
-      "url": "https://github.com/JasKay/Axiom/releases/download/v0.4.0/Axiom-0.4.0-mac-x64.dmg"
+      "url": "https://github.com/JasKay/Axiom/releases/download/v0.4.1/Axiom-0.4.1-mac-x64.dmg"
     },
     {
       "label": "Windows \u00b7 64-bit",
       "detail": "Windows installer \u00b7 64-bit",
-      "url": "https://github.com/JasKay/Axiom/releases/download/v0.4.0/Axiom-0.4.0-win-x64.exe"
+      "url": "https://github.com/JasKay/Axiom/releases/download/v0.4.1/Axiom-0.4.1-win-x64.exe"
     }
   ]
 }
