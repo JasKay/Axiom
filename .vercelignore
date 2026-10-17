@@ -1,0 +1,7 @@
+desktop/release/**
+desktop/node_modules/**
+desktop/app/**
+node_modules/**
+artifacts/**
+Axiom.code-workspace
+.env*
