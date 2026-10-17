@@ -7,12 +7,15 @@
   "scripts": {
     "start": "electron .",
     "package": "electron-builder --publish never",
-    "prepare": "node ../build.cjs"
+    "prepare": "node ../build.cjs && node bundle-updater.cjs",
+    "prepackage": "node ../build.cjs && node bundle-updater.cjs",
+    "prestart": "node ../build.cjs && node bundle-updater.cjs"
   },
   "devDependencies": {
     "@electron/asar": "3.4.1",
     "electron": "^44.0.0",
     "electron-builder": "26.15.3",
+    "electron-updater": "6.8.10",
     "playwright-core": "1.64.1"
   },
   "productName": "Axiom",
@@ -68,8 +71,5 @@
       "repo": "Axiom",
       "releaseType": "release"
     }
-  },
-  "dependencies": {
-    "electron-updater": "6.8.10"
   }
 }

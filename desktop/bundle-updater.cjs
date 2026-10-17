@@ -1,0 +1,6 @@
+'use strict';
+const fs=require('node:fs'),path=require('node:path'),root=path.resolve(__dirname,'..');
+const result=require('../node_modules/esbuild').buildSync({absWorkingDir:root,stdin:{contents:"module.exports=require('electron-updater');",resolveDir:__dirname,sourcefile:'updater-entry.cjs'},bundle:true,platform:'node',format:'cjs',target:'node22',external:['electron','original-fs'],outfile:path.join(__dirname,'app/updater-runtime.cjs'),legalComments:'eof',metafile:true});
+const packages=new Set();for(const file of Object.keys(result.metafile.inputs)){if(!file.includes('node_modules/'))continue;let directory=path.dirname(path.resolve(root,file));while(directory!==path.dirname(directory)){if(fs.existsSync(path.join(directory,'package.json'))){packages.add(directory);break;}directory=path.dirname(directory);}}
+const notices=[];for(const directory of packages){const p=JSON.parse(fs.readFileSync(path.join(directory,'package.json')));notices.push(p.name+'@'+p.version+' ('+(p.license||'See license below')+')');for(const name of fs.readdirSync(directory).filter(n=>/^licen[sc]e(?:\.|$)/i.test(n))){const file=path.join(directory,name);if(fs.statSync(file).isFile())notices.push(fs.readFileSync(file,'utf8'));}}
+fs.writeFileSync(path.join(__dirname,'app/updater-NOTICES.txt'),notices.join('\n\n'));console.log('Bundled native updater with dependency notices.');
