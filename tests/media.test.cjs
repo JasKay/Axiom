@@ -1,0 +1,2 @@
+const {test}=require('node:test'),assert=require('node:assert/strict'),Media=require('../web/media.js');
+test('media imports identify Windows files with absent or generic MIME types',()=>{assert.equal(Media.type({name:'Sunday.JPG',type:''}),'image/jpeg');assert.equal(Media.type({name:'background.PNG'}),'image/png');assert.equal(Media.type({name:'clip.mp4',type:'application/octet-stream'}),'video/mp4');assert.equal(Media.type({name:'clip.webm',type:''}),'video/webm');assert.equal(Media.type({name:'notes.txt',type:''}),'');});

@@ -1,13 +1,14 @@
-Axiom Pro 0.4.0 packages the current presentation workspace, not the previous 0.3.0 interface.
+Axiom Pro 0.4.1 improves desktop workspace reliability.
 
-- Fixed Private preview and Live output while scrolling long presentations.
-- Compact five-row slide grid, slide drag-and-drop, and undo.
-- Thumbnails, Full page and List views for Presentation and Content Library.
-- Background presets and image uploads; compact Bible and Background dialogs.
-- Simplified sidebar, bottom utility tools and visible desktop version.
-- Optional update checks and a notice when a newer desktop installer is available.
-- No account or church invitation required for standalone desktop use.
+- Image, background and video imports recognize Windows files even when MIME metadata is missing.
+- PDF and PowerPoint imports support up to 200 pages/slides.
+- Desktop workspaces save atomically in the app data directory, with a previous snapshot retained.
+- Existing browser-based workspace data is imported when available and kept intact.
+- Failed workspace loading now offers recovery instead of leaving import controls in a broken state.
+- Recovery archives the original saved file before starting a new workspace.
+- Backup export uses the native Save dialog.
+- Release checks now exercise images, videos, PDF, PowerPoint, Bible lookup, backgrounds, editing, live output, backups, persistence and recovery on Windows and Mac.
 
-Windows: use the EXE installer, or extract the portable ZIP. Existing 0.3.0 users must download 0.4.0 once; future versions can be found using Check for updates inside the app. Close Axiom before installing an update. Saved services use the same app identity and storage location; updating does not clear them. Backup export remains available under Tools.
+Includes all 0.4.0 presentation layout and optional update-check improvements. No account is required for standalone desktop use. Close Axiom and run the installer to update. Saved services keep the same app identity and storage location. Cloud-team collaboration requires the online church workspace.
 
-The app does not replace itself while presenting. Downloading and running the newer installer is optional. Packages are unsigned; macOS packages are not notarized. Cloud-team collaboration requires the online church workspace; this desktop release includes the standalone presentation software.
+Packages are unsigned; macOS packages are not notarized. Online Bible lookup requires an internet connection. Live speech recognition depends on browser/provider support; typed scripture matching remains available in the desktop app.

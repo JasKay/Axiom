@@ -1,6 +1,6 @@
 {
   "name": "axiom",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "private": true,
   "description": "Axiom \u2014 a focused presentation studio for your whole service",
   "main": "main.js",
@@ -28,7 +28,8 @@
       "preload.js",
       "app/**/*",
       "package.json",
-      "updates.cjs"
+      "updates.cjs",
+      "workspace.cjs"
     ],
     "artifactName": "Axiom-${version}-${os}-${arch}.${ext}",
     "mac": {

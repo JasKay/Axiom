@@ -44,6 +44,8 @@ jobs:
         run: node desktop/verify-package.cjs
       - name: Test the native packaged application
         run: node desktop/smoke.cjs
+      - name: Test native imports, editing, output, backup and persistence
+        run: node desktop/features.cjs
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
           name: desktop-${{ runner.os }}
