@@ -24,6 +24,7 @@ jobs:
       - run: npm test
       - run: npm ci --prefix desktop
       - name: Package Windows installer
+        id: windows-package
         if: runner.os == 'Windows'
         run: npm run package --prefix desktop -- --win --x64
         env:
@@ -38,6 +39,6 @@ jobs:
       - run: node desktop/features.cjs
       - run: node desktop/scrolling.cjs
       - name: Verify installed Windows update
-        if: runner.os == 'Windows'
+        if: ${{ !cancelled() && runner.os == 'Windows' && steps.windows-package.outcome == 'success' }}
         timeout-minutes: 12
         run: node desktop/installed-update.cjs
