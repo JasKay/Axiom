@@ -1,0 +1,84 @@
+name: Desktop release
+on:
+  push:
+    tags: ['v*.*.*']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  package:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            desktop/package-lock.json
+      - run: npm ci
+      - run: npm test
+      - run: npm ci --prefix desktop
+      - name: Verify tag and source versions
+        shell: bash
+        run: node -e 'const v=require("./desktop/package.json").version;if(process.env.GITHUB_REF_TYPE!=="tag"||process.env.GITHUB_REF_NAME!=="v"+v)throw Error("Run from the matching desktop version tag")'
+      - name: Package Windows installer and portable ZIP
+        if: runner.os == 'Windows'
+        run: npm run package --prefix desktop -- --win --x64
+        env:
+          CSC_IDENTITY_AUTO_DISCOVERY: 'false'
+      - name: Package Apple Silicon and Intel DMGs
+        if: runner.os == 'macOS'
+        run: npm run package --prefix desktop -- --mac --arm64 --x64
+        env:
+          CSC_IDENTITY_AUTO_DISCOVERY: 'false'
+      - name: Verify packaged source and build identity
+        run: node desktop/verify-package.cjs
+      - name: Test the native packaged application
+        run: node desktop/smoke.cjs
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: desktop-${{ runner.os }}
+          if-no-files-found: error
+          path: |
+            desktop/release/*.exe
+            desktop/release/*.zip
+            desktop/release/*.dmg
+  publish:
+    needs: package
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          path: artifacts
+          merge-multiple: true
+      - name: Publish only the verified complete desktop release
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          tag="$GITHUB_REF_NAME"
+          version="${tag#v}"
+          for file in "Axiom-$version-win-x64.exe" "Axiom-$version-win-x64.zip" "Axiom-$version-mac-arm64.dmg" "Axiom-$version-mac-x64.dmg"; do
+            test -s "artifacts/$file"
+          done
+          (cd artifacts && sha256sum * > SHA256SUMS.txt)
+          if ! gh release view "$tag" >/dev/null 2>&1; then
+            gh release create "$tag" --verify-tag --draft --title "Axiom Pro $tag" --notes-file desktop/RELEASE_NOTES.md
+          fi
+          gh release upload "$tag" artifacts/* --clobber
+          gh release edit "$tag" --draft=false --latest

@@ -1,6 +1,6 @@
 {
   "name": "axiom",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "private": true,
   "description": "Axiom \u2014 a focused presentation studio for your whole service",
   "main": "main.js",
@@ -11,7 +11,9 @@
   },
   "devDependencies": {
     "electron": "^44.0.0",
-    "electron-builder": "26.15.3"
+    "electron-builder": "26.15.3",
+    "playwright-core": "1.64.1",
+    "@electron/asar": "3.4.1"
   },
   "productName": "Axiom",
   "author": "Kay Jasanya",
@@ -25,7 +27,8 @@
       "main.js",
       "preload.js",
       "app/**/*",
-      "package.json"
+      "package.json",
+      "updates.cjs"
     ],
     "artifactName": "Axiom-${version}-${os}-${arch}.${ext}",
     "mac": {
@@ -38,9 +41,9 @@
     },
     "win": {
       "target": [
+        "nsis",
         "zip"
       ],
-      "signExecutable": false,
       "icon": "build/icon.ico"
     },
     "linux": {
@@ -48,6 +51,13 @@
         "AppImage"
       ],
       "category": "Office"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "deleteAppDataOnUninstall": false,
+      "runAfterFinish": true
     }
   }
 }

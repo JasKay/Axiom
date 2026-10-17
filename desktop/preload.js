@@ -1,1 +1,1 @@
-const {contextBridge,ipcRenderer}=require('electron');contextBridge.exposeInMainWorld('desktopShell',{isDesktop:true,fullscreen:mode=>ipcRenderer.send('output-fullscreen',mode)});
+const {contextBridge,ipcRenderer}=require('electron');contextBridge.exposeInMainWorld('desktopShell',{isDesktop:true,getAppInfo:()=>ipcRenderer.invoke('app-info'),checkForUpdates:()=>ipcRenderer.invoke('check-updates'),downloadUpdate:()=>ipcRenderer.invoke('open-update'),fullscreen:mode=>ipcRenderer.send('output-fullscreen',mode)});
