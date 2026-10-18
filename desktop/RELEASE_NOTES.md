@@ -10,3 +10,5 @@ Axiom Pro 0.4.2 improves scrolling and Windows updates.
 Install 0.4.2 once using the installer if you are on 0.4.1 or earlier. Those older versions only open a download link. Subsequent Windows updates can use Update and restart inside Axiom. Mac updates continue to use the DMG download.
 
 Includes 0.4.1 import, native persistence, backup and recovery fixes. Packages remain unsigned; macOS packages are not notarized. Saved data keeps the same app identity and location.
+
+Church teams can now connect the Mac or Windows app optionally, exchange service messages, and share files in both directions. Standalone presentation still needs no account. The day’s scripture references appear in the AxiomLead agenda and Pro’s shared plan, messages and downloaded presentation. Shared files refresh automatically.

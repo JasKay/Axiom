@@ -48,6 +48,8 @@ jobs:
         run: node desktop/scrolling.cjs
       - name: Test native imports, editing, output, backup and persistence
         run: node desktop/features.cjs
+      - name: Verify native church messages, shared files and scriptures
+        run: node desktop/team.cjs
       - name: Verify installed Windows in-app upgrade and restart
         if: runner.os == 'Windows'
         timeout-minutes: 12

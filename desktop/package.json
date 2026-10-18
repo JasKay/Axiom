@@ -33,7 +33,7 @@
       "package.json",
       "updates.cjs",
       "workspace.cjs",
-      "native-updater.cjs"
+      "native-updater.cjs","cloud-proxy.cjs"
     ],
     "artifactName": "Axiom-${version}-${os}-${arch}.${ext}",
     "mac": {

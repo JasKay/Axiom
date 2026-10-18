@@ -45,3 +45,5 @@
 }
 
 @media(min-width:900px){#playlist{scrollbar-color:auto}#slides::-webkit-scrollbar-button,#library-grid::-webkit-scrollbar-button,#playlist::-webkit-scrollbar-button{display:none;width:0;height:0}}
+
+ .service-scriptures{padding:10px 12px;border:1px solid var(--line,#dce3d6);border-radius:6px;background:#edf2e6;font-size:12px;line-height:1.6;overflow-wrap:anywhere}.service-scriptures[hidden]{display:none}.pro-team-files{margin-top:16px}.pro-team-files #pro-files{display:flex;flex-wrap:wrap;gap:8px}.pro-team-files h2{font-size:14px}@media(min-width:900px){#team-view:not([hidden]){min-height:0;overflow-y:auto;overscroll-behavior:contain}#pro-scriptures{flex-shrink:0;max-height:95px;overflow-y:auto}}

@@ -93,3 +93,5 @@ body[data-audience=lead][data-workspace-tab=team] .sidebar-services{display:none
 .service-actions{position:relative}.service-actions summary{cursor:pointer;list-style:none;font-size:12px;padding:10px}.service-actions>div{position:absolute;right:0;top:100%;z-index:5;min-width:155px;display:grid;padding:8px;background:white;border:1px solid #dce4d5;border-radius:8px;box-shadow:0 8px 25px #16372b15}.service-actions button{text-align:left;white-space:nowrap}#delete-service{color:#a43c32}.history-filter{display:flex;align-items:center;gap:10px;margin:0 0 16px;font-size:12px}.history-filter select{width:auto}
 
 .invitation-team{display:block;margin-top:12px;color:#66735f;font-size:11px}
+
+.service-scriptures{margin:0 0 14px;padding:11px 14px;border:1px solid var(--line);border-radius:6px;background:#edf2e6;font-size:13px;line-height:1.6;overflow-wrap:anywhere}
