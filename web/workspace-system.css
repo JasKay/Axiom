@@ -65,3 +65,5 @@ body.axiom-workspace .member-live p{font-family:var(--workspace-font);font-size:
 body.axiom-workspace :is(.primary,.button.dark,#open-output){background:var(--ink);border-color:var(--ink);color:#fff}body.axiom-workspace :is(.primary,.button.dark,#open-output):not(:disabled):hover{background:#285448!important;border-color:#285448;color:#fff}body.axiom-workspace[data-audience=lead] .sidebar-services:has(#shared-service-picker select) #service-list{display:none}body.axiom-workspace[data-audience=lead] .sidebar-services .shared-service-picker{padding-top:10px;border-top:0;margin-top:0}
 
 body.axiom-workspace .axiom-brand img{width:32px;height:32px;display:block;border-radius:8px}@media(max-width:420px){body.axiom-workspace .axiom-brand img{width:28px;height:28px}}
+
+body.axiom-workspace :is(h1,h2,h3,h4){font-family:var(--workspace-font)!important}
