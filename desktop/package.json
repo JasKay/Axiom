@@ -30,8 +30,6 @@
       "main.js",
       "preload.js",
       "app/**/*",
-      "!app/fonts/**/*",
-      {"from":"app/fonts","to":"app/fonts","filter":["**/*"]},
       "package.json",
       "updates.cjs",
       "workspace.cjs",
