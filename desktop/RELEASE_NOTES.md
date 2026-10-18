@@ -1,4 +1,4 @@
-Axiom Pro 0.4.3 unifies the church workspaces and includes the scrolling, sharing and Windows update improvements.
+Axiom Pro 0.4.4 unifies the church workspaces and includes the scrolling, sharing and Windows update improvements.
 
 - Presentation and Content Library each have a bounded scroll area with visible scrollbars.
 - Full page previews retain their size; selecting a slide keeps your scroll position.
@@ -7,7 +7,7 @@ Axiom Pro 0.4.3 unifies the church workspaces and includes the scrolling, sharin
 - Updates never install automatically on app exit. An open live output requires confirmation before updating.
 - Releases include updater metadata and blockmaps for future in-app Windows updates.
 
-Install 0.4.3 once using the installer if you are on 0.4.1 or earlier. Those older versions only open a download link. Subsequent Windows updates can use Update and restart inside Axiom. Mac updates continue to use the DMG download.
+Install 0.4.4 once using the installer if you are on 0.4.1 or earlier. Those older versions only open a download link. Subsequent Windows updates can use Update and restart inside Axiom. Mac updates continue to use the DMG download.
 
 Includes 0.4.1 import, native persistence, backup and recovery fixes. Packages remain unsigned; macOS packages are not notarized. Saved data keeps the same app identity and location.
 

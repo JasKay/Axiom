@@ -1,6 +1,6 @@
 {
   "name": "axiom",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "private": true,
   "description": "Axiom \u2014 a focused presentation studio for your whole service",
   "main": "main.js",
@@ -30,6 +30,8 @@
       "main.js",
       "preload.js",
       "app/**/*",
+      "!app/fonts/**/*",
+      {"from":"app/fonts","to":"app/fonts","filter":["**/*"]},
       "package.json",
       "updates.cjs",
       "workspace.cjs",

@@ -1,6 +1,6 @@
 # Axiom desktop
 
-Version 0.4.3 packages the current Axiom Pro interface and includes optional update notifications. Standalone presentation needs no sign-up.
+Version 0.4.4 packages the current Axiom Pro interface and includes optional update notifications. Standalone presentation needs no sign-up.
 
 Build from the repository root with `npm ci` and `npm run build`, then run `npm ci --prefix desktop`.
 
@@ -10,7 +10,7 @@ Build from the repository root with `npm ci` and `npm run build`, then run `npm 
 - Verify exact packaged source: `node desktop/verify-package.cjs`
 - Test the native packaged app: `node desktop/smoke.cjs`
 
-Push a matching version tag (for example `v0.4.3`) to run `.github/workflows/desktop-release.yml`. It builds on Windows and macOS, checks packaged file hashes and source commit, runs each native app with a 200-slide presentation, and publishes only after both platforms pass. All four files and SHA256SUMS are attached to the release. Homepage downloads should be changed only after those assets are published.
+Push a matching version tag (for example `v0.4.4`) to run `.github/workflows/desktop-release.yml`. It builds on Windows and macOS, checks packaged file hashes and source commit, runs each native app with a 200-slide presentation, and publishes only after both platforms pass. All four files and SHA256SUMS are attached to the release. Homepage downloads should be changed only after those assets are published.
 
 The sidebar shows the running version and Check for updates. Windows uses electron-updater with the public JasKay/Axiom GitHub release feed. Update and restart downloads and checks the SHA-512 metadata, flushes the workspace, runs the NSIS installer and restarts. autoDownload and autoInstallOnAppQuit are disabled. Open live output requires confirmation. Packages remain unsigned; Authenticode verification is disabled until a signing identity is configured, while download checksum verification stays enabled. Release assets include latest.yml and the installer blockmap. Mac retains the official DMG download flow.
 
