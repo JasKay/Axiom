@@ -60,7 +60,7 @@ At desktop widths (900px and above), the slide grid and running order have their
 
 Verified with 200 slides at 1440×1000, 1280×800, 1024×768 and 900×650 in all three view modes, including selection of the last page, reordering and undo.
 
-## Meeting presentations and the service hub (0.4.6)
+## Meeting presentations and the service hub (0.4.9)
 
 A local service is the meeting folder; optional decks group its existing entries. Older services acquire Main presentation without changing slide/entry IDs. The library remains one reusable collection and its destination controls choose the meeting and deck. Library imports do not automatically attach to a meeting. Deck selection does not change live output, and live navigation stays in the deck originally sent live. Local archive/restore changes device organisation only; church archive status is still managed by AxiomLead.
 
