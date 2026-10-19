@@ -1,3 +1,11 @@
+Axiom Pro 0.4.6 connects reusable library content, meeting folders, presentation decks and service conversations.
+
+- Full page library view uses a responsive three- or four-column grid; List uses the full workspace width.
+- Create named presentation decks inside each meeting and choose the destination when adding content from the library. Library imports can stay in the library until needed.
+- Keep each service agenda, Lead notes, Tech preparation notes, shared files and messages in its own service hub.
+- Archive and restore local meetings without losing presentation content. New local meetings never show another church service's conversation.
+- Existing services and slides migrate into Main presentation without changing their identities. Live navigation stays within the deck sent live.
+
 Axiom Pro 0.4.5 unifies the church workspaces and includes the scrolling, sharing and Windows update improvements.
 
 - Presentation and Content Library each have a bounded scroll area with visible scrollbars.

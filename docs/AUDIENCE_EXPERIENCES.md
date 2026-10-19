@@ -59,3 +59,11 @@ New or resent agendas show an Agenda received notice in Presentation and an agen
 At desktop widths (900px and above), the slide grid and running order have their own scroll areas. The toolbar, slide frame, Private preview and Live output remain in place. Preview and output monitors share the fixed right column even at the desktop app's minimum window size. Thumbnail mode fits roughly five visible rows at typical desktop sizes, reducing the number of rows at very small windows to keep thumbnails usable. Full page and List views keep the same independent scrolling. Dragging a slide moves it within its item, preserves slide IDs and the live output cursor, and supports undo. Dragging near the grid edge scrolls the grid.
 
 Verified with 200 slides at 1440×1000, 1280×800, 1024×768 and 900×650 in all three view modes, including selection of the last page, reordering and undo.
+
+## Meeting presentations and the service hub (0.4.6)
+
+A local service is the meeting folder; optional decks group its existing entries. Older services acquire Main presentation without changing slide/entry IDs. The library remains one reusable collection and its destination controls choose the meeting and deck. Library imports do not automatically attach to a meeting. Deck selection does not change live output, and live navigation stays in the deck originally sent live. Local archive/restore changes device organisation only; church archive status is still managed by AxiomLead.
+
+Tech service hubs scope agenda, Lead notes, shared files, message drafts and discussion to the selected church service ID. Creating a device-only meeting clears the previous church thread; team messages need a service shared from AxiomLead. Tech preparation notes are saved locally with the meeting and are not automatically published to members. Congregation content still comes only from leadership publication. New deck metadata is included in workspace backups.
+
+Desktop update checks remain quiet and explicit. A feature notice offers a summary and a Later option that suppresses the notice for that version for seven days; manual Check for updates remains available. Web Pro checks the build-generated app-release.json and offers Save & reload with the same quiet dismissal. Active live output requires confirmation, workspace saves must succeed, and no update or reload happens automatically.
