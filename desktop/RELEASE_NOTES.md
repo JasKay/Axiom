@@ -1,5 +1,7 @@
-Axiom Pro 0.4.6 connects reusable library content, meeting folders, presentation decks and service conversations.
+Axiom Pro 0.4.7 connects reusable library content, meeting folders, presentation decks and service conversations.
 
+- Compact presentation controls keep slide browsing usable at small desktop window sizes.
+- Quiet update notices include feature highlights and a Later option. Updates remain explicit.
 - Full page library view uses a responsive three- or four-column grid; List uses the full workspace width.
 - Create named presentation decks inside each meeting and choose the destination when adding content from the library. Library imports can stay in the library until needed.
 - Keep each service agenda, Lead notes, Tech preparation notes, shared files and messages in its own service hub.

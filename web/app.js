@@ -122,3 +122,7 @@ for(const [id,target]of [['library-images','import-images'],['library-videos','i
 $('library-text').onclick=()=>addItem('New text',[State.newSlide('')]);
 
 window.AxiomHasLiveOutput=()=>!!(outputWindow&&!outputWindow.closed);
+
+$('delete-deck').onclick=()=>{const s=service();if(s.decks.length===1)return notice('Keep at least one presentation in this meeting. You can rename it or remove its content.');const deck=s.decks.find(d=>d.id===s.activeDeckId);if(!confirm('Delete '+deck.name+' from this meeting? Content will stay in the library.'))return;mutate(()=>{s.entries=s.entries.filter(e=>e.deckId!==deck.id);s.decks=s.decks.filter(d=>d.id!==deck.id);s.activeDeckId=s.decks[0].id;selectedEntry=null;page=0;});document.querySelector('.deck-options').open=false;};
+
+document.querySelector('.deck-options').addEventListener('click',e=>{if(e.target.closest('button'))document.querySelector('.deck-options').open=false;});
