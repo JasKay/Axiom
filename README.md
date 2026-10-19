@@ -37,8 +37,8 @@ Push this project root to a GitHub repository, then import that repository in Ve
 - Bible JSON import, passage/keyword search and selected verse slides.
 - Private preparation preview and separate live output.
 - Cross-item Next/Previous, blackout, clear/restore text, video play/pause/restart, mute and looping.
-- Undo/redo, automatic device-local saving and full workspace JSON backup including web media.
-- Installable PWA shell and offline cached application files. Use online once and let installation finish before rehearsing offline. PowerPoint font substitutes may differ offline.
+- Automatic device-local saving with private preview and large library media inspection.
+- Offline cached application files. Open online once before rehearsing offline. PowerPoint font substitutes may differ offline.
 - Electron desktop shell with an external output window placed on the first connected non-primary display.
 
 ## Use during a service
@@ -47,7 +47,7 @@ Choose or create a service. Add pages, songs, media or documents. Selecting an i
 
 In a browser: allow popups, click Open live screen, set your operating system to extended displays, and move the output window onto the projector. Press F in the output window for fullscreen. The browser version does not automatically choose a physical display. Left/Right on the operator screen advances the live service, B toggles blackout, Ctrl/Cmd+Z undoes, Ctrl/Cmd+Shift+Z redoes. Shortcuts pause while typing or using a dialog.
 
-On a supported browser, Install app opens the website in its own app window. On iPhone use Share → Add to Home Screen. Installation availability depends on the browser and secure HTTPS hosting.
+Download Axiom Pro from the homepage for Mac or Windows. Standalone use does not require an account.
 
 ## Imports and limits
 
@@ -55,15 +55,15 @@ PDF/PPTX pages are flattened to images. They can be reordered and given text ove
 
 Files are processed locally in the browser. The PowerPoint renderer may request Google Fonts substitutes. It does not upload your presentation to a conversion server.
 
-Limits: 100 MB per image/video, 60 MB per document, 150 pages per document, 15 MB per Bible JSON, 200 MB for a workspace backup import. Browser storage capacity and mobile memory vary. Large document imports can take time.
+Limits: 100 MB per image/video, 60 MB per document, 150 pages per document, 15 MB per Bible JSON. Browser storage capacity and mobile memory vary. Large document imports can take time.
 
 Bible schema: `{"translation":"Name","verses":[{"book":"John","chapter":3,"verse":16,"text":"Verse text"}]}`. KJV passage lookup is available online through bible-api.com. NIV, NLT, TPT and MSG appear in the translation selector, but need an authorized imported file or licensed provider connection. No copyrighted full translation is bundled. Import a translation you have permission to store/display. Book names match the imported file; references support one chapter at a time.
 
 Services reference the same library item, so editing that item affects its use in other services. Duplicate an item to make an independent version. Removing an item from a service keeps it in the library. Library deletion requires removing its service references first. Undo can restore deletes during the current session.
 
-## Saving and backups
+## Saving
 
-IndexedDB saves the workspace on this browser/device, not a cloud account. Clearing site data removes it. Undo history lasts only for the current session. Export workspace includes embedded media and documents as a JSON backup. Importing replaces the current workspace, with Undo available immediately. Very large backups are memory-intensive. Save after editing and wait for the saved indicator before closing.
+The browser saves its workspace in IndexedDB. The desktop app saves services and embedded media on the device and keeps recovery data automatically. Clearing browser site data removes browser-only content. Save after editing and wait for the saved indicator before closing. The interface has no Tools menu or workspace backup controls.
 
 Browser video autoplay/audio can require interaction in the output window. Native video controls appear there when autoplay is blocked. Audio uses the selected computer audio device. Clear text keeps video timing and playback state when the same live page stays visible. Blackout stops video playback and restoring it starts the current video again.
 

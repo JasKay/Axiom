@@ -46,7 +46,7 @@ jobs:
         run: node desktop/smoke.cjs
       - name: Test wheel scrolling and scrollbar dragging
         run: node desktop/scrolling.cjs
-      - name: Test native imports, editing, output, backup and persistence
+      - name: Test native imports, media previews, output and persistence
         run: node desktop/features.cjs
       - name: Verify native church messages, shared files and scriptures
         run: node desktop/team.cjs

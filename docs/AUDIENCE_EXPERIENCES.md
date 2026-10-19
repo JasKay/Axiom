@@ -42,7 +42,7 @@ Members receive only published congregation content; no Tech handoffs, staff fil
 
 The sidebar contains Presentation, Content Library, Messages and AxiomAI BETA. Bible and Backgrounds open as compact dialogs from the Presentation toolbar. Shared plans are accessible from Presentation and include shared agenda, Tech notes, file downloads, acknowledgement and an explicit Prepare service action. Preparing a service saves the current local project first, then installs the selected shared snapshot without leaving the page; replacing an existing copy still requires confirmation. Local edits are never replaced by background polling. Message drafts survive refreshes and service switching within the page. Unread indicators are tracked per service on the device.
 
-Backgrounds include built-in gradients and a local image library. PNG, JPEG and WebP uploads under 10 MB are resized to fit 1920×1080 and embedded as JPEG, with up to 20 images in the library. Backgrounds apply to a selected text page or all text pages in the current service. They persist with the project and render in previews, live output and prepared offline services. Background changes do not alter the current live screen until Go Live is pressed. Export/import remain available under Tools; the only installation action is Download desktop.
+Backgrounds include built-in gradients and a local image library. PNG, JPEG and WebP uploads under 10 MB are resized to fit 1920×1080 and embedded as JPEG, with up to 20 images in the library. Backgrounds apply to a selected text page or all text pages in the current service. They persist with the project and render in previews, live output and prepared offline services. Background changes do not alter the current live screen until Go Live is pressed. The interface has no Tools or workspace backup controls. Download desktop is available on the website; app updates remain explicit in the desktop sidebar.
 
 ## Shared service navigation
 
@@ -50,7 +50,7 @@ Apply `db/006_service_activity.sql` with the workspace migrations before deployi
 
 ## Production team workflow
 
-Pro navigation includes SVG icons. Church services live in the sidebar; device-only drafts are under a collapsed section. Download desktop, Tools (undo/redo, backup import/export, shortcuts), save status and the signed-in account appear at the bottom. Only Open live screen remains in the top-right controls. Presentation and Content Library each support Thumbnails, Full page and List views, remembered separately on the device.
+Pro navigation includes SVG icons and one Services picker for church plans and device-only meetings. Saved status, desktop downloads or app updates, and the signed-in account appear at the bottom. Tools, Undo/Redo buttons and backup controls are removed. Only Open live screen remains in the top-right controls. Presentation and Content Library each support Thumbnails, Full page and List views, remembered separately on the device.
 
 New or resent agendas show an Agenda received notice in Presentation and an agenda attachment in the matching Messages thread. Review agenda opens the shared agenda and notes immediately. Read indicators are stored per service and account on the device. Preparing an updated service remains explicit and confirms replacement of an existing local copy. Receiving or reviewing an agenda never overwrites Tech preparation automatically.
 
@@ -64,7 +64,7 @@ Verified with 200 slides at 1440×1000, 1280×800, 1024×768 and 900×650 in all
 
 A local service is the meeting folder; optional decks group its existing entries. Older services acquire Main presentation without changing slide/entry IDs. The library remains one reusable collection and its destination controls choose the meeting and deck. Library imports do not automatically attach to a meeting. Deck selection does not change live output, and live navigation stays in the deck originally sent live. Local archive/restore changes device organisation only; church archive status is still managed by AxiomLead.
 
-Tech service hubs scope agenda, Lead notes, shared files, message drafts and discussion to the selected church service ID. Creating a device-only meeting clears the previous church thread; team messages need a service shared from AxiomLead. Tech preparation notes are saved locally with the meeting and are not automatically published to members. Congregation content still comes only from leadership publication. New deck metadata is included in workspace backups.
+Tech service hubs scope agenda, Lead notes, shared files, message drafts and discussion to the selected church service ID. Creating a device-only meeting clears the previous church thread; team messages need a service shared from AxiomLead. Tech preparation notes are saved locally with the meeting and are not automatically published to members. Congregation content still comes only from leadership publication. New deck metadata is saved automatically with the local workspace.
 
 Desktop update checks remain quiet and explicit. A feature notice offers a summary and a Later option that suppresses the notice for that version for seven days; manual Check for updates remains available. Web Pro checks the build-generated app-release.json and offers Save & reload with the same quiet dismissal. Active live output requires confirmation, workspace saves must succeed, and no update or reload happens automatically.
 
@@ -77,3 +77,7 @@ AxiomU account notes use member-notes: reads and writes are scoped to the authen
 Lead and Pro share live event notifications with reconnects. Pro retains its three-second refresh and Lead has a ten-second fallback for interrupted streams. People & invitations refreshes when opened and lists every membership, including Tech and congregation. An invitation link alone is not a membership.
 
 Validation: npm test; npm run test:integration (disposable records and cleanup); real browser signup, guest draft import, account-note reload, public history, team visibility, mobile drawer and bidirectional live messaging; native Electron team fixture. Public desktop installers remain version 0.4.9 until a separately validated desktop release.
+
+## Media inspection
+
+Presentation thumbnails keep a readable minimum size instead of fitting five rows into every window. The library places media above destination selectors. Image, video and document cards open a large preview with page navigation and an explicit Add to presentation action; previewing does not send anything live. Private Preview and Live Output stay together in the fixed monitor column.
