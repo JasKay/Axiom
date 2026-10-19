@@ -95,3 +95,10 @@ body[data-audience=lead][data-workspace-tab=team] .sidebar-services{display:none
 .invitation-team{display:block;margin-top:12px;color:#66735f;font-size:11px}
 
 .service-scriptures{margin:0 0 14px;padding:11px 14px;border:1px solid var(--line);border-radius:6px;background:#edf2e6;font-size:13px;line-height:1.6;overflow-wrap:anywhere}
+
+/* Keep the service desk stable as meetings change. */
+body[data-audience=lead] .workspace-heading{min-height:84px;display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center}
+body[data-audience=lead] .workspace-heading h1{line-height:1.2;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+body[data-audience=lead] .heading-actions{align-self:center}
+body[data-audience=lead] .entry-kind svg{width:22px;height:22px;display:block}
+@media(max-width:899px){body.axiom-workspace .workspace-layout>.workspace-sidebar{width:min(290px,82vw);padding:16px;border-radius:0 18px 18px 0;box-shadow:8px 0 30px #142c241a}body[data-audience=lead] .workspace-heading{min-height:108px;grid-template-columns:minmax(0,1fr)}body[data-audience=lead] .heading-actions{justify-self:end;margin:0}body[data-audience=lead] .workspace-heading h1{min-height:60px}}

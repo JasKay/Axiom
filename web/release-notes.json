@@ -1,8 +1,8 @@
 {
-  "version": "0.4.9",
+  "version": "0.4.10",
   "highlights": [
-    "Named presentation decks inside each meeting",
-    "A larger Content Library grid and full-width list",
-    "Agenda, notes, files and messages linked in one service hub"
+    "A more consistent service desk and compact mobile navigation",
+    "Live Lead and Tech messages with connection recovery",
+    "Previous service notes and optional private AxiomU accounts"
   ]
 }

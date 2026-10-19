@@ -19,6 +19,7 @@ async function findInvite(client,code,username,lock=false,allowInactive=false){
  return {invite,legacy};
 }
 async function prepareSignup(body){
+ if(body.serviceToken){if(body.expectedAudience&&body.expectedAudience!=='u')fail(403,'Public services allow congregation accounts only.');const token=String(body.serviceToken);if(!/^[a-f0-9]{48}$/.test(token))fail(404,'Service not found');const row=(await db().query('SELECT church_id FROM axiom.public_services WHERE token=$1 AND enabled=true',[token])).rows[0];if(!row)fail(410,'This service is no longer shared');return {serviceToken:token};}
  const code=normalizeCode(body.joinCode);
  if(code){const {invite}=await findInvite(db(),code,String(body.username||'').trim().toLowerCase());if(body.expectedAudience&&invite.audience!==body.expectedAudience)fail(403,'This invitation belongs to '+Workspaces.get(invite.audience).name+'. Use its original invitation link.');return {code};}
  if(body.expectedAudience&&body.expectedAudience!=='lead')fail(403,'Use an invitation for this workspace.');
@@ -47,7 +48,7 @@ async function joinChurch(client,user,code){
  return {churchId:invite.church_id,audience:invite.audience};
 }
 async function provisionSignup(user,intent){
- return transaction(async client=>{await ensureUnassigned(client,user);return intent.code?joinChurch(client,user,intent.code):createChurch(client,user,intent.name);});
+ return transaction(async client=>{await ensureUnassigned(client,user);if(intent.serviceToken){const row=(await client.query('SELECT church_id,service_id FROM axiom.public_services WHERE token=$1 AND enabled=true FOR SHARE',[intent.serviceToken])).rows[0];if(!row)fail(410,'This service is no longer shared');await client.query('INSERT INTO axiom.members(church_id,user_id,name,username,role,audience) VALUES($1,$2,$3,$4,$5,$6)',[row.church_id,user.id,user.name,user.username,'viewer','u']);return {churchId:row.church_id,audience:'u',serviceId:row.service_id};}return intent.code?joinChurch(client,user,intent.code):createChurch(client,user,intent.name);});
 }
 async function acceptCode(user,value,expectedAudience){
  const code=normalizeCode(value);

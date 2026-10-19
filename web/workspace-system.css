@@ -113,3 +113,5 @@ body.axiom-workspace .workspace-main{padding-bottom:max(24px,env(safe-area-inset
 
 body.axiom-workspace .workspace-sidebar [hidden]{display:none!important}
 @media(max-width:899px){body.axiom-workspace .workspace-sidebar>*{flex-shrink:0}}
+
+@media(max-width:899px){body.axiom-workspace:is([data-audience=lead],[data-audience=u]) .workspace-layout>.workspace-sidebar{width:min(290px,82vw);padding:16px;border-radius:0 18px 18px 0;box-shadow:8px 0 30px #142c241a}}
