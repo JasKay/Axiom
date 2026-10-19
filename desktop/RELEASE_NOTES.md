@@ -1,4 +1,4 @@
-Axiom Pro 0.4.7 connects reusable library content, meeting folders, presentation decks and service conversations.
+Axiom Pro 0.4.8 connects reusable library content, meeting folders, presentation decks and service conversations.
 
 - Compact presentation controls keep slide browsing usable at small desktop window sizes.
 - Quiet update notices include feature highlights and a Later option. Updates remain explicit.
