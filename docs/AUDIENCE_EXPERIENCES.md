@@ -50,7 +50,7 @@ Apply `db/006_service_activity.sql` with the workspace migrations before deployi
 
 ## Production team workflow
 
-Pro navigation includes SVG icons and one Services picker for church plans and device-only meetings. Saved status, desktop downloads or app updates, and the signed-in account appear at the bottom. Tools, Undo/Redo buttons and backup controls are removed. Only Open live screen remains in the top-right controls. Presentation and Content Library each support Thumbnails, Full page and List views, remembered separately on the device.
+Pro navigation includes SVG icons. Beneath Presentation, a compact service picker selects the church plan or device-only service, and a bounded, independently scrolling list opens its presentation decks. Saved status, desktop downloads or app updates, and the signed-in account appear at the bottom. Tools, Undo/Redo buttons and backup controls are removed. Only Open live screen remains in the top-right controls. Presentation and Content Library each support Thumbnails, Full page and List views, remembered separately on the device.
 
 New or resent agendas show an Agenda received notice in Presentation and an agenda attachment in the matching Messages thread. Review agenda opens the shared agenda and notes immediately. Read indicators are stored per service and account on the device. Preparing an updated service remains explicit and confirms replacement of an existing local copy. Receiving or reviewing an agenda never overwrites Tech preparation automatically.
 
@@ -81,3 +81,7 @@ Validation: npm test; npm run test:integration (disposable records and cleanup);
 ## Media inspection
 
 Presentation thumbnails keep a readable minimum size instead of fitting five rows into every window. The library places media above destination selectors. Image, video and document cards open a large preview with page navigation and an explicit Add to presentation action; previewing does not send anything live. Private Preview and Live Output stay together in the fixed monitor column.
+
+## Collapsible navigation
+
+Lead and Pro have a header control to collapse and reopen the sidebar. The preference is stored separately for Pro and the church web workspace and survives reloads. Collapsing frees content width without changing the active service, deck or live output. Lead retains its mobile Menu drawer. Library content remains reusable across services and decks.

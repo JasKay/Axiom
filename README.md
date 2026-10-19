@@ -43,7 +43,7 @@ Push this project root to a GitHub repository, then import that repository in Ve
 
 ## Use during a service
 
-Choose or create a service. Add pages, songs, media or documents. Selecting an item/page only changes your private preview. Edit the page, click Save page, then Go Live when ready. The live screen keeps showing its existing snapshot while you prepare something else.
+Choose or create a service. Its presentation decks appear beneath Presentation in the sidebar; each deck contains its own running order and slides. Content Library holds the reusable files shared across these services and decks. The header sidebar control frees up canvas space and remembers its state. Add pages, songs, media or documents. Selecting an item/page only changes your private preview. Edit the page, click Save page, then Go Live when ready. The live screen keeps showing its existing snapshot while you prepare something else.
 
 In a browser: allow popups, click Open live screen, set your operating system to extended displays, and move the output window onto the projector. Press F in the output window for fullscreen. The browser version does not automatically choose a physical display. Left/Right on the operator screen advances the live service, B toggles blackout, Ctrl/Cmd+Z undoes, Ctrl/Cmd+Shift+Z redoes. Shortcuts pause while typing or using a dialog.
 
