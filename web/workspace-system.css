@@ -115,3 +115,9 @@ body.axiom-workspace .workspace-sidebar [hidden]{display:none!important}
 @media(max-width:899px){body.axiom-workspace .workspace-sidebar>*{flex-shrink:0}}
 
 @media(max-width:899px){body.axiom-workspace:is([data-audience=lead],[data-audience=u]) .workspace-layout>.workspace-sidebar{width:min(290px,82vw);padding:16px;border-radius:0 18px 18px 0;box-shadow:8px 0 30px #142c241a}}
+
+body.axiom-workspace .sidebar-toggle{display:grid;place-items:center;flex:0 0 36px;width:36px;height:36px;padding:7px;border:1px solid var(--line);border-radius:6px;background:transparent;color:var(--ink)}
+body.axiom-workspace.sidebar-collapsed .sidebar-toggle svg path{transform:translateX(25px) scaleX(-1)}
+@media(min-width:900px){body.axiom-workspace.sidebar-collapsed .workspace-layout{grid-template-columns:minmax(0,1fr)}body.axiom-workspace.sidebar-collapsed :is(.workspace-sidebar,.app-layout>.sidebar){display:none}body.axiom-workspace.sidebar-collapsed[data-pro-view] .app-layout{grid-template-columns:minmax(0,1fr) 270px}body.axiom-workspace.sidebar-collapsed:is([data-pro-view=library],[data-pro-view=team],[data-pro-view=sermon]) .app-layout{grid-template-columns:minmax(0,1fr)}body.axiom-workspace.sidebar-collapsed .app-layout>.inspector{grid-column:2}}
+@media(min-width:900px) and (max-width:1199px){body.axiom-workspace.sidebar-collapsed[data-pro-view=service] .app-layout{grid-template-columns:minmax(0,1fr) 230px}}
+@media(max-width:899px){body.axiom-workspace .sidebar-toggle-church{display:none}body.axiom-workspace.sidebar-collapsed .app-layout>.sidebar{display:none}body.axiom-workspace .sidebar-toggle-pro{flex-basis:32px;width:32px}}

@@ -1,8 +1,8 @@
 {
-  "version": "0.4.13",
+  "version": "0.4.14",
   "highlights": [
-    "Larger slide and media previews with a compact presentation layout",
-    "A media-first Content Library with full image, video and document previews",
-    "Tools, Undo/Redo buttons and backup controls removed"
+    "Presentation decks sit beneath Presentation for the selected service",
+    "A compact scrollable deck list keeps navigation tidy",
+    "Collapsible Lead and Pro sidebars remember your preference"
   ]
 }

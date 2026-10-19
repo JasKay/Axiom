@@ -1,3 +1,12 @@
+Axiom Pro 0.4.14 connects services and presentations in a compact sidebar.
+
+- Choose a service beneath Presentation, then switch directly between its presentation decks.
+- Deck navigation has a bounded scroll area so it cannot push the other navigation down indefinitely.
+- Collapse or reopen the Pro sidebar from the header. The preference survives restarts. AxiomLead gets the same desktop control and keeps its mobile drawer.
+- The Content Library remains the shared collection of reusable files.
+
+Installers remain unsigned; publisher signing and Apple notarization still require setup.
+
 Axiom Pro 0.4.13 gives presentation slides and media more room.
 
 - Larger proportional thumbnails replace the forced five-row layout.
