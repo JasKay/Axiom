@@ -14,3 +14,67 @@
 
 /* A single service switcher keeps the navigation focused. */
 .sidebar-service-button{display:grid;grid-template-columns:minmax(0,1fr) auto;text-align:left;gap:6px;margin:16px 0;padding:14px 10px;background:#ffffff80;border:1px solid var(--line);border-radius:7px;width:100%;color:var(--ink)}.sidebar-service-button>span:first-child{font-size:11px;color:var(--muted)}.sidebar-service-button strong{font-size:13px;font-weight:500;grid-column:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.sidebar-service-button>span:last-child{grid-column:2;grid-row:1/3;align-self:center}.pro-sidebar-bottom #save-status{font-size:10px}.pro-sidebar-bottom .header-menu>summary{min-height:38px;padding:10px}.pro-sidebar-bottom .header-menu>div{max-height:65dvh;overflow:auto}.shared-plans-button{margin:0;padding:8px!important;white-space:nowrap}#services-dialog .presentation-folder-heading{margin-top:20px}#services-dialog #presentation-folders{max-height:40dvh}#services-dialog .device-services{margin:20px 0 0}#services-dialog .service-options:not([open])>:not(summary){display:none}#services-dialog .shared-service-picker{border-bottom:1px solid var(--line);padding-bottom:16px}#desktop-update-notice{font-size:11px}#desktop-update-later{font-size:11px}
+/* Give the presentation canvas and media gallery the room they need. */
+@media(min-width:900px){
+body.axiom-workspace .app-layout{grid-template-columns:var(--workspace-sidebar) minmax(0,1fr) 270px}
+body.axiom-workspace:is([data-pro-view=library],[data-pro-view=team],[data-pro-view=sermon]) .app-layout{grid-template-columns:var(--workspace-sidebar) minmax(0,1fr)}
+body.axiom-workspace .app-layout>main{padding:18px 20px}
+body.axiom-workspace .page-heading{margin-bottom:12px;min-height:35px}
+body.axiom-workspace .page-heading h1{font-size:var(--workspace-title)!important;margin:0;line-height:1.3}
+body.axiom-workspace .service-scriptures{padding:6px 0;margin:0 0 10px;border:0;background:transparent;font-size:12px}
+.deck-toolbar{padding:0 0 10px;border:0;background:transparent;border-radius:0;margin-bottom:0;gap:8px;align-items:center}
+.deck-toolbar label{display:flex;align-items:center;gap:10px;font-size:11px!important;margin:0}
+.deck-toolbar select{max-width:360px;min-width:100px;flex:1;min-height:34px}
+.deck-toolbar button,.deck-options>summary{min-height:34px}
+.toolbar{border:0;border-block:1px solid var(--line);border-radius:0;background:transparent;padding:9px 0;margin-bottom:12px;gap:6px;min-height:48px}
+.toolbar button{min-height:32px;font-size:11px;padding:7px 10px}
+.planner{grid-template-columns:135px minmax(0,1fr);gap:14px}
+.running-order{padding:12px 10px;background:#f0f3e9}
+.page-browser{padding:12px;background:#eef1eb;border-color:#dce3d7}
+.page-browser>.section-heading{min-height:28px;margin-bottom:12px}
+#slides{padding:3px 7px 3px 3px}
+.slide-grid[data-layout=thumbnails]{grid-template-columns:repeat(auto-fill,minmax(min(100%,var(--slide-column-width,180px)),1fr));grid-auto-rows:var(--slide-row-height,136px);gap:12px}
+.slide-grid[data-layout=thumbnails] .slide-card{display:grid;grid-template-rows:minmax(0,1fr) 26px;max-width:none;border-radius:7px;background:#fff;border:2px solid transparent;box-shadow:0 1px 3px #183c350d}
+.slide-grid[data-layout=thumbnails] .slide-card>.stage{width:100%;height:100%;min-height:0;max-height:none;aspect-ratio:auto;border-radius:4px 4px 0 0}
+.slide-grid[data-layout=thumbnails] .slide-card>small{height:26px;font-size:11px;line-height:16px;padding:5px 8px}
+.slide-grid .slide-card.selected{border-color:#476e40;box-shadow:0 0 0 1px #476e40}
+.slide-grid[data-layout=full]{gap:16px}.slide-grid[data-layout=full] .slide-card{max-width:none}
+.page-actions{padding-top:8px;border-top:1px solid #dce3d7;gap:6px}
+body.axiom-workspace .app-layout>.inspector{padding:18px 14px;background:#fbfcf8;gap:20px}
+.preview-monitor,.output-monitor{flex:0 0 auto;overflow:visible;gap:9px}
+.output-monitor{margin-top:12px}
+body.axiom-workspace :is(.preview-monitor,.output-monitor)>.stage{width:100%;max-height:none;min-height:0;height:auto;aspect-ratio:16/9;flex:0 0 auto;border-radius:6px}
+body.axiom-workspace .preview-monitor>#editor{max-height:120px}
+body.axiom-workspace .output-monitor>.playback-tools{max-height:100px}
+#library-view:not([hidden]){display:flex;flex-direction:column;flex:1;min-height:0;overflow:hidden}
+#library-view>.search-line{display:flex;gap:10px;align-items:center;margin:0 0 12px;flex:0 0 auto}
+#library-view>.search-line input{flex:1;min-width:120px;max-width:none}
+#library-view>.search-line>select{width:155px}
+#library-view>.search-line .view-switch{flex-shrink:0;margin:0}
+#library-view>.search-line .view-switch select{min-height:38px}
+.library-imports{padding:0 0 12px;margin:0 0 14px;border-bottom:1px solid var(--line);gap:8px}
+.library-imports button{min-height:34px;padding:8px 12px;font-size:11px}
+#library-grid{padding:4px 12px 12px 4px;gap:18px;align-content:start}
+.library-grid[data-layout=thumbnails]{grid-template-columns:repeat(auto-fill,minmax(220px,1fr));grid-auto-rows:max-content}
+.library-grid .library-card{display:flex;flex-direction:column;width:100%;max-width:none;border-radius:8px;background:#fff;border:1px solid #dce3d7;box-shadow:0 2px 5px #183c3508;overflow:hidden}
+.library-grid .library-card>.stage{display:flex;width:100%;height:auto;min-height:0;aspect-ratio:16/9;flex:0 0 auto;border:0;border-radius:0;background:#163b32}
+.library-grid .library-card-info{padding:12px;min-width:0}
+.library-card-info h2{font-size:14px!important;line-height:1.4;letter-spacing:0;margin:0 0 5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.library-card-info>small{font-size:11px;color:var(--muted)}
+.library-card-info .button-row{margin-top:10px;gap:6px}
+.library-card .button-row button{min-height:32px;padding:7px 10px;font-size:11px}
+.library-card .button-row .primary{background:#edf2e6!important;border-color:#dce3d7!important;color:var(--ink)!important;box-shadow:none}
+.library-card .button-row .danger{min-width:32px;width:32px;font-size:18px;line-height:1;padding:4px;color:#8b776b}
+.library-destination{flex:0 0 auto;padding:10px 0 0;margin:8px 0 0;border:0;border-top:1px solid var(--line);border-radius:0;background:transparent;gap:12px;align-items:center}
+.library-destination>div{display:flex;gap:12px;align-items:center;min-width:0}
+.library-destination .eyebrow{font-size:9px;letter-spacing:.5px;margin:0;max-width:90px;flex-shrink:0}
+.library-target-fields{flex:1;gap:10px;min-width:0}
+.library-target-fields label{display:flex;align-items:center;gap:7px;margin:0;font-size:11px}
+.library-target-fields select{min-width:0;flex:1;padding:7px 9px;min-height:34px}
+.library-destination>button{white-space:nowrap;min-height:34px;font-size:11px}
+}
+@media(min-width:900px) and (max-width:1199px){body.axiom-workspace .app-layout{grid-template-columns:var(--workspace-sidebar) minmax(0,1fr) 230px}body.axiom-workspace:is([data-pro-view=library],[data-pro-view=team],[data-pro-view=sermon]) .app-layout{grid-template-columns:var(--workspace-sidebar) minmax(0,1fr)}.deck-toolbar{flex-wrap:wrap}.deck-toolbar label{flex-basis:100%}.deck-toolbar select{max-width:none}.planner{grid-template-columns:110px minmax(0,1fr)}.library-destination .eyebrow{display:none}.library-target-fields label{display:grid;gap:4px}}
+.pro-sidebar-bottom #desktop-updates{font-size:11px;min-height:36px;padding:8px 0;white-space:normal;color:var(--muted)}
+@media(min-width:900px){body.axiom-workspace .app-layout>.inspector{--media-monitor-height:clamp(76px,calc((100dvh - var(--workspace-header) - 330px)/2),180px)}body.axiom-workspace :is(.preview-monitor,.output-monitor)>.stage{width:min(100%,calc(var(--media-monitor-height)*16/9));max-height:var(--media-monitor-height);align-self:center}}
+
+.library-card>.stage[role=button]{cursor:zoom-in;outline-offset:-3px}.library-card>.stage[role=button]:focus-visible{outline:3px solid #729943}.library-preview-dialog{width:min(960px,calc(100vw - 32px))}.library-preview-dialog>#library-preview-stage{aspect-ratio:16/9;max-height:65dvh;min-height:0;width:100%;border-radius:6px}.library-preview-navigation{display:flex;align-items:center;gap:12px;margin-top:16px}.library-preview-navigation #library-preview-add{margin-left:auto}.library-preview-navigation span{font-size:12px;color:var(--muted)}

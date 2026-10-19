@@ -1,8 +1,8 @@
 {
-  "version": "0.4.12",
+  "version": "0.4.13",
   "highlights": [
-    "A simpler Pro sidebar with one Services picker",
-    "Consistent Content Library navigation and workspace widths",
-    "Preview congregation updates before publishing to AxiomU"
+    "Larger slide and media previews with a compact presentation layout",
+    "A media-first Content Library with full image, video and document previews",
+    "Tools, Undo/Redo buttons and backup controls removed"
   ]
 }

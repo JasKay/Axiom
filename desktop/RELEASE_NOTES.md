@@ -1,3 +1,13 @@
+Axiom Pro 0.4.13 gives presentation slides and media more room.
+
+- Larger proportional thumbnails replace the forced five-row layout.
+- The Content Library puts media above destination controls and opens large image, video and document previews on click.
+- Presentation controls are more compact; Private Preview and Live Output stay together and visible while browsing.
+- Tools, Undo/Redo buttons, help and workspace backup controls have been removed from the interface. Saved services and automatic persistence remain.
+- Existing presentation layouts, imports, live output and service connections remain available.
+
+Installers remain unsigned; publisher signing and Apple notarization are still pending setup.
+
 Axiom Pro 0.4.12 simplifies navigation and service management.
 
 - One Services picker replaces overlapping church and device navigation.
