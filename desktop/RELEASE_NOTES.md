@@ -1,3 +1,13 @@
+Axiom Pro 0.4.11 simplifies navigation and service management.
+
+- One Services picker replaces overlapping church and device navigation.
+- Presentation, Content Library, Messages and AxiomAI use the same sidebar width.
+- Service management is tucked into the Services picker; updates and backups live in Tools.
+- Download failures keep a clear retry action without re-enabling a still-running download.
+- AxiomLead adds a congregation preview before publishing to AxiomU.
+
+Mac and Windows installers remain unsigned. The Apple warning requires Developer ID signing and notarization; Windows publisher/reputation warnings require Windows signing and reputation. These warnings are not resolved by this release. Signing setup is documented for the publisher.
+
 Axiom Pro 0.4.9 connects reusable library content, meeting folders, presentation decks and service conversations.
 
 - Compact presentation controls keep slide browsing usable at small desktop window sizes.

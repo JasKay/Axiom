@@ -1,8 +1,8 @@
 {
-  "version": "0.4.10",
+  "version": "0.4.11",
   "highlights": [
-    "A more consistent service desk and compact mobile navigation",
-    "Live Lead and Tech messages with connection recovery",
-    "Previous service notes and optional private AxiomU accounts"
+    "A simpler Pro sidebar with one Services picker",
+    "Consistent Content Library navigation and workspace widths",
+    "Preview congregation updates before publishing to AxiomU"
   ]
 }
