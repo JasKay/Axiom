@@ -1,4 +1,4 @@
-Axiom Pro 0.4.11 simplifies navigation and service management.
+Axiom Pro 0.4.12 simplifies navigation and service management.
 
 - One Services picker replaces overlapping church and device navigation.
 - Presentation, Content Library, Messages and AxiomAI use the same sidebar width.
