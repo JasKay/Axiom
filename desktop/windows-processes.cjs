@@ -1,0 +1,4 @@
+'use strict';
+const {execFile}=require('node:child_process'),{promisify}=require('node:util'),exec=promisify(execFile);
+async function processes(run=exec){let stdout;try{({stdout}=await run('powershell.exe',['-NoProfile','-Command',"Get-Process -Name Axiom -ErrorAction SilentlyContinue | Select-Object @{n='ProcessId';e={$_.Id}},@{n='ExecutablePath';e={$_.Path}},@{n='MainWindowHandle';e={$_.MainWindowHandle.ToInt64()}} | ConvertTo-Json -Compress"],{timeout:30000}));}catch(error){if(error.code===1&&!String(error.stdout||'').trim()&&!String(error.stderr||'').trim())return [];if(error.killed||error.signal||error.code==='ETIMEDOUT'){console.warn('Windows process query timed out; retrying');return [];}throw error;}if(!stdout.trim())return [];const data=JSON.parse(stdout);return Array.isArray(data)?data:[data];}
+module.exports={processes};

@@ -99,3 +99,5 @@ Lead sends agenda and notes from their respective panels. Member publishing has 
 Validation: npm test, npm run test:integration, node --env-file=.env.local --test tests/files.integration.cjs; browser checks for all three roles, separate sends, mobile engine exclusion, bidirectional messages, service search, destination confirmation and private service notes; native desktop features/team/scrolling audits. tests/media-fixtures.cjs makes a deterministic VP8 fixture from a canvas WebP frame so native video tests do not depend on screen capture timing.
 
 0.4.16 also refreshes file lists independently of incoming messages and bounds the file-list request. The installed Windows upgrade check uses Get-Process with visible-window detection instead of a slow WMI/CIM query; its version, restart and saved-work assertions are retained. v0.4.15 did not publish installers because that process query timed out.
+
+The final upgrade process helper also treats an empty process list as expected during the exit/restart gap. tests/windows-processes.test.cjs covers that gap, timeout retries, real failures, and native Windows enumeration. The final release is 0.4.17.

@@ -1,0 +1,5 @@
+'use strict';
+const {test}=require('node:test'),assert=require('node:assert/strict'),{processes}=require('../desktop/windows-processes.cjs');
+test('an upgrade can observe no app between exit and restart',async()=>{assert.deepEqual(await processes(async()=>{throw Object.assign(Error('No matching process'),{code:1,stdout:'',stderr:''});}),[]);});
+test('process query preserves main-window details and retries only transient failures',async()=>{const row={ProcessId:24,ExecutablePath:'C:/Axiom/Axiom.exe',MainWindowHandle:123};assert.deepEqual(await processes(async()=>({stdout:JSON.stringify(row)})),[row]);assert.deepEqual(await processes(async()=>({stdout:JSON.stringify([row])})),[row]);assert.deepEqual(await processes(async()=>{throw Object.assign(Error('timeout'),{killed:true});}),[]);await assert.rejects(()=>processes(async()=>{throw Object.assign(Error('query failed'),{code:1,stdout:'',stderr:'Real query error'});}),/query failed/);});
+test('Windows process enumeration handles a real empty process list',{skip:process.platform!=='win32',timeout:40000},async()=>{assert.ok(Array.isArray(await processes()));});

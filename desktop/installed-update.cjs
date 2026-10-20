@@ -3,7 +3,7 @@
 const {_electron}=require('playwright-core'),fs=require('node:fs'),path=require('node:path'),os=require('node:os'),http=require('node:http'),assert=require('node:assert/strict'),{execFile}=require('node:child_process'),{promisify}=require('node:util');
 const exec=promisify(execFile),version=require('./package.json').version;
 function canonical(file){try{return fs.realpathSync.native(file).toLowerCase();}catch{return String(file||'').toLowerCase();}}
-async function processes(){let stdout;try{({stdout}=await exec('powershell.exe',['-NoProfile','-Command',"Get-Process -Name Axiom -ErrorAction SilentlyContinue | Select-Object @{n='ProcessId';e={$_.Id}},@{n='ExecutablePath';e={$_.Path}},@{n='MainWindowHandle';e={$_.MainWindowHandle.ToInt64()}} | ConvertTo-Json -Compress"],{timeout:30000}));}catch(error){if(error.killed||error.signal||error.code==='ETIMEDOUT'){console.warn('Windows process query timed out; retrying');return [];}throw error;}if(!stdout.trim())return [];const data=JSON.parse(stdout);return Array.isArray(data)?data:[data];}
+const {processes}=require('./windows-processes.cjs');
 
 const wait=async(fn,timeout=90000)=>{const until=Date.now()+timeout;while(Date.now()<until){const result=await fn();if(result)return result;await new Promise(r=>setTimeout(r,300));}throw Error('Timed out waiting for installed update');};
 (async()=>{assert.equal(process.platform,'win32');assert.equal(process.env.GITHUB_ACTIONS,'true','Installed upgrade validation must run on a disposable CI runner');const root=fs.mkdtempSync(path.join(os.tmpdir(),'axiom-upgrade-')),fixture=path.join(root,'baseline'),install=path.join(root,'installed');let app,server,oldProcess;
