@@ -1,8 +1,8 @@
 {
-  "version": "0.4.17",
+  "version": "0.4.18",
   "highlights": [
-    "A unified service inbox for agendas, notes, files and messages",
-    "A lightweight Axiom Pro phone inbox",
-    "Clear presentation destinations, service search and consistent sidebars"
+    "Create in one click and rename in place",
+    "Move content and presentations between services",
+    "One service inbox for agendas, notes, files and messages"
   ]
 }

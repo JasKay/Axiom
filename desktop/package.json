@@ -1,6 +1,6 @@
 {
   "name": "axiom",
-  "version": "0.4.17",
+  "version": "0.4.18",
   "private": true,
   "description": "Axiom \u2014 a focused presentation studio for your whole service",
   "main": "main.js",

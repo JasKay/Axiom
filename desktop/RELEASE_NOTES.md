@@ -1,3 +1,14 @@
+Axiom Pro 0.4.18 makes creating and organising content more direct.
+
+- Create services, presentations, pages and Lead agenda items immediately, then rename in place.
+- Add library items in one click to the visible destination while keeping the library open. Elsewhere lets you explicitly choose another destination.
+- Move content between presentations or services and move a whole presentation to another service.
+- Service folders have Rename and Delete actions; presentation actions include Move and Delete.
+- The original library content stays available when a presentation or local service is removed.
+- Includes the unified service inbox, lightweight mobile Tech view and focused member reader.
+
+Windows installed-upgrade verification and Mac/Windows packaged-app checks run before release.
+
 Axiom Pro 0.4.17 keeps the whole service team connected.
 
 - Agenda updates, preparation notes, files and messages appear in one service inbox with distinct icons and actions.

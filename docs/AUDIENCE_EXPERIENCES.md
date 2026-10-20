@@ -101,3 +101,11 @@ Validation: npm test, npm run test:integration, node --env-file=.env.local --tes
 0.4.16 also refreshes file lists independently of incoming messages and bounds the file-list request. The installed Windows upgrade check uses Get-Process with visible-window detection instead of a slow WMI/CIM query; its version, restart and saved-work assertions are retained. v0.4.15 did not publish installers because that process query timed out.
 
 The final upgrade process helper also treats an empty process list as expected during the exit/restart gap. tests/windows-processes.test.cjs covers that gap, timeout retries, real failures, and native Windows enumeration. The final release is 0.4.17.
+
+## Direct creation and organisation (0.4.18)
+
+Main creation actions create a saved object with a unique default name instead of asking for a name in a modal. Pro service headings, presentation names and content headings can be renamed inline; Lead service and agenda titles use the same pattern. Lead reuse creates a draft directly. Inline text editing does not trigger presentation keyboard shortcuts.
+
+The primary library Add uses the visible service/presentation destination and stays in the library for repeated additions. Elsewhere opens a destination picker. Move is available for selected presentation content and for an entire presentation; service folders expose Rename and Delete. Lead agenda items can move to another service. Moves preserve entry, page and content identities. Removing local services or presentations retains their library content, and the final service/presentation gets a valid empty replacement.
+
+The desktop feature audit covers instant creation, inline rename, moving entries and presentations, folder deletion and retained library content. The browser audit also covers immediate Lead creation and cross-service agenda moves. Pure move tests guard against missing destinations dropping content.
