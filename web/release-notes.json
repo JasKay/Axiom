@@ -1,8 +1,8 @@
 {
-  "version": "0.4.14",
+  "version": "0.4.15",
   "highlights": [
-    "Presentation decks sit beneath Presentation for the selected service",
-    "A compact scrollable deck list keeps navigation tidy",
-    "Collapsible Lead and Pro sidebars remember your preference"
+    "A unified service inbox for agendas, notes, files and messages",
+    "A lightweight Axiom Pro phone inbox",
+    "Clear presentation destinations, service search and consistent sidebars"
   ]
 }

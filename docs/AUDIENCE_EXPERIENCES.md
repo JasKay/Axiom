@@ -85,3 +85,15 @@ Presentation thumbnails keep a readable minimum size instead of fitting five row
 ## Collapsible navigation
 
 Lead and Pro have a header control to collapse and reopen the sidebar. The preference is stored separately for Pro and the church web workspace and survives reloads. Collapsing frees content width without changing the active service, deck or live output. Lead retains its mobile Menu drawer. Library content remains reusable across services and decks.
+
+## Unified service inbox (0.4.15)
+
+Apply db/008_team_updates.sql before deploying. The comments table adds kind and payload fields, defaulting legacy messages to message. Agenda and notes sends update only that part of the handoff and append a typed event. Legacy send-tech calls without part retain the previous full-plan behavior. Private study notes and congregation drafts never enter these handoffs.
+
+File listings include the author and are merged into the same conversation by AxiomMessages.withFiles. Finalizing a Lead file can establish an empty handoff for its service, without sending agenda or notes; this lets Tech receive the first file and reply. Existing file and service permission checks still apply.
+
+Phones opening Axiom Pro are routed to pro-mobile.html before the operator engine loads. This page verifies Tech membership and reuses the existing auth, message, service picker and file components. It loads no presentation, PDF or AI engine. An explicit full-studio link uses desktop=1.
+
+Lead sends agenda and notes from their respective panels. Member publishing has a live draft preview; publication still requires an administrator to preview and publish. AxiomU readers choose one published service and switch between Overview, Scripture and My notes.
+
+Validation: npm test, npm run test:integration, node --env-file=.env.local --test tests/files.integration.cjs; browser checks for all three roles, separate sends, mobile engine exclusion, bidirectional messages, service search, destination confirmation and private service notes; native desktop features/team/scrolling audits. tests/media-fixtures.cjs makes a deterministic VP8 fixture from a canvas WebP frame so native video tests do not depend on screen capture timing.

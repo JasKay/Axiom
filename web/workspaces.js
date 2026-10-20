@@ -5,6 +5,6 @@ const definitions={
  pro:Object.freeze({audience:'pro',name:'Axiom Pro Workspace',product:'Axiom Pro',team:'For Tech and Media team members',path:'tech-media.html',description:'Receive service plans, prepare media and operate the presentation studio.'}),
  u:Object.freeze({audience:'u',name:'AxiomU Workspace',product:'AxiomU',team:'For congregation members',path:'members.html',description:'Read published messages, revisit scriptures and keep your personal notes.'})
 };
-const api=Object.freeze({get:audience=>definitions[audience]||definitions.lead,all:Object.freeze(Object.values(definitions)),fromPath:pathname=>Object.values(definitions).find(item=>pathname.endsWith('/'+item.path))});
+const api=Object.freeze({get:audience=>definitions[audience]||definitions.lead,all:Object.freeze(Object.values(definitions)),fromPath:pathname=>pathname.endsWith('/pro-mobile.html')?definitions.pro:Object.values(definitions).find(item=>pathname.endsWith('/'+item.path))});
 if(typeof module==='object'&&module.exports)module.exports=api;else root.AxiomWorkspaces=api;
 })(typeof window==='undefined'?globalThis:window);

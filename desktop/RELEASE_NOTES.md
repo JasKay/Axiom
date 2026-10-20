@@ -1,3 +1,14 @@
+Axiom Pro 0.4.15 keeps the whole service team connected.
+
+- Agenda updates, preparation notes, files and messages appear in one service inbox with distinct icons and actions.
+- Add library content with an explicit service and presentation destination.
+- Find services quickly when the list grows; shared services are labelled From AxiomLead.
+- Sidebar collapse controls live in the sidebar, with a compact rail for reopening it.
+- Account settings share the same experience across Lead, Pro and members.
+- Web users get a lightweight mobile Tech inbox and a focused congregation reader.
+
+Installers remain unsigned. Existing offline presentations and imports are preserved.
+
 Axiom Pro 0.4.14 connects services and presentations in a compact sidebar.
 
 - Choose a service beneath Presentation, then switch directly between its presentation decks.
