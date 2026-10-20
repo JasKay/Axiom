@@ -97,3 +97,5 @@ Phones opening Axiom Pro are routed to pro-mobile.html before the operator engin
 Lead sends agenda and notes from their respective panels. Member publishing has a live draft preview; publication still requires an administrator to preview and publish. AxiomU readers choose one published service and switch between Overview, Scripture and My notes.
 
 Validation: npm test, npm run test:integration, node --env-file=.env.local --test tests/files.integration.cjs; browser checks for all three roles, separate sends, mobile engine exclusion, bidirectional messages, service search, destination confirmation and private service notes; native desktop features/team/scrolling audits. tests/media-fixtures.cjs makes a deterministic VP8 fixture from a canvas WebP frame so native video tests do not depend on screen capture timing.
+
+0.4.16 also refreshes file lists independently of incoming messages and bounds the file-list request. The installed Windows upgrade check uses Get-Process with visible-window detection instead of a slow WMI/CIM query; its version, restart and saved-work assertions are retained. v0.4.15 did not publish installers because that process query timed out.

@@ -1,4 +1,4 @@
-Axiom Pro 0.4.15 keeps the whole service team connected.
+Axiom Pro 0.4.16 keeps the whole service team connected.
 
 - Agenda updates, preparation notes, files and messages appear in one service inbox with distinct icons and actions.
 - Add library content with an explicit service and presentation destination.
