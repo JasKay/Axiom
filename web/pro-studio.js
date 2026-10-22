@@ -46,7 +46,7 @@
     byId('studio-selection-status').textContent=selected?selected.title+' · '+selected.slides.length+(selected.slides.length===1?' slide':' slides'):'';
     document.querySelectorAll('#slides .slide-card').forEach((card,index)=>{
       const s=selected?.slides[index];card.dataset.slideId=s?.id||'';
-      card.classList.toggle('is-live',onAir&&liveCursor?.serviceId===service().id&&liveCursor?.entryId===selectedEntry&&liveCursor?.slideId===s?.id);
+      card.classList.toggle('is-live',onAir&&liveCursor?.serviceId===service().id&&liveCursor?.entryId===selectedEntry&&liveCursor?.slideId===s?.id&&JSON.stringify(s)===JSON.stringify(live.slide));
     });
     document.querySelectorAll('.studio-deck').forEach(button=>button.classList.toggle('deck-live',onAir&&button.dataset.serviceId===liveCursor?.serviceId&&button.dataset.deckId===liveCursor?.deckId));
     const entries=AxiomPresentations.entries(service());
