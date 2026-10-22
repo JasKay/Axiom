@@ -1,3 +1,11 @@
+Axiom Pro 0.4.20 refines the presentation workspace.
+
+- Smaller, consistent typography, controls and spacing across the three-panel workspace.
+- Collapsing navigation keeps the preview panel in place and preserves running-order and thumbnail sizes.
+- Slide thumbnails keep their proportions as the workspace gains room.
+- Compact navigation retains labelled actions and keyboard focus indicators.
+- Windows and Mac release checks verify the packaged styles and panel behaviour at three window sizes.
+
 Axiom Pro 0.4.18 makes creating and organising content more direct.
 
 - Create services, presentations, pages and Lead agenda items immediately, then rename in place.

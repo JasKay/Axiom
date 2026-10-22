@@ -95,7 +95,7 @@ window.addEventListener('axiom-sermon-present',event=>{
 for(const [area,id]of [['presentation','slides'],['library','library-grid']]){const select=$(area+'-layout');if(!select)continue;try{const stored=localStorage.getItem('axiom-view-'+area);if(['thumbnails','full','list'].includes(stored))select.value=stored;}catch{}const apply=()=>{$(id).dataset.layout=select.value;try{localStorage.setItem('axiom-view-'+area,select.value);}catch{}};select.onchange=apply;apply();}
 
 // Keep five thumbnail rows visible at desktop sizes; the grid owns its scroll.
-function sizeSlideGrid(){const grid=$('slides');if(!grid||!grid.clientWidth)return;const columns=Math.max(1,Math.floor(grid.clientWidth/190)),width=Math.max(140,(grid.clientWidth-20-(columns-1)*12)/columns);grid.style.setProperty('--slide-row-height',(width*9/16+26)+'px');grid.style.setProperty('--slide-column-width',(width-1)+'px');}
+function sizeSlideGrid(){const grid=$('slides');if(!grid||!grid.clientWidth)return;const width=Math.min(160,Math.max(1,grid.clientWidth-16));grid.style.setProperty('--slide-row-height',(width*9/16+24)+'px');grid.style.setProperty('--slide-column-width',width+'px');}
 if(typeof ResizeObserver!=='undefined'){const slideGridObserver=new ResizeObserver(sizeSlideGrid);slideGridObserver.observe($('slides'));}
 $('slides').addEventListener('dragover',e=>{if(!e.dataTransfer.types.includes('application/x-axiom-slide'))return;e.preventDefault();const grid=$('slides'),bounds=grid.getBoundingClientRect();if(e.clientY<bounds.top+45)grid.scrollTop-=18;else if(e.clientY>bounds.bottom-45)grid.scrollTop+=18;});
 
