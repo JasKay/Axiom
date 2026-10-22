@@ -1,0 +1,55 @@
+name: Desktop size and feature verification
+on:
+  push:
+    branches: ['desktop-size/**']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  measure:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 40
+    env:
+      CSC_IDENTITY_AUTO_DISCOVERY: 'false'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            desktop/package-lock.json
+      - run: npm ci
+      - run: npm test
+      - run: npm ci --prefix desktop
+      - name: Package identical before and after builds and measure size
+        run: node scripts/measure-desktop.cjs
+      - run: node desktop/verify-package.cjs
+      - run: node desktop/smoke.cjs
+      - run: node desktop/scrolling.cjs
+      - run: node desktop/features.cjs
+      - run: node desktop/team.cjs
+      - name: Verify installed Windows update
+        if: runner.os == 'Windows'
+        timeout-minutes: 12
+        run: node desktop/installed-update.cjs
+      - name: Upload size report and verified smaller packages
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: smaller-desktop-${{ runner.os }}
+          if-no-files-found: error
+          path: |
+            artifacts/desktop-size-*.json
+            desktop/release/*.exe
+            desktop/release/*.zip
+            desktop/release/*.dmg
+            desktop/release/latest.yml
+            desktop/release/*.exe.blockmap
