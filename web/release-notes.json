@@ -1,8 +1,8 @@
 {
-  "version": "0.4.20",
+  "version": "0.4.21",
   "highlights": [
-    "A more compact Pro workspace with consistent text and control sizes",
-    "Collapse navigation while keeping preview panels and slide sizes steady",
-    "More room for slides, with clearer running order and live controls"
+    "A redesigned charcoal presentation desk with a service tree and compact navigation",
+    "Clear preview and live states, with editing that keeps output controls fixed",
+    "Smaller desktop downloads with offline imports and presentation tools retained"
   ]
 }

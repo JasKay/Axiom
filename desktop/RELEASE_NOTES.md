@@ -1,3 +1,12 @@
+Axiom Pro 0.4.21 introduces the redesigned presentation desk and smaller desktop packages.
+
+- A charcoal workspace with a service tree, compact navigation rail, and larger slide canvas.
+- Blue selection and green live indicators distinguish preparation from the projected snapshot.
+- The slide editor opens beside the output desk without moving preview or live controls.
+- Navigation collapses while preserving thumbnail proportions and monitor positions.
+- Desktop packages omit web-only generation runtimes; Pro scripture assistance, PDF/PowerPoint imports, video, local saving, and team features remain available.
+- Windows and Mac native checks cover the redesign and reduced packages, including installed Windows upgrade and restart.
+
 Axiom Pro 0.4.20 refines the presentation workspace.
 
 - Smaller, consistent typography, controls and spacing across the three-panel workspace.
