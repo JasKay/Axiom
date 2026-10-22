@@ -1,74 +1,276 @@
-/* Pro's operator workspace: steady panels, compact chrome, readable content. */
-body.axiom-workspace[data-pro-view] {
-  --workspace-title: 20px;
-  --workspace-heading: 12px;
-  --workspace-body: 13px;
-  --workspace-header: 52px;
-  --workspace-sidebar: 200px;
-  --workspace-padding: 14px;
-  --workspace-radius: 5px;
-  --pro-monitor-width: 270px;
-  line-height: 1.45;
+/* Axiom Pro presentation desk. These styles never apply to projected output. */
+body.axiom-workspace.pro-studio {
+  color-scheme:dark; --ink:#e0e5ec; --muted:#959eab; --paper:#1b1e23; --surface:#23272e;
+  --line:#343941; --soft:#2b3038; --green:#86aaff; --accent:#8aabff; --lime:#8aabff;
+  --workspace-surface:#23272e; --workspace-sidebar-surface:#202329;
+  --workspace-header:46px; --workspace-sidebar:264px; --workspace-padding:0;
+  --workspace-title:12px; --workspace-heading:12px; --workspace-body:13px; --workspace-radius:3px;
+  --desk-width:312px; --rail-width:48px; --desk-blue:#8aabff; --desk-live:#73d9a4;
+  height:100dvh;overflow:hidden;display:flex;flex-direction:column;background:var(--paper);color:var(--ink);font-size:13px;line-height:1.45;
 }
-body.axiom-workspace[data-pro-view] .axiom-brand {font-size:20px;gap:7px}
-body.axiom-workspace[data-pro-view] .axiom-brand img {width:26px;height:26px;border-radius:5px}
-body.axiom-workspace[data-pro-view] .app-header {gap:12px}
-body.axiom-workspace[data-pro-view] .workspace-product {padding:3px 7px;font-size:11px}
-body.axiom-workspace[data-pro-view] :is(button,.file-button,summary) {font-size:12px;border-radius:4px}
-body.axiom-workspace[data-pro-view] :is(input,select,textarea) {font-size:13px;padding:6px 8px;border-radius:4px}
-body.axiom-workspace[data-pro-view] :is(button,summary):focus-visible {outline:2px solid #476e40;outline-offset:2px}
-body.axiom-workspace[data-pro-view] .sidebar .nav-item {min-height:32px;padding:7px 8px;gap:8px;font-size:12px}
-body.axiom-workspace[data-pro-view] .nav-icon {width:16px;height:16px;flex-basis:16px;margin-right:0}
-body.axiom-workspace[data-pro-view] .pro-primary-nav {gap:2px;margin:12px 0}
-body.axiom-workspace[data-pro-view] .inline-service-switcher {margin:8px 0 10px 24px}
-body.axiom-workspace[data-pro-view] #sidebar-presentations {margin-left:24px}
-body.axiom-workspace[data-pro-view] .sidebar-toggle {width:30px;min-height:30px;margin-bottom:10px}
-body.axiom-workspace[data-pro-view] .page-heading {min-height:28px;margin-bottom:8px}
-body.axiom-workspace[data-pro-view] :is(.section-heading h2,.live-header h2) {font-size:12px;letter-spacing:0}
-body.axiom-workspace[data-pro-view] .deck-toolbar {padding:6px 0 8px!important;margin-bottom:8px!important;gap:8px!important}
-body.axiom-workspace[data-pro-view] :is(.deck-toolbar button,.deck-toolbar select,.deck-options>summary,.toolbar button) {min-height:30px;padding:6px 8px}
-body.axiom-workspace[data-pro-view] .toolbar {min-height:40px;padding:6px 0;margin-bottom:10px;gap:5px}
-body.axiom-workspace[data-pro-view] .playlist-entry {padding:7px 6px;margin-bottom:4px;border-radius:4px}
-body.axiom-workspace[data-pro-view] .entry-title {font-size:12px;line-height:1.4}
-body.axiom-workspace[data-pro-view] :is(.entry-meta,.entry-notes) {font-size:11px;line-height:1.4}
-body.axiom-workspace[data-pro-view] .badge {font-size:10px;padding:2px 5px}
-body.axiom-workspace[data-pro-view] .page-actions button {font-size:11px;min-height:28px;padding:5px 7px}
-body.axiom-workspace[data-pro-view] #go-live {min-height:34px;font-size:13px;padding:7px 10px}
-body.axiom-workspace[data-pro-view] #blackout {min-height:32px;font-size:12px}
-body.axiom-workspace[data-pro-view] .library-card-info h2 {font-size:13px!important}
-body.axiom-workspace[data-pro-view] .library-grid[data-layout=thumbnails] {grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px}
-
-@media(min-width:900px) {
-  body.axiom-workspace[data-pro-view] .app-layout,
-  body.axiom-workspace.sidebar-collapsed[data-pro-view] .app-layout {grid-template-columns:var(--workspace-sidebar) minmax(0,1fr) var(--pro-monitor-width)}
-  body.axiom-workspace.sidebar-collapsed[data-pro-view] {--workspace-sidebar:48px}
-  body.axiom-workspace.sidebar-collapsed[data-pro-view] .app-layout>.sidebar {width:48px;padding:12px 9px}
-  body.axiom-workspace.sidebar-collapsed[data-pro-view] .sidebar .nav-label {display:none}
-  body.axiom-workspace.sidebar-collapsed[data-pro-view] .pro-sidebar-bottom>button {width:30px;min-width:0;padding:6px!important;justify-content:center;overflow:hidden}
-  body.axiom-workspace:is([data-pro-view=library],[data-pro-view=team],[data-pro-view=sermon]) .app-layout,
-  body.axiom-workspace.sidebar-collapsed:is([data-pro-view=library],[data-pro-view=team],[data-pro-view=sermon]) .app-layout {grid-template-columns:var(--workspace-sidebar) minmax(0,1fr)}
-  body.axiom-workspace[data-pro-view] .app-layout>.sidebar {padding:12px 10px}
-  body.axiom-workspace[data-pro-view] .app-layout>main {padding:12px 14px}
-  body.axiom-workspace[data-pro-view] .planner {grid-template-columns:128px minmax(0,1fr);gap:10px}
-  body.axiom-workspace[data-pro-view] :is(.running-order,.page-browser) {padding:10px 8px;border-radius:4px;box-shadow:none}
-  body.axiom-workspace[data-pro-view] .page-browser>.section-heading {min-height:24px;margin-bottom:8px}
-  /* Extra space reveals more slides without stretching every thumbnail. */
-  body.axiom-workspace[data-pro-view] .slide-grid[data-layout=thumbnails] {grid-template-columns:repeat(auto-fill,minmax(0,var(--slide-column-width,160px)));grid-auto-rows:var(--slide-row-height,114px);gap:10px;justify-content:start}
-  body.axiom-workspace[data-pro-view] .slide-grid[data-layout=thumbnails] .slide-card {grid-template-rows:minmax(0,1fr) 24px;border-radius:4px;box-shadow:none}
-  body.axiom-workspace[data-pro-view] .slide-grid[data-layout=thumbnails] .slide-card>small {height:24px;font-size:11px;padding:4px 6px}
-  body.axiom-workspace[data-pro-view] .app-layout>.inspector {padding:12px;gap:12px;grid-column:3}
-  body.axiom-workspace[data-pro-view] .output-monitor {margin-top:0}
-  body.axiom-workspace[data-pro-view] :is(.preview-monitor,.output-monitor) {gap:8px}
-  body.axiom-workspace[data-pro-view] .pro-sidebar-bottom {padding-top:12px;gap:5px}
-  body.axiom-workspace[data-pro-view] .pro-sidebar-bottom .header-menu>summary {min-height:30px;padding:6px 8px}
+body.axiom-workspace.pro-studio [hidden]{display:none!important}
+body.axiom-workspace.pro-studio :is(button,.file-button,summary){font-size:12px;font-weight:450;border-radius:4px;line-height:1.4;box-shadow:none;transition:background .12s,border-color .12s}
+body.axiom-workspace.pro-studio :is(button,.file-button){background:#2a2f37;color:var(--ink);border:1px solid #404752;padding:6px 10px;min-height:30px}
+body.axiom-workspace.pro-studio :is(button,.file-button):not(:disabled):hover{background:#343b46;border-color:#596475;color:#f2f5fa}
+body.axiom-workspace.pro-studio button:disabled{opacity:.4;cursor:default}
+body.axiom-workspace.pro-studio :is(button,a,summary,input,select,textarea):focus-visible{outline:2px solid var(--desk-blue);outline-offset:2px}
+body.axiom-workspace.pro-studio :is(input,select,textarea){background:#191d23;border-color:#414853;color:var(--ink);border-radius:4px;font-size:12px;padding:6px 8px;line-height:1.5}
+body.axiom-workspace.pro-studio label{color:var(--muted);font-size:11px}
+body.axiom-workspace.pro-studio :is(h1,h2,h3){color:var(--ink)}
+body.axiom-workspace.pro-studio .quiet{background:transparent;border-color:transparent;color:var(--muted)}
+body.axiom-workspace.pro-studio .danger{color:#e8a4a8}
+body.axiom-workspace.pro-studio .eyebrow{color:var(--muted);font-size:10px;letter-spacing:1px}
+body.axiom-workspace.pro-studio :is(.secondary,.empty){color:var(--muted);font-size:11px}
+body.axiom-workspace.pro-studio .badge{background:#2c323b;color:#abb7c9;border:0;font-size:10px;padding:3px 6px;border-radius:3px}
+/* Application frame and service breadcrumb. */
+body.axiom-workspace.pro-studio .app-header{height:46px;min-height:46px;flex:0 0 46px;padding:0 14px;gap:12px;background:#191c21;border-bottom:1px solid #353940}
+body.axiom-workspace.pro-studio .axiom-brand{font-size:20px;gap:7px;letter-spacing:-.7px;color:#e9edf3}
+body.axiom-workspace.pro-studio .axiom-brand img{width:24px;height:24px;border-radius:5px}
+body.axiom-workspace.pro-studio .workspace-product{background:transparent;border:0;border-left:1px solid #424752;border-radius:0;font-size:10px;letter-spacing:1.4px;font-weight:600;color:#8e99ab;padding:2px 0 2px 10px}
+body.axiom-workspace.pro-studio #pro-church{display:none}
+body.axiom-workspace.pro-studio .app-header>.page-heading{flex:1;min-width:0;margin:0;padding-left:22px;gap:12px;min-height:0;align-items:center;justify-content:flex-start}
+body.axiom-workspace.pro-studio .page-heading>div{display:flex;align-items:center;gap:9px;min-width:0}
+body.axiom-workspace.pro-studio .page-heading>div:before{content:'Services /';color:#77818f;font-size:11px;white-space:nowrap}
+body.axiom-workspace.pro-studio .page-heading h1{font-size:12px!important;font-weight:500;letter-spacing:0;margin:0;line-height:1.5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+body.axiom-workspace.pro-studio :is(#view-kicker,#view-description,#service-count){display:none}
+body.axiom-workspace.pro-studio .header-tools{margin-left:auto;gap:8px;flex-shrink:0}
+body.axiom-workspace.pro-studio #open-output{background:transparent;color:#c1cbda;border-color:#454d5a;min-height:28px;padding:5px 10px;font-size:11px}
+body.axiom-workspace.pro-studio .studio-statusbar{height:24px;min-height:24px;display:flex;align-items:center;gap:22px;padding:0 12px;background:#171a1f;border-top:1px solid #343941;color:#8792a2;font-size:10px;white-space:nowrap;overflow:hidden}
+body.axiom-workspace.pro-studio #save-status{font-size:10px;color:#9da8b7;margin:0;order:initial;width:auto}
+body.axiom-workspace.pro-studio #save-status:before{content:'';display:inline-block;width:5px;height:5px;margin-right:7px;border-radius:50%;background:#73bd9a;vertical-align:middle}
+body.axiom-workspace.pro-studio #save-status[data-state=pending]:before{background:#c8a766}
+body.axiom-workspace.pro-studio #save-status[data-state=error]:before{background:#ec8f98}
+body.axiom-workspace.pro-studio .status-product{margin-left:auto;letter-spacing:.3px}
+body.axiom-workspace.pro-studio .app-layout{flex:1;min-height:0!important;overflow:hidden}
+/* Persistent activity rail and expandable service navigator. */
+body.axiom-workspace.pro-studio .app-layout>.sidebar{position:relative;min-height:0;padding:0;background:#202329;border-right:1px solid #353a43;overflow:hidden;gap:0;display:grid;grid-template-columns:var(--rail-width) minmax(0,1fr);grid-template-rows:minmax(0,1fr) auto}
+body.axiom-workspace.pro-studio .studio-rail{grid-column:1;grid-row:1/3;display:flex;flex-direction:column;padding:52px 0 0;background:#191c21;border-right:1px solid #30353e;min-width:0}
+body.axiom-workspace.pro-studio .pro-primary-nav{display:flex;flex-direction:column;gap:7px;padding:0;margin:0;overflow:visible}
+body.axiom-workspace.pro-studio .sidebar .nav-item{position:relative;width:100%;height:45px;min-height:45px;margin:0;padding:0;justify-content:center;border:0;border-left:2px solid transparent;border-radius:0;color:#87919e;background:transparent;gap:0}
+body.axiom-workspace.pro-studio .sidebar .nav-item.active{color:#e2eaff;background:#252b34;border-left-color:var(--desk-blue)}
+body.axiom-workspace.pro-studio .sidebar .nav-item:hover{background:#272d36;color:#dde5f1}
+body.axiom-workspace.pro-studio .nav-icon{width:20px;height:20px;flex:0 0 20px;margin:0}
+body.axiom-workspace.pro-studio .sidebar :is(.nav-label,.sermon-beta){display:none}
+body.axiom-workspace.pro-studio .nav-count{position:absolute;top:3px;right:3px;margin:0;background:var(--desk-blue);color:#151b29;font-size:9px;padding:1px 4px}
+body.axiom-workspace.pro-studio .sidebar-toggle{position:absolute;left:8px;top:10px;display:flex;align-items:center;justify-content:center;min-height:30px;width:30px;padding:5px;margin:0;z-index:2;background:transparent;border:0;color:#9aa5b5;transform:none!important}
+body.axiom-workspace.pro-studio .sidebar-toggle svg{width:18px;height:18px}
+body.axiom-workspace.pro-studio .service-navigator{grid-column:2;grid-row:1;min-width:0;min-height:0;display:flex;flex-direction:column;overflow:hidden}
+body.axiom-workspace.pro-studio .navigator-heading{height:46px;min-height:46px;padding:0 12px;display:flex;align-items:center;justify-content:space-between}
+body.axiom-workspace.pro-studio .navigator-heading h2{font-size:12px;letter-spacing:.2px;font-weight:600}
+body.axiom-workspace.pro-studio #quick-new-service{width:25px;min-height:25px;padding:0;background:transparent;border:0;color:#a2adbc;font-size:20px}
+body.axiom-workspace.pro-studio .workspace-picker{padding:2px 12px 14px;border-bottom:1px solid #303640}
+body.axiom-workspace.pro-studio .workspace-picker>label{display:none}
+body.axiom-workspace.pro-studio #pro-church-select{height:29px;font-size:11px;background:#262b33;border-color:#3b424d;padding:4px 7px}
+body.axiom-workspace.pro-studio .service-tree{flex:1;min-height:0;overflow:auto;padding:12px 0;scrollbar-width:thin}
+body.axiom-workspace.pro-studio .studio-service{border:0;margin:0 0 8px;padding:0;background:transparent}
+body.axiom-workspace.pro-studio .studio-service>summary{display:flex;align-items:center;gap:7px;padding:7px 10px;list-style:none;cursor:pointer;color:#b9c2cf;font-size:12px;font-weight:500;min-width:0;border-radius:0}
+body.axiom-workspace.pro-studio .studio-service>summary::-webkit-details-marker{display:none}
+body.axiom-workspace.pro-studio .studio-service>summary:before{content:'›';font-size:15px;line-height:1;width:9px;color:#8290a4;transform:rotate(0deg)}
+body.axiom-workspace.pro-studio .studio-service[open]>summary:before{transform:rotate(90deg)}
+body.axiom-workspace.pro-studio .studio-service>summary svg{width:16px;height:16px;flex-shrink:0;color:#8e9bad}
+body.axiom-workspace.pro-studio .studio-service>summary>span:first-of-type{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+body.axiom-workspace.pro-studio .studio-service>summary:hover{background:#292e36}
+body.axiom-workspace.pro-studio .tree-cloud{font-size:9px;color:#a2b8df;margin-left:auto}
+body.axiom-workspace.pro-studio .studio-decks{display:grid;gap:2px;padding:2px 8px 2px 25px}
+body.axiom-workspace.pro-studio .studio-deck{position:relative;width:100%;min-width:0;text-align:left;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding:7px 10px 7px 19px;min-height:30px;border:0;border-radius:3px;background:transparent;color:#a3aebc;font-size:11px}
+body.axiom-workspace.pro-studio .studio-deck:before{content:'';position:absolute;left:7px;top:11px;width:5px;height:7px;border:1px solid currentColor;border-radius:1px;opacity:.65}
+body.axiom-workspace.pro-studio .studio-deck[aria-current=page]{background:#2e3b53;color:#dbe7ff}
+body.axiom-workspace.pro-studio .studio-deck.deck-live:after{content:'';position:absolute;right:7px;top:12px;width:5px;height:5px;border-radius:50%;background:var(--desk-live)}
+body.axiom-workspace.pro-studio .tree-add-presentation{font-size:10px;text-align:left;min-height:28px;padding:5px 8px;background:transparent;border:0;color:#8493a9}
+body.axiom-workspace.pro-studio .archived-services{padding:10px 0 0;border:0;border-top:1px solid var(--line);margin:8px 10px}
+body.axiom-workspace.pro-studio .navigator-utilities{padding:8px 10px;border-top:1px solid #303640}
+body.axiom-workspace.pro-studio #browse-services{font-size:11px;width:100%;text-align:left;background:transparent;border:0;color:#9ca8b9;padding:5px 7px}
+body.axiom-workspace.pro-studio #inline-services{padding:10px;overflow:auto;max-height:55%;margin:0;background:#1c2026;border-color:#39414d;font-size:11px}
+body.axiom-workspace.pro-studio .pro-sidebar-bottom{grid-column:2;grid-row:2;display:grid;gap:4px;margin:0;padding:8px 10px;border-top:1px solid #303640;min-width:0}
+body.axiom-workspace.pro-studio .pro-sidebar-bottom>button{display:flex;align-items:center;gap:7px;min-height:30px;font-size:10px;text-align:left;background:transparent;border:0;padding:5px 6px;color:#9da9ba;white-space:normal}
+body.axiom-workspace.pro-studio .pro-sidebar-bottom>button .nav-icon{width:16px;height:16px;flex-basis:16px}
+body.axiom-workspace.pro-studio .pro-sidebar-bottom .nav-label{display:block;font-size:10px}
+body.axiom-workspace.pro-studio .axiom-account-trigger{background:#272d36!important;border-color:#3c4450!important;border-radius:4px!important;padding:7px!important;gap:7px}
+body.axiom-workspace.pro-studio .account-avatar{background:#3c4d69;color:#d5e2fb;border-radius:4px;width:25px;height:25px}
+/* Presentation header, content tools and canvas. */
+body.axiom-workspace.pro-studio .app-layout>main{padding:0;min-width:0;min-height:0;background:#1b1e23;overflow:hidden;display:flex;flex-direction:column}
+body.axiom-workspace.pro-studio #service-view:not([hidden]){flex:1;min-height:0;display:flex;flex-direction:column;overflow:hidden}
+body.axiom-workspace.pro-studio .deck-toolbar{position:relative;min-height:64px;padding:16px 16px 12px!important;margin:0!important;border:0!important;border-bottom:1px solid #353b44!important;background:#23272e;border-radius:0;gap:10px!important;flex-wrap:nowrap}
+body.axiom-workspace.pro-studio .presentation-eyebrow{display:none}
+body.axiom-workspace.pro-studio .deck-selection{flex:1;min-width:0;gap:8px}
+body.axiom-workspace.pro-studio .deck-selection>label{flex:1;min-width:80px;max-width:340px;margin:0;display:flex}
+body.axiom-workspace.pro-studio #active-deck{width:100%;max-width:none;padding:0 22px 0 0;border:0;background-color:transparent;font-size:17px;font-weight:550;letter-spacing:-.25px;min-height:32px;color:#edf1f6}
+body.axiom-workspace.pro-studio #deck-inline-name{font-size:16px;background:#171c24;border-color:var(--desk-blue);max-width:280px}
+body.axiom-workspace.pro-studio #new-deck{min-height:28px;padding:5px 8px;background:transparent;border:0;color:#8899af;font-size:10px;white-space:nowrap}
+body.axiom-workspace.pro-studio .deck-team-actions{flex-shrink:0;gap:4px}
+body.axiom-workspace.pro-studio .deck-toolbar #shared-plans{border:0;background:transparent;padding:6px 8px!important;min-height:28px;color:#a5b0c1;font-size:11px}
+body.axiom-workspace.pro-studio .deck-options>summary{min-height:28px;padding:6px;color:#9daabc;font-size:11px;border:0;cursor:pointer}
+body.axiom-workspace.pro-studio .toolbar{min-height:43px;flex:0 0 auto;display:flex;align-items:center;gap:6px;margin:0;padding:6px 14px;background:#20242a;border:0;border-bottom:1px solid #343a43;border-radius:0;flex-wrap:wrap}
+body.axiom-workspace.pro-studio .toolbar button{min-height:28px;padding:5px 9px;background:transparent;border-color:transparent;font-size:11px;color:#aeb9c9}
+body.axiom-workspace.pro-studio .toolbar #new-page{background:#324b72;border:1px solid #486694;color:#e1ebfd;font-weight:500}
+body.axiom-workspace.pro-studio .toolbar #background-shortcut{margin-left:auto}
+body.axiom-workspace.pro-studio .studio-import-menu{position:relative;padding:0;margin:0;border:0;background:transparent}
+body.axiom-workspace.pro-studio .studio-import-menu>summary{cursor:pointer;list-style:none;padding:5px 9px;min-height:28px;color:#aeb9c9;font-size:11px;margin:0;display:flex;align-items:center}
+body.axiom-workspace.pro-studio .studio-import-menu>summary span{margin-left:8px;color:#8290a4}
+body.axiom-workspace.pro-studio :is(.studio-import-menu>div,.deck-options>div){position:absolute;top:calc(100% + 6px);z-index:30;min-width:190px;padding:5px;display:grid;gap:2px;background:#2b313b;border:1px solid #495364;box-shadow:0 8px 30px #0006;border-radius:5px}
+body.axiom-workspace.pro-studio .studio-import-menu>div{left:0}
+body.axiom-workspace.pro-studio .deck-options>div{right:0}
+body.axiom-workspace.pro-studio :is(.studio-import-menu>div,.deck-options>div) button{font-size:11px;text-align:left;border:0;min-height:30px;background:transparent;padding:6px 10px;color:#d2dbe8}
+body.axiom-workspace.pro-studio .planner{display:grid;grid-template-columns:140px minmax(0,1fr);gap:0;flex:1;min-height:0;overflow:hidden}
+body.axiom-workspace.pro-studio :is(.running-order,.page-browser){border:0;border-radius:0;box-shadow:none;min-height:0;overflow:hidden;align-self:stretch}
+body.axiom-workspace.pro-studio .running-order{background:#20242a;padding:0;display:flex;flex-direction:column;border-right:1px solid #343a43}
+body.axiom-workspace.pro-studio .running-order>.section-heading{min-height:43px;padding:0 12px;margin:0;align-items:center;border-bottom:1px solid #2e343d}
+body.axiom-workspace.pro-studio .section-heading h2{font-size:11px;letter-spacing:.1px;font-weight:500;color:#a9b5c6}
+body.axiom-workspace.pro-studio #playlist{padding:6px 0;overflow:auto;min-height:0;scrollbar-width:thin}
+body.axiom-workspace.pro-studio .playlist-entry{position:relative;border:0;border-left:2px solid transparent;border-radius:0;margin:0;padding:0;background:transparent;box-shadow:none}
+body.axiom-workspace.pro-studio .playlist-entry.selected{background:#2b3545;border-left-color:var(--desk-blue)}
+body.axiom-workspace.pro-studio .playlist-entry>button{display:flex;align-items:flex-start;gap:7px;width:100%;min-height:56px;padding:11px 7px;background:transparent;border:0;text-align:left;border-radius:0;color:#bac4d3}
+body.axiom-workspace.pro-studio .entry-index{font-size:9px;color:#7d8ba0;line-height:18px;flex-shrink:0;font-variant-numeric:tabular-nums}
+body.axiom-workspace.pro-studio .entry-copy{display:grid;gap:5px;min-width:0}
+body.axiom-workspace.pro-studio .entry-title{font-size:11px;line-height:1.45;overflow-wrap:anywhere;color:#d4deed}
+body.axiom-workspace.pro-studio .entry-copy small{font-size:9px;line-height:1;color:#8394ac;margin:0}
+body.axiom-workspace.pro-studio .entry-actions{display:flex;justify-content:flex-end;gap:0;padding:0 4px;height:0;overflow:hidden;opacity:0}
+body.axiom-workspace.pro-studio .playlist-entry:is(:hover,:focus-within) .entry-actions{height:24px;opacity:1}
+body.axiom-workspace.pro-studio .entry-actions button{font-size:12px;min-height:22px;padding:1px 7px;border:0;background:transparent;color:#a7b8d0}
+body.axiom-workspace.pro-studio .playlist-entry.entry-live:after{content:'';position:absolute;right:5px;top:7px;width:4px;height:4px;border-radius:50%;background:var(--desk-live)}
+body.axiom-workspace.pro-studio #playlist-empty{padding:14px 10px;line-height:1.6;font-size:11px}
+body.axiom-workspace.pro-studio .page-browser{display:flex;flex-direction:column;background:#1b1e23;padding:0}
+body.axiom-workspace.pro-studio .page-browser>.section-heading{min-height:43px;flex:0 0 auto;padding:0 14px;margin:0;border-bottom:1px solid #2e343d;gap:8px;align-items:center;flex-wrap:wrap}
+body.axiom-workspace.pro-studio #item-title{font-size:12px;font-weight:500;color:#c4d0e1;flex:1;min-width:50px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+body.axiom-workspace.pro-studio .page-browser>.section-heading .button-row{gap:2px;flex-shrink:0}
+body.axiom-workspace.pro-studio .page-browser>.section-heading button{font-size:10px;padding:4px 6px;min-height:24px;background:transparent;border:0;color:#8fa0b7}
+body.axiom-workspace.pro-studio .view-switch{display:flex;align-items:center;gap:5px;font-size:0;flex-shrink:0}
+body.axiom-workspace.pro-studio .view-switch select{font-size:10px;min-height:25px;height:25px;width:93px;padding:3px 5px;background:#252b34;border-color:#3a4351}
+body.axiom-workspace.pro-studio #slides{flex:1;min-height:0;overflow:auto;align-content:start;padding:18px 16px;scrollbar-gutter:stable;scrollbar-width:thin}
+body.axiom-workspace.pro-studio .slide-grid[data-layout=thumbnails]{grid-template-columns:repeat(auto-fill,minmax(0,var(--slide-column-width,160px)));grid-auto-rows:var(--slide-row-height,114px);gap:18px 14px;justify-content:start}
+body.axiom-workspace.pro-studio .slide-grid[data-layout=thumbnails] .slide-card{position:relative;display:grid;grid-template-rows:minmax(0,1fr) 24px;width:100%;height:100%;min-height:0;padding:0;border:2px solid transparent;border-radius:4px;background:#15181d;box-shadow:0 1px 3px #0005;overflow:hidden;text-align:left}
+body.axiom-workspace.pro-studio .slide-grid[data-layout=thumbnails] .slide-card>.stage{width:100%;height:100%;min-height:0;max-height:none;aspect-ratio:auto;border:0;border-radius:2px 2px 0 0;overflow:hidden;flex:none}
+body.axiom-workspace.pro-studio .slide-grid[data-layout=thumbnails] .slide-card>small{height:24px;padding:4px 7px;color:#b5c0d0;font-size:10px;line-height:16px;background:#272d36;text-overflow:ellipsis;white-space:nowrap;overflow:hidden}
+body.axiom-workspace.pro-studio .slide-grid[data-layout=thumbnails] .slide-card.selected{border-color:var(--desk-blue);box-shadow:0 0 0 1px #8aabff30}
+body.axiom-workspace.pro-studio .slide-grid[data-layout=thumbnails] .slide-card.selected>small{background:#35496a;color:#e8effd}
+body.axiom-workspace.pro-studio .slide-card.is-live{outline:2px solid var(--desk-live);outline-offset:2px}
+body.axiom-workspace.pro-studio .slide-card.is-live:after{content:'LIVE';position:absolute;right:5px;top:5px;padding:2px 4px;background:#152d23;color:#92e8ba;border:1px solid #517d65;border-radius:3px;font-size:8px;font-weight:650;letter-spacing:.7px;line-height:1.4;z-index:1}
+body.axiom-workspace.pro-studio .slide-grid[data-layout=thumbnails] .file-excerpt{display:none}
+body.axiom-workspace.pro-studio .slide-grid[data-layout=full] .slide-card{position:relative;border:2px solid transparent;background:#222831;padding:0;max-width:none;border-radius:4px;overflow:hidden}
+body.axiom-workspace.pro-studio .slide-grid[data-layout=full] .slide-card.selected{border-color:var(--desk-blue)}
+body.axiom-workspace.pro-studio .slide-grid[data-layout=full] .slide-card small{background:#272f3b;color:#c3d1e5;padding:8px}
+body.axiom-workspace.pro-studio .slide-grid[data-layout=list] .slide-card{position:relative;background:#242a33;border-color:#3b4554;color:#c8d5e8}
+body.axiom-workspace.pro-studio .slide-grid[data-layout=list] .slide-card.selected{border-color:var(--desk-blue);background:#2c3c55}
+body.axiom-workspace.pro-studio .page-actions{flex:0 0 auto;min-height:40px;margin:0;padding:6px 10px;gap:3px;align-items:center;flex-wrap:nowrap;border-top:1px solid #343a43;background:#20242a}
+body.axiom-workspace.pro-studio .page-actions button{flex:0 0 auto;width:auto;white-space:nowrap;min-height:26px;padding:4px 6px;background:transparent;border-color:transparent;font-size:10px;color:#99a9bf}
+body.axiom-workspace.pro-studio #add-slide{color:#b0c7ee}
+body.axiom-workspace.pro-studio #slide-up{margin-left:auto}
+/* Fixed preview/live desk; editing floats beside it instead of displacing it. */
+body.axiom-workspace.pro-studio .app-layout>.inspector{grid-column:3;grid-row:1;min-height:0;padding:0;background:#23272e;border-left:1px solid #3a414c;display:flex;flex-direction:column;gap:0;overflow:auto;scrollbar-width:thin}
+body.axiom-workspace.pro-studio :is(.preview-monitor,.output-monitor){position:static;flex:0 0 auto;min-height:0;margin:0;padding:13px 14px;display:flex;flex-direction:column;gap:7px;overflow:visible;border:0}
+body.axiom-workspace.pro-studio .preview-monitor>.section-heading,body.axiom-workspace.pro-studio .output-monitor>.live-header{height:22px;min-height:22px;flex:0 0 auto;padding:0;margin:0;display:flex;align-items:center;gap:8px;justify-content:space-between}
+body.axiom-workspace.pro-studio :is(.preview-monitor,.output-monitor) h2{font-size:11px;letter-spacing:.2px;color:#bdc9da;display:flex;align-items:center;gap:7px}
+body.axiom-workspace.pro-studio :is(.preview-monitor,.output-monitor)>.stage{position:relative;width:100%;height:auto;min-height:0;max-height:none;aspect-ratio:16/9;flex:0 0 auto;align-self:center;border:1px solid #424b59;border-radius:3px;margin:0;box-shadow:none}
+body.axiom-workspace.pro-studio .monitor-position{font-size:10px;font-variant-numeric:tabular-nums;color:#7f90a8}
+body.axiom-workspace.pro-studio .monitor-caption{font-size:10px;line-height:16px;color:#8f9eb3;margin:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+body.axiom-workspace.pro-studio #go-live{width:100%;min-height:33px;margin:1px 0 0;padding:7px 12px;background:#aac1f4;border:1px solid #aac1f4;color:#172239;font-size:12px;font-weight:600;border-radius:4px}
+body.axiom-workspace.pro-studio #go-live:not(:disabled):hover{background:#c2d4fb;border-color:#c2d4fb;color:#172239}
+body.axiom-workspace.pro-studio .output-monitor{border-top:1px solid #3a414c;flex:1;min-height:max-content}
+body.axiom-workspace.pro-studio #live-label{font-size:10px;line-height:16px;margin:0;max-width:none;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;order:2;color:#90a0b7}
+body.axiom-workspace.pro-studio .live-header #live-label{display:none}
+body.axiom-workspace.pro-studio .live-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:#6c7787;box-shadow:none}
+body.axiom-workspace.pro-studio[data-output-state=live] .live-dot{background:var(--desk-live)}
+body.axiom-workspace.pro-studio .output-state{padding:2px 5px;border-radius:3px;background:#343a44;color:#aab6c8;font-size:9px;letter-spacing:.4px;text-transform:uppercase;line-height:1.5}
+body.axiom-workspace.pro-studio[data-output-state=live] .output-state{background:#243f33;color:#91d9b2}
+body.axiom-workspace.pro-studio .output-monitor>.button-row{gap:6px;margin:1px 0 0;order:3}
+body.axiom-workspace.pro-studio .output-monitor>.button-row button{min-height:29px;font-size:11px;flex:1;padding:5px;background:#2b323c;border-color:#465264}
+body.axiom-workspace.pro-studio #blackout{margin:0;min-height:30px;padding:6px;width:100%;font-size:11px;font-weight:500;background:#1a1e24;border-color:#505966;color:#ccd4df;order:4}
+body.axiom-workspace.pro-studio #blackout:hover{background:#363038;border-color:#80606c}
+body.axiom-workspace.pro-studio .output-monitor>.playback-tools{order:5;min-height:24px;max-height:none;margin:0;padding:0;overflow:visible;border:0}
+body.axiom-workspace.pro-studio .playback-tools summary{font-size:10px;color:#90a0b7;padding:4px 0;cursor:pointer}
+body.axiom-workspace.pro-studio .playback-tools .button-row{gap:4px;margin:6px 0}
+body.axiom-workspace.pro-studio .playback-tools button{font-size:10px;min-height:26px;padding:4px 6px}
+body.axiom-workspace.pro-studio #editor{flex:0 0 auto;border:0;margin:0;padding:0;min-height:23px;max-height:none;overflow:visible;align-self:stretch}
+body.axiom-workspace.pro-studio .preview-monitor{position:relative;padding-bottom:44px}
+body.axiom-workspace.pro-studio .preview-monitor>#editor{position:absolute;left:14px;right:14px;bottom:12px}
+body.axiom-workspace.pro-studio #editor>summary{padding:3px 0;min-height:23px;font-size:10px;color:#9faec3;cursor:pointer;list-style:none;text-align:center}
+body.axiom-workspace.pro-studio #editor>summary:before{content:'✎';margin-right:6px;font-size:12px}
+body.axiom-workspace.pro-studio .editor-dismiss{display:none}
+body.axiom-workspace.pro-studio .preview-monitor>#editor[open]{position:fixed;top:70px;right:calc(var(--desk-width) + 12px);left:auto;bottom:auto;width:300px;max-height:calc(100dvh - 110px);z-index:40;padding:15px;overflow:auto;background:#292f39;border:1px solid #53627a;border-radius:7px;box-shadow:0 18px 70px #0008}
+body.axiom-workspace.pro-studio #editor[open]>summary{text-align:left;font-size:13px;color:#e0e7f2;margin-bottom:15px;min-height:24px;font-weight:550}
+body.axiom-workspace.pro-studio #editor[open] .editor-dismiss{display:block;position:absolute;right:10px;top:10px;min-height:27px;width:27px;padding:0;font-size:20px;border:0;background:transparent;color:#b7c5da}
+body.axiom-workspace.pro-studio #editor label{font-size:11px;margin:10px 0 0;gap:5px;color:#a8b6ca}
+body.axiom-workspace.pro-studio #editor :is(input,textarea,select){font-size:12px;background:#1e242d;border-color:#48556a;color:#e0e7f2}
+body.axiom-workspace.pro-studio #editor .button-row{margin-top:15px;gap:6px}
+body.axiom-workspace.pro-studio #save-page{background:#a6bff2;color:#182239;border-color:#a6bff2;font-weight:550}
+body.axiom-workspace.pro-studio [contenteditable="plaintext-only"]:focus{background:#293b57;box-shadow:0 0 0 2px #7ea6ed;color:#edf3ff}
+/* Shared controls stay readable when opened from the presentation desk. */
+body.axiom-workspace.pro-studio dialog{background:#252b34;color:var(--ink);border:1px solid #4a5566;box-shadow:0 20px 90px #0009;border-radius:8px}
+body.axiom-workspace.pro-studio dialog::backdrop{background:#080c1380;backdrop-filter:blur(3px)}
+body.axiom-workspace.pro-studio .asset-dialog :is(button,.file-button){background:#303846;border-color:#49576b;color:#d2dff2}
+body.axiom-workspace.pro-studio :is(.asset-dialog input,.asset-dialog select,.asset-dialog textarea){background:#1a212b;border-color:#49576b;color:#e1e8f2}
+body.axiom-workspace.pro-studio :is(.service-context,.team-chat,.pro-update-card,.library-card,.background-card){background:#252b34;border-color:#3e4959;color:var(--ink)}
+body.axiom-workspace.pro-studio :is(.library-destination,#library-add-content,#move-content-name){background:#262f3d!important;border-color:#465570!important;color:#c0d1ee}
+body.axiom-workspace.pro-studio .library-grid .library-card>.library-card-info{background:#252b34}
+body.axiom-workspace.pro-studio :is(.library-card-info h2,.background-card strong,.library-add-context,.library-add-elsewhere,.service-context p,.chat-message p){color:#b6c6dd!important}
+body.axiom-workspace.pro-studio :is(#library-view,#team-view,#sermon-view){padding:22px;min-height:0;overflow:auto}
+body.axiom-workspace.pro-studio .library-grid{gap:14px;align-content:start}
+body.axiom-workspace.pro-studio .library-grid[data-layout=thumbnails]{grid-template-columns:repeat(auto-fill,minmax(180px,1fr))}
+body.axiom-workspace.pro-studio #notice{background:#34455f;border:1px solid #637c9f;color:#e6eef9;box-shadow:0 8px 30px #0005;border-radius:5px;font-size:12px}
+body.axiom-workspace.pro-studio *{scrollbar-color:#4a5566 transparent}
+@media(min-width:900px){
+  body.axiom-workspace.pro-studio[data-pro-view] .app-layout,body.axiom-workspace.pro-studio.sidebar-collapsed[data-pro-view] .app-layout{display:grid;grid-template-columns:var(--workspace-sidebar) minmax(0,1fr) var(--desk-width);grid-template-rows:minmax(0,1fr)}
+  body.axiom-workspace.pro-studio:is([data-pro-view=library],[data-pro-view=team],[data-pro-view=sermon]) .app-layout,body.axiom-workspace.pro-studio.sidebar-collapsed:is([data-pro-view=library],[data-pro-view=team],[data-pro-view=sermon]) .app-layout{grid-template-columns:var(--workspace-sidebar) minmax(0,1fr)}
+  body.axiom-workspace.pro-studio:is([data-pro-view=library],[data-pro-view=team],[data-pro-view=sermon]) .inspector{display:none}
+  body.axiom-workspace.pro-studio.sidebar-collapsed{--workspace-sidebar:48px}
+  body.axiom-workspace.pro-studio.sidebar-collapsed .app-layout>.sidebar{display:grid!important;grid-template-columns:48px;grid-template-rows:minmax(0,1fr) auto;width:48px;padding:0;overflow:visible}
+  body.axiom-workspace.pro-studio.sidebar-collapsed .app-layout>.sidebar>.studio-rail{display:flex!important;grid-row:1/3}
+  body.axiom-workspace.pro-studio.sidebar-collapsed .app-layout>.sidebar>.service-navigator{display:none!important}
+  body.axiom-workspace.pro-studio.sidebar-collapsed .app-layout>.sidebar>.pro-sidebar-bottom{display:grid!important;grid-column:1;grid-row:2;padding:7px 6px;background:#191c21;z-index:1;border-top:0}
+  body.axiom-workspace.pro-studio.sidebar-collapsed .pro-sidebar-bottom>button{width:34px;min-width:0;min-height:32px;padding:6px!important;justify-content:center;font-size:0!important}
+  body.axiom-workspace.pro-studio.sidebar-collapsed .pro-sidebar-bottom .nav-label{display:none}
+  body.axiom-workspace.pro-studio.sidebar-collapsed .pro-sidebar-bottom #pro-account{display:block;width:34px}
+  body.axiom-workspace.pro-studio.sidebar-collapsed #pro-account .axiom-account-trigger{width:34px;min-height:34px;padding:4px!important;justify-content:center}
+  body.axiom-workspace.pro-studio.sidebar-collapsed #pro-account .account-identity{display:none}
 }
-@media(min-width:900px) and (max-width:1199px) {
-  body.axiom-workspace[data-pro-view] {--workspace-sidebar:180px;--pro-monitor-width:230px}
-  body.axiom-workspace.sidebar-collapsed[data-pro-view] {--workspace-sidebar:48px}
-  body.axiom-workspace[data-pro-view] .planner {grid-template-columns:110px minmax(0,1fr)}
+@media(min-width:900px) and (max-width:1199px){
+  body.axiom-workspace.pro-studio{--workspace-sidebar:224px;--desk-width:248px}
+  body.axiom-workspace.pro-studio.sidebar-collapsed{--workspace-sidebar:48px}
+  body.axiom-workspace.pro-studio .planner{grid-template-columns:112px minmax(0,1fr)}
+  body.axiom-workspace.pro-studio .deck-toolbar{padding:12px!important;min-height:57px;gap:5px!important;flex-wrap:wrap}
+  body.axiom-workspace.pro-studio #new-deck{font-size:0;min-width:24px;width:24px}
+  body.axiom-workspace.pro-studio #new-deck:after{content:'+';font-size:18px}
+  body.axiom-workspace.pro-studio #shared-plans{font-size:10px}
+  body.axiom-workspace.pro-studio .deck-selection{flex-basis:140px}
+  body.axiom-workspace.pro-studio #active-deck{font-size:15px}
+  body.axiom-workspace.pro-studio .page-browser>.section-heading{padding:6px 10px;gap:4px}
+  body.axiom-workspace.pro-studio .page-browser>.section-heading .button-row{flex-basis:100%;margin:0;justify-content:flex-end}
+  body.axiom-workspace.pro-studio #slides{padding:14px 10px}
+  body.axiom-workspace.pro-studio :is(.preview-monitor,.output-monitor){padding:10px 12px;gap:6px}
+  body.axiom-workspace.pro-studio .preview-monitor{padding-bottom:43px}
 }
-@media(max-width:899px) {
-  body.axiom-workspace[data-pro-view] {--workspace-header:60px}
-  body.axiom-workspace[data-pro-view] :is(main input,main select,main textarea,dialog input,dialog select,dialog textarea) {font-size:16px}
-  body.axiom-workspace[data-pro-view] .sidebar .nav-item {min-height:40px}
+@media(max-width:899px){
+  body.axiom-workspace.pro-studio{height:auto;min-height:100dvh;overflow:auto;--desk-width:280px}
+  body.axiom-workspace.pro-studio .app-header{position:sticky;top:0;z-index:35;padding:0 10px}
+  body.axiom-workspace.pro-studio .app-header>.page-heading{padding-left:0}
+  body.axiom-workspace.pro-studio .page-heading>div:before{display:none}
+  body.axiom-workspace.pro-studio .workspace-product{display:none}
+  body.axiom-workspace.pro-studio .app-layout{display:block;overflow:visible}
+  body.axiom-workspace.pro-studio .app-layout>.sidebar{display:flex;flex-direction:column;border:0;border-bottom:1px solid var(--line);overflow:visible}
+  body.axiom-workspace.pro-studio .studio-rail{display:flex;padding:5px 40px;border:0}
+  body.axiom-workspace.pro-studio .pro-primary-nav{flex-direction:row;justify-content:center;gap:10px}
+  body.axiom-workspace.pro-studio .sidebar .nav-item{width:45px;min-height:36px;height:36px;border-left:0;border-bottom:2px solid transparent}
+  body.axiom-workspace.pro-studio .sidebar .nav-item.active{border-bottom-color:var(--desk-blue)}
+  body.axiom-workspace.pro-studio .sidebar-toggle{top:8px;left:8px}
+  body.axiom-workspace.pro-studio .service-navigator{max-height:330px;overflow:auto}
+  body.axiom-workspace.pro-studio .workspace-picker{padding-bottom:8px}
+  body.axiom-workspace.pro-studio .service-tree{overflow:visible}
+  body.axiom-workspace.pro-studio .pro-sidebar-bottom{display:none}
+  body.axiom-workspace.pro-studio.sidebar-collapsed .app-layout>.sidebar{display:flex}
+  body.axiom-workspace.pro-studio.sidebar-collapsed .service-navigator{display:none}
+  body.axiom-workspace.pro-studio .app-layout>main{overflow:visible}
+  body.axiom-workspace.pro-studio .deck-toolbar{flex-wrap:wrap;padding:10px!important;min-height:50px}
+  body.axiom-workspace.pro-studio .deck-selection{flex-basis:100%}
+  body.axiom-workspace.pro-studio .deck-selection>label{max-width:none}
+  body.axiom-workspace.pro-studio .deck-team-actions{margin-left:auto}
+  body.axiom-workspace.pro-studio .planner{min-height:430px;grid-template-columns:110px minmax(0,1fr)}
+  body.axiom-workspace.pro-studio .page-browser>.section-heading{padding:8px;gap:6px}
+  body.axiom-workspace.pro-studio .page-browser>.section-heading>.button-row{flex-basis:100%;margin:0}
+  body.axiom-workspace.pro-studio #slides{max-height:55vh;padding:14px 10px}
+  body.axiom-workspace.pro-studio .app-layout>.inspector{display:grid;grid-template-columns:1fr 1fr;border:0;border-top:1px solid var(--line);overflow:visible}
+  body.axiom-workspace.pro-studio .output-monitor{border-top:0;border-left:1px solid var(--line)}
+  body.axiom-workspace.pro-studio .preview-monitor>#editor[open]{right:12px;top:65px;width:min(330px,calc(100vw - 24px));max-height:calc(100dvh - 100px)}
+  body.axiom-workspace.pro-studio :is(main input,main select,main textarea,dialog input,dialog textarea,dialog select,#editor input,#editor select,#editor textarea){font-size:16px}
+  body.axiom-workspace.pro-studio .studio-statusbar{position:sticky;bottom:0;z-index:10}
 }
+@media(prefers-reduced-motion:reduce){body.axiom-workspace.pro-studio *{transition:none!important;scroll-behavior:auto!important}}
