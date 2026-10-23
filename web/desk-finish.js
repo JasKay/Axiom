@@ -47,7 +47,7 @@ function loadFonts(){if(!project)return;const s=slide();el('edit-font-family').v
 window.addEventListener('axiom-project-change',()=>{loadFonts();if(dialog.open)refreshStage();});
 for(const id of [...fields,'edit-text','edit-footer','edit-bg','edit-fg','edit-size','edit-align','edit-fit'])el(id).addEventListener('input',()=>{renderSlide(el('preview'),editorValue());refreshStage();});
 editor.addEventListener('toggle',()=>{if(editor.open){loadFonts();if(!dialog.open)dialog.showModal();refreshStage();}else if(dialog.open){dialog.close();drawEditor();}});
-dialog.addEventListener('cancel',()=>{editor.open=false;});dialog.addEventListener('close',()=>{editor.open=false;drawEditor();});
+dialog.addEventListener('cancel',()=>{editor.open=false;});dialog.addEventListener('close',()=>{if(!editor.open)drawEditor();});
 el('close-slide-editor').addEventListener('click',()=>{editor.open=false;});el('save-page').addEventListener('click',()=>{editor.open=false;});
 el('new-page').addEventListener('click',()=>{editor.open=true;});
 loadFonts();
