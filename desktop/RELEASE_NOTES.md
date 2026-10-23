@@ -1,4 +1,4 @@
-Axiom Pro 0.4.26 brings the refined operator desk to the installed desktop app.
+Axiom Pro 0.4.27 brings the refined operator desk to the installed desktop app.
 
 - Neutral light/dark appearance with a visible theme switch and consistent DM Sans typography.
 - Preview, Program, Service Timer and Playlists in a naturally scrolling right pane.
