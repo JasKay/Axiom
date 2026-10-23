@@ -13,8 +13,8 @@
     for(const archived of [false,true]){
       const services=project.services.filter(s=>!!s.archived===archived);
       if(!services.length)continue;
-      const group=archived?document.createElement('details'):host;
-      if(archived){group.className='archived-services';const label=document.createElement('summary');label.textContent='Archived';group.append(label);group.open=!!current.archived;}
+      const group=document.createElement('details');group.className='service-category '+(archived?'archived-services':'current-services');const groupLabel=document.createElement('summary');groupLabel.textContent=(archived?'Archive':'Current')+' ('+services.length+')';group.append(groupLabel);group.open=archived?!!current.archived:true;
+
       for(const s of services){
         const folder=document.createElement('details');folder.className='studio-service'+(s.id===current.id?' current':'');folder.dataset.serviceId=s.id;
         folder.open=s.id===current.id&&changed?true:(opened.get(s.id)??s.id===current.id);
@@ -32,7 +32,7 @@
         const add=document.createElement('button');add.type='button';add.className='tree-add-presentation';add.textContent='+ Presentation';add.setAttribute('aria-label','New presentation in '+s.name);add.onclick=()=>createQuickDeck(s);decks.append(add);
         folder.append(decks);group.append(folder);
       }
-      if(archived)host.append(group);
+      host.append(group);
     }
   }
   function sync(){

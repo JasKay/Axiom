@@ -37,7 +37,7 @@ test('service tree navigation and live indicators stay separate from the prepara
     el('quick-new-service').click();assert.equal(d.querySelectorAll('.studio-service').length,2);
     assert.ok(d.querySelector('.studio-service.current[open]'));
     el('editor').open=true;el('close-slide-editor').click();assert.equal(el('editor').open,false);
-    const menu=d.querySelector('.studio-import-menu');menu.open=true;d.body.click();assert.equal(menu.open,false);
+    assert.equal(d.querySelector('.studio-import-menu'),null);assert.equal(el('presentation-layout').closest('.deck-toolbar')!==null,true);assert.equal(d.querySelector('.deck-toolbar .deck-options'),null);
     assert.deepEqual(errors,[]);
   }finally{dom.window.close();}
 });
