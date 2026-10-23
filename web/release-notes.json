@@ -1,8 +1,8 @@
 {
-  "version": "0.4.21",
+  "version": "0.4.22",
   "highlights": [
-    "A redesigned charcoal presentation desk with a service tree and compact navigation",
-    "Clear preview and live states, with editing that keeps output controls fixed",
-    "Smaller desktop downloads with offline imports and presentation tools retained"
+    "Resizable black or white presentation workspace with Preview and Public monitors",
+    "Services and shared messages on the left; saved playlists and countdown on the right",
+    "Bible overlay, compact content library and desktop-compatible naming dialogs"
   ]
 }

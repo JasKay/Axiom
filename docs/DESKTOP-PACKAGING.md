@@ -33,3 +33,13 @@ Both platform jobs passed. Windows ran 69 tests with no failures; Mac ran 68 wit
 For another size comparison, push a branch under `desktop-size/` or dispatch the **Desktop size and feature verification** workflow. `scripts/measure-desktop.cjs` records exact before/after bytes in a JSON artifact and the workflow summary. Smaller installers are uploaded after native verification; this workflow does not publish a release.
 
 New desktop HTML entry points must be added to `desktopPages`. If generative text preparation is added to Pro later, include the worker and its required runtimes explicitly rather than copying every web runtime into the installer.
+
+## Operator desk v0.4.22
+
+The operator layout retains the same desktop asset filter and introduces no additional runtime dependencies. Packaged-source verification now also hashes `pro-desk.js` and `pro-desk.css`.
+
+Native validation: https://github.com/JasKay/Axiom/actions/runs/39883065517
+
+Release verification and installers: https://github.com/JasKay/Axiom/actions/runs/39883380365 and https://github.com/JasKay/Axiom/releases/tag/v0.4.22
+
+The native checks cover resizable panes, both themes, fixed Preview/Public during editing, reusable playlists, service and presentation actions, long-list canvas and dock scrolling, PDF/PowerPoint imports, image/video output, private Bible detection, persisted workspaces, recovery, shared messages/files and installed Windows upgrade/restart.
