@@ -1,6 +1,12 @@
 /* KJV lookup is online; user-imported translations stay local. Never substitute editions. */
 window.AxiomBibles={
+ normalizeQuery(query){
+  const aliases={gen:'Genesis',ex:'Exodus',ps:'Psalm',psa:'Psalm',prov:'Proverbs',isa:'Isaiah',mt:'Matthew',matt:'Matthew',mk:'Mark',lk:'Luke',jn:'John',jhn:'John',rom:'Romans',cor:'Corinthians',phil:'Philippians',rev:'Revelation'};
+  return query.trim().replace(/^(?:(\d)\s*)?([a-z]+)\.?\s*(?=\d)/i,(all,n,book)=>(n?n+' ':'')+(aliases[book.toLowerCase()]||book)+' ');
+ },
  async search(version,query){
+  query=this.normalizeQuery(query);
+  if(version==='KJV'&&!/\d/.test(query)&&window.SermonEngine){const match=window.SermonEngine.match(query)[0];if(match)query=match.reference;}
   if(query.length>160)throw Error('Use a short reference or search.');
   if(version==='KJV'){
    if(!/\d/.test(query))throw Error('For online KJV, enter a passage such as John 3:16. Import KJV JSON for offline keyword search.');

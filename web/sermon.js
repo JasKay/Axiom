@@ -12,6 +12,7 @@
    const card=document.createElement('article');card.className='sermon-card';
    const tag=document.createElement('span');tag.className='eyebrow';tag.textContent=candidate.reason;
    const title=document.createElement('h2');title.textContent=candidate.reference;
+   window.dispatchEvent(new CustomEvent('axiom-verse-detected',{detail:{reference:candidate.reference}}));
    const quote=document.createElement('p');quote.className='sermon-trigger';quote.textContent='Heard: “'+text.slice(-250)+'”';
    const passage=document.createElement('p');passage.className='sermon-passage';passage.hidden=true;
    const actions=document.createElement('div');actions.className='button-row';
@@ -47,7 +48,7 @@
  el('sermon-example').onclick=()=>{el('sermon-input').value='God has not given us a spirit of fear, but power, love and a sound mind.';el('sermon-find').click();};
  el('sermon-clear').onclick=()=>{stop('Session cleared.');heard='';seen.clear();cache.clear();results.replaceChildren();transcript.textContent='Your live words will appear here.';el('sermon-input').value='';el('sermon-empty').textContent='Verse suggestions will appear here. You choose what goes live.';el('sermon-empty').hidden=false;};
  window.addEventListener('pagehide',()=>stop());
- window.addEventListener('axiom-view-change',event=>{if(active&&event.detail!=='sermon')stop('Listening stopped. Start again when ready.');});
+ // Listening continues while the operator browses the presentation and Bible.
  document.addEventListener('visibilitychange',()=>{if(document.hidden&&active)stop('Listening paused while Axiom is in the background.');});
  if(!Speech){start.disabled=true;say('Type a phrase below. Live listening is unavailable in this browser.');}
 })();

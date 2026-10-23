@@ -20,15 +20,17 @@ test('review is required before projection, session clear stops audio, and error
   w.structuredClone=structuredClone;w.indexedDB=indexedDB;w.IDBKeyRange=IDBKeyRange;w.BroadcastChannel=class{postMessage(d){messages.push(d)}};
   w.SpeechRecognition=class{constructor(){rec=this}start(){this.onstart?.()}abort(){aborts++;this.onend?.()}};
   w.HTMLMediaElement.prototype.pause=function(){};w.HTMLMediaElement.prototype.play=()=>Promise.resolve();
+  w.HTMLDialogElement.prototype.showModal=function(){this.open=true;};w.HTMLDialogElement.prototype.close=function(){this.open=false;};
+  w.HTMLElement.prototype.scrollIntoView=function(){};
  }});
  try{await new Promise(r=>dom.window.addEventListener('load',()=>setTimeout(r,100)));const w=dom.window,d=w.document,$=id=>d.getElementById(id);
  w.AxiomBibles.search=async()=>({canPresent:true,verses:[{book:'2 Timothy',chapter:1,verse:7,text:'Verified passage fixture.'}]});
- d.querySelector('[data-view=sermon]').click();assert.equal($('sermon-view').hidden,false);assert.equal($('view-title').textContent,'AxiomAI');
+ d.querySelector('.desk-tabs .quiet').click();assert.equal($('sermon-view').hidden,false);assert.equal($('sermon-view').closest('dialog').open,true);
  const initial=messages.length;$('sermon-example').click();assert.equal(d.querySelectorAll('.sermon-card').length,1);assert.equal(messages.length,initial);
  const review=d.querySelector('.sermon-card .primary');review.click();await new Promise(r=>setTimeout(r,10));assert.equal(review.textContent,'Go Live →');assert.equal(messages.length,initial);
  review.click();assert.equal(messages.at(-1).state.slide.text,'Verified passage fixture.');assert.equal($('sermon-view').hidden,false);
  $('sermon-start').click();assert.equal($('sermon-start').getAttribute('aria-pressed'),'true');
  rec.onerror({error:'not-allowed'});assert.equal($('sermon-start').getAttribute('aria-pressed'),'false');assert.match($('sermon-status').textContent,/denied/);assert.equal(aborts,1);
- $('sermon-start').click();const speech=[{transcript:'Romans chapter eight verse twenty eight'}];speech.isFinal=true;rec.onresult({resultIndex:0,results:[speech]});assert.match($('sermon-transcript').textContent,/Romans/);assert.equal(d.querySelectorAll('.sermon-card').length,2);d.querySelector('[data-view=library]').click();assert.equal($('sermon-start').getAttribute('aria-pressed'),'false');assert.equal(aborts,2);d.querySelector('[data-view=sermon]').click();$('sermon-start').click();$('sermon-clear').click();assert.equal(aborts,3);assert.equal(d.querySelectorAll('.sermon-card').length,0);assert.equal($('sermon-transcript').textContent,'Your live words will appear here.');assert.deepEqual(errors,[]);
+ $('sermon-start').click();const speech=[{transcript:'Romans chapter eight verse twenty eight'}];speech.isFinal=true;rec.onresult({resultIndex:0,results:[speech]});assert.match($('sermon-transcript').textContent,/Romans/);assert.equal(d.querySelectorAll('.sermon-card').length,2);d.querySelector('[data-view=library]').click();assert.equal($('sermon-start').getAttribute('aria-pressed'),'true');assert.equal(aborts,1);assert.equal($('bible-dialog').open,true);$('sermon-clear').click();assert.equal(aborts,2);assert.equal(d.querySelectorAll('.sermon-card').length,0);assert.equal($('sermon-transcript').textContent,'Your live words will appear here.');assert.deepEqual(errors,[]);
  }finally{dom.window.close();}
 });
