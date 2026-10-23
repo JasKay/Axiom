@@ -1,3 +1,13 @@
+Axiom Pro 0.4.26 brings the refined operator desk to the installed desktop app.
+
+- Neutral light/dark appearance with a visible theme switch and consistent DM Sans typography.
+- Preview, Program, Service Timer and Playlists in a naturally scrolling right pane.
+- Inline section-header editing, a private typography editor, and new slide appearance presets.
+- Program controls to clear text, video, images, audio or all layers independently.
+- AxiomAI toggles listening directly from the header; detected references open in Bible for review. Speech availability depends on the device/provider.
+- Desktop image/video imports are copied into managed local storage without the 100 MB browser cap. Cloud sharing limits remain unchanged.
+- Standalone/Church workspace options; no paid bundle or unlimited cloud entitlement is enabled by this release.
+
 Axiom Pro 0.4.25 brings the approved design refinements to web and desktop.
 
 - Compact Current/Archive folders, presentation hierarchy and right-click service actions.

@@ -1,0 +1,16 @@
+'use strict';
+const {test}=require('node:test'),assert=require('node:assert/strict'),path=require('node:path');
+const {JSDOM,VirtualConsole}=require('jsdom'),{IDBFactory,IDBKeyRange}=require('fake-indexeddb');
+test('desktop typography is persistent and private; clearing output layers preserves authored slides',async()=>{
+ const errors=[],vc=new VirtualConsole();vc.on('jsdomError',e=>errors.push(e.message));
+ const dom=await JSDOM.fromFile(path.resolve(__dirname,'../web/studio.html'),{runScripts:'dangerously',resources:'usable',pretendToBeVisual:true,virtualConsole:vc,beforeParse(w){w.structuredClone=structuredClone;w.indexedDB=new IDBFactory();w.IDBKeyRange=IDBKeyRange;w.BroadcastChannel=class{postMessage(){}};w.HTMLMediaElement.prototype.pause=function(){};w.HTMLMediaElement.prototype.play=async()=>{};w.HTMLDialogElement.prototype.showModal=function(){this.open=true};w.HTMLDialogElement.prototype.close=function(){this.open=false;this.dispatchEvent(new w.Event('close'));};w.confirm=()=>true;}});
+ try{const w=dom.window,d=w.document;for(let i=0;i<300&&!d.getElementById('desk-type-dialog');i++)await new Promise(r=>setTimeout(r,20));assert.ok(d.getElementById('desk-type-dialog'));
+ assert.deepEqual([...d.querySelector('.inspector').children].filter(n=>n.matches('section')).map(n=>n.className),['preview-monitor','output-monitor','desk-countdown','desk-playlists']);
+ const fire=id=>d.getElementById(id).dispatchEvent(new w.Event('input',{bubbles:true}));
+ d.getElementById('go-live').click();const original=w.eval('live.slide.text');d.getElementById('editor').open=true;await new Promise(r=>setTimeout(r,10));assert.equal(d.getElementById('desk-type-dialog').open,true);
+ d.getElementById('edit-text').value='Private draft';fire('edit-text');d.getElementById('edit-font-family').value='Georgia';fire('edit-font-family');d.getElementById('edit-font-weight').value='600';fire('edit-font-weight');d.getElementById('edit-line-height').value='1.8';fire('edit-line-height');
+ assert.equal(w.eval('live.slide.text'),original);assert.match(d.getElementById('preview').textContent,/Private draft/);d.getElementById('save-page').click();await new Promise(r=>setTimeout(r,10));assert.equal(w.eval('slide().fontFamily'),'Georgia');assert.equal(w.eval('slide().fontWeight'),600);assert.equal(w.eval('slide().lineHeight'),1.8);assert.equal(w.eval('live.slide.text'),original);assert.equal(d.getElementById('desk-type-dialog').open,false);assert.ok(w.eval('State.validate(structuredClone(project))'));
+ d.getElementById('go-live').click();assert.equal(w.eval('live.slide.text'),'Private draft');d.querySelector('[aria-label="Clear text"]').click();assert.equal(d.getElementById('live-preview').textContent,'');assert.equal(w.eval('slide().text'),'Private draft');d.getElementById('go-live').click();assert.match(d.getElementById('live-preview').textContent,/Private draft/);
+ d.getElementById('editor').open=true;await new Promise(r=>setTimeout(r,10));d.getElementById('edit-text').value='Discard this';fire('edit-text');d.querySelector('.desk-type-footer button').click();await new Promise(r=>setTimeout(r,10));assert.equal(d.getElementById('edit-text').value,'Private draft');assert.equal(w.eval('live.slide.text'),'Private draft');assert.deepEqual(errors,[]);
+ }finally{dom.window.close();}
+});

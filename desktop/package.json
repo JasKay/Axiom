@@ -1,6 +1,6 @@
 {
   "name": "axiom",
-  "version": "0.4.25",
+  "version": "0.4.26",
   "private": true,
   "description": "Axiom — a focused presentation studio for your whole service",
   "main": "main.js",
@@ -33,6 +33,7 @@
       "package.json",
       "updates.cjs",
       "workspace.cjs",
+      "media-store.cjs",
       "native-updater.cjs",
       "cloud-proxy.cjs"
     ],

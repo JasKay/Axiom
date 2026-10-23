@@ -1,0 +1,5 @@
+@font-face{font-family:'DM Sans';src:url('fonts/dm-sans-variable.ttf') format('truetype');font-weight:100 900;font-display:swap}
+.stage[data-design]{isolation:isolate}.stage[data-design] .slide-text{position:relative;z-index:1}
+.stage[data-design=editorial]::before,.stage[data-design=forest]::before,.stage[data-design=ink]::before{content:'';position:absolute;pointer-events:none;width:95%;height:190%;right:-49%;top:-48%;border:1px solid #87917b66;border-radius:50%;transform:rotate(-20deg);box-shadow:0 0 0 18px #87917b0b,0 0 0 36px #87917b0b;z-index:0}
+.stage[data-design=forest]::before{right:-20%;top:35%;border-color:#c7d7ac22;transform:rotate(-26deg);box-shadow:0 0 0 18px #c7d7ac08,0 0 0 36px #c7d7ac06}
+.stage[data-design=ink]::before{right:45%;top:-50%;border-color:#8496a533;transform:rotate(25deg);box-shadow:0 0 0 18px #93a0b909,0 0 0 36px #93a0b907}
