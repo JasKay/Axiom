@@ -6,6 +6,7 @@
  const button=(text,action,cls='')=>{const b=make('button',cls,text);b.type='button';b.onclick=action;return b;};
  const sidebar=document.querySelector('.sidebar'),main=document.querySelector('.app-layout>main'),inspector=document.querySelector('.inspector');
  document.body.classList.add('operator-desk');
+ const editorSlot=make('div','desk-editor-slot');el('editor').before(editorSlot);editorSlot.append(el('editor'));
  const nav=make('nav','desk-tabs');nav.setAttribute('aria-label','Workspace');nav.append(button('Presentation',()=>setView('service')),button('AxiomAI Beta',()=>{if(!el('sermon-start').disabled)el('sermon-start').click();else aiDialog.showModal();},'desk-ai'));document.querySelector('.workspace-product').after(nav);
  const aiOptions=button('AI options',()=>aiDialog.showModal(),'quiet');nav.append(aiOptions);
  const settings=make('dialog','asset-dialog desk-settings');settings.id='desk-settings';settings.innerHTML='<div class="asset-dialog-header"><h2>Settings</h2></div><label>Appearance<select id="desk-theme"><option value="dark">Black · white text</option><option value="light">White · black text</option></select></label><h3>Church & profile</h3><div id="desk-account"></div><h3>App updates</h3><div id="desk-updates"></div><h3>Workspace</h3><button type="button" id="desk-reset">Reset pane sizes</button>';

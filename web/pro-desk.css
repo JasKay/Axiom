@@ -1,4 +1,6 @@
 /* Neutral operator chrome; presentation slide colours remain content-owned. */
+body.axiom-workspace.pro-studio.operator-desk .desk-editor-slot{height:45px;min-height:45px;flex-shrink:0}
+body.axiom-workspace.pro-studio.operator-desk .desk-editor-slot #editor[open]{position:fixed!important;top:85px;right:calc(var(--desk-right,14vw) + 12px);width:330px;max-height:calc(100dvh - 110px);overflow:auto;z-index:70;background:var(--surface)!important;border:1px solid var(--line);padding:16px!important;box-shadow:0 8px 35px #0006}
 body.axiom-workspace.pro-studio.operator-desk #library-view{flex-basis:var(--desk-library-height,160px)!important}
 body.axiom-workspace.pro-studio.operator-desk{--paper:#101010;--surface:#171717;--workspace-surface:#171717;--workspace-sidebar-surface:#171717;--ink:#f3f3f3;--muted:#999;--line:#333;--soft:#252525;--accent:#eee;--green:#eee;--desk-blue:#ddd;--desk-live:#eee;--workspace-header:38px;font-size:12px}
 body.axiom-workspace.pro-studio.operator-desk[data-desk-theme=light]{color-scheme:light;--paper:#fff;--surface:#fafafa;--workspace-surface:#fafafa;--workspace-sidebar-surface:#fafafa;--ink:#111;--muted:#666;--line:#ddd;--soft:#e9e9e9;--accent:#111;--green:#111;--desk-blue:#333;--desk-live:#111}
