@@ -34,7 +34,7 @@ jobs:
         run: node scripts/measure-desktop.cjs
       - run: node desktop/verify-package.cjs
       - run: node desktop/smoke.cjs
-      - run: node desktop/scrolling.cjs
+      - run: node desktop/desk-scrolling.cjs
       - run: node desktop/features.cjs
       - run: node desktop/team.cjs
       - name: Verify installed Windows update

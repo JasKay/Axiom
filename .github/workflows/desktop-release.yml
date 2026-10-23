@@ -45,7 +45,7 @@ jobs:
       - name: Test the native packaged application
         run: node desktop/smoke.cjs
       - name: Test wheel scrolling and scrollbar dragging
-        run: node desktop/scrolling.cjs
+        run: node desktop/desk-scrolling.cjs
       - name: Test native imports, media previews, output and persistence
         run: node desktop/features.cjs
       - name: Verify native church messages, shared files and scriptures

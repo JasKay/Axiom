@@ -1,3 +1,15 @@
+Axiom Pro 0.4.22 brings the approved operator workspace to desktop.
+
+- Resizable panes with a 70% centre default, saved layout, and black or white themes.
+- Services and shared messages on the left; Preview, Public, countdown and saved playlists on the right.
+- Grouped presentation canvas, content library dock and matching Add content menus.
+- Settings gear for church connection, profile and app updates.
+- Reusable playlists, service heading shortcuts and compact file names.
+- Bible overlay with short reference aliases; sermon matches open for private review while listening continues.
+- Retains smaller packages, offline services, imports and explicit Go Live.
+
+Browser speech support varies; the beta uses the existing reference and starter-phrase matcher. Installers remain unsigned.
+
 Axiom Pro 0.4.21 introduces the redesigned presentation desk and smaller desktop packages.
 
 - A charcoal workspace with a service tree, compact navigation rail, and larger slide canvas.
