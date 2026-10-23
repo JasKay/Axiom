@@ -1,4 +1,7 @@
 /* Neutral operator chrome; presentation slide colours remain content-owned. */
+/* Pane proportions apply at every desktop width, including old saved-collapse states. */
+body.axiom-workspace.pro-studio.operator-desk .app-layout{grid-template-columns:minmax(0,var(--desk-left,16%)) minmax(0,1fr) minmax(0,var(--desk-right,14%))!important;grid-template-rows:minmax(0,1fr);overflow:hidden!important}
+body.axiom-workspace.pro-studio.operator-desk .app-layout>.sidebar{grid-column:1;grid-row:1}
 body.axiom-workspace.pro-studio.operator-desk .desk-editor-slot{height:45px;min-height:45px;flex-shrink:0}
 body.axiom-workspace.pro-studio.operator-desk .desk-editor-slot #editor[open]{position:fixed!important;top:85px;right:calc(var(--desk-right,14vw) + 12px);width:330px;max-height:calc(100dvh - 110px);overflow:auto;z-index:70;background:var(--surface)!important;border:1px solid var(--line);padding:16px!important;box-shadow:0 8px 35px #0006}
 body.axiom-workspace.pro-studio.operator-desk #library-view{flex-basis:var(--desk-library-height,160px)!important}

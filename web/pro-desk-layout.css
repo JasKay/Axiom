@@ -1,0 +1,46 @@
+/* Proportional desktop frame. Content scrolls inside panes, never around them. */
+body.axiom-workspace.pro-studio.operator-desk{height:100dvh;overflow:hidden;font-size:11px;line-height:1.4}
+body.axiom-workspace.pro-studio.operator-desk .app-layout{grid-template-columns:minmax(0,var(--desk-left,16%)) minmax(0,1fr) minmax(0,var(--desk-right,14%))!important;grid-template-rows:minmax(0,1fr);overflow:hidden!important}
+body.axiom-workspace.pro-studio.operator-desk .app-layout>:is(.sidebar,main,.inspector){min-width:0;min-height:0;max-height:none!important}
+body.axiom-workspace.pro-studio.operator-desk .app-layout>.sidebar{grid-column:1;grid-row:1;display:flex!important}
+body.axiom-workspace.pro-studio.operator-desk .service-navigator{min-height:0;max-height:none!important}
+body.axiom-workspace.pro-studio.operator-desk #team-view{min-height:0;flex-basis:50%;height:50%}
+body.axiom-workspace.pro-studio.operator-desk .desk-message-tabs{min-width:0;overflow:auto;flex-shrink:0;gap:2px;scrollbar-width:thin}
+body.axiom-workspace.pro-studio.operator-desk .desk-message-tabs button{white-space:nowrap;flex-shrink:0}
+body.axiom-workspace.pro-studio.operator-desk .inspector .button-row{flex-wrap:wrap;gap:4px}
+/* A bounded, wrapping library keeps wheel/trackpad and scrollbar navigation useful. */
+body.axiom-workspace.pro-studio.operator-desk #library-view{display:flex!important;flex-direction:column;min-height:0!important;max-height:35%;flex:0 0 var(--desk-library-height,18%)!important;height:var(--desk-library-height,18%)!important;overflow:hidden!important}
+body.axiom-workspace.pro-studio.operator-desk .desk-library-heading{height:34px;min-height:34px;flex-shrink:0;padding:4px 10px;gap:8px}
+body.axiom-workspace.pro-studio.operator-desk #library-view .search-line{position:absolute;right:8px;top:4px;max-width:46%;margin:0;gap:4px;padding:0}
+body.axiom-workspace.pro-studio.operator-desk #library-view .search-line input{width:120px;min-width:0}
+body.axiom-workspace.pro-studio.operator-desk #library-view .search-line select{min-width:0;max-width:100px}
+body.axiom-workspace.pro-studio.operator-desk #library-grid{display:grid!important;grid-template-columns:repeat(auto-fill,minmax(min(135px,100%),1fr));grid-auto-rows:118px;align-items:start;align-content:start;gap:8px;height:auto!important;flex:1 1 0;min-height:0;max-height:none;overflow-x:hidden;overflow-y:scroll;scrollbar-gutter:stable;scrollbar-width:thin;overscroll-behavior:contain;padding:6px 10px 12px}
+body.axiom-workspace.pro-studio.operator-desk #library-grid .library-card{width:auto;min-width:0;max-width:none;height:118px!important;overflow:hidden!important}
+body.axiom-workspace.pro-studio.operator-desk #library-grid .library-card>.stage{height:70px!important;min-height:0}
+body.axiom-workspace.pro-studio.operator-desk #library-grid .library-card-info{padding:3px!important}
+body.axiom-workspace.pro-studio.operator-desk #library-grid .library-card-info>.button-row{gap:2px!important;margin-top:3px}
+/* Compact, consistent chrome; stage typography belongs to the presentation. */
+body.axiom-workspace.pro-studio.operator-desk .stage{container-type:inline-size}
+body.axiom-workspace.pro-studio.operator-desk .stage .slide-text{font-size:var(--desk-fit-font,clamp(8px,calc(var(--desk-stage-font,44) * 100cqw / 600),22px))!important;padding:6% 7%;max-width:100%;overflow-wrap:break-word}
+body.axiom-workspace.pro-studio.operator-desk .stage .slide-footer{font-size:.4em!important}
+body.axiom-workspace.pro-studio.operator-desk :is(button,summary,.file-button){font-size:10px!important;min-height:24px!important;padding:3px 6px!important;line-height:1.4}
+body.axiom-workspace.pro-studio.operator-desk :is(input,select,textarea){font-size:11px!important;line-height:1.4}
+body.axiom-workspace.pro-studio.operator-desk .desk-gear{font-size:18px!important}
+body.axiom-workspace.pro-studio.operator-desk #active-deck{font-size:14px!important;font-weight:500}
+body.axiom-workspace.pro-studio.operator-desk .studio-deck{font-size:10px!important;min-height:25px!important}
+body.axiom-workspace.pro-studio.operator-desk .studio-service>summary{font-size:10px!important;min-height:26px!important;height:26px!important}
+body.axiom-workspace.pro-studio.operator-desk .navigator-heading h2,body.axiom-workspace.pro-studio.operator-desk .inspector h2,body.axiom-workspace.pro-studio.operator-desk .desk-library-heading h2{font-size:11px;font-weight:550}
+body.axiom-workspace.pro-studio.operator-desk .desk-group-heading>button{font-size:10px!important}
+body.axiom-workspace.pro-studio.operator-desk .desk-countdown strong{font-size:22px;letter-spacing:.5px}
+body.axiom-workspace.pro-studio.operator-desk #library-grid .library-card button{font-size:8px!important;min-height:21px!important;padding:2px 4px!important}
+body.axiom-workspace.pro-studio.operator-desk #library-grid .library-card h2{font-size:9px!important}
+@media(max-width:1200px){
+ body.axiom-workspace.pro-studio.operator-desk #slides:not([data-layout=full]):not([data-layout=list]),body.axiom-workspace.pro-studio.operator-desk .desk-group-slides{grid-template-columns:repeat(4,minmax(0,1fr))}
+}
+@media(max-width:1000px){
+ body.axiom-workspace.pro-studio.operator-desk #slides:not([data-layout=full]):not([data-layout=list]),body.axiom-workspace.pro-studio.operator-desk .desk-group-slides{grid-template-columns:repeat(3,minmax(0,1fr))}
+ body.axiom-workspace.pro-studio.operator-desk .desk-library-heading h2{font-size:10px}
+ body.axiom-workspace.pro-studio.operator-desk #library-view .search-line input{width:100px}
+ body.axiom-workspace.pro-studio.operator-desk .inspector :is(.preview-monitor,.output-monitor,.desk-countdown){padding-left:7px!important;padding-right:7px!important}
+ body.axiom-workspace.pro-studio.operator-desk .inspector .button-row>button{flex:1;min-width:0;font-size:9px!important;padding:3px!important}
+}

@@ -1,3 +1,11 @@
+Axiom Pro 0.4.23 fixes pane proportions and compacts the operator interface.
+
+- Removes the old sidebar navigation and collapse control. An old saved collapse preference can no longer hide Services.
+- Keeps 16% / 70% / 14% default pane widths at every desktop window size; deliberate resize choices remain proportional.
+- The Content Library wraps into a bounded, vertically scrolling dock with wheel/trackpad support. Its height resizes proportionally too.
+- Smaller consistent labels, service rows and controls; slide thumbnails and monitors scale text with their own width.
+- Preserves saved services, playlists, messages, imports and explicit Go Live.
+
 Axiom Pro 0.4.22 brings the approved operator workspace to desktop.
 
 - Resizable panes with a 70% centre default, saved layout, and black or white themes.
