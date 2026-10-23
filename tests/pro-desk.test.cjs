@@ -12,6 +12,6 @@ test('operator desk saves reusable playlists, inserts service content, and revie
  d.getElementById('go-live').click();const publicText=d.getElementById('live-preview').textContent;let searched='';w.AxiomBibles.search=async(version,q)=>{searched=q;return {translation:'KJV',canPresent:true,verses:[{book:'John',chapter:3,verse:16,text:'For God so loved the world'}]}};
  w.dispatchEvent(new w.CustomEvent('axiom-verse-detected',{detail:{reference:'John 3:16'}}));await new Promise(r=>setTimeout(r,20));assert.equal(d.getElementById('bible-dialog').open,true);assert.equal(searched,'John 3:16');assert.equal(d.getElementById('live-preview').textContent,publicText);
  assert.equal(w.AxiomBibles.normalizeQuery('jn3:16'),'John 3:16');d.querySelector('.desk-gear').click();assert.equal(d.getElementById('desk-settings').open,true);d.getElementById('desk-theme').value='light';d.getElementById('desk-theme').dispatchEvent(new w.Event('change'));assert.equal(d.body.dataset.deskTheme,'light');
- assert.deepEqual(errors,[]);
+ d.querySelector('.desk-resize.right').dispatchEvent(new w.KeyboardEvent('keydown',{key:'ArrowRight'}));assert.equal(d.querySelector('.app-layout').style.getPropertyValue('--desk-right'),'19%');d.getElementById('desk-reset').click();assert.equal(d.querySelector('.app-layout').style.getPropertyValue('--desk-right'),'18%');assert.equal(d.querySelector('.app-layout').style.getPropertyValue('--desk-left'),'16%');assert.deepEqual(errors,[]);
  }finally{dom.window.close()}
 });

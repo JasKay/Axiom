@@ -1,4 +1,4 @@
-Axiom Pro 0.4.24 brings the approved design refinements to web and desktop.
+Axiom Pro 0.4.25 brings the approved design refinements to web and desktop.
 
 - Compact Current/Archive folders, presentation hierarchy and right-click service actions.
 - Three add menus for Text, Media and Bible, plus a compact Header arrangement.

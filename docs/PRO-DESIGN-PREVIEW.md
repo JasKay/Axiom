@@ -1,6 +1,6 @@
 # Axiom Pro design preview
 
-Approved design for the Axiom Pro 0.4.24 web and desktop release. The images below record the reviewed layout.
+Approved design for the Axiom Pro 0.4.25 web and desktop release. The images below record the reviewed layout.
 
 - Compact Current/Archive service tree with right-click actions and a smaller presentation sublevel.
 - Three main add controls: Text (Text/Lyrics), Media (Images/Videos/Presentation), Bible (Passage/AxiomAI Beta).
