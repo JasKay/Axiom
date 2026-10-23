@@ -1,8 +1,8 @@
 {
-  "version": "0.4.23",
+  "version": "0.4.24",
   "highlights": [
-    "Old sidebar navigation removed; saved collapse preferences no longer hide Services",
-    "Consistent proportional panes and a scrolling Content Library dock",
-    "Compact labels, controls and service rows with proportional preview text"
+    "Compact service folders and clearer Messages",
+    "Simple add menus and drag-and-drop between sections",
+    "A lighter timer, more room for presenting and a flexible Content Library"
   ]
 }

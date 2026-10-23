@@ -1,6 +1,6 @@
 # Axiom Pro design preview
 
-Design branch for review before a new web or desktop release. Version remains 0.4.23; no release tag or production deployment was created.
+Approved design for the Axiom Pro 0.4.24 web and desktop release. The images below record the reviewed layout.
 
 - Compact Current/Archive service tree with right-click actions and a smaller presentation sublevel.
 - Three main add controls: Text (Text/Lyrics), Media (Images/Videos/Presentation), Bible (Passage/AxiomAI Beta).
@@ -18,8 +18,8 @@ Design branch for review before a new web or desktop release. Version remains 0.
 
 ![Standalone messages](design-preview/standalone-messages.png)
 
-## Validation and next step
+## Validation
 
 All 76 local tests pass. An isolated Electron preview verified real cross-section slide dragging, library dragging, destination selection, unchanged live output, menus, library widening and keyboard width resizing. Images use illustrative service content.
 
-Before releasing, update the packaged desktop feature checks to use the new add menus instead of directly clicking their hidden legacy action buttons, and run the full packaged Windows/Mac checks. The production website and published desktop installers remain on the existing release while this design is reviewed.
+Desktop release checks now use the new add menus and unified Messages feed. The release workflow verifies both packaged platforms, imports, output, scrolling, messaging and the installed Windows upgrade before publishing installers.

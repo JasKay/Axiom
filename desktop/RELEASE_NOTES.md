@@ -1,3 +1,12 @@
+Axiom Pro 0.4.24 brings the approved design refinements to web and desktop.
+
+- Compact Current/Archive folders, presentation hierarchy and right-click service actions.
+- Three add menus for Text, Media and Bible, plus a compact Header arrangement.
+- Drag slides between sections and add library content to a chosen section.
+- Unified Messages with unread counts, file and agenda updates, and a church-connection prompt in standalone mode.
+- Lighter timer and monitors, a larger optional library view, and settings beside AxiomAI.
+- Keeps existing imports, backgrounds, playlists, offline saves and explicit Go Live.
+
 Axiom Pro 0.4.23 fixes pane proportions and compacts the operator interface.
 
 - Removes the old sidebar navigation and collapse control. An old saved collapse preference can no longer hide Services.
