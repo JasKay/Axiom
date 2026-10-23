@@ -1,8 +1,8 @@
 {
-  "version": "0.4.22",
+  "version": "0.4.23",
   "highlights": [
-    "Resizable black or white presentation workspace with Preview and Public monitors",
-    "Services and shared messages on the left; saved playlists and countdown on the right",
-    "Bible overlay, compact content library and desktop-compatible naming dialogs"
+    "Old sidebar navigation removed; saved collapse preferences no longer hide Services",
+    "Consistent proportional panes and a scrolling Content Library dock",
+    "Compact labels, controls and service rows with proportional preview text"
   ]
 }

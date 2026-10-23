@@ -43,3 +43,11 @@ Native validation: https://github.com/JasKay/Axiom/actions/runs/39883065517
 Release verification and installers: https://github.com/JasKay/Axiom/actions/runs/39883380365 and https://github.com/JasKay/Axiom/releases/tag/v0.4.22
 
 The native checks cover resizable panes, both themes, fixed Preview/Public during editing, reusable playlists, service and presentation actions, long-list canvas and dock scrolling, PDF/PowerPoint imports, image/video output, private Bible detection, persisted workspaces, recovery, shared messages/files and installed Windows upgrade/restart.
+
+## Proportional desk v0.4.23
+
+The old Pro rail and collapse toggle are removed. Native smoke checks reload with the old collapsed preference enabled, then verify Services stays visible. Pane checks assert the 16% / 70% / 14% default at 1440, 1024 and 900 pixels, including editor stability, manual resizing and resetting. The library check scrolls vertically through its bounded wrapping dock to reuse the final item.
+
+Native validation: https://github.com/JasKay/Axiom/actions/runs/39885576634
+
+Verified release: https://github.com/JasKay/Axiom/releases/tag/v0.4.23
