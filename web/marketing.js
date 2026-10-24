@@ -2,7 +2,7 @@
 const tabs = [...document.querySelectorAll('[data-product]')];
 const captions = {
   lead: 'AxiomLead · Build the running order and give your media team a clear handoff.',
-  pro: 'Axiom Pro · Prepare privately and choose exactly what goes live.',
+  pro: 'Axiom Pro · Editable service sections, private Preview and clear Program controls.',
   u: 'AxiomU · Revisit published messages, scripture and church updates.'
 };
 function selectProduct(name, focus = false) {
