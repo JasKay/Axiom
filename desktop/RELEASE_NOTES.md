@@ -1,3 +1,14 @@
+Axiom Pro 0.4.30 refines the presentation desk and song workflow.
+
+- Axiom Charcoal and Axiom Pearl themes with bundled Manrope typography, tinted feature headings, clearer selections and consistent dialogs.
+- Compact song playlists: create a collection, add new or saved lyrics, then right-click a song to add an independent copy to a chosen service and presentation. Center Add Lyrics remains independent.
+- Right-click slide editing, draggable text positioning, consistent typography controls and reliable final-slide removal.
+- A clearer service countdown and elapsed timer, with countdown urgency below two minutes.
+- Desktop video streaming, uninterrupted playback during layer changes, and restored Program playback after blackout.
+- Simpler Beta switch with church-connection access; recognised Bible references remain private until explicitly presented. Paid-plan enforcement is not enabled.
+
+Existing saved services and media remain on the device. Windows and Mac packaged-app checks and Windows installed-upgrade verification run before publication. Installers remain unsigned.
+
 Axiom Pro 0.4.28 brings the refined operator desk to the installed desktop app.
 
 - Neutral light/dark appearance with a visible theme switch and consistent DM Sans typography.

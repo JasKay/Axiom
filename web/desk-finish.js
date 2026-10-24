@@ -45,11 +45,12 @@ function refreshStage(){if(project)renderSlide(stage,editorValue());}
 const fields=['edit-font-family','edit-font-weight','edit-font-style','edit-line-height','edit-letter-spacing'];
 function loadFonts(){if(!project)return;const s=slide();el('edit-font-family').value=s?.fontFamily||'DM Sans';el('edit-font-weight').value=String(s?.fontWeight||400);el('edit-font-style').value=s?.fontStyle||'normal';el('edit-line-height').value=s?.lineHeight||1.4;el('edit-letter-spacing').value=s?.letterSpacing||0;}
 window.addEventListener('axiom-project-change',()=>{loadFonts();if(dialog.open)refreshStage();});
+window.addEventListener('axiom-editor-change',loadFonts);
 for(const id of [...fields,'edit-text','edit-footer','edit-bg','edit-fg','edit-size','edit-align','edit-fit'])el(id).addEventListener('input',()=>{renderSlide(el('preview'),editorValue());refreshStage();});
 editor.addEventListener('toggle',()=>{if(editor.open){loadFonts();if(!dialog.open)dialog.showModal();refreshStage();}else if(dialog.open){dialog.close();drawEditor();}});
 dialog.addEventListener('cancel',()=>{editor.open=false;});dialog.addEventListener('close',()=>{if(!editor.open)drawEditor();});
 el('close-slide-editor').addEventListener('click',()=>{editor.open=false;});el('save-page').addEventListener('click',()=>{editor.open=false;});
-el('new-page').addEventListener('click',()=>{editor.open=true;});
+// New content is routed through the destination chooser before editing.
 loadFonts();
 // Rename section headers directly without opening the slide editor.
 function editableHeaders(){if(!project)return;for(const group of document.querySelectorAll('.desk-group')){const head=group.querySelector('.desk-group-heading'),title=head?.querySelector(':scope>button');if(!title||head.querySelector('.desk-rename-header'))continue;const entry=service().entries.find(e=>e.id===group.dataset.entryId),content=project.library.find(i=>i.id===entry?.itemId);if(!content)continue;
@@ -58,7 +59,7 @@ function editableHeaders(){if(!project)return;for(const group of document.queryS
  function finish(cancel){if(finished)return;finished=true;const value=input.value.trim();input.remove();title.hidden=false;edit.hidden=false;if(!cancel&&value&&value!==content.title){mutate(()=>{content.title=value;});}else title.focus();}
  input.onkeydown=e=>{e.stopPropagation();if(e.key==='Enter'){e.preventDefault();finish(false);}if(e.key==='Escape'){e.preventDefault();finish(true);}};input.onblur=()=>finish(false);input.focus();input.select();}
  edit.onclick=rename;title.addEventListener('keydown',e=>{if(e.key==='F2'){e.preventDefault();rename();}});title.title=content.title+' · F2 to rename';
- }}window.addEventListener('axiom-project-change',editableHeaders);window.addEventListener('axiom-output-change',editableHeaders);editableHeaders();
+ }}window.AxiomEditableHeaders=editableHeaders;window.addEventListener('axiom-project-change',editableHeaders);window.addEventListener('axiom-output-change',editableHeaders);editableHeaders();
 
 // AxiomAI is a direct listening toggle, with detected passages reviewed in Bible.
 const aiButton=document.querySelector('.desk-ai'),start=el('sermon-start'),aiView=el('sermon-view');

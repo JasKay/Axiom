@@ -1,0 +1,103 @@
+/* Axiom Charcoal and Axiom Pearl share one type, spacing and colour system. */
+@font-face{font-family:'Manrope';src:url('fonts/manrope-variable.ttf') format('truetype');font-weight:200 800;font-display:swap}
+body.axiom-workspace.pro-studio.operator-desk{--paper:#101115;--surface:#17181e;--soft:#22232d;--ink:#f3f1f9;--muted:#a19eaf;--line:#30313d;--accent:#bba7ff;--title-tint:#c5b4fa;--selected:#2c2542;--selected-border:#8f73da;--action:#7854d8;--action-ink:#fff;--live:#91d4b0;--urgent:#ff858c;--workspace-surface:var(--surface);--workspace-sidebar-surface:var(--surface);--desk-blue:var(--accent);--desk-live:var(--live);font-family:Manrope,'Segoe UI',sans-serif!important;font-size:12px!important;line-height:1.5;letter-spacing:0;color-scheme:dark}
+body.axiom-workspace.pro-studio.operator-desk[data-desk-theme=light]{--paper:#fff;--surface:#f7f7fb;--soft:#eeeef5;--ink:#181923;--muted:#666778;--line:#dedee9;--accent:#6543ad;--title-tint:#684ba3;--selected:#eee7fb;--selected-border:#9a7acb;--action:#7048c7;--action-ink:#fff;--live:#23754c;--urgent:#bb2738;color-scheme:light}
+body.axiom-workspace.pro-studio.operator-desk :is(button,summary,label,input,select,textarea,h1,h2,h3,.secondary,.workspace-label,dialog){font-family:Manrope,'Segoe UI',sans-serif!important;letter-spacing:0}
+body.axiom-workspace.pro-studio.operator-desk :is(button,summary,.file-button){font-weight:500;line-height:1.4;border-radius:7px}
+body.axiom-workspace.pro-studio.operator-desk :is(button,summary,a,input,select,textarea):focus-visible{outline:2px solid var(--accent)!important;outline-offset:3px}
+body.axiom-workspace.pro-studio.operator-desk button:not(:disabled):active{transform:translateY(1px)}
+body.axiom-workspace.pro-studio.operator-desk button:disabled{opacity:.4;cursor:default}
+body.axiom-workspace.pro-studio.operator-desk :is(input,select,textarea,progress){accent-color:var(--action)!important}
+body.axiom-workspace.pro-studio.operator-desk .studio-statusbar,body.axiom-workspace.pro-studio.operator-desk #save-status{color:var(--muted)!important}
+body.axiom-workspace.pro-studio.operator-desk #output-state{background:var(--soft)!important;color:var(--muted)!important;border:1px solid var(--line)}
+body.axiom-workspace.pro-studio.operator-desk[data-output-state=live] #output-state{background:color-mix(in srgb,var(--live) 13%,var(--surface))!important;color:var(--live)!important}
+body.axiom-workspace.pro-studio.operator-desk .slide-card.is-live{box-shadow:0 0 0 1px var(--live)!important}
+body.axiom-workspace.pro-studio.operator-desk #delete-slide{color:var(--urgent)!important}
+body.axiom-workspace.pro-studio.operator-desk :is(.navigator-heading,.desk-library-heading,.live-header,.preview-monitor>.section-heading){min-height:34px;gap:8px;align-items:center}
+body.axiom-workspace.pro-studio.operator-desk :is(.navigator-heading h2,.desk-library-heading h2,.preview-monitor h2,.output-monitor h2,.desk-timer-heading h2){color:var(--title-tint)!important;font-size:11px!important;font-weight:700!important;letter-spacing:.1px!important}
+body.axiom-workspace.pro-studio.operator-desk :is(.service-navigator,#team-view,#library-view,.preview-monitor,.output-monitor,.desk-playlists):focus-within{box-shadow:inset 0 2px 0 var(--selected-border)}
+body.axiom-workspace.pro-studio.operator-desk :is(.service-navigator,#team-view,.desk-playlists):focus-within>.navigator-heading{background:var(--selected)!important}
+body.axiom-workspace.pro-studio.operator-desk .studio-service.current>summary{background:var(--selected)!important;color:var(--ink)!important;border-radius:6px;box-shadow:inset 2px 0 var(--selected-border)}
+body.axiom-workspace.pro-studio.operator-desk .studio-deck.active,body.axiom-workspace.pro-studio.operator-desk .studio-deck[aria-current=page]{background:var(--selected)!important;color:var(--accent)!important;border-radius:5px}
+body.axiom-workspace.pro-studio.operator-desk .desk-group.premium-current{border-left:2px solid var(--selected-border)!important}
+body.axiom-workspace.pro-studio.operator-desk .premium-current>.desk-group-heading{background:linear-gradient(90deg,var(--selected),transparent);border-radius:5px;padding-right:5px}
+body.axiom-workspace.pro-studio.operator-desk .slide-card.selected{outline:2px solid var(--selected-border)!important;outline-offset:3px}
+body.axiom-workspace.pro-studio.operator-desk :is(.desk-agenda button:hover,.desk-playlist-list button:hover){background:var(--soft)!important}
+body.axiom-workspace.pro-studio.operator-desk .desk-tabs .desk-presentation{color:var(--accent)!important;border-bottom-color:var(--selected-border)!important}
+body.axiom-workspace.pro-studio.operator-desk button[aria-expanded=true]{color:var(--accent)!important;background:var(--selected)!important}
+body.axiom-workspace.pro-studio.operator-desk :is(.desk-tabs button[aria-pressed=true],.premium-segments button[aria-pressed=true],.desk-timer-modes button[aria-pressed=true]){background:var(--selected)!important;color:var(--accent)!important;box-shadow:inset 0 0 0 1px var(--selected-border)!important}
+body.axiom-workspace.pro-studio.operator-desk :is(button.primary,#go-live,#save-page){background:var(--action)!important;border-color:var(--action)!important;color:var(--action-ink)!important;box-shadow:0 2px 5px #0001!important;font-weight:600!important}
+body.axiom-workspace.pro-studio.operator-desk .primary:hover{filter:brightness(1.08)}
+body.axiom-workspace.pro-studio.operator-desk .desk-share-file{border:0!important;background:transparent!important;box-shadow:none!important;padding:5px!important;width:28px;height:28px;color:var(--muted)!important}
+.desk-share-file svg{width:16px;height:16px}
+body.axiom-workspace.pro-studio.operator-desk .desk-editor-slot{display:none!important}
+body.axiom-workspace.pro-studio.operator-desk .deck-toolbar{height:40px!important;min-height:40px!important;padding:4px 14px!important}
+body.axiom-workspace.pro-studio.operator-desk #active-deck{font-size:14px!important;font-weight:650!important}
+body.axiom-workspace.pro-studio.operator-desk .toolbar{height:33px!important;min-height:33px!important;padding:2px 11px!important;border-bottom:1px solid var(--line)}
+body.axiom-workspace.pro-studio.operator-desk .toolbar>button{min-height:25px!important;font-size:10px!important;color:var(--muted)!important}
+body.axiom-workspace.pro-studio.operator-desk .desk-group-heading{height:35px!important;min-height:35px!important}
+body.axiom-workspace.pro-studio.operator-desk .desk-group-heading>button{font-size:11px!important;font-weight:650!important}
+body.axiom-workspace.pro-studio.operator-desk .desk-countdown{border-top:1px solid var(--line)!important;border-bottom:1px solid var(--line)!important;margin-top:8px;padding:16px 12px!important;background:var(--surface)!important}
+body.axiom-workspace.pro-studio.operator-desk #desk-clock-value{color:var(--live)!important;font-size:28px!important;font-weight:500!important;font-variant-numeric:tabular-nums;letter-spacing:-.5px}
+body.axiom-workspace.pro-studio.operator-desk #desk-clock-value[data-urgent=true]{color:var(--urgent)!important}
+body.axiom-workspace.pro-studio.operator-desk .desk-timer-heading{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+body.axiom-workspace.pro-studio.operator-desk .desk-timer-modes{display:flex;width:100%;padding:3px;border:1px solid var(--line);border-radius:7px;background:var(--paper)}
+body.axiom-workspace.pro-studio.operator-desk .desk-timer-modes button{flex:1;font-size:9px!important;padding:5px 4px!important;min-height:25px!important;border-radius:5px!important}
+body.axiom-workspace.pro-studio.operator-desk .desk-tabs .desk-ai{border:1px solid var(--line)!important;border-radius:20px!important;padding:4px 7px!important;gap:5px}
+body.axiom-workspace.pro-studio.operator-desk .desk-ai>svg{width:14px;height:14px}
+.desk-ai-label{font-size:8px!important;letter-spacing:1px!important;font-weight:700!important}
+.desk-ai:after{content:'';display:block;width:23px;height:14px;border-radius:10px;background:radial-gradient(circle at 6px 7px,var(--muted) 4px,transparent 4.5px),var(--soft);border:1px solid var(--line);transition:background .15s}
+.desk-ai[aria-checked=true]:after{background:radial-gradient(circle at 17px 7px,var(--action-ink) 4px,transparent 4.5px),var(--action)}
+/* Every modal and popover uses the same surfaces and controls. */
+body.axiom-workspace.pro-studio.operator-desk dialog{background:var(--surface)!important;color:var(--ink)!important;border:1px solid var(--line)!important;border-radius:14px!important;padding:22px!important;box-shadow:0 24px 90px #0006!important;max-width:94vw;max-height:90dvh;overflow:auto}
+body.axiom-workspace.pro-studio.operator-desk dialog::backdrop{background:#07080c99;backdrop-filter:blur(5px)}
+body.axiom-workspace.pro-studio.operator-desk dialog :is(h2,h3){color:var(--ink)!important;line-height:1.3}
+body.axiom-workspace.pro-studio.operator-desk dialog h2{font-size:17px!important;font-weight:650!important;letter-spacing:-.4px!important;margin:0}
+body.axiom-workspace.pro-studio.operator-desk dialog h3{font-size:12px!important;font-weight:650!important;margin:18px 0 10px}
+body.axiom-workspace.pro-studio.operator-desk dialog label{font-size:11px!important;color:var(--muted)!important;font-weight:500!important;line-height:1.5;display:flex;flex-direction:column;gap:6px;margin:0 0 13px!important}
+body.axiom-workspace.pro-studio.operator-desk dialog :is(input,select,textarea){font-size:12px!important;color:var(--ink)!important;background:var(--paper)!important;border:1px solid var(--line)!important;border-radius:7px!important;padding:8px 10px!important;min-width:0;line-height:1.5;box-sizing:border-box}
+body.axiom-workspace.pro-studio.operator-desk dialog input[type=checkbox]{width:17px;height:17px;accent-color:var(--action)}
+body.axiom-workspace.pro-studio.operator-desk dialog button{font-size:11px!important;min-height:31px!important;padding:6px 11px!important;border-radius:7px!important;font-weight:550!important}
+body.axiom-workspace.pro-studio.operator-desk dialog :is(.asset-dialog-header,.dialog-header){padding:0 0 16px!important;margin:0 0 18px!important;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:12px}
+body.axiom-workspace.pro-studio.operator-desk dialog :is(.asset-dialog-header,.dialog-header) button{width:29px;height:29px;min-height:29px!important;padding:5px!important;background:transparent!important;border:0!important;color:var(--muted)!important}
+body.axiom-workspace.pro-studio.operator-desk dialog :is(p,.secondary,small){color:var(--muted);font-size:11px;line-height:1.65}
+body.axiom-workspace.pro-studio.operator-desk .premium-dialog{width:470px;padding:0!important}
+.premium-dialog-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 22px;border-bottom:1px solid var(--line)}
+.premium-close svg{display:block;width:16px;height:16px}
+dialog .asset-dialog-header button svg,dialog .dialog-header button svg{width:16px;height:16px;display:block}
+body.axiom-workspace.pro-studio.operator-desk .premium-dialog .premium-close{border:0!important;background:transparent!important;padding:5px!important;min-height:27px!important;color:var(--muted)!important}
+body.axiom-workspace.pro-studio.operator-desk #notice{background:var(--surface)!important;color:var(--ink)!important;border:1px solid var(--line)!important;border-radius:10px!important;box-shadow:0 12px 40px #0004;font-family:Manrope,'Segoe UI',sans-serif!important;font-size:11px!important}
+.premium-dialog-body{padding:20px 22px 0}.premium-dialog-footer{display:flex;align-items:center;justify-content:flex-end;gap:8px;padding:16px 22px;border-top:1px solid var(--line);margin-top:18px}.premium-dialog-body>.premium-dialog-footer{margin-left:-22px;margin-right:-22px}
+.premium-dialog-copy{padding:16px 22px;margin:0}.premium-dialog-body>.premium-dialog-copy{padding:0}
+.premium-segments{display:flex;gap:4px;padding:4px;border:1px solid var(--line);background:var(--paper);border-radius:9px;margin-bottom:20px}
+.premium-segments button{flex:1;border:0!important;background:transparent!important}
+.premium-context{position:fixed;z-index:300;width:180px;padding:5px;border:1px solid var(--line);border-radius:9px;background:var(--surface);box-shadow:0 12px 35px #0005}
+body.axiom-workspace.pro-studio.operator-desk .premium-context button{display:block;text-align:left;width:100%;font-size:11px!important;border:0!important;background:transparent!important;padding:8px 10px!important}
+.premium-context button:hover{background:var(--selected)!important}.premium-context[hidden]{display:none}
+body.axiom-workspace.pro-studio.operator-desk .desk-type-dialog{padding:0!important;overflow:hidden!important}
+body.axiom-workspace.pro-studio.operator-desk .desk-type-body{max-height:calc(90dvh - 132px)!important;overflow-y:auto}
+.desk-type-head{padding:17px 22px}.desk-type-footer{padding:16px 22px}.desk-type-inspector{background:var(--surface)}
+body.axiom-workspace.pro-studio.operator-desk #desk-type-stage{width:100%;max-width:462px;max-height:none!important;height:auto!important;aspect-ratio:16/9;align-self:center}
+body.axiom-workspace.pro-studio.operator-desk #desk-type-stage .slide-text{cursor:move;outline:1px dashed #bda8ff99;outline-offset:5px;touch-action:none;user-select:none;pointer-events:auto!important}
+.premium-position{border:0;border-top:1px solid var(--line);padding:12px 0 0;margin:16px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:7px}.premium-position legend{font-size:11px;color:var(--title-tint);padding:0 0 8px}.premium-position label{min-width:0;font-size:9px!important}.premium-position label:first-of-type{grid-column:1/-1;flex-direction:row!important;align-items:center}
+.premium-feedback{position:fixed;top:62px;left:50%;transform:translate(-50%,-8px);opacity:0;pointer-events:none;z-index:1000;padding:13px 20px;border:1px solid var(--selected-border);border-radius:11px;background:var(--surface);color:var(--ink);box-shadow:0 12px 40px #0004;display:flex;flex-direction:column;gap:3px;transition:opacity .15s,transform .15s;font-size:12px;min-width:190px;text-align:center}.premium-feedback.visible{opacity:1;transform:translate(-50%,0)}.premium-feedback strong{font-size:12px;font-weight:650}.premium-feedback span{font-size:10px;color:var(--muted)}
+body.axiom-workspace.pro-studio.operator-desk #desk-settings{width:560px}
+body.axiom-workspace.pro-studio.operator-desk .axiom-brand,body.axiom-workspace.pro-studio.operator-desk .axiom-brand>span{color:var(--ink)!important}
+body.axiom-workspace.pro-studio.operator-desk #desk-account .workspace-picker{height:auto!important;min-height:0!important;max-height:none!important;overflow:visible!important;padding:0!important;margin:0 0 12px!important;width:100%!important;display:flex!important;flex-direction:column;align-items:stretch!important;gap:6px}
+body.axiom-workspace.pro-studio.operator-desk #desk-account .workspace-picker select{height:auto!important;min-height:35px!important;width:100%!important;max-width:none!important}
+#desk-settings>h3{padding-top:14px;border-top:1px solid var(--line);color:var(--title-tint)!important}#desk-settings .premium-theme-field{padding:16px;border:1px solid var(--line);border-radius:9px;background:var(--paper)}
+body.axiom-workspace.pro-studio.operator-desk .desk-playlists{min-height:180px!important;overflow:visible!important}
+body.axiom-workspace.pro-studio.operator-desk .desk-playlist-list{padding:12px!important;max-height:none!important;overflow:visible!important}
+.premium-playlist-row{display:flex!important;align-items:center;justify-content:space-between;gap:8px;width:100%;padding:9px!important;border:1px solid var(--line)!important;border-radius:7px!important;margin-bottom:7px}
+.premium-playlist-row strong{font-size:11px;font-weight:550}.premium-playlist-row small{font-size:9px;color:var(--muted);white-space:nowrap}
+.premium-playlist-top{display:flex;justify-content:space-between;gap:5px}.premium-playlist-top button{font-size:9px!important;border:0!important;background:transparent!important;color:var(--muted)!important;padding:3px!important}
+.premium-playlist-title{font-size:13px!important;font-weight:650!important;margin:12px 0!important;overflow-wrap:anywhere;color:var(--ink)!important}
+.premium-playlist-actions{display:grid;grid-template-columns:1fr;gap:5px;margin-bottom:12px}.premium-playlist-actions button{font-size:10px!important;min-height:29px!important;padding:5px!important}
+.premium-playlist-save{display:flex;gap:4px;margin-bottom:12px}.premium-playlist-save select{min-width:0;flex:1;width:100%;font-size:10px!important}.premium-playlist-save button{font-size:9px!important;white-space:nowrap}
+.premium-playlist-item{padding:10px 0;border-top:1px solid var(--line);display:grid;gap:5px;cursor:grab}.premium-playlist-item .stage{aspect-ratio:16/9;width:100%;height:auto!important;max-height:none!important;border-radius:5px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}.premium-playlist-item>strong{font-size:10px;font-weight:600;overflow-wrap:anywhere}.premium-playlist-item>small{font-size:9px;color:var(--muted)}.premium-playlist-item-actions{display:flex;gap:4px}.premium-playlist-item-actions button{font-size:9px!important;background:transparent!important;border:0!important;padding:3px!important;color:var(--muted)!important}
+.premium-empty{font-size:11px;line-height:1.7;color:var(--muted)}
+body.axiom-workspace.pro-studio.operator-desk .danger{color:var(--urgent)!important}
+.premium-dialog [hidden],.premium-position [hidden]{display:none!important}
+@media(prefers-reduced-motion:reduce){.premium-feedback,.desk-ai:after{transition:none}}
+body.axiom-workspace.pro-studio.operator-desk button.premium-playlist-item{display:block;width:100%;min-height:30px!important;margin:0;padding:7px 9px!important;border:0!important;border-radius:4px!important;background:transparent!important;color:var(--ink)!important;font-size:11px!important;font-weight:450;text-align:left;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;cursor:default}
+body.axiom-workspace.pro-studio.operator-desk button.premium-playlist-item:hover,body.axiom-workspace.pro-studio.operator-desk button.premium-playlist-item[aria-pressed=true]{background:var(--selected)!important;color:var(--title-tint)!important}

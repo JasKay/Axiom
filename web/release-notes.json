@@ -1,9 +1,9 @@
 {
-  "version": "0.4.28",
+  "version": "0.4.30",
   "highlights": [
-    "Refined light and dark appearance with editable section headers",
-    "Private typography editing and clear-layer controls for Program",
-    "One-click AxiomAI listening and a naturally scrolling right pane",
-    "Large desktop media files stay local without the browser upload limit"
+    "Axiom Charcoal and Axiom Pearl with refined Manrope typography",
+    "Simple song playlists with right-click service destinations",
+    "Consistent dialogs, private slide editing and movable text",
+    "Smoother desktop video playback and clearer service timers"
   ]
 }

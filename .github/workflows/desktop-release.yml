@@ -48,6 +48,8 @@ jobs:
         run: node desktop/desk-scrolling.cjs
       - name: Test native imports, media previews, output and persistence
         run: node desktop/features.cjs
+      - name: Verify song playlists and right-click service destinations
+        run: node desktop/song-playlists.cjs
       - name: Verify native church messages, shared files and scriptures
         run: node desktop/team.cjs
       - name: Verify installed Windows in-app upgrade and restart
