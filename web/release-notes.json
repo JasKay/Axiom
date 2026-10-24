@@ -1,8 +1,9 @@
 {
-  "version": "0.4.25",
+  "version": "0.4.28",
   "highlights": [
-    "Compact service folders and clearer Messages",
-    "Simple add menus and drag-and-drop between sections",
-    "A lighter timer, more room for presenting and a flexible Content Library"
+    "Refined light and dark appearance with editable section headers",
+    "Private typography editing and clear-layer controls for Program",
+    "One-click AxiomAI listening and a naturally scrolling right pane",
+    "Large desktop media files stay local without the browser upload limit"
   ]
 }
