@@ -1,4 +1,4 @@
-Axiom Pro 0.4.31 refines the desktop workspace and direct song workflow.
+Axiom Pro 0.4.32 refines the desktop workspace and direct song workflow.
 
 - Consistent compact Manrope typography, aligned controls and matching presentation icons.
 - Direct song playlists: edit lyrics and add an independent copy to your slides.
