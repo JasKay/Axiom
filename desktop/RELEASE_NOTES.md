@@ -1,3 +1,14 @@
+Axiom Pro 0.4.31 refines the desktop workspace and direct song workflow.
+
+- Consistent compact Manrope typography, aligned controls and matching presentation icons.
+- Direct song playlists: edit lyrics and add an independent copy to your slides.
+- Preview and Timer tabs, inline countdown controls and a compact Program panel.
+- Untinted image and video backgrounds, header reordering and three-icon library tools.
+- Existing multi-song playlists are retained as a direct song list. Saved services and media remain on the device.
+- This release also includes the latest AxiomLead service and shared-message refinements.
+
+Windows and Mac packaged-app checks and Windows installed-upgrade verification run before publication. Installers remain unsigned.
+
 Axiom Pro 0.4.30 refines the presentation desk and song workflow.
 
 - Axiom Charcoal and Axiom Pearl themes with bundled Manrope typography, tinted feature headings, clearer selections and consistent dialogs.

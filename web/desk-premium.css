@@ -101,3 +101,160 @@ body.axiom-workspace.pro-studio.operator-desk .danger{color:var(--urgent)!import
 @media(prefers-reduced-motion:reduce){.premium-feedback,.desk-ai:after{transition:none}}
 body.axiom-workspace.pro-studio.operator-desk button.premium-playlist-item{display:block;width:100%;min-height:30px!important;margin:0;padding:7px 9px!important;border:0!important;border-radius:4px!important;background:transparent!important;color:var(--ink)!important;font-size:11px!important;font-weight:450;text-align:left;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;cursor:default}
 body.axiom-workspace.pro-studio.operator-desk button.premium-playlist-item:hover,body.axiom-workspace.pro-studio.operator-desk button.premium-playlist-item[aria-pressed=true]{background:var(--selected)!important;color:var(--title-tint)!important}
+/* Four bounded areas: long playlists scroll locally, never the whole desk. */
+body.axiom-workspace.pro-studio.operator-desk .inspector{display:grid!important;grid-template-rows:minmax(0,1fr) minmax(0,1.15fr) auto minmax(90px,.9fr);align-content:stretch;overflow:hidden!important;scrollbar-gutter:auto;padding:0!important;gap:0!important}
+body.axiom-workspace.pro-studio.operator-desk .inspector>section{min-height:0!important;max-height:100%;margin:0!important;overflow:hidden!important}
+body.axiom-workspace.pro-studio.operator-desk .inspector :is(.preview-monitor,.output-monitor){container-type:size;padding:7px 9px!important;gap:4px!important;min-height:0!important}
+body.axiom-workspace.pro-studio.operator-desk .preview-monitor{display:grid!important;grid-template-rows:22px minmax(0,1fr) 28px;align-content:stretch}
+body.axiom-workspace.pro-studio.operator-desk .inspector :is(.section-heading,.live-header){min-height:22px!important;margin:0!important;padding:0!important}
+body.axiom-workspace.pro-studio.operator-desk .inspector #preview{width:min(100%,calc((100cqh - 72px)*1.77778))!important;height:auto!important;aspect-ratio:16/9;justify-self:center;align-self:center;max-height:100%!important;min-height:0!important}
+body.axiom-workspace.pro-studio.operator-desk #go-live{min-height:26px!important;margin:0!important;padding:4px!important;font-size:10px!important}
+body.axiom-workspace.pro-studio.operator-desk .output-monitor{grid-template-rows:22px minmax(0,1fr) 26px 20px;align-content:stretch}
+body.axiom-workspace.pro-studio.operator-desk .program-frame{min-height:0!important;display:flex!important;align-items:center;justify-content:center;gap:4px;overflow:hidden}
+body.axiom-workspace.pro-studio.operator-desk .program-frame #live-preview{width:min(calc(100% - 24px),calc((100cqh - 102px)*1.77778))!important;height:auto!important;aspect-ratio:16/9;min-height:0!important;max-height:100%!important;flex:0 1 auto}
+body.axiom-workspace.pro-studio.operator-desk .program-layer{width:19px!important;height:17px!important;min-height:17px!important;padding:2px!important}
+body.axiom-workspace.pro-studio.operator-desk .program-layer svg{width:13px;height:13px}
+body.axiom-workspace.pro-studio.operator-desk .output-monitor :is(#blackout,.button-row button){min-height:25px!important;padding:3px!important;font-size:9px!important}
+body.axiom-workspace.pro-studio.operator-desk .playback-tools{min-height:18px!important;border:0!important;margin:0!important;padding:0!important}
+body.axiom-workspace.pro-studio.operator-desk .playback-tools summary{font-size:9px!important;padding:1px 0!important}
+body.axiom-workspace.pro-studio.operator-desk .desk-countdown{padding:7px 9px!important;gap:4px!important;border-top:1px solid var(--line)!important}
+body.axiom-workspace.pro-studio.operator-desk .desk-timer-heading{gap:3px!important;flex-wrap:wrap;min-height:18px!important}
+body.axiom-workspace.pro-studio.operator-desk .desk-timer-heading h2{font-size:10px!important}
+body.axiom-workspace.pro-studio.operator-desk .desk-timer-modes button{font-size:8px!important;min-height:21px!important;padding:3px 5px!important}
+body.axiom-workspace.pro-studio.operator-desk .desk-countdown strong{font-size:22px!important;line-height:1.2}
+body.axiom-workspace.pro-studio.operator-desk .desk-timer-line{margin:0!important;min-height:28px!important}
+body.axiom-workspace.pro-studio.operator-desk #desk-clock-toggle{min-height:24px!important;padding:4px 8px!important}
+body.axiom-workspace.pro-studio.operator-desk .desk-timer-options{margin:0!important;padding:0!important;border:0!important}
+body.axiom-workspace.pro-studio.operator-desk .desk-timer-options summary{font-size:9px!important;min-height:15px;padding:0!important}
+body.axiom-workspace.pro-studio.operator-desk .desk-playlists{display:flex!important;flex-direction:column;min-height:0!important;padding:0!important;border-top:1px solid var(--line)!important}
+body.axiom-workspace.pro-studio.operator-desk .desk-playlists>.navigator-heading{flex:0 0 29px;min-height:29px!important;padding:4px 9px!important}
+body.axiom-workspace.pro-studio.operator-desk .desk-playlist-list{flex:1;min-height:0;max-height:100%!important;overflow-y:auto!important;overflow-x:hidden!important;padding:6px 9px!important;overscroll-behavior:contain}
+body.axiom-workspace.pro-studio.operator-desk .premium-playlist-title{margin:6px 0!important;font-size:11px!important}
+body.axiom-workspace.pro-studio.operator-desk .premium-playlist-actions{margin-bottom:5px}
+body.axiom-workspace.pro-studio.operator-desk .premium-section-grip{cursor:grab;width:18px;min-width:18px;min-height:22px!important;padding:2px!important;border:0!important;background:transparent!important;color:var(--muted)!important}
+.premium-section-grip svg{stroke-width:3;width:13px;height:16px}
+body.axiom-workspace.pro-studio.operator-desk .desk-group-heading:before{content:none}
+.premium-header-move{margin-left:auto;font-size:9px!important;padding:3px 5px!important;min-height:23px!important;background:transparent!important;border:0!important;color:var(--muted)!important}
+.premium-dialog .desk-timer-controls{display:flex;align-items:flex-end;gap:12px}.premium-dialog .desk-timer-controls label{flex:1}.premium-dialog .desk-timer-controls input{width:100%}.premium-dialog .button-row{display:flex;gap:7px;margin:10px 0}
+/* Shared Preview / Timer slot, followed by Program and Playlists. */
+body.axiom-workspace.pro-studio.operator-desk .inspector{grid-template-rows:minmax(0,1fr) minmax(0,1.15fr) minmax(90px,.9fr)}
+body.axiom-workspace.pro-studio.operator-desk .premium-monitor-slot{display:grid;grid-template-rows:31px minmax(0,1fr);min-height:0;overflow:hidden;border-bottom:1px solid var(--line)}
+.premium-monitor-tabs{display:flex;align-items:center;gap:3px;padding:4px 9px;border-bottom:1px solid var(--line)}
+body.axiom-workspace.pro-studio.operator-desk .premium-monitor-tabs>button{font-size:11px!important;min-height:24px!important;padding:3px 10px!important;border:0!important;border-radius:5px!important;background:transparent!important;color:var(--muted)!important}
+body.axiom-workspace.pro-studio.operator-desk .premium-monitor-tabs>button[aria-selected=true]{background:var(--selected)!important;color:var(--title-tint)!important;font-weight:650}
+.premium-monitor-tabs #preview-position{margin-left:auto;font-size:9px;color:var(--muted)}
+body.axiom-workspace.pro-studio.operator-desk .premium-monitor-slot>.preview-monitor{height:100%;grid-template-rows:minmax(0,1fr) 28px;border:0!important}
+body.axiom-workspace.pro-studio.operator-desk .premium-monitor-slot .preview-monitor>.section-heading{display:none!important}
+body.axiom-workspace.pro-studio.operator-desk .premium-monitor-slot #preview{width:min(100%,calc((100cqh - 44px)*1.77778))!important}
+body.axiom-workspace.pro-studio.operator-desk .premium-monitor-slot>.desk-countdown{height:100%;min-height:0;border:0!important;display:grid!important;align-content:center;gap:12px!important;padding:10px 12px!important}
+body.axiom-workspace.pro-studio.operator-desk .premium-monitor-slot .desk-timer-heading{display:grid!important;gap:8px!important}
+body.axiom-workspace.pro-studio.operator-desk .premium-monitor-slot .desk-timer-heading h2{font-size:11px!important}
+body.axiom-workspace.pro-studio.operator-desk .premium-monitor-slot .desk-timer-modes{display:flex;width:100%}
+body.axiom-workspace.pro-studio.operator-desk .premium-monitor-slot .desk-timer-modes button{flex:1;font-size:9px!important;min-height:25px!important}
+body.axiom-workspace.pro-studio.operator-desk .premium-monitor-slot #desk-clock-value{font-size:32px!important}
+body.axiom-workspace.pro-studio.operator-desk .premium-monitor-slot>[hidden]{display:none!important}
+/* Operator typography: restrained weights and an explicit reading hierarchy.
+   Authored slide text retains its own presentation typography. */
+body.axiom-workspace.pro-studio.operator-desk{font-kerning:normal;font-optical-sizing:auto;text-rendering:optimizeLegibility}
+body.axiom-workspace.pro-studio.operator-desk :is(.navigator-heading h2,.desk-library-heading h2,.output-monitor h2,.desk-timer-heading h2){font-size:11px!important;font-weight:700!important;line-height:1.35!important;letter-spacing:.12px!important}
+body.axiom-workspace.pro-studio.operator-desk #active-deck{font-size:14px!important;line-height:1.3!important;font-weight:700!important;letter-spacing:-.3px!important}
+body.axiom-workspace.pro-studio.operator-desk :is(.studio-service>summary,.studio-deck,.desk-group-heading>button,.premium-playlist-item){line-height:1.45!important;letter-spacing:-.08px!important}
+body.axiom-workspace.pro-studio.operator-desk :is(.chat-meta time,#preview-position,.studio-statusbar){font-variant-numeric:tabular-nums}
+body.axiom-workspace.pro-studio.operator-desk .desk-suite-prompt{box-sizing:border-box;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:0;width:100%;max-width:260px;min-height:190px;margin:0 auto;padding:22px 12px 24px!important;text-align:left!important;border:0!important;background:transparent!important}
+body.axiom-workspace.pro-studio.operator-desk .desk-suite-icon{width:30px;height:30px;margin-bottom:14px;border:1px solid color-mix(in srgb,var(--accent) 20%,var(--line));border-radius:9px;background:color-mix(in srgb,var(--selected) 65%,var(--surface));color:var(--accent)}
+body.axiom-workspace.pro-studio.operator-desk .desk-suite-icon svg{width:17px;height:17px;stroke-width:1.6}
+body.axiom-workspace.pro-studio.operator-desk .desk-suite-title{margin:0!important;padding:0!important;color:var(--ink)!important;font-family:Manrope,'Segoe UI',sans-serif!important;font-size:14px!important;font-weight:700!important;line-height:1.4!important;letter-spacing:-.3px!important;text-wrap:balance}
+body.axiom-workspace.pro-studio.operator-desk .desk-suite-description{margin:8px 0 17px!important;padding:0!important;color:var(--muted)!important;font-size:11px!important;font-weight:450!important;line-height:1.65!important;letter-spacing:0!important;text-wrap:pretty}
+body.axiom-workspace.pro-studio.operator-desk .desk-suite-connect{display:inline-flex;align-items:center;justify-content:center;min-height:32px!important;max-width:100%;padding:7px 12px!important;border:1px solid var(--selected-border)!important;border-radius:7px!important;background:var(--selected)!important;color:var(--accent)!important;font-size:11px!important;font-weight:650!important;line-height:1.4!important;letter-spacing:-.08px!important;box-shadow:0 1px 2px #0000000a!important;white-space:normal;transition:background .15s,border-color .15s}
+body.axiom-workspace.pro-studio.operator-desk .desk-suite-connect:hover{background:color-mix(in srgb,var(--selected) 80%,var(--accent))!important;border-color:var(--accent)!important}
+/* One chrome size; semantic weight and colour establish the hierarchy. */
+body.axiom-workspace.pro-studio.operator-desk{--chrome-size:10px;--archive-tint:#dfbe79}
+body.axiom-workspace.pro-studio.operator-desk[data-desk-theme=light]{--archive-tint:#886114}
+body.axiom-workspace.pro-studio.operator-desk :is(.service-category>summary,.studio-service>summary,.studio-deck,.navigator-heading h2,.desk-library-heading h2,.output-monitor h2,.desk-timer-heading h2,.premium-monitor-tabs>button,.desk-group-heading>button,#active-deck,.library-card h2,.premium-playlist-item,.desk-suite-title,.desk-suite-description,.desk-suite-connect){font-size:var(--chrome-size)!important;line-height:1.5!important;letter-spacing:0!important}
+body.axiom-workspace.pro-studio.operator-desk :is(.navigator-heading h2,.desk-library-heading h2,.output-monitor h2,.desk-timer-heading h2,.premium-monitor-tabs>button,.service-category>summary){text-transform:uppercase;letter-spacing:.65px!important;font-weight:700!important}
+body.axiom-workspace.pro-studio.operator-desk .service-category>summary{height:28px!important;min-height:28px!important}
+body.axiom-workspace.pro-studio.operator-desk .current-services>summary{color:var(--live)!important}
+body.axiom-workspace.pro-studio.operator-desk .archived-services>summary{color:var(--archive-tint)!important}
+body.axiom-workspace.pro-studio.operator-desk :is(.studio-service>summary,.studio-deck,.library-card h2,.premium-playlist-item){font-weight:500!important}
+body.axiom-workspace.pro-studio.operator-desk :is(.studio-service.current>summary,.studio-deck.active,#active-deck,.desk-group-heading>button,.desk-suite-title){font-weight:700!important;color:var(--ink)!important}
+body.axiom-workspace.pro-studio.operator-desk .desk-suite-description{font-weight:450!important;color:var(--muted)!important}
+body.axiom-workspace.pro-studio.operator-desk .desk-suite-connect{font-weight:650!important}
+body.axiom-workspace.pro-studio.operator-desk .playback-tools[hidden]{display:none!important}
+body.axiom-workspace.pro-studio.operator-desk .output-monitor{grid-template-rows:22px minmax(0,1fr) 26px}
+body.axiom-workspace.pro-studio.operator-desk .program-frame #live-preview{width:min(calc(100% - 24px),calc((100cqh - 82px)*1.77778))!important}
+body.axiom-workspace.pro-studio.operator-desk .premium-monitor-slot>.desk-countdown{gap:8px!important}
+body.axiom-workspace.pro-studio.operator-desk .desk-countdown>.desk-timer-controls{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:0!important;margin:0!important}
+body.axiom-workspace.pro-studio.operator-desk .desk-timer-controls label{display:flex;align-items:center;gap:7px;margin:0!important;font-size:11px!important;color:var(--muted)}
+body.axiom-workspace.pro-studio.operator-desk .desk-timer-controls label[hidden]{display:none!important}
+body.axiom-workspace.pro-studio.operator-desk #desk-clock-duration{width:65px;min-height:28px!important;padding:3px 6px!important;font-size:11px!important}
+body.axiom-workspace.pro-studio.operator-desk #desk-clock-reset{display:grid;place-items:center;width:28px;min-width:28px;min-height:28px!important;padding:5px!important;margin-left:auto}
+#desk-clock-reset svg{width:16px;height:16px}
+body.axiom-workspace.pro-studio.operator-desk .desk-heading-order .desk-header-order-move{flex:0 0 26px;min-width:26px;padding:4px!important;text-align:center}
+.desk-header-order-move svg{width:14px;height:14px}body.axiom-workspace.pro-studio.operator-desk .inspector{grid-template-columns:minmax(0,1fr)!important;grid-template-areas:none!important;columns:auto!important}
+body.axiom-workspace.pro-studio.operator-desk .inspector>section{grid-column:1!important;grid-row:auto!important}
+body.axiom-workspace.pro-studio.operator-desk .output-monitor{grid-template-areas:'head head' 'frame frame' 'nav black'!important}
+/* Agreed type scale: feature 10/700, content 10/400, detail 9/300. */
+body.axiom-workspace.pro-studio.operator-desk :is(.studio-service>summary,.studio-service.current>summary,.studio-deck,.studio-deck.active,#active-deck,.desk-group-heading>button,.library-card h2,.desk-suite-title,.desk-suite-description,.desk-suite-connect){font-size:10px!important;font-weight:400!important;text-transform:none!important}
+body.axiom-workspace.pro-studio.operator-desk :is(button.premium-playlist-item,.premium-playlist-item>strong,.premium-playlist-item>small,.secondary,.monitor-caption,.monitor-position,#preview-position,.studio-statusbar,.chat-meta,.chat-meta strong,.chat-meta time,.chat-update-kind,.desk-timer-controls label,.desk-group-heading>span,.slide-card>small,.library-card small,.premium-empty,.tree-add-presentation){font-size:9px!important;font-weight:300!important;line-height:1.5!important}
+body.axiom-workspace.pro-studio.operator-desk :is(.toolbar>button,.desk-timer-modes button,#desk-clock-duration,#desk-clock-toggle){font-size:10px!important;font-weight:400!important}
+body.axiom-workspace.pro-studio.operator-desk .premium-monitor-slot #desk-clock-value{font-size:32px!important}
+/* Aligned icon controls and compact monitor rhythm. */
+body.axiom-workspace.pro-studio.operator-desk #new-deck[hidden],body.axiom-workspace.pro-studio.operator-desk .view-switch[hidden],body.axiom-workspace.pro-studio.operator-desk #library-search[hidden]{display:none!important}
+body.axiom-workspace.pro-studio.operator-desk .deck-selection{flex:0 1 auto!important;min-width:0;max-width:65%}
+body.axiom-workspace.pro-studio.operator-desk .deck-selection>label{flex:0 1 auto!important;width:auto!important;max-width:100%;min-width:0}
+body.axiom-workspace.pro-studio.operator-desk #active-deck{width:auto!important;max-width:100%;min-width:85px;padding-right:24px!important;font-weight:400!important}
+body.axiom-workspace.pro-studio.operator-desk .premium-view-toggle{margin-left:auto;display:grid;place-items:center;width:28px;min-height:26px!important;padding:5px!important;background:transparent!important;border:0!important}
+.premium-view-toggle svg,.premium-search-toggle svg{width:15px;height:15px;display:block}
+body.axiom-workspace.pro-studio.operator-desk .toolbar #desk-headers{display:inline-flex;align-items:center;gap:5px;color:var(--title-tint)!important;font-size:10px!important;font-weight:600!important;min-height:25px!important;padding:3px 5px!important}
+#desk-headers svg{width:14px;height:14px}
+body.axiom-workspace.pro-studio.operator-desk .inspector{grid-template-rows:minmax(0,1fr) minmax(0,.9fr) minmax(90px,1fr)}
+body.axiom-workspace.pro-studio.operator-desk .premium-monitor-slot>.desk-countdown{justify-items:center;padding:10px!important}
+body.axiom-workspace.pro-studio.operator-desk .desk-countdown .desk-timer-heading{width:100%;text-align:center;justify-content:center}
+body.axiom-workspace.pro-studio.operator-desk .desk-timer-line{display:flex;align-items:center;justify-content:center;gap:10px;width:100%}
+body.axiom-workspace.pro-studio.operator-desk .desk-timer-line #desk-clock-toggle{margin-left:0!important;min-width:45px}
+body.axiom-workspace.pro-studio.operator-desk #desk-clock-reset{display:inline-flex;width:auto;min-width:40px;margin-left:0!important;font-size:10px!important;font-weight:400!important;padding:4px 7px!important}
+body.axiom-workspace.pro-studio.operator-desk .desk-countdown>.desk-timer-controls{justify-content:center;width:100%}
+body.axiom-workspace.pro-studio.operator-desk .desk-timer-controls label{flex:0 1 auto;justify-content:center}
+body.axiom-workspace.pro-studio.operator-desk button.premium-playlist-item{display:flex;align-items:center;gap:7px}
+.premium-song-icon{display:inline-flex;flex:0 0 13px;color:var(--muted)}.premium-song-icon svg{width:13px;height:13px}
+body.axiom-workspace.pro-studio.operator-desk .premium-search-toggle{display:grid;place-items:center;width:27px;min-width:27px;min-height:26px!important;padding:5px!important;border:0!important;background:transparent!important}
+body.axiom-workspace.pro-studio.operator-desk #library-view .search-line{max-width:48%;gap:5px}
+body.axiom-workspace.pro-studio.operator-desk #library-search{width:150px;min-width:60px;font-size:10px!important}
+body.axiom-workspace.pro-studio.operator-desk .desk-library-heading{padding-left:14px!important}
+body.axiom-workspace.pro-studio.operator-desk .studio-service>summary{font-weight:400!important}/* A shared 14px inset aligns the centre pane's right-hand controls. */
+body.axiom-workspace.pro-studio.operator-desk :is(.deck-toolbar,#service-view>.toolbar,.desk-library-heading){padding-left:14px!important;padding-right:14px!important}
+body.axiom-workspace.pro-studio.operator-desk .deck-selection>label[hidden],body.axiom-workspace.pro-studio.operator-desk #library-view>.search-line[hidden],body.axiom-workspace.pro-studio.operator-desk .desk-library-widen[hidden]{display:none!important}
+body.axiom-workspace.pro-studio.operator-desk .premium-presentation-title{font:700 10px/1.5 Manrope,'Segoe UI',sans-serif;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}
+.premium-presentation-title[hidden]{display:none!important}
+body.axiom-workspace.pro-studio.operator-desk .premium-view-toggle{margin-right:0!important}
+body.axiom-workspace.pro-studio.operator-desk .toolbar #desk-headers{padding-right:0!important;margin-right:0!important}
+body.axiom-workspace.pro-studio.operator-desk .premium-library-tools{display:flex;align-items:center;justify-content:flex-end;gap:5px;margin-left:auto;min-width:0}
+body.axiom-workspace.pro-studio.operator-desk .premium-library-tools :is(#desk-add-content,.premium-search-toggle,.premium-filter-toggle){display:grid;place-items:center;flex:0 0 28px;width:28px;min-height:26px!important;margin:0!important;padding:5px!important;border:0!important;background:transparent!important;color:var(--muted)!important}
+.premium-library-tools svg{width:15px;height:15px;display:block}
+body.axiom-workspace.pro-studio.operator-desk .premium-library-tools button:hover,body.axiom-workspace.pro-studio.operator-desk .premium-library-tools button[aria-expanded=true],body.axiom-workspace.pro-studio.operator-desk .premium-library-tools button[aria-pressed=true]{background:var(--selected)!important;color:var(--accent)!important}
+body.axiom-workspace.pro-studio.operator-desk .premium-library-tools #library-search{width:clamp(70px,15vw,180px);min-width:0;height:26px!important;margin:0!important;padding:4px 7px!important}
+.premium-library-filter{position:fixed;inset:auto;margin:0;width:190px;padding:12px;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:8px;box-shadow:0 8px 25px #0003}
+.premium-library-filter .premium-field{margin:0;font-size:10px}.premium-library-filter select{width:100%;margin-top:6px}
+body.axiom-workspace.pro-studio.operator-desk .app-header{position:relative}
+body.axiom-workspace.pro-studio.operator-desk .app-header>.desk-tabs{position:absolute;left:calc(var(--premium-middle-left,16vw) + 14px);top:0;bottom:0;margin:0!important;gap:6px}
+body.axiom-workspace.pro-studio.operator-desk .app-header>.page-heading{position:absolute;display:flex!important;align-items:center;justify-content:flex-end;right:calc(var(--premium-middle-right,18vw) + 14px);top:0;bottom:0;width:auto;max-width:calc(var(--premium-middle-width,66vw) - 180px);padding:0!important;margin:0!important;min-width:0;overflow:hidden}
+body.axiom-workspace.pro-studio.operator-desk .app-header>.page-heading>div{min-width:0;text-align:right}
+body.axiom-workspace.pro-studio.operator-desk .app-header #view-title{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-align:right;margin:0!important}
+body.axiom-workspace.pro-studio.operator-desk .app-header>.header-tools{margin-left:auto;max-width:calc(var(--premium-middle-right,18vw) - 8px);gap:5px;min-width:0}
+@media(max-width:1050px){body.axiom-workspace.pro-studio.operator-desk .header-tools .desk-workspace-mode{display:none!important}}/* Shared content rails and a little air around the top bar. */
+body.axiom-workspace.pro-studio.operator-desk .app-header{height:46px!important;min-height:46px!important;flex-basis:46px!important;padding-top:4px!important;padding-bottom:4px!important}
+body.axiom-workspace.pro-studio.operator-desk .app-header>.desk-tabs,body.axiom-workspace.pro-studio.operator-desk .app-header>.page-heading{top:4px;bottom:4px}
+body.axiom-workspace.pro-studio.operator-desk :is(.studio-deck,.sidebar-deck){display:flex!important;align-items:center;gap:6px;padding-left:6px!important;text-align:left}
+body.axiom-workspace.pro-studio.operator-desk :is(.studio-deck,.sidebar-deck):before{content:none!important}
+.premium-presentation-icon{display:flex;flex:0 0 13px;align-items:center;color:var(--muted)}.premium-presentation-icon svg{width:13px;height:13px;display:block}
+.premium-deck-label{display:block;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+body.axiom-workspace.pro-studio.operator-desk :is(.studio-deck.active,.studio-deck[aria-current=page]) .premium-presentation-icon{color:var(--accent)}
+body.axiom-workspace.pro-studio.operator-desk .desk-group{padding-left:14px!important;padding-right:14px!important;border-left:0!important}
+body.axiom-workspace.pro-studio.operator-desk .desk-group.premium-current{border-left:0!important;box-shadow:inset 2px 0 var(--selected-border)}
+body.axiom-workspace.pro-studio.operator-desk #library-grid{padding-left:14px!important;padding-right:14px!important}
+body.axiom-workspace.pro-studio.operator-desk #library-grid .library-card-info{padding-left:0!important;padding-right:0!important}
+body.axiom-workspace.pro-studio.operator-desk #service-view>.toolbar>button{padding-left:0!important}
+body.axiom-workspace.pro-studio.operator-desk .desk-canvas{scrollbar-gutter:stable}
+body.axiom-workspace.pro-studio.operator-desk :is(.desk-group-heading,.desk-group-slides,#slides,.page-browser){margin-left:0!important;margin-right:0!important}
+body.axiom-workspace.pro-studio.operator-desk .page-browser{padding-left:0!important;padding-right:0!important}body.axiom-workspace.pro-studio.operator-desk .desk-group{padding-right:max(0px,calc(14px - var(--content-scrollbar,0px)))!important}
+body.axiom-workspace.pro-studio.operator-desk #library-grid{padding-right:max(0px,calc(14px - var(--content-scrollbar,0px)))!important}

@@ -46,6 +46,8 @@ jobs:
         run: node desktop/smoke.cjs
       - name: Test wheel scrolling and scrollbar dragging
         run: node desktop/desk-scrolling.cjs
+      - name: Verify compact pane controls and alignment
+        run: node desktop/compact-desk.cjs
       - name: Test native imports, media previews, output and persistence
         run: node desktop/features.cjs
       - name: Verify song playlists and right-click service destinations
