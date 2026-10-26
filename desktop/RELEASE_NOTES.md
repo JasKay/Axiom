@@ -1,3 +1,13 @@
+Axiom Pro 0.4.34 adds an offline Bible library.
+
+- Standalone includes complete offline World English Bible (WEB), alongside the existing online KJV lookup and authorized local Bible import.
+- A connected church workspace adds seven complete offline editions: WEB British Edition, ASV, BSB, Majority Standard Bible, Bible in Basic English, Darby and Young’s Literal Translation.
+- Search references, chapters, verse ranges and words; review results and add selected verses to service slides. Each edition retains its own verse wording and numbering.
+- Eight compressed, integrity-checked packs add about 9.6 MB in total; packs load on demand and only two editions remain in memory. No API subscription is needed for these offline editions.
+- A built-in KJV text is not distributed in this release while UK distribution permission remains unconfirmed. NIV, NLT, ESV and other copyrighted editions are not included without licences.
+
+Church-workspace access follows the existing connected church membership. Subscription billing is not enabled. Saved services and local media remain intact. Installers remain unsigned.
+
 Axiom Pro 0.4.33 connects local preparation and church teamwork.
 
 - Create services in Standalone, connect to your church, and return without losing saved work. Switching modes keeps Program unchanged.

@@ -49,15 +49,21 @@ $('import-documents').onclick=()=>run(async()=>{const [file]=await pick('.pdf,.p
 function localBible(){const version=$('bible-version').value;return (project.bibles||[]).find(b=>b.translation.toUpperCase()===version)||(project.bible&&project.bible.translation.toUpperCase()===version?project.bible:null);}
 function drawTranslation(){
  if(!project)return;
- const select=$('bible-version');for(const bible of [...(project.bibles||[]),...(project.bible?[project.bible]:[])]){const key=bible.translation.toUpperCase();if(![...select.options].some(o=>o.value===key)){const option=document.createElement('option');option.value=key;option.textContent=bible.translation+' · Imported';select.append(option);}}
- const local=localBible(),version=select.value;
- $('translation-status').textContent=local?'Available offline':version==='KJV'?'Online passage lookup':'Licensed connection required';
- $('bible-status').textContent=version!=='KJV'&&!local?'Import an authorized translation to use '+version+'.':'';
- $('bible-hint').textContent='';
+ const select=$('bible-version'),previous=select.value||'KJV',imports=[...(project.bibles||[]),...(project.bible?[project.bible]:[])],imported=new Set(imports.map(b=>b.translation.toUpperCase()));
+ const free=document.createElement('optgroup'),church=document.createElement('optgroup'),own=document.createElement('optgroup');free.label='Standalone · included';church.label='Church workspace · additional editions';own.label='Imported · on this device';
+ for(const edition of AxiomBibles.editions){const option=new Option(edition.id+' · '+edition.name,edition.id);option.disabled=!imported.has(edition.id)&&!AxiomBibles.available(edition.id);(edition.shared?church:free).append(option);}
+ for(const bible of imports){const key=bible.translation.toUpperCase();if(AxiomBibles.editions.some(e=>e.id===key)||[...own.children].some(o=>o.value===key))continue;own.append(new Option(bible.translation+' · Imported',key));}
+ select.replaceChildren(free,church,...(own.children.length?[own]:[]));select.value=previous;
+ if(!select.value||select.selectedOptions[0]?.disabled){select.value='KJV';found=[];$('bible-results').replaceChildren();$('bible-attribution').textContent='';$('add-bible').disabled=true;}
+ const local=localBible(),version=select.value,edition=AxiomBibles.editions.find(e=>e.id===version);
+ $('translation-status').textContent=local||edition?.offline?'Available offline':'Online lookup';
+ $('bible-status').textContent=local?'Imported Bible · saved on this device':edition?.offline?'Included on this device. Search a passage or words from a verse.':'KJV needs internet or an authorized import. WEB is included offline.';
+ $('bible-hint').textContent=AxiomBibles.connected()?'8 offline editions included in your church workspace.':'Standalone includes KJV and offline WEB. Connect your church for 7 more offline editions.';
 }
-$('bible-version').onchange=()=>{found=[];$('bible-results').replaceChildren();$('bible-attribution').textContent='';$('add-bible').disabled=true;drawTranslation();};
+$('bible-version').onchange=()=>{bibleSearchRevision++;found=[];$('bible-results').replaceChildren();$('bible-attribution').textContent='';$('add-bible').disabled=true;$('search-bible').disabled=false;$('search-bible').textContent='Search';drawTranslation();};
 $('import-bible').onclick=()=>run(async()=>{const [f]=await pick('.json');if(!f)return;if(f.size>15e6)throw Error('Bible JSON must be below 15 MB');const data=Model.validateBible(JSON.parse(await f.text()));mutate(()=>{project.bibles=[...(project.bibles||[]).filter(b=>b.translation.toUpperCase()!==data.translation.toUpperCase()),data];project.bible=data;});$('bible-version').value=data.translation.toUpperCase();$('bible-version').onchange();notice('Translation saved for offline use.');});
 let bibleSearchRevision=0;
+window.addEventListener('axiom-pro-mode-change',()=>{bibleSearchRevision++;$('search-bible').disabled=false;$('search-bible').textContent='Search';found=[];$('bible-results').replaceChildren();$('bible-attribution').textContent='';$('add-bible').disabled=true;drawTranslation();});
 $('search-bible').onclick=()=>run(async()=>{
  const stamp=++bibleSearchRevision,version=$('bible-version').value,query=AxiomBibles.normalizeQuery?AxiomBibles.normalizeQuery($('bible-query').value):$('bible-query').value.trim();if(!query)return;
  $('search-bible').disabled=true;$('search-bible').textContent='Searching…';$('add-bible').disabled=true;
@@ -66,6 +72,7 @@ $('search-bible').onclick=()=>run(async()=>{
   if(stamp!==bibleSearchRevision||$('bible-version').value!==version)return;
   found=result.verses;foundTranslation=result.translation;foundCanPresent=result.canPresent!==false;
   $('bible-results').replaceChildren();$('bible-attribution').textContent=result.copyright||'';
+  $('translation-status').textContent=local||result.offline?'Available offline':'Online lookup';
   for(const [index,v]of found.entries()){const row=document.createElement('label');row.className='verse';const check=document.createElement('input');check.type='checkbox';check.checked=true;check.dataset.index=index;const text=document.createElement('span');const ref=document.createElement('strong');ref.textContent=v.reference||`${v.book} ${v.chapter}:${v.verse}`;text.append(ref,document.createTextNode('  '+v.text));row.append(check,text);$('bible-results').append(row);}
   $('add-bible').disabled=!found.length||!foundCanPresent;
   if(!found.length)notice('No matching passage. Try a full book name and reference.');

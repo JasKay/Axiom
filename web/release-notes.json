@@ -1,9 +1,9 @@
 {
-  "version": "0.4.33",
+  "version": "0.4.34",
   "highlights": [
-    "Switch between Standalone and Shared without losing local services or changing live output",
-    "Shared service details stay linked to Leader; messages and files identify their service",
-    "Simplified Leader destinations, visible Tech/member handoffs and consistent Charcoal/Pearl themes",
-    "Clearer timers, direct Program presentation, reusable presentation copies and refined workspace controls"
+    "Eight complete offline Bible editions, including WEB in Standalone",
+    "Church workspace adds WEB British, ASV, BSB, MSB, BBE, Darby and Young’s Literal",
+    "Search passages and keywords, then add selected verses to your service",
+    "Compressed Bible packs keep the additional download small; KJV online lookup and authorized imports remain available"
   ]
 }
