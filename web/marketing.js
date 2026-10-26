@@ -1,49 +1,17 @@
 'use strict';
-const tabs = [...document.querySelectorAll('[data-product]')];
-const captions = {
-  lead: 'AxiomLeader · Plan one service, message Tech and publish member updates with clear destinations.',
-  pro: 'Axiom Pro · Standalone and Shared workspaces, service-linked messages, private Preview and controlled Program.',
-  u: 'AxiomU · Revisit published messages, scripture and church updates.'
-};
-function selectProduct(name, focus = false) {
-  tabs.forEach(tab => {
-    const selected = tab.dataset.product === name;
-    tab.setAttribute('aria-selected', String(selected));
-    tab.tabIndex = selected ? 0 : -1;
-    document.getElementById(tab.getAttribute('aria-controls')).hidden = !selected;
-    if (selected && focus) tab.focus();
-  });
-  document.getElementById('product-caption').textContent = captions[name];
-}
-tabs.forEach((tab, index) => {
-  tab.addEventListener('click', () => selectProduct(tab.dataset.product));
-  tab.addEventListener('keydown', event => {
-    let next;
-    if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
-    if (event.key === 'ArrowLeft') next = (index + tabs.length - 1) % tabs.length;
-    if (event.key === 'Home') next = 0;
-    if (event.key === 'End') next = tabs.length - 1;
-    if (next === undefined) return;
-    event.preventDefault();
-    selectProduct(tabs[next].dataset.product, true);
-  });
-});
-document.querySelectorAll('[data-open-product]').forEach(link => {
-  link.addEventListener('click', () => selectProduct(link.dataset.openProduct));
-});
-const menu = document.querySelector('.menu-toggle');
-const nav = document.getElementById('main-nav');
-function closeMenu() { menu.setAttribute('aria-expanded', 'false'); nav.classList.remove('is-open'); }
-menu.addEventListener('click', () => {
-  const expanded = menu.getAttribute('aria-expanded') !== 'true';
-  menu.setAttribute('aria-expanded', String(expanded));
-  nav.classList.toggle('is-open', expanded);
-});
-nav.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
-document.addEventListener('keydown', event => {
-  if (event.key === 'Escape' && menu.getAttribute('aria-expanded') === 'true') { closeMenu(); menu.focus(); }
-});
-document.getElementById('year').textContent = new Date().getFullYear();
+document.querySelectorAll('svg').forEach(icon=>{icon.setAttribute('aria-hidden','true');icon.setAttribute('focusable','false');});
 
-// Desktop downloads are public and never pass through account onboarding.
-(async()=>{const host=document.getElementById('desktop-downloads'),status=document.getElementById('desktop-download-status');if(!host)return;try{const response=await fetch('downloads.json',{cache:'no-store'});if(!response.ok)throw Error();const release=await response.json();for(const file of release.files){const url=new URL(file.url);if(url.protocol!=='https:'||url.hostname!=='github.com'||!url.pathname.startsWith('/JasKay/Axiom/releases/download/'))continue;const link=document.createElement('a');link.className='desktop-download-card';link.href=url.href;const title=document.createElement('strong');title.textContent=file.label;const detail=document.createElement('span');detail.textContent=file.detail;const action=document.createElement('span');action.className='desktop-download-action';action.textContent='Download ↓';link.append(title,detail,action);host.append(link);}status.textContent=host.children.length?'Desktop version '+release.version+' · No sign-up required':'Use All desktop releases below to download Axiom Pro.';}catch{status.textContent='Download Axiom Pro using All desktop releases below.';}})();
+const tabs=[...document.querySelectorAll('[data-product]')];
+const captions={pro:'Axiom Pro · Your service, your slides and your live output. Each in its place.',lead:'AxiomLeader · One agenda. Clear destinations for Tech and your congregation.',u:'AxiomU · Published messages, scripture and a place for personal reflection.'};
+function selectProduct(name,focus=false){if(!captions[name])return;for(const tab of tabs){const selected=tab.dataset.product===name;tab.setAttribute('aria-selected',String(selected));tab.tabIndex=selected?0:-1;document.getElementById(tab.getAttribute('aria-controls')).hidden=!selected;if(selected&&focus)tab.focus();}document.getElementById('product-caption').textContent=captions[name];}
+for(const[index,tab]of tabs.entries()){tab.onclick=()=>selectProduct(tab.dataset.product);tab.onkeydown=event=>{let next;if(event.key==='ArrowRight')next=(index+1)%tabs.length;if(event.key==='ArrowLeft')next=(index+tabs.length-1)%tabs.length;if(event.key==='Home')next=0;if(event.key==='End')next=tabs.length-1;if(next===undefined)return;event.preventDefault();selectProduct(tabs[next].dataset.product,true);};}
+for(const link of document.querySelectorAll('[data-open-product]'))link.addEventListener('click',()=>selectProduct(link.dataset.openProduct));
+const menu=document.querySelector('.menu-toggle'),navigation=document.getElementById('main-nav');
+function closeMenu(restore=false){menu.setAttribute('aria-expanded','false');menu.setAttribute('aria-label','Open navigation');navigation.classList.remove('is-open');if(restore)menu.focus();}
+menu.onclick=()=>{const opened=menu.getAttribute('aria-expanded')!=='true';menu.setAttribute('aria-expanded',String(opened));menu.setAttribute('aria-label',opened?'Close navigation':'Open navigation');navigation.classList.toggle('is-open',opened);};
+for(const link of navigation.querySelectorAll('a'))link.addEventListener('click',()=>{const opened=menu.getAttribute('aria-expanded')==='true';closeMenu();if(opened){const target=document.getElementById(link.hash.slice(1));if(target){target.tabIndex=-1;target.focus({preventScroll:true});}}});
+document.addEventListener('keydown',event=>{if(event.key==='Escape'&&menu.getAttribute('aria-expanded')==='true')closeMenu(true);});
+document.addEventListener('click',event=>{if(!navigation.contains(event.target)&&!menu.contains(event.target))closeMenu();});
+matchMedia('(min-width:801px)').addEventListener('change',()=>closeMenu());
+document.getElementById('year').textContent=new Date().getFullYear();
+(async()=>{const host=document.getElementById('desktop-downloads'),status=document.getElementById('desktop-download-status');try{const response=await fetch('downloads.json',{cache:'no-store'});if(!response.ok)throw Error();const release=await response.json();if(!/^\d+\.\d+\.\d+$/.test(release.version)||!Array.isArray(release.files))throw Error();const windows=/Windows/i.test(navigator.userAgent),files=release.files.slice().sort((a,b)=>Number(windows&&b.label.startsWith('Windows'))-Number(windows&&a.label.startsWith('Windows')));for(const file of files){const url=new URL(file.url);if(url.origin!=='https://github.com'||!url.pathname.startsWith('/JasKay/Axiom/releases/download/v'+release.version+'/'))continue;const link=document.createElement('a'),title=document.createElement('strong'),detail=document.createElement('span'),svg=document.createElementNS('http://www.w3.org/2000/svg','svg'),use=document.createElementNS(svg.namespaceURI,'use');link.className='desktop-download-card';link.href=url.href;link.setAttribute('aria-label','Download Axiom Pro for '+file.label);title.textContent=file.label;detail.className='download-detail';detail.textContent=file.detail;svg.setAttribute('aria-hidden','true');use.setAttribute('href','#download-icon');svg.append(use);link.append(title,detail,svg);host.append(link);}if(!host.children.length)throw Error();status.textContent='Version '+release.version+' · Standalone is free';}catch{status.textContent='Find the latest app using All releases below.';}})();
