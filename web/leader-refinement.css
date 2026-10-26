@@ -95,3 +95,22 @@ body.axiom-workspace.leader-premium .leader-account-dialog{width:460px;max-width
 body.axiom-workspace.leader-premium .leader-account-dialog .tour-header{display:flex;align-items:center;justify-content:space-between;gap:16px}
 body.axiom-workspace.leader-premium .leader-account-dialog select{width:100%}
 @media(max-width:650px){body.axiom-workspace.leader-premium .leader-account-dialog{padding:20px}body.axiom-workspace.leader-premium .leader-account-dialog :is(input,select){font-size:16px;min-height:44px}}
+/* One service, three destinations, one Tech conversation. */
+body.axiom-workspace.leader-premium.leader-unified .workspace-layout{grid-template-columns:218px minmax(0,1fr)}
+body.axiom-workspace.leader-premium.leader-unified .service-desk-tabs{gap:24px}
+body.axiom-workspace.leader-premium.leader-unified .service-desk-tabs button{display:inline-flex;align-items:center;gap:7px;white-space:nowrap}
+body.axiom-workspace.leader-premium.leader-unified .service-desk-tabs svg{width:16px;height:16px;flex-shrink:0}
+body.axiom-workspace.leader-premium.leader-unified .leader-conversation{display:block!important;position:relative!important;inset:auto!important;width:100%!important;height:var(--leader-conversation-height,clamp(340px,calc(var(--leader-height,100dvh) - 310px),740px))!important;max-width:880px;border:1px solid var(--line);border-radius:12px;z-index:auto;overflow:hidden}
+body.axiom-workspace.leader-premium.leader-unified .leader-conversation .desk-panel-heading{padding:16px 20px}
+body.axiom-workspace.leader-premium.leader-unified .leader-close-conversation{display:none!important}
+body.axiom-workspace.leader-premium.leader-unified #shared-service-picker{display:none}
+body.axiom-workspace.leader-premium.leader-unified #comment-form{position:relative;overflow:visible}
+body.axiom-workspace.leader-premium.leader-unified .leader-share-menu{position:absolute;bottom:51px;left:10px;z-index:3;width:210px;padding:6px;border:1px solid var(--line);border-radius:10px;background:var(--surface);box-shadow:0 12px 36px #0003}
+body.axiom-workspace.leader-premium.leader-unified .leader-share-menu[hidden]{display:none}
+body.axiom-workspace.leader-premium.leader-unified .leader-share-action{display:flex;align-items:center;gap:10px;width:100%;min-height:42px;border:0;border-radius:6px;padding:8px 10px;background:transparent;color:var(--ink);text-align:left;font:inherit;font-size:12px}
+body.axiom-workspace.leader-premium.leader-unified .leader-share-action:hover{background:var(--selected)}
+body.axiom-workspace.leader-premium.leader-unified .leader-share-action svg{width:17px;height:17px;color:var(--title-tint)}
+body.axiom-workspace.leader-premium.leader-unified .leader-service-editor{width:min(680px,calc(100vw - 28px));max-height:85dvh;overflow:auto}
+body.axiom-workspace.leader-premium.leader-unified .leader-service-editor .detail-card{padding:0;border:0;box-shadow:none}
+@media(min-width:651px) and (max-width:1100px){body.axiom-workspace.leader-premium.leader-unified .workspace-layout{grid-template-columns:180px minmax(0,1fr)}}
+@media(max-width:650px){body.axiom-workspace.leader-premium.leader-unified .service-desk-tabs{gap:0}body.axiom-workspace.leader-premium.leader-unified .service-desk-tabs button{font-size:11px;padding:11px 6px;gap:5px}body.axiom-workspace.leader-premium.leader-unified .leader-conversation{height:var(--leader-conversation-height,clamp(340px,calc(var(--leader-height,100dvh) - 315px),650px))!important}body.axiom-workspace.leader-premium.leader-unified .leader-share-menu{bottom:56px}body.axiom-workspace.leader-premium.leader-unified .leader-conversation .desk-panel-heading{padding:12px 16px}}

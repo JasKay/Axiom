@@ -4,7 +4,7 @@ const fs=require('node:fs'),path=require('node:path');
 // Pro's scripture matching is in sermon-engine.js. The generative model runtime
 // belongs to the Lead web workspace and is not loaded by the desktop app.
 const desktopPages=new Set(['studio.html','tech-media.html','output.html']);
-const webOnly=new Set(['local-assistant-client.js','vendor/local-assistant.js','studio-preview.png']);
+const webOnly=new Set(['local-assistant-client.js','vendor/local-assistant.js','studio-preview.png','leader-preview.png','members-preview.png']);
 function includeDesktopAsset(relative){
   const name=relative.replaceAll('\\','/');
   if(name==='vendor/onnx'||name.startsWith('vendor/onnx/'))return false;

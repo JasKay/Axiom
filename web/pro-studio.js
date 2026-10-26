@@ -5,13 +5,13 @@
   const folderIcon='<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><path d="M2.5 5.5h6l1.5 2h7.5v9h-15z M2.5 5.5v-2h6l1.5 2h7.5v2"/></svg>';
   function serviceTree(){
     const host=byId('service-tree'),current=service();
-    const signature=JSON.stringify([current.id,current.activeDeckId,project.services.map(s=>[s.id,s.name,s.archived,s.decks])]);
+    const signature=JSON.stringify([current.id,current.activeDeckId,project.services.filter(s=>!window.AxiomProMode||AxiomProMode.visible(s)).map(s=>[s.id,s.name,s.archived,s.decks])]);
     if(host.dataset.signature===signature)return;
     const opened=new Map([...host.querySelectorAll('details[data-service-id]')].map(el=>[el.dataset.serviceId,el.open]));
     const changed=host.dataset.active!==current.id;
     host.dataset.signature=signature;host.dataset.active=current.id;host.replaceChildren();
     for(const archived of [false,true]){
-      const services=project.services.filter(s=>!!s.archived===archived);
+      const services=project.services.filter(s=>!!s.archived===archived&&(!window.AxiomProMode||AxiomProMode.visible(s)));
       if(!services.length)continue;
       const group=document.createElement('details');group.className='service-category '+(archived?'archived-services':'current-services');const groupLabel=document.createElement('summary');groupLabel.textContent=(archived?'Archive':'Current')+' ('+services.length+')';group.append(groupLabel);group.open=archived?!!current.archived:true;
 
@@ -19,8 +19,8 @@
         const folder=document.createElement('details');folder.className='studio-service'+(s.id===current.id?' current':'');folder.dataset.serviceId=s.id;
         folder.open=s.id===current.id&&changed?true:(opened.get(s.id)??s.id===current.id);
         const summary=document.createElement('summary');summary.innerHTML=folderIcon;
-        const title=document.createElement('span');title.textContent=s.name;title.title=s.name;summary.append(title);
-        if(s.cloud){const cloud=document.createElement('span');cloud.className='tree-cloud';cloud.textContent='Lead';summary.append(cloud);}
+        const title=document.createElement('span');title.textContent=s.name;title.title=s.name;summary.append(title);if(!s.cloud){const local=document.createElement('span');local.className='tree-cloud';local.textContent='Local';summary.append(local);}
+        if(s.cloud){const cloud=document.createElement('span');cloud.className='tree-cloud';cloud.textContent='Shared';summary.append(cloud);}
         summary.addEventListener('click',event=>{if(s.id!==service().id){event.preventDefault();switchPresentation(s.id);}});
         folder.append(summary);
         const decks=document.createElement('div');decks.className='studio-decks';

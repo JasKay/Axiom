@@ -1,9 +1,9 @@
 {
-  "version": "0.4.32",
+  "version": "0.4.33",
   "highlights": [
-    "Consistent compact Manrope typography, aligned controls and matching presentation icons",
-    "Direct song playlists: edit lyrics and add an independent copy to your slides",
-    "Preview and Timer tabs, inline countdown controls and a compact Program panel",
-    "Untinted image and video backgrounds, header reordering and three-icon library tools"
+    "Switch between Standalone and Shared without losing local services or changing live output",
+    "Shared service details stay linked to Leader; messages and files identify their service",
+    "Simplified Leader destinations, visible Tech/member handoffs and consistent Charcoal/Pearl themes",
+    "Clearer timers, direct Program presentation, reusable presentation copies and refined workspace controls"
   ]
 }

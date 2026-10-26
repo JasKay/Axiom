@@ -1,0 +1,74 @@
+/* Shared Charcoal/Pearl palette and conversation controls for Leader and Pro. */
+body.axiom-workspace:is(.leader-premium,.operator-desk){--paper:#101115!important;--surface:#17181e!important;--soft:#22232d!important;--ink:#f3f1f9!important;--muted:#a19eaf!important;--line:#30313d!important;--accent:#bba7ff!important;--title-tint:#c5b4fa!important;--selected:#2c2542!important;--selected-border:#8f73da!important;--action:#7854d8!important;--action-ink:#fff!important;--live:#91d4b0!important;--urgent:#ff858c!important;color-scheme:dark}
+body.axiom-workspace:is(.leader-premium[data-leader-theme=light],.operator-desk[data-desk-theme=light]){--paper:#fff!important;--surface:#f7f7fb!important;--soft:#eeeef5!important;--ink:#181923!important;--muted:#666778!important;--line:#dedee9!important;--accent:#6543ad!important;--title-tint:#684ba3!important;--selected:#eee7fb!important;--selected-border:#9a7acb!important;--action:#7048c7!important;--action-ink:#fff!important;--live:#23754c!important;--urgent:#bb2738!important;color-scheme:light}
+body.axiom-workspace:is(.leader-premium,.operator-desk) :is(#comment-form,#pro-message-form){display:grid!important;grid-template-columns:1fr auto!important;gap:5px!important;padding:10px!important;margin:8px 10px!important;border:1px solid var(--line)!important;border-radius:10px!important;background:var(--paper)!important;flex-shrink:0}
+body.axiom-workspace:is(.leader-premium,.operator-desk) :is(#comment-text,#pro-message-text){grid-column:1/-1!important;width:100%;min-width:0;min-height:44px!important;max-height:110px;resize:none;border:0!important;box-shadow:none!important;border-radius:0;background:transparent!important;color:var(--ink)!important;font-family:Manrope,'Segoe UI',sans-serif!important;font-size:12px!important;line-height:1.6!important;padding:2px!important}
+body.axiom-workspace:is(.leader-premium,.operator-desk) :is(#comment-form,#pro-message-form)>button[type=submit]{display:grid!important;place-items:center;grid-column:2!important;grid-row:2!important;width:34px!important;height:34px!important;min-height:34px!important;padding:7px!important;border:0!important;border-radius:8px!important;background:var(--action)!important;color:var(--action-ink)!important}
+body.axiom-workspace:is(.leader-premium,.operator-desk) :is(.leader-attach,.axiom-team-attach){display:grid!important;place-items:center;grid-column:1!important;grid-row:2!important;justify-self:start;width:34px!important;height:34px!important;min-height:34px!important;padding:7px!important;border:0!important;background:transparent!important;color:var(--muted)!important;border-radius:8px!important}
+body.axiom-workspace:is(.leader-premium,.operator-desk) :is(#comment-form,#pro-message-form)>button svg{width:18px!important;height:18px!important}
+body.axiom-workspace.operator-desk #team-view .navigator-heading h2{display:flex;align-items:center;gap:6px}
+body.axiom-workspace.operator-desk #team-view .navigator-heading h2 svg{width:15px;height:15px}
+body.axiom-workspace.operator-desk .desk-share-file[hidden]{display:none!important}
+body.axiom-workspace.leader-premium .workspace-account:has(.axiom-account-trigger[aria-expanded=true]){background:var(--selected);border-color:var(--selected-border);border-radius:9px}
+body.axiom-workspace.leader-premium .service-desk-tabs button[aria-selected=true]{background:var(--selected)!important;color:var(--title-tint)!important;border-bottom-color:var(--selected-border)!important;font-weight:650}
+body.axiom-workspace.leader-premium .service-desk-tabs button{padding-left:10px;padding-right:10px;border-radius:7px 7px 0 0}
+body.axiom-workspace.leader-premium .leader-bottom-settings{display:none!important}
+@media(max-width:650px){
+ body.axiom-workspace.leader-premium .leader-mobile-nav{grid-template-columns:repeat(5,minmax(0,1fr))}
+ body.axiom-workspace.leader-premium .leader-bottom-settings{display:flex!important}
+ body.axiom-workspace.leader-premium #comment-text{font-size:16px!important}
+ body.axiom-workspace.leader-premium :is(.leader-attach,#comment-form>button[type=submit]){width:44px!important;height:44px!important;min-height:44px!important}
+}
+
+/* Visible handoffs and a consistent active-page treatment. */
+body.axiom-workspace.leader-premium .leader-handoff-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:0 0 18px}
+body.axiom-workspace.leader-premium .leader-handoff-button{display:flex;justify-content:center;align-items:center;gap:9px;min-height:46px;border-radius:9px;font-size:12px;font-weight:650;padding:10px 14px;white-space:normal;line-height:1.5}
+body.axiom-workspace.leader-premium .leader-handoff-button svg{width:18px;height:18px;flex-shrink:0}
+body.axiom-workspace.leader-premium .leader-handoff-button:disabled{opacity:.45;cursor:not-allowed}
+body.axiom-workspace.leader-premium[data-leader-view=messages] #present-service,body.axiom-workspace.leader-premium[data-leader-view=congregation] #review-member-update{box-shadow:0 0 0 3px var(--selected)}
+body.axiom-workspace.leader-premium.leader-unified [data-desk-panel]:not([hidden]),body.axiom-workspace.leader-premium[data-leader-view=people] #team-panel{border:1px solid var(--line);border-left:3px solid var(--selected-border);border-radius:10px;padding:16px;background:linear-gradient(135deg,color-mix(in srgb,var(--selected) 45%,var(--paper)),var(--paper) 220px)}
+body.axiom-workspace.leader-premium.leader-unified #desk-messages>.leader-conversation{border:0;border-radius:6px}
+body.axiom-workspace.leader-premium .leader-service-card[aria-current=page]{border-color:var(--selected-border);background:var(--selected)}
+@media(max-width:650px){body.axiom-workspace.leader-premium .leader-handoff-actions{gap:8px;margin-bottom:12px}body.axiom-workspace.leader-premium .leader-handoff-button{font-size:11px;padding:8px;gap:6px;min-height:48px}body.axiom-workspace.leader-premium.leader-unified [data-desk-panel]:not([hidden]){padding:8px}}body.axiom-workspace:is(.leader-premium,.operator-desk) :is(#comment-form,#pro-message-form)>:is(.leader-attach,.axiom-team-attach){background:transparent!important;color:var(--muted)!important;border:0!important}
+/* AxiomU publishing: one message, optional extras, a private draft preview. */
+body.axiom-workspace.leader-premium #desk-congregation .member-compose{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(230px,.8fr);gap:22px;align-items:start}
+body.axiom-workspace.leader-premium .leader-member-editor{padding:8px!important;min-width:0}
+body.axiom-workspace.leader-premium .leader-member-editor>.desk-panel-heading{display:flex;align-items:start;justify-content:space-between;gap:16px;margin-bottom:22px;padding-bottom:16px;border-bottom:1px solid var(--line)}
+body.axiom-workspace.leader-premium .leader-member-editor h2{font-size:16px!important;font-weight:650;margin:0 0 5px;color:var(--ink)}
+body.axiom-workspace.leader-premium .leader-member-editor .desk-panel-heading p{font-size:11px;color:var(--muted);margin:0}
+body.axiom-workspace.leader-premium #member-share-status{display:inline-flex;white-space:nowrap;border:1px solid var(--selected-border);background:var(--selected);color:var(--title-tint);padding:4px 9px;border-radius:20px;font-size:10px;font-weight:600}
+body.axiom-workspace.leader-premium .leader-member-editor>label{display:grid;gap:8px;font-size:12px;font-weight:600;color:var(--ink)}
+body.axiom-workspace.leader-premium #public-summary{min-height:150px;padding:13px;font-size:13px;line-height:1.75;font-weight:400;border-radius:9px;background:var(--paper);color:var(--ink);resize:vertical}
+body.axiom-workspace.leader-premium .leader-member-section{margin:14px 0 0;border:1px solid var(--line);border-radius:9px;padding:0!important;background:var(--paper)}
+body.axiom-workspace.leader-premium .leader-member-section>summary{padding:13px 14px;min-height:44px;color:var(--ink);font-size:12px;font-weight:550;cursor:pointer}
+body.axiom-workspace.leader-premium .leader-member-section[open]>summary{border-bottom:1px solid var(--line);margin-bottom:12px}
+body.axiom-workspace.leader-premium .leader-member-section>label{display:grid;gap:7px;margin:0 14px 16px;font-size:11px}
+body.axiom-workspace.leader-premium .leader-member-section textarea{width:100%;resize:vertical;font-size:12px;line-height:1.7;padding:10px}
+body.axiom-workspace.leader-premium .leader-member-footer{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:18px 0 0}
+body.axiom-workspace.leader-premium .leader-member-footer small{font-size:10px;line-height:1.6;flex:1;min-width:150px;color:var(--muted)}
+body.axiom-workspace.leader-premium #save-announcements{border:1px solid var(--line);border-radius:7px;padding:9px 13px;min-height:40px;font-size:11px;color:var(--ink)}
+body.axiom-workspace.leader-premium .leader-publication-options{border:0;background:transparent;margin-top:10px}
+body.axiom-workspace.leader-premium .leader-publication-options>summary{color:var(--muted);font-size:10px;padding:10px 0}
+body.axiom-workspace.leader-premium .leader-publication-options:has(#unshare-service[hidden]){display:none}
+body.axiom-workspace.leader-premium .leader-member-preview{position:sticky;top:12px;margin:0!important;background:var(--surface)!important;border:1px solid var(--line)!important;border-radius:11px;padding:22px!important;overflow-wrap:anywhere;box-shadow:none}
+body.axiom-workspace.leader-premium .leader-member-preview>.eyebrow{font-size:9px;color:var(--title-tint);letter-spacing:1px}
+body.axiom-workspace.leader-premium .leader-member-preview h3{font-size:19px!important;line-height:1.5;letter-spacing:-.4px;margin:12px 0;font-weight:650;color:var(--ink)}
+body.axiom-workspace.leader-premium .leader-member-preview p{font-size:12px!important;line-height:1.85;color:var(--muted);white-space:pre-wrap}
+body.axiom-workspace.leader-premium .leader-member-preview h4{font-size:11px;color:var(--title-tint);margin:22px 0 7px}
+body.axiom-workspace.leader-premium .leader-member-preview>small{display:block;font-size:10px;line-height:1.7;border-top:1px solid var(--line);padding-top:14px;margin-top:20px}
+@media(max-width:900px){body.axiom-workspace.leader-premium #desk-congregation .member-compose{grid-template-columns:minmax(0,1fr);gap:20px}body.axiom-workspace.leader-premium .leader-member-preview{position:static}body.axiom-workspace.leader-premium .leader-member-editor{padding:4px!important}}
+/* Workspace choice and service-scoped communication stay beside the presentation. */
+body.axiom-workspace.operator-desk .pro-mode-control{display:grid;gap:5px;padding:7px 10px 9px;border-bottom:1px solid var(--line)}
+body.axiom-workspace.operator-desk .pro-mode-control>span{font-size:9px;font-weight:600;text-transform:uppercase;color:var(--muted)}
+body.axiom-workspace.operator-desk #pro-mode-select{width:100%;min-width:0;min-height:29px;font:500 10px Manrope,'Segoe UI',sans-serif!important;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:4px 5px}
+body.axiom-workspace.operator-desk .pro-thread-service{display:grid;gap:2px;padding:7px 0;border-bottom:1px solid var(--line);margin-bottom:4px;flex-shrink:0;overflow-wrap:anywhere}
+body.axiom-workspace.operator-desk .pro-thread-service strong{font-size:10px;font-weight:600;color:var(--title-tint)}
+body.axiom-workspace.operator-desk .pro-thread-service small{font-size:9px;color:var(--muted)}
+body.axiom-workspace.operator-desk .pro-service-inbox{display:flex;flex-direction:column;gap:4px;max-height:100px;overflow:auto;flex-shrink:0;padding:5px 0}
+body.axiom-workspace.operator-desk .pro-unread-service{display:flex;align-items:center;gap:5px;min-height:29px;padding:5px 6px;width:100%;border:1px solid var(--selected-border);border-radius:6px;background:var(--selected);color:var(--title-tint);font-size:9px;text-align:left}
+body.axiom-workspace.operator-desk .pro-unread-service svg{width:13px;height:13px;flex-shrink:0}
+body.axiom-workspace.operator-desk .pro-unread-service>span{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+body.axiom-workspace.operator-desk .pro-unread-service small{font-size:9px;white-space:nowrap}
+body.axiom-workspace.operator-desk .chat-service-name{display:block;font-size:9px;color:var(--title-tint);margin-bottom:4px;overflow-wrap:anywhere}
+.pro-service-inbox[hidden],.pro-thread-service[hidden]{display:none!important}
+body.axiom-workspace.operator-desk[data-pro-mode=standalone] #pro-message-status{display:block!important}

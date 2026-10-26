@@ -1,3 +1,17 @@
+Axiom Pro 0.4.33 connects local preparation and church teamwork.
+
+- Create services in Standalone, connect to your church, and return without losing saved work. Switching modes keeps Program unchanged.
+- Keep local and shared services identifiable. Messages and files show their source service, date and unread counts.
+- Shared service names, schedules, references and directions stay linked to Leader while Tech preparations and private notes are retained.
+- Preview/Timer/View modes, one-click direct Program presentation, presentation duplication and refined selection highlights.
+- Shared Charcoal/Pearl styling and matching message composers across Leader and Pro. Leader has one bottom settings entry, three service destinations and visible handoff actions.
+- Cleaner AxiomU draft preparation, review and explicit member publishing.
+- Conditional workspace/file-list responses and bounded small-file reuse reduce repeated transfers.
+
+Cloud uploads remain limited to 100 MiB per file. Storage tiers, quotas, subscription billing, persistent offline media packages and resumable heavy-file transfers are not enabled by this release. Existing local services and media are retained.
+
+Windows and Mac packaged-app checks and Windows installed-upgrade verification gate publication. Installers remain unsigned.
+
 Axiom Pro 0.4.32 refines the desktop workspace and direct song workflow.
 
 - Consistent compact Manrope typography, aligned controls and matching presentation icons.

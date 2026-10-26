@@ -1,8 +1,8 @@
 'use strict';
 const tabs = [...document.querySelectorAll('[data-product]')];
 const captions = {
-  lead: 'AxiomLead · Build the running order and give your media team a clear handoff.',
-  pro: 'Axiom Pro · Editable service sections, private Preview and clear Program controls.',
+  lead: 'AxiomLeader · Plan one service, message Tech and publish member updates with clear destinations.',
+  pro: 'Axiom Pro · Standalone and Shared workspaces, service-linked messages, private Preview and controlled Program.',
   u: 'AxiomU · Revisit published messages, scripture and church updates.'
 };
 function selectProduct(name, focus = false) {
