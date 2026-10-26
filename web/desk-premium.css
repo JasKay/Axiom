@@ -131,7 +131,8 @@ body.axiom-workspace.pro-studio.operator-desk .desk-playlists>.navigator-heading
 body.axiom-workspace.pro-studio.operator-desk .desk-playlist-list{flex:1;min-height:0;max-height:100%!important;overflow-y:auto!important;overflow-x:hidden!important;padding:6px 9px!important;overscroll-behavior:contain}
 body.axiom-workspace.pro-studio.operator-desk .premium-playlist-title{margin:6px 0!important;font-size:11px!important}
 body.axiom-workspace.pro-studio.operator-desk .premium-playlist-actions{margin-bottom:5px}
-body.axiom-workspace.pro-studio.operator-desk .premium-section-grip{cursor:grab;width:18px;min-width:18px;min-height:22px!important;padding:2px!important;border:0!important;background:transparent!important;color:var(--muted)!important}
+body.axiom-workspace.pro-studio.operator-desk .premium-section-grip{cursor:grab;touch-action:none;width:18px;min-width:18px;min-height:22px!important;padding:2px!important;border:0!important;background:transparent!important;color:var(--muted)!important}
+.premium-section-grip:active{cursor:grabbing}
 .premium-section-grip svg{stroke-width:3;width:13px;height:16px}
 body.axiom-workspace.pro-studio.operator-desk .desk-group-heading:before{content:none}
 .premium-header-move{margin-left:auto;font-size:9px!important;padding:3px 5px!important;min-height:23px!important;background:transparent!important;border:0!important;color:var(--muted)!important}
@@ -219,6 +220,9 @@ body.axiom-workspace.pro-studio.operator-desk button.premium-playlist-item{displ
 .premium-song-icon{display:inline-flex;flex:0 0 13px;color:var(--muted)}.premium-song-icon svg{width:13px;height:13px}
 body.axiom-workspace.pro-studio.operator-desk .premium-search-toggle{display:grid;place-items:center;width:27px;min-width:27px;min-height:26px!important;padding:5px!important;border:0!important;background:transparent!important}
 body.axiom-workspace.pro-studio.operator-desk #library-view .search-line{max-width:48%;gap:5px}
+body.axiom-workspace.pro-studio.operator-desk #slides .slide-card.selected{border-color:var(--selected-border)!important;box-shadow:0 0 0 1px var(--selected-border),0 0 24px color-mix(in srgb,var(--accent) 42%,transparent)!important}
+
+@media(prefers-reduced-motion:reduce){body.axiom-workspace.pro-studio.operator-desk .desk-group.premium-current>.desk-group-heading{transition:none!important}}
 body.axiom-workspace.pro-studio.operator-desk #library-search{width:150px;min-width:60px;font-size:10px!important}
 body.axiom-workspace.pro-studio.operator-desk .desk-library-heading{padding-left:14px!important}
 body.axiom-workspace.pro-studio.operator-desk .studio-service>summary{font-weight:400!important}/* A shared 14px inset aligns the centre pane's right-hand controls. */
@@ -258,3 +262,70 @@ body.axiom-workspace.pro-studio.operator-desk .desk-canvas{scrollbar-gutter:stab
 body.axiom-workspace.pro-studio.operator-desk :is(.desk-group-heading,.desk-group-slides,#slides,.page-browser){margin-left:0!important;margin-right:0!important}
 body.axiom-workspace.pro-studio.operator-desk .page-browser{padding-left:0!important;padding-right:0!important}body.axiom-workspace.pro-studio.operator-desk .desk-group{padding-right:max(0px,calc(14px - var(--content-scrollbar,0px)))!important}
 body.axiom-workspace.pro-studio.operator-desk #library-grid{padding-right:max(0px,calc(14px - var(--content-scrollbar,0px)))!important}
+
+@media(prefers-reduced-motion:reduce){body.axiom-workspace.pro-studio.operator-desk .desk-group.premium-current>.desk-group-heading{transition:none!important}}/* Preview-first and direct-to-Program share the same bounded tab surface. */
+body.axiom-workspace.pro-studio.operator-desk .output-monitor{border-bottom:1px solid var(--line)!important}
+body.axiom-workspace.pro-studio.operator-desk .premium-monitor-tabs>button[hidden]{display:none!important}
+body.axiom-workspace.pro-studio.operator-desk .inspector[data-workflow=direct]{grid-template-rows:minmax(0,1.9fr) minmax(90px,1fr)}
+body.axiom-workspace.pro-studio.operator-desk .premium-monitor-slot>.output-monitor{height:100%;border:0!important;border-bottom:1px solid var(--line)!important}
+body.axiom-workspace.pro-studio.operator-desk .premium-monitor-slot>.output-monitor .live-header h2{visibility:hidden}
+body.axiom-workspace.pro-studio.operator-desk .premium-workflow-view{min-height:0;overflow-y:auto;padding:12px}
+.premium-workflow-view fieldset{border:0;padding:0;margin:0;min-width:0}.premium-workflow-view legend{font-size:10px;font-weight:700;color:var(--title-tint);margin-bottom:12px}
+body.axiom-workspace.pro-studio.operator-desk .premium-workflow-view label{display:flex;align-items:flex-start;gap:8px;border:1px solid var(--line);border-radius:7px;padding:10px;margin:0 0 8px;cursor:pointer;text-transform:none;letter-spacing:0}
+.premium-workflow-view label:has(input:checked){background:var(--selected);border-color:var(--selected-border)!important}.premium-workflow-view input{flex:0 0 auto;margin:3px 0 0!important;min-height:0!important;width:auto!important}
+.premium-workflow-view strong{display:block;color:var(--ink);font-size:10px;font-weight:600;line-height:1.5}.premium-workflow-view small{display:block;color:var(--muted);font-size:9px;font-weight:300;line-height:1.6;margin-top:4px}
+body.axiom-workspace.pro-studio.operator-desk .premium-monitor-slot .premium-workflow-view[hidden]{display:none!important}/* A quiet timer instrument: mode, time, action, duration. */
+body.axiom-workspace.pro-studio.operator-desk .premium-monitor-slot>.desk-countdown{position:relative;align-content:center;gap:10px!important;padding:12px 12px 20px!important;background:radial-gradient(ellipse at 50% 40%,color-mix(in srgb,var(--selected) 38%,transparent),transparent 78%),var(--surface)!important}
+body.axiom-workspace.pro-studio.operator-desk .premium-monitor-slot .desk-timer-heading{gap:9px!important}
+body.axiom-workspace.pro-studio.operator-desk .desk-timer-modes{padding:3px!important;gap:3px!important;border:1px solid var(--line)!important;border-radius:8px!important;background:var(--paper)!important}
+body.axiom-workspace.pro-studio.operator-desk .premium-monitor-slot .desk-timer-modes button{font-size:9px!important;font-weight:400!important;min-height:25px!important;border:0!important;box-shadow:none!important;color:var(--muted)!important;border-radius:5px!important}
+body.axiom-workspace.pro-studio.operator-desk .premium-monitor-slot .desk-timer-modes button[aria-pressed=true]{background:var(--selected)!important;color:var(--accent)!important;font-weight:600!important;box-shadow:0 1px 3px #0001!important}
+body.axiom-workspace.pro-studio.operator-desk .desk-timer-line{justify-content:center;gap:8px!important}
+.premium-timer-readout{min-width:90px;text-align:center;display:grid;justify-items:center;gap:2px}
+body.axiom-workspace.pro-studio.operator-desk .premium-monitor-slot #desk-clock-value{font-size:32px!important;font-weight:500!important;line-height:1.2!important;font-variant-numeric:tabular-nums;letter-spacing:-.8px}
+.premium-timer-status{display:flex;align-items:center;gap:5px;font-size:9px;font-weight:300;color:var(--muted);line-height:1.5}.premium-timer-status:before{content:'';width:4px;height:4px;border-radius:50%;background:var(--muted)}
+[data-clock-state=running] .premium-timer-status:before{background:var(--live)}
+body.axiom-workspace.pro-studio.operator-desk .desk-timer-line #desk-clock-toggle{border-color:var(--selected-border)!important;background:var(--selected)!important;color:var(--accent)!important;border-radius:6px!important;font-size:10px!important}
+body.axiom-workspace.pro-studio.operator-desk #desk-clock-reset{border:0!important;background:transparent!important;color:var(--muted)!important;min-width:35px;padding:4px!important}
+body.axiom-workspace.pro-studio.operator-desk .desk-timer-controls label{font-size:9px!important;font-weight:300!important;gap:8px}
+body.axiom-workspace.pro-studio.operator-desk #desk-clock-duration{width:58px;height:25px!important;min-height:25px!important;padding:3px 6px!important;text-align:center;border-radius:6px!important;font-variant-numeric:tabular-nums}
+.premium-timer-progress{position:absolute;bottom:8px;left:14px;right:14px;height:2px;border-radius:2px;background:var(--line);overflow:hidden}.premium-timer-progress>span{display:block;height:100%;background:var(--live);transition:width .25s linear}.premium-timer-progress[data-urgent=true]>span{background:var(--urgent)}
+.premium-timer-progress[hidden]{display:none!important}
+@media(prefers-reduced-motion:reduce){.premium-timer-progress>span{transition:none}}body.axiom-workspace.pro-studio.operator-desk .premium-workflow-view{padding:8px 10px}
+.premium-workflow-view legend{margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px}
+body.axiom-workspace.pro-studio.operator-desk .premium-workflow-view label{padding:7px;margin-bottom:6px;gap:7px}
+.premium-workflow-view small{line-height:1.5;margin-top:3px}/* Timer composition: one centred focal point, with a calm supporting control row. */
+body.axiom-workspace.pro-studio.operator-desk .premium-monitor-slot>.desk-countdown{display:grid!important;grid-template-rows:auto minmax(43px,1fr) auto auto;align-content:stretch;justify-items:center;gap:6px!important;padding:9px 12px 16px!important}
+body.axiom-workspace.pro-studio.operator-desk .premium-monitor-slot .desk-timer-heading{width:100%;gap:0!important;align-self:start}
+body.axiom-workspace.pro-studio.operator-desk .premium-monitor-slot .desk-timer-heading h2{display:none!important}
+body.axiom-workspace.pro-studio.operator-desk .premium-monitor-slot .desk-timer-modes{width:100%;margin:0!important;border-color:color-mix(in srgb,var(--line) 70%,transparent)!important;background:color-mix(in srgb,var(--paper) 65%,var(--surface))!important}
+body.axiom-workspace.pro-studio.operator-desk .premium-monitor-slot .desk-timer-modes button{min-height:23px!important;padding:3px 4px!important}
+body.axiom-workspace.pro-studio.operator-desk .premium-timer-readout{width:100%;min-height:43px;align-self:center;gap:2px;position:relative}
+body.axiom-workspace.pro-studio.operator-desk .premium-monitor-slot #desk-clock-value{font-size:32px!important;line-height:1.12!important;font-weight:500!important;letter-spacing:-.7px!important;color:var(--ink)!important}
+body.axiom-workspace.pro-studio.operator-desk .premium-monitor-slot #desk-clock-value[data-urgent=true]{color:var(--urgent)!important}
+body.axiom-workspace.pro-studio.operator-desk [data-clock-state=running] #desk-clock-value:not([data-urgent=true]){color:var(--live)!important}
+body.axiom-workspace.pro-studio.operator-desk .desk-timer-line{width:100%;gap:5px!important;min-height:25px!important;justify-content:center!important;align-self:center}
+body.axiom-workspace.pro-studio.operator-desk .desk-timer-line #desk-clock-toggle{min-width:76px;min-height:25px!important;padding:4px 13px!important;border-radius:6px!important;font-weight:600!important}
+body.axiom-workspace.pro-studio.operator-desk .desk-timer-line #desk-clock-reset{min-width:48px;min-height:25px!important;padding:4px 8px!important}
+body.axiom-workspace.pro-studio.operator-desk .desk-timer-line #desk-clock-reset:hover{background:var(--soft)!important;color:var(--ink)!important}
+body.axiom-workspace.pro-studio.operator-desk .desk-countdown>.desk-timer-controls{padding-top:0!important;min-height:24px}
+body.axiom-workspace.pro-studio.operator-desk #desk-clock-duration{width:51px;height:23px!important;min-height:23px!important;border-color:color-mix(in srgb,var(--line) 65%,transparent)!important;background:color-mix(in srgb,var(--paper) 45%,var(--surface))!important;font-size:9px!important}
+.premium-timer-status{font-size:9px;letter-spacing:.1px}
+.premium-timer-progress{left:26px;right:26px;bottom:6px;height:2px;background:color-mix(in srgb,var(--line) 65%,transparent)}body.axiom-workspace.pro-studio.operator-desk .premium-monitor-slot>:is(.desk-countdown,.preview-monitor,.output-monitor,.premium-workflow-view)[hidden]{display:none!important}/* Program uses the same full-width heading rail as the other panels. */
+body.axiom-workspace.pro-studio.operator-desk .output-monitor{position:relative;padding-bottom:13px!important;border-bottom:1px solid var(--line)!important}
+body.axiom-workspace.pro-studio.operator-desk .output-monitor{padding-top:0!important;grid-template-rows:31px minmax(0,1fr) 26px}
+body.axiom-workspace.pro-studio.operator-desk .output-monitor>.live-header{height:31px!important;min-height:31px!important;margin:0 -9px!important;padding:4px 9px!important;border-bottom:1px solid var(--line)!important;background:var(--surface)!important;box-sizing:border-box;}
+body.axiom-workspace.pro-studio.operator-desk .premium-monitor-slot>.output-monitor{padding-bottom:13px!important}
+body.axiom-workspace.pro-studio.operator-desk .premium-timer-readout{display:grid!important;grid-template-columns:minmax(0,1fr)!important;justify-items:center!important;align-items:center!important;gap:2px!important}
+body.axiom-workspace.pro-studio.operator-desk .premium-timer-readout #desk-clock-value{margin:0!important;justify-self:center!important;text-align:center!important}
+body.axiom-workspace.pro-studio.operator-desk .premium-timer-readout .premium-timer-status{justify-self:center!important;margin:0!important}/* The active section carries a slow aurora; only its transform is animated. */
+body.axiom-workspace.pro-studio.operator-desk{--section-violet:color-mix(in srgb,#a98aff 27%,transparent);--section-teal:color-mix(in srgb,#88cfca 16%,transparent);--section-halo:color-mix(in srgb,#ad91ef 16%,transparent)}
+body.axiom-workspace.pro-studio.operator-desk[data-desk-theme=light]{--section-violet:color-mix(in srgb,#a186d6 19%,transparent);--section-teal:color-mix(in srgb,#71b8ad 13%,transparent);--section-halo:color-mix(in srgb,#9c80c8 12%,transparent)}
+body.axiom-workspace.pro-studio.operator-desk :is(.desk-group.premium-glow-target>.desk-group-heading,.desk-library-heading.premium-glow-target){position:relative;isolation:isolate;overflow:hidden;background:color-mix(in srgb,var(--selected) 62%,var(--surface));border:1px solid color-mix(in srgb,var(--selected-border) 48%,var(--line));border-radius:7px;box-shadow:0 0 20px var(--section-halo),inset 0 1px 0 color-mix(in srgb,var(--accent) 8%,transparent);transition:border-color .25s ease,box-shadow .25s ease}
+body.axiom-workspace.pro-studio.operator-desk :is(.desk-group.premium-glow-target>.desk-group-heading,.desk-library-heading.premium-glow-target):after{content:'';position:absolute;inset:-110% -20%;z-index:-1;pointer-events:none;background:radial-gradient(ellipse at 23% 50%,var(--section-violet),transparent 58%),radial-gradient(ellipse at 76% 50%,var(--section-teal),transparent 54%);animation:axiom-section-aurora 12s ease-in-out infinite;will-change:transform}
+@keyframes axiom-section-aurora{0%,100%{transform:translate3d(-9%,-3%,0) scale(.96)}50%{transform:translate3d(9%,4%,0) scale(1.08)}}
+@media(prefers-reduced-motion:reduce){body.axiom-workspace.pro-studio.operator-desk :is(.desk-group.premium-glow-target>.desk-group-heading,.desk-library-heading.premium-glow-target):after{animation:none!important;will-change:auto;transform:none}body.axiom-workspace.pro-studio.operator-desk :is(.desk-group.premium-glow-target>.desk-group-heading,.desk-library-heading.premium-glow-target){transition:none!important}}/* The library shares the heading rule and the active area's restrained aurora. */
+body.axiom-workspace.pro-studio.operator-desk .desk-library-heading{position:relative;border-bottom:1px solid var(--line)!important;box-sizing:border-box}
+body.axiom-workspace.pro-studio.operator-desk .desk-library-heading.premium-glow-target{border:0!important;border-bottom:1px solid var(--line)!important;border-radius:0!important;--section-violet:color-mix(in srgb,var(--accent) 15%,transparent);--section-teal:color-mix(in srgb,#7fc9b2 22%,transparent)}
+body.axiom-workspace.pro-studio.operator-desk [data-glow-kind=image]{--section-violet:color-mix(in srgb,var(--accent) 16%,transparent);--section-teal:color-mix(in srgb,#70c5d0 25%,transparent)}
+body.axiom-workspace.pro-studio.operator-desk [data-glow-kind=video]{--section-violet:color-mix(in srgb,#b38de3 24%,transparent);--section-teal:color-mix(in srgb,#dc9eae 17%,transparent)}body.axiom-workspace.pro-studio.operator-desk .desk-group-heading{border:1px solid transparent;box-sizing:border-box}
