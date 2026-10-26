@@ -5,6 +5,7 @@ function dialog(id,title){const d=make('dialog','premium-dialog');d.id=id;const 
 function field(label,input,host){const l=make('label','premium-field',label);l.append(input);host.append(l);return input;}
 const overlay=make('div','premium-feedback');overlay.setAttribute('role','status');overlay.setAttribute('aria-live','polite');document.body.append(overlay);let feedbackTimer;
 function feedback(title,detail){overlay.replaceChildren(make('strong','',title),make('span','',detail));overlay.classList.add('visible');clearTimeout(feedbackTimer);feedbackTimer=setTimeout(()=>overlay.classList.remove('visible'),2200);}
+document.querySelector('.desk-theme-toggle').replaceChildren(AxiomIcons.create('theme'));document.querySelector('.desk-gear').replaceChildren(AxiomIcons.create('settings'));
 const theme=$('desk-theme');theme.options[0].textContent='Axiom Charcoal';theme.options[1].textContent='Axiom Pearl';
 function themeName(){const control=document.querySelector('.desk-theme-toggle');control.title=control.ariaLabel=theme.value==='light'?'Switch to Axiom Charcoal':'Switch to Axiom Pearl';}
 theme.addEventListener('change',()=>{themeName();feedback(theme.value==='light'?'Axiom Pearl':'Axiom Charcoal','Appearance applied');});themeName();
