@@ -1,3 +1,13 @@
+Axiom Pro 0.4.37 brings Program media controls, Streaming and quick Bible presentation together.
+
+- Camera is an icon beside Program in the existing media-control strip, not in Add Media or a new Camera tab.
+- Streaming sits beside Program. Record video saves Program output, camera video or audio directly to a local WebM file. Program audio and microphone/mixer input can be included.
+- Direct live streaming supports YouTube, Facebook, Instagram Live Producer, Twitch and custom RTMP/RTMPS destinations through their server URLs and stream keys. It requires a one-time local FFmpeg encoder selection and an eligible platform account. The encoder is not bundled. Keys are not saved in projects or sent to Axiom.
+- Add Bible opens search immediately. Type shortcuts such as Mat 3 5 or Jn3 16, choose the edition, then click a result to go straight to Live.
+- Scriptures beside Playlist keeps recent passage searches for fast replay without duplicating middle-pane service content. Edition access and source text are preserved.
+- Shared storage allowances, existing services, local media and the free Standalone presentation workflow remain intact.
+- Mac installers remain unsigned; follow the official Mac installation guide for the per-app Open Anyway exception.
+
 Axiom Pro 0.4.36 adds church upload allowances, paid local camera feeds, and service recording.
 
 - Shared files show the same church-wide allowance in Leader and Pro: 250 MB per rolling 7 days, plus a separate 2 GB cloud-storage cap. Local media and recordings do not count. New uploads are checked atomically; existing downloads, messages and agendas remain available when a quota is full.

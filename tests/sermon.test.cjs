@@ -24,7 +24,7 @@ test('review is required before projection, session clear stops audio, and error
   w.HTMLElement.prototype.scrollIntoView=function(){};
  }});
  try{await new Promise(r=>dom.window.addEventListener('load',()=>setTimeout(r,100)));const w=dom.window,d=w.document,$=id=>d.getElementById(id);
- w.AxiomBibles.search=async()=>({canPresent:true,verses:[{book:'2 Timothy',chapter:1,verse:7,text:'Verified passage fixture.'}]});
+ w.AxiomBibles.search=async()=>({translation:'KJV',canPresent:true,verses:[{book:'2 Timothy',chapter:1,verse:7,text:'Verified passage fixture.'}]});
  assert.ok(d.querySelector('.desk-ai-label'));assert.equal($('sermon-view').hidden,false);assert.equal($('sermon-view').closest('dialog').open,false);
  const initial=messages.length;$('sermon-example').click();assert.equal(d.querySelectorAll('.sermon-card').length,1);assert.equal(messages.length,initial);
  const review=d.querySelector('.sermon-card .primary');review.click();await new Promise(r=>setTimeout(r,10));assert.equal(review.textContent,'Go Live →');assert.equal(messages.length,initial);

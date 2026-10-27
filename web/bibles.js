@@ -25,8 +25,7 @@
   connected(){return !!window.AxiomProContext?.church&&(window.AxiomProMode?.mode||window.AxiomProContext?.mode)!=='standalone';},
   available(version){const edition=editions.find(e=>e.id===version);return !!edition&&(!edition.shared||this.connected());},
   normalizeQuery(query){
-   const aliases={gen:'Genesis',ex:'Exodus',exo:'Exodus',lev:'Leviticus',num:'Numbers',deut:'Deuteronomy',ps:'Psalm',psa:'Psalm',prov:'Proverbs',isa:'Isaiah',jer:'Jeremiah',ezek:'Ezekiel',dan:'Daniel',mt:'Matthew',matt:'Matthew',mk:'Mark',lk:'Luke',jn:'John',jhn:'John',rom:'Romans',cor:'Corinthians',gal:'Galatians',eph:'Ephesians',phil:'Philippians',col:'Colossians',thess:'Thessalonians',tim:'Timothy',pet:'Peter',rev:'Revelation'};
-   return query.trim().replace(/^Psalms(?=\s|\d)/i,'Psalm').replace(/^(?:(\d)\s*)?([a-z]+)\.?\s*(?=\d)/i,(all,n,book)=>(n?n+' ':'')+(aliases[book.toLowerCase()]||book)+' ');
+   return window.AxiomBibleQuery?window.AxiomBibleQuery.normalize(query):query.trim();
   },
   async search(version,query){
    query=this.normalizeQuery(query);

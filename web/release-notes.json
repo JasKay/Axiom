@@ -1,10 +1,9 @@
 {
-  "version": "0.4.36",
+  "version": "0.4.37",
   "highlights": [
-    "Shared church upload allowance: 250 MB in the last 7 days and 2 GB cloud storage",
-    "Paid camera preview and local live output for USB cameras and capture cards",
-    "Paid audio or camera-plus-audio recording streamed directly to your computer",
-    "Clear Leader-to-AxiomU publication previews and unpublished-change indicators",
-    "Mac permission descriptions and unsigned-build launch improvements"
+    "Camera joins Program’s media-control icons; Streaming sits beside Program",
+    "Record the audience Program or camera video directly to your computer",
+    "Direct RTMP/RTMPS streaming with platform keys and a local FFmpeg encoder",
+    "Quick Bible search: Mat 3 5, direct-to-Live results and persistent Scriptures history"
   ]
 }

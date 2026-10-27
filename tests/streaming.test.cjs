@@ -1,0 +1,3 @@
+'use strict';
+const {test}=require('node:test'),assert=require('node:assert/strict'),{destination}=require('../desktop/streaming.cjs');
+test('streaming destinations accept RTMP/RTMPS only and reject credential/argument injection',()=>{assert.equal(destination('rtmps://example.com/live/','private-key'),'rtmps://example.com/live/private-key');assert.equal(destination('rtmp://127.0.0.1:1935/live','test'),'rtmp://127.0.0.1:1935/live/test');for(const [url,key]of [['https://example.com/live','test'],['file:///etc/passwd','test'],['rtmps://user:password@example.com/live','test'],['rtmps://example.com/live','x\n-y'],['rtmps://example.com/live',''],['rtmps://example.com/live','x -i another']])assert.throws(()=>destination(url,key));});

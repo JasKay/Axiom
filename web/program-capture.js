@@ -1,0 +1,9 @@
+/* The selected source is captured locally; callers own and release every track. */
+(()=>{'use strict';async function acquire(source,input,options={}){const owned=[],contexts=[];try{let video=[],audio=[];
+ if(source==='program'){if(!navigator.mediaDevices?.getDisplayMedia)throw Error('Program capture is unavailable on this device.');if(window.desktopShell?.prepareProgramCapture)await desktopShell.prepareProgramCapture();const display=await navigator.mediaDevices.getDisplayMedia({video:{frameRate:{ideal:30},width:{ideal:1280},height:{ideal:720}},audio:!!options.computerAudio});owned.push(...display.getTracks());video=display.getVideoTracks();audio=display.getAudioTracks();}
+ if(source==='camera'){const camera=window.AxiomCamera?.stream();if(!camera)throw Error('Start Camera in Program before recording or streaming it.');video=camera.getVideoTracks().map(t=>t.clone());owned.push(...video);}
+ if(input!=='none'){const mic=await navigator.mediaDevices.getUserMedia({audio:input?{deviceId:{exact:input},echoCancellation:false,noiseSuppression:false,autoGainControl:false}:{echoCancellation:false,noiseSuppression:false,autoGainControl:false},video:false});owned.push(...mic.getTracks());audio.push(...mic.getAudioTracks());}
+ if(audio.length>1){const context=new AudioContext(),dest=context.createMediaStreamDestination();contexts.push(context);for(const track of audio)context.createMediaStreamSource(new MediaStream([track])).connect(dest);audio=dest.stream.getAudioTracks();owned.push(...audio);await context.resume();}
+ return {stream:new MediaStream([...video,...audio]),release(){for(const t of owned)t.stop();for(const c of contexts)c.close().catch(()=>{});}};
+ }catch(e){for(const t of owned)t.stop();for(const c of contexts)c.close().catch(()=>{});throw e;}}
+window.AxiomCapture={acquire};})();

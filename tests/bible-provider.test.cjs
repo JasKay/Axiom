@@ -12,7 +12,7 @@ test('provider adapter preserves attribution and FUMS metadata but does not auth
 });
 const editions=require('../web/bible-editions.js'),zlib=require('node:zlib');
 function bibleClient({connected=false,fetcher}={}){
- const requests=[],w={AxiomBibleEditions:editions,AxiomProContext:{church:connected?'test-church':null,mode:connected?'connected':'standalone'}};
+ const requests=[],w={AxiomBibleQuery:require('../web/bible-query.js'),AxiomBibleEditions:editions,AxiomProContext:{church:connected?'test-church':null,mode:connected?'connected':'standalone'}};
  const ctx=vm.createContext({window:w,Model:require('../web/model.js'),AbortSignal,Blob,Response,DecompressionStream,crypto:require('node:crypto').webcrypto,fetch:async url=>{requests.push(url);if(fetcher)return fetcher(url);if(!url.startsWith('bibles/'))throw Error('External network disabled');return new Response(fs.readFileSync(require.resolve('../web/'+url)));}});
  vm.runInContext(fs.readFileSync(require.resolve('../web/bibles.js'),'utf8'),ctx);return {api:w.AxiomBibles,w,requests};
 }

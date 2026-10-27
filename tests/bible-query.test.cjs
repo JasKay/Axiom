@@ -1,0 +1,3 @@
+'use strict';
+const {test}=require('node:test'),assert=require('node:assert/strict'),{normalize}=require('../web/bible-query.js');
+test('quick Bible references accept short books, compact numbers, common separators and ranges without changing keyword searches',()=>{for(const [input,expected]of [['Mat 3 5','Matthew 3:5'],['Matt3:5','Matthew 3:5'],['mt 3.5','Matthew 3:5'],['Jn3 16','John 3:16'],['1Cor13 4-7','1 Corinthians 13:4-7'],['II Timothy 3:16','2 Timothy 3:16'],['Psalm 23 1','Psalm 23:1'],['Psalms23:1','Psalm 23:1'],['Rom 8v28','Romans 8:28'],['Phil 4 13','Philippians 4:13'],['John chapter 3 verse 16','John 3:16'],['God so loved the world','God so loved the world'],['Jo 3 5','Jo 3 5']])assert.equal(normalize(input),expected,input);});

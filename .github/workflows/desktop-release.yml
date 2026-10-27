@@ -75,6 +75,8 @@ jobs:
         run: node desktop/team.cjs
       - name: Verify local camera output and durable service recording
         run: node desktop/camera.cjs
+      - name: Verify clean Program video recording
+        run: node desktop/program-capture.cjs
       - name: Verify installed Windows in-app upgrade and restart
         if: runner.os == 'Windows'
         timeout-minutes: 12
