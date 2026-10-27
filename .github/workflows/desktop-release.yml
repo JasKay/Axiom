@@ -39,7 +39,26 @@ jobs:
         if: runner.os == 'macOS'
         run: npm run package --prefix desktop -- --mac --arm64 --x64
         env:
-          CSC_IDENTITY_AUTO_DISCOVERY: 'false'
+          AXIOM_MAC_SIGNED_RELEASE: ${{ secrets.MAC_CSC_LINK != '' && 'true' || 'false' }}
+          CSC_IDENTITY_AUTO_DISCOVERY: ${{ secrets.MAC_CSC_LINK != '' && 'true' || 'false' }}
+          CSC_LINK: ${{ secrets.MAC_CSC_LINK }}
+          CSC_KEY_PASSWORD: ${{ secrets.MAC_CSC_KEY_PASSWORD }}
+          APPLE_ID: ${{ secrets.APPLE_ID }}
+          APPLE_APP_SPECIFIC_PASSWORD: ${{ secrets.APPLE_APP_SPECIFIC_PASSWORD }}
+          APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
+      - name: Verify signed and notarized Mac applications
+        if: runner.os == 'macOS'
+        env:
+          SIGNED_RELEASE: ${{ secrets.MAC_CSC_LINK != '' && 'true' || 'false' }}
+        shell: bash
+        run: |
+          if [ "$SIGNED_RELEASE" = "true" ]; then
+            for app in desktop/release/mac*/Axiom.app; do
+              codesign --verify --deep --strict "$app"
+              xcrun stapler validate "$app"
+              spctl --assess --type exec "$app"
+            done
+          fi
       - name: Verify packaged source and build identity
         run: node desktop/verify-package.cjs
       - name: Test the native packaged application
@@ -54,6 +73,8 @@ jobs:
         run: node desktop/song-playlists.cjs
       - name: Verify native church messages, shared files and scriptures
         run: node desktop/team.cjs
+      - name: Verify local camera output and durable service recording
+        run: node desktop/camera.cjs
       - name: Verify installed Windows in-app upgrade and restart
         if: runner.os == 'Windows'
         timeout-minutes: 12

@@ -1,3 +1,12 @@
+Axiom Pro 0.4.36 adds church upload allowances, paid local camera feeds, and service recording.
+
+- Shared files show the same church-wide allowance in Leader and Pro: 250 MB per rolling 7 days, plus a separate 2 GB cloud-storage cap. Local media and recordings do not count. New uploads are checked atomically; existing downloads, messages and agendas remain available when a quota is full.
+- Church Workspace subscribers can preview a USB camera/capture card and add it to their service before going Live. Camera video stays local; no camera audio is sent to Program.
+- Paid local service recording saves audio or camera plus microphone/mixer audio directly to a chosen WebM file. It records the selected sources, not the composed Program output. Stop and save before closing the app.
+- Leader member previews use the same publication rules as AxiomU, with clear unpublished-change indicators. Private notes and Tech messages stay private.
+- Mac camera/microphone usage descriptions are included. Unsigned Mac builds no longer enable hardened runtime. Apple signing/notarization is prepared for future credentials; current downloads remain unsigned. Follow the official Mac installation guide for the per-app Open Anyway exception.
+- Standalone services, local media, imports, Bible editions and presentation controls are retained.
+
 Axiom Pro 0.4.35 refines Scripture presentation and introduces a dedicated product website.
 
 - New Bible slides use a dedicated reading layout: distinct reference, generous passage spacing and a separate translation label. Verse wording and edition labels stay intact.

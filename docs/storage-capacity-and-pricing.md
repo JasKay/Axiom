@@ -7,7 +7,7 @@ Checked 26 October 2026. USD, excluding tax and exchange-rate changes. These are
 - All churches share the current Neon database and private Vercel Blob store. A church account does not provision a fresh free allowance.
 - The connected Neon integration reports Free: 1 GB database storage and 100 CU-hours per project. Neon's current public pricing agrees. Actual database size and remaining monthly compute have not been measured.
 - Blob currently contains roughly 1.16 MB in four objects. Its configured 100 MiB upload limit is an Axiom limit, not a storage allocation for each church.
-- The app has no enforced aggregate byte quota per church, retention expiry or storage-upgrade billing yet. A weekly file-count restriction alone does not control byte usage.
+- Implemented 27 October 2026: one 250 MB rolling-seven-day upload allowance and 2 GB stored-file cap per church, shared by Leader and Pro. Server-side reservations and actual-byte completion enforce the limits. Local media and recordings do not count. Existing downloads and collaboration remain available when uploads are full. No automatic deletion or storage-upgrade billing is enabled.
 - Vercel hosting tier and current invoice have not been established through the available billing metadata. Do not treat the cost model below as the current bill.
 
 ## Verified unit prices

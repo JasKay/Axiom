@@ -1,12 +1,12 @@
 {
   "name": "axiom",
-  "version": "0.4.35",
+  "version": "0.4.36",
   "private": true,
   "description": "Axiom — a focused presentation studio for your whole service",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "package": "electron-builder --publish never",
+    "package": "electron-builder --config electron-builder.cjs --publish never",
     "prepare": "node ../build.cjs && node bundle-updater.cjs",
     "prepackage": "node ../build.cjs && node bundle-updater.cjs",
     "prestart": "node ../build.cjs && node bundle-updater.cjs"
@@ -35,7 +35,8 @@
       "workspace.cjs",
       "media-store.cjs",
       "native-updater.cjs",
-      "cloud-proxy.cjs"
+      "cloud-proxy.cjs",
+      "recordings.cjs"
     ],
     "artifactName": "Axiom-${version}-${os}-${arch}.${ext}",
     "mac": {

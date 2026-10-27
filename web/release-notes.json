@@ -1,9 +1,10 @@
 {
-  "version": "0.4.35",
+  "version": "0.4.36",
   "highlights": [
-    "A dedicated Scripture slide layout with a clear reference, readable passage and translation label",
-    "Bible Preview and Program use matching proportions across small stages and audience output",
-    "New public product website, feature guide and real sample editor with isolated temporary data",
-    "Presentation workflows, local services, imports and media playback are preserved"
+    "Shared church upload allowance: 250 MB in the last 7 days and 2 GB cloud storage",
+    "Paid camera preview and local live output for USB cameras and capture cards",
+    "Paid audio or camera-plus-audio recording streamed directly to your computer",
+    "Clear Leader-to-AxiomU publication previews and unpublished-change indicators",
+    "Mac permission descriptions and unsigned-build launch improvements"
   ]
 }
