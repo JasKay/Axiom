@@ -1,6 +1,6 @@
 # Church Workspace billing
 
-Standalone remains free. Church Workspace is US$9.99/month per church, not per seat. An owner/admin in the leadership audience subscribes through hosted Stripe Checkout. Members never buy personal subscriptions. Pricing links to `/app?signup=1&billing=start`; registration preserves that intent and opens the subscription panel in Account settings. Returning from Checkout refreshes the saved server-side session against Stripe. No access is granted from URL parameters alone.
+Standalone remains free. Church Workspace is US$9.99/month per church, not per seat. An owner/admin in the leadership audience subscribes through hosted Stripe Checkout. Members never buy personal subscriptions. Pricing links to `/app?signup=1&billing=start`; registration preserves that intent and opens a focused subscription review dialog. Ongoing billing management is in Account settings. Returning from Checkout refreshes the saved server-side session against Stripe. No access is granted from URL parameters alone.
 
 ## Server configuration
 
