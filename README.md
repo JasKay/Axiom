@@ -2,6 +2,23 @@
 
 A church presentation workspace with a web app and a desktop shell using the same interface. Website: https://axiom-theta-one.vercel.app · Source: https://github.com/JasKay/Axiom.
 
+## Continue development on another computer
+
+The current application source is on `main`. With Node.js 24 installed:
+
+```sh
+git clone https://github.com/JasKay/Axiom.git
+cd Axiom
+npm ci
+npm ci --prefix desktop
+npm test
+npm start --prefix desktop
+```
+
+For an existing checkout, run `git pull --ff-only origin main` first. For the full-stack website, use `npm run dev` after configuring the documented cloud environment. Environment files, credentials, installed dependencies, generated builds, local services and recordings are not transferred by Git. Obtain deployment secrets through the authorized Vercel project; never commit them. Export/import local presentation data separately when moving an operator setup.
+
+The latest Pro changes put Camera in Program's media-control strip, add Streaming for local recording/direct encoder broadcasting, and add quick Bible search with Scriptures history. See [streaming setup](docs/STREAMING.md), [quick Bible workflow](docs/QUICK-BIBLE.md), and [release notes](desktop/RELEASE_NOTES.md). Streaming needs a separately installed FFmpeg encoder and platform stream credentials. Desktop installers appear in [GitHub Releases](https://github.com/JasKay/Axiom/releases) after both platform checks pass.
+
 ## Worship platform (0.4)
 
 The public website now lives at `/`, shared church planning at `/workspace.html`, and the offline presentation studio at `/studio.html`. Includes timed service plans, templates, username accounts, church roles, invitations, live team comments, private files, and Congregation Connect with QR links, scriptures, local notes, and prayer requests. AI preparation runs locally in the browser after an optional model download; no paid API or card is required. Hosting and storage use free tiers with usage limits.
