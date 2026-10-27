@@ -1,4 +1,4 @@
-Axiom Pro 0.4.37 brings Program media controls, Streaming and quick Bible presentation together.
+Axiom Pro 0.4.38 brings Program media controls, Streaming and quick Bible presentation together.
 
 - Camera is an icon beside Program in the existing media-control strip, not in Add Media or a new Camera tab.
 - Streaming sits beside Program. Record video saves Program output, camera video or audio directly to a local WebM file. Program audio and microphone/mixer input can be included.
