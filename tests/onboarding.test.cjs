@@ -18,7 +18,7 @@ test('public signup registers the church and leadership account in one submissio
   await w.AxiomCloud.signIn(true);fillAccount(w);w.$('account-church').value='Grace Church';
   assert.equal(w.$('account-signup-mode').value,'create');assert.equal(w.$('account-church').required,true);assert.equal(w.document.querySelectorAll('#account-experience').length,0);
   await w.$('account-form').onsubmit({preventDefault(){}});
-  assert.equal(calls.length,1);assert.equal(calls[0].body.churchName,'Grace Church');assert.equal(calls[0].body.signupMode,'create');assert.equal(calls[0].body.audience,undefined);assert.equal(w.location.search,'?church=church');
+  assert.equal(calls.length,1);assert.equal(calls[0].body.churchName,'Grace Church');assert.equal(calls[0].body.signupMode,'create');assert.equal(calls[0].body.audience,undefined);assert.equal(w.location.search,'?church=church&billing=start');
  }finally{dom.window.close();}
 });
 test('invited signup sends the code without offering a role or separate church',async()=>{

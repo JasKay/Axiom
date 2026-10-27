@@ -55,7 +55,7 @@ function renderOnboarding(){
   event.preventDefault();if(submit.disabled)return;submit.disabled=true;input.disabled=true;mode.disabled=true;error.textContent='';
   try{
    if(!created){const result=mode.value==='join'?await AxiomCloud.request('accept-code',{method:'POST',body:{code:input.value.trim()}}):await AxiomCloud.request('create-church',{method:'POST',body:{name:input.value.trim(),audience:'lead'}});created=result.churchId||result.id;}
-   await overview(created);
+   await overview(created);if(mode.value==='create')window.AxiomBilling?.open();
   }catch(e){error.textContent=e.message||'Your church could not be opened. Please try again.';}
   finally{submit.disabled=false;input.disabled=!!created;mode.disabled=!!created;if(created)submit.textContent='Open church';}
  };

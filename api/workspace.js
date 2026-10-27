@@ -8,6 +8,7 @@ const Groups=require('../server/audiences.cjs');
 const Signup=require('../server/church-signup.cjs');
 const Workspaces=require('../web/workspaces.js');
 const Services=require('../server/service-directory.cjs');
+const Billing=require('../server/billing.cjs');
 const {snapshot:sendSnapshot}=require('../server/conditional.cjs');
 function createHandler(authenticate=identity){return async function handler(req,res){res.setHeader('Cache-Control','no-store');res.setHeader('X-Content-Type-Options','nosniff');try{
  const url=new URL(req.url,'https://axiom.local'),action=url.searchParams.get('action')||'overview';
@@ -27,6 +28,7 @@ function createHandler(authenticate=identity){return async function handler(req,
  if(action==='accept-code'&&req.method==='POST'){await limit('join:'+user.id,20,3600);return res.status(200).json(await Signup.acceptCode(user,body.code,body.expectedAudience));}
  if(action==='accept-invite'&&req.method==='POST'){return res.status(200).json(await Signup.acceptCode(user,body.token));}
  const membership=await member(churchId,user.id);
+ if(!['member-notes','revoke-invite','revoke-code','unpublish'].includes(action)&&!(action==='member-role'&&body.role==='remove'))await Billing.requirePaid(churchId);
  if(action==='set-experience')fail(403,'Your church assigns your experience.');
  if(action==='create-code'&&req.method==='POST'){Groups.allow(membership,['lead']);await member(churchId,user.id,['owner','admin']);await limit('invite:'+churchId,30,3600);const code=await Signup.generateCode(churchId,user,body.audience,body.maxUses??25);return res.status(201).json({...code,url:origin(req)+'/'+Workspaces.get(code.audience).path+'?signup=1&join='+encodeURIComponent(code.code)});}
  if(action==='revoke-code'&&req.method==='POST'){Groups.allow(membership,['lead']);await member(churchId,user.id,['owner','admin']);await db().query('UPDATE axiom.join_codes SET revoked_at=now() WHERE id=$1 AND church_id=$2',[body.id,churchId]);return res.status(200).json({ok:true});}

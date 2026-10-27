@@ -31,7 +31,7 @@ function dialog(){
    }
    if(result?.churchId&&serviceToken){try{localStorage.setItem('axiom-import-notes',JSON.stringify({token:serviceToken,serviceId:result.serviceId}));}catch{}}
    if(window.AxiomOnAuthenticated){cached=null;if(await window.AxiomOnAuthenticated(result)){modal.close();return;}}
-   if(result?.churchId&&!window.desktopShell)history.replaceState(null,'',AxiomWorkspaces.get(result.audience).path+'?church='+encodeURIComponent(result.churchId)+(result.serviceId?'&service='+encodeURIComponent(result.serviceId):''));
+   if(result?.churchId&&!window.desktopShell)history.replaceState(null,'',AxiomWorkspaces.get(result.audience).path+'?church='+encodeURIComponent(result.churchId)+(result.serviceId?'&service='+encodeURIComponent(result.serviceId):'')+(result.audience==='lead'&&(new URLSearchParams(location.search).get('billing')==='start'||signup&&modal.querySelector('#account-signup-mode').value==='create')?'&billing=start':''));
    location.reload();
   }catch(e){error.textContent=e.message;}finally{submit.disabled=false;}
  };
@@ -40,7 +40,7 @@ function dialog(){
 function drawAccount(){
  const d=dialog(),joining=d.querySelector('#account-signup-mode').value==='join',workspace=invitation?AxiomWorkspaces.get(invitation.audience):AxiomWorkspaces.fromPath(location.pathname),locked=new URLSearchParams(location.search).has('join')||!!window.desktopShell||!!AxiomWorkspaces.fromPath(location.pathname);
  d.querySelector('#account-title').textContent=signup?(joining?(invitation?'Join '+invitation.churchName:workspace?'Join the '+workspace.name:'Join your church.'):'Register your church.'):(workspace?'Sign in to the '+workspace.name:'Welcome back.');
- d.querySelector('#account-description').textContent=signup?(joining?'Create your account with the code from your church team. Your church and experience are assigned automatically.':'For Pastors and Program teams. Create your church workspace and your leadership account together, then invite your team.'):'Sign in to your church workspace.';
+ d.querySelector('#account-description').textContent=signup?(joining?'Create your account with the code from your church team. Your church and experience are assigned automatically.':'For Pastors and Program teams. Church Workspace is US$9.99 per church/month. Create your account, then securely subscribe with Stripe. Joining your team needs no personal subscription.'):'Sign in to your church workspace.';
  d.querySelector('#account-name-label').hidden=!signup;d.querySelector('#account-mode-label').hidden=!!serviceToken||!signup||locked;
  if(invitation)d.querySelector('#account-description').textContent=invitation.workspaceName+' · '+invitation.churchName+'. '+invitation.description;
  d.querySelector('#account-church-label').hidden=!signup||joining;d.querySelector('#account-church').required=signup&&!joining;
