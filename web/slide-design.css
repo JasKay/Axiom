@@ -4,3 +4,12 @@
 .stage[data-design=editorial]::before,.stage[data-design=forest]::before,.stage[data-design=ink]::before{content:'';position:absolute;pointer-events:none;width:95%;height:190%;right:-49%;top:-48%;border:1px solid #87917b66;border-radius:50%;transform:rotate(-20deg);box-shadow:0 0 0 18px #87917b0b,0 0 0 36px #87917b0b;z-index:0}
 .stage[data-design=forest]::before{right:-20%;top:35%;border-color:#c7d7ac22;transform:rotate(-26deg);box-shadow:0 0 0 18px #c7d7ac08,0 0 0 36px #c7d7ac06}
 .stage[data-design=ink]::before{right:45%;top:-50%;border-color:#8496a533;transform:rotate(25deg);box-shadow:0 0 0 18px #93a0b909,0 0 0 36px #93a0b907}
+
+/* Scripture keeps the reference distinct from the passage at every stage size. */
+.stage[data-slide-layout=scripture]{container-type:inline-size}
+.stage .slide-text.scripture-layout{width:80%;padding:0!important;display:flex;flex-direction:column;gap:.65em;white-space:normal;text-align:left}
+.scripture-reference{font-family:Manrope,sans-serif;font-size:.3em;font-weight:700;line-height:1.35;letter-spacing:.1em;text-transform:uppercase;padding-bottom:.65em;border-bottom:1px solid currentColor}
+.scripture-passage{white-space:pre-wrap;line-height:inherit;overflow-wrap:break-word;letter-spacing:-.018em}
+.stage .scripture-layout .scripture-translation{font-family:Manrope,sans-serif;font-size:.25em!important;font-weight:600;line-height:1.35;letter-spacing:.14em;opacity:.65;margin-top:0}
+body.axiom-workspace.pro-studio.operator-desk .stage .scripture-layout .scripture-translation{font-size:.25em!important}
+body.axiom-workspace.pro-studio.operator-desk .stage[data-slide-layout=scripture] .slide-text.scripture-layout{font-size:var(--desk-fit-font,calc(var(--desk-stage-font,40) * 100cqw / 1100))!important}

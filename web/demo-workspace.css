@@ -1,0 +1,2 @@
+body.demo-workspace{min-width:1000px}.demo-launch{color:var(--accent,#bba7ff);font:600 10px Manrope,sans-serif;text-decoration:none;padding:6px 9px}.demo-launch:hover{text-decoration:underline}.demo-workspace #save-status{max-width:160px}.demo-workspace .desk-workspace-mode:disabled{opacity:.75!important;cursor:default}
+.demo-workspace .desk-workspace-mode{display:none!important}

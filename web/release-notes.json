@@ -1,9 +1,9 @@
 {
-  "version": "0.4.34",
+  "version": "0.4.35",
   "highlights": [
-    "Eight complete offline Bible editions, including WEB in Standalone",
-    "Church workspace adds WEB British, ASV, BSB, MSB, BBE, Darby and Young’s Literal",
-    "Search passages and keywords, then add selected verses to your service",
-    "Compressed Bible packs keep the additional download small; KJV online lookup and authorized imports remain available"
+    "A dedicated Scripture slide layout with a clear reference, readable passage and translation label",
+    "Bible Preview and Program use matching proportions across small stages and audience output",
+    "New public product website, feature guide and real sample editor with isolated temporary data",
+    "Presentation workflows, local services, imports and media playback are preserved"
   ]
 }

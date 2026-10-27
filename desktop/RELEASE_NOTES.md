@@ -1,3 +1,13 @@
+Axiom Pro 0.4.35 refines Scripture presentation and introduces a dedicated product website.
+
+- New Bible slides use a dedicated reading layout: distinct reference, generous passage spacing and a separate translation label. Verse wording and edition labels stay intact.
+- Scripture previews and Program use the same proportions as the audience output. The Scripture reading preset is also available in Backgrounds for existing text slides.
+- Authored slides, services, local media, imported files and existing presentation workflows are retained.
+- The public website now explains the product, working features, service workflow and desktop downloads. A real live demo runs the actual editor with temporary sample storage and an output channel separate from personal presentations.
+- The eight offline public-domain editions from 0.4.34 remain included. KJV remains an online lookup or authorized user import while bundled UK distribution permission is unconfirmed.
+
+Installers remain unsigned. Windows and Mac native checks and installed Windows upgrade/restart verification gate publication.
+
 Axiom Pro 0.4.34 adds an offline Bible library.
 
 - Standalone includes complete offline World English Bible (WEB), alongside the existing online KJV lookup and authorized local Bible import.
