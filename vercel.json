@@ -28,6 +28,123 @@
           "value": "camera=(self), geolocation=()"
         }
       ]
+    },
+    {
+      "source": "/app",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/workspace.html",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/studio.html",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/tech-media.html",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/pro-mobile.html",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/axiomlead.html",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/pastor-program.html",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/members.html",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/connect.html",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/output.html",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/demo-studio.html",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/demo-output.html",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/api/:path*",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
     }
   ],
   "rewrites": [
@@ -46,6 +163,22 @@
     {
       "source": "/pricing",
       "destination": "/pricing.html"
+    },
+    {
+      "source": "/church-presentation-software",
+      "destination": "/church-presentation-software.html"
+    },
+    {
+      "source": "/church-service-planning",
+      "destination": "/church-service-planning.html"
+    },
+    {
+      "source": "/church-member-notes",
+      "destination": "/church-member-notes.html"
+    },
+    {
+      "source": "/guides/sunday-service-running-order",
+      "destination": "/guides/sunday-service-running-order.html"
     }
   ],
   "redirects": [
@@ -67,6 +200,66 @@
     {
       "source": "/pricing/",
       "destination": "/pricing",
+      "permanent": true
+    },
+    {
+      "source": "/features.html",
+      "destination": "/features",
+      "permanent": true
+    },
+    {
+      "source": "/demo.html",
+      "destination": "/demo",
+      "permanent": true
+    },
+    {
+      "source": "/pricing.html",
+      "destination": "/pricing",
+      "permanent": true
+    },
+    {
+      "source": "/church-presentation-software.html",
+      "destination": "/church-presentation-software",
+      "permanent": true
+    },
+    {
+      "source": "/church-presentation-software/",
+      "destination": "/church-presentation-software",
+      "permanent": true
+    },
+    {
+      "source": "/church-service-planning.html",
+      "destination": "/church-service-planning",
+      "permanent": true
+    },
+    {
+      "source": "/church-service-planning/",
+      "destination": "/church-service-planning",
+      "permanent": true
+    },
+    {
+      "source": "/church-member-notes.html",
+      "destination": "/church-member-notes",
+      "permanent": true
+    },
+    {
+      "source": "/church-member-notes/",
+      "destination": "/church-member-notes",
+      "permanent": true
+    },
+    {
+      "source": "/guides/sunday-service-running-order.html",
+      "destination": "/guides/sunday-service-running-order",
+      "permanent": true
+    },
+    {
+      "source": "/guides/sunday-service-running-order/",
+      "destination": "/guides/sunday-service-running-order",
+      "permanent": true
+    },
+    {
+      "source": "/index.html",
+      "destination": "/",
       "permanent": true
     }
   ]

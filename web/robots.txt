@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 Disallow: /api/
-Sitemap: https://axiomworship.vercel.app/sitemap.xml
+# Workspace pages remain crawlable so their noindex rules can be read.
+Sitemap: https://www.useaxiom.org/sitemap.xml
