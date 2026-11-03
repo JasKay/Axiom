@@ -5,6 +5,8 @@ on:
     tags: ['v*.*.*']
     paths:
       - 'desktop/package.json'
+      - 'desktop/compact-desk.cjs'
+      - 'web/pro-density.css'
       - '.github/workflows/desktop-release.yml'
   workflow_dispatch:
 permissions:
