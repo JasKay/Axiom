@@ -1,3 +1,12 @@
+Axiom Pro 0.4.39 improves desktop screen fit and presentation editing.
+
+- A cleaner, calmer desktop hierarchy balances navigation, slide thumbnails, Preview and Program on typical laptop and PC screens. Text and controls remain readable while more slides fit in the centre workspace.
+- Select multiple pages with Ctrl/Command-click or Shift-click. Move selected slides together or use Edit selected to apply text size, alignment, background or text colour to the group.
+- Drag presentation headers directly in the Header menu rather than using up/down arrows. Alt+Arrow keys provide a keyboard alternative.
+- Choose text sizes from a clearly labelled numeric selector. Presentation thumbnails more closely reflect the Preview.
+- Save Page now updates the edited page immediately without refreshing the whole workspace; local storage still saves in the background. Live Program does not change when editing privately.
+- Mac and Windows builds remain unsigned. Live service presentation should be rehearsed on the actual display, microphone and camera setup.
+
 Axiom Pro 0.4.38 brings Program media controls, Streaming and quick Bible presentation together.
 
 - Camera is an icon beside Program in the existing media-control strip, not in Add Media or a new Camera tab.
