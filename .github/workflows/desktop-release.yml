@@ -6,6 +6,7 @@ on:
     paths:
       - 'desktop/package.json'
       - 'desktop/compact-desk.cjs'
+      - 'desktop/desk-panels.cjs'
       - 'web/pro-density.css'
       - 'web/desk-design.js'
       - '.github/workflows/desktop-release.yml'
