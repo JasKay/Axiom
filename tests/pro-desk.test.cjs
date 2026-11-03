@@ -11,6 +11,25 @@ test('operator desk saves reusable playlists, inserts service content, and revie
  d.getElementById('go-live').click();const publicText=d.getElementById('live-preview').textContent;let searched='';w.AxiomBibles.search=async(version,q)=>{searched=q;return {translation:'KJV',canPresent:true,verses:[{book:'John',chapter:3,verse:16,text:'For God so loved the world'}]}};
  w.dispatchEvent(new w.CustomEvent('axiom-verse-detected',{detail:{reference:'John 3:16'}}));await new Promise(r=>setTimeout(r,20));assert.equal(d.getElementById('bible-dialog').open,true);assert.equal(searched,'John 3:16');assert.equal(d.getElementById('live-preview').textContent,publicText);
  assert.equal(w.AxiomBibles.normalizeQuery('jn3:16'),'John 3:16');d.querySelector('.desk-gear').click();assert.equal(d.getElementById('desk-settings').open,true);d.getElementById('desk-theme').value='light';d.getElementById('desk-theme').dispatchEvent(new w.Event('change'));assert.equal(d.body.dataset.deskTheme,'light');
- d.querySelector('.desk-resize.right').dispatchEvent(new w.KeyboardEvent('keydown',{key:'ArrowRight'}));assert.equal(d.querySelector('.app-layout').style.getPropertyValue('--desk-right'),'19%');d.getElementById('desk-reset').click();assert.equal(d.querySelector('.app-layout').style.getPropertyValue('--desk-right'),'18%');assert.equal(d.querySelector('.app-layout').style.getPropertyValue('--desk-left'),'16%');assert.deepEqual(errors,[]);
+ d.querySelector('.desk-resize.right').dispatchEvent(new w.KeyboardEvent('keydown',{key:'ArrowRight'}));assert.equal(d.querySelector('.app-layout').style.getPropertyValue('--desk-right'),'19%');d.getElementById('desk-reset').click();assert.equal(d.querySelector('.app-layout').style.getPropertyValue('--desk-right'),'18%');assert.equal(d.querySelector('.app-layout').style.getPropertyValue('--desk-left'),'16%');
+ // Multiple selection, grouped formatting and presentation-header affordances.
+ assert.equal(d.getElementById('edit-size').tagName,'SELECT','Text size uses numeric choices');
+ assert.ok([...d.getElementById('edit-size').options].some(o=>o.value==='60'));
+ w.eval("mutate(()=>{item().slides.push(State.newSlide('Second page'));item().slides.push(State.newSlide('Third page'));});");
+ const slides=[...d.querySelectorAll('#slides .slide-card')];
+ assert.ok(slides.length>=3);
+ slides[0].dispatchEvent(new w.MouseEvent('click',{bubbles:true}));
+ slides[2].dispatchEvent(new w.MouseEvent('click',{bubbles:true,shiftKey:true}));
+ assert.equal(d.getElementById('multi-page-toolbar').hidden,false);
+ assert.match(d.getElementById('multi-page-count').textContent,/3 pages selected/);
+ d.getElementById('multi-page-edit').click();
+ d.getElementById('bulk-font-check').checked=true;
+ d.getElementById('bulk-font').value='60';
+ d.getElementById('bulk-apply').click();
+ assert.ok(w.eval("item().slides.slice(0,3).every(s=>s.font===60)"),'All selected pages receive the same font size');
+ d.getElementById('desk-headers').click();
+ assert.ok(d.querySelectorAll('.desk-heading-order .desk-header-draggable').length>0);
+ assert.equal(d.querySelectorAll('.desk-heading-order .desk-header-order-move').length,0);
+ assert.deepEqual(errors,[]);
  }finally{dom.window.close()}
 });

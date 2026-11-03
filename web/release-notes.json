@@ -1,9 +1,9 @@
 {
-  "version": "0.4.38",
+  "version": "0.4.39",
   "highlights": [
-    "Camera joins Program’s media-control icons; Streaming sits beside Program",
-    "Record the audience Program or camera video directly to your computer",
-    "Direct RTMP/RTMPS streaming with platform keys and a local FFmpeg encoder",
-    "Quick Bible search: Mat 3 5, direct-to-Live results and persistent Scriptures history"
+    "Compact, balanced Axiom Pro desktop layout",
+    "Multi-select and batch edit presentation pages",
+    "Drag to reorder presentation headers",
+    "Numeric text sizes, improved slide previews and faster Save Page"
   ]
 }

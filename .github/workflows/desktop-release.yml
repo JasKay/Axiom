@@ -1,7 +1,11 @@
 name: Desktop release
 on:
   push:
+    branches: [main]
     tags: ['v*.*.*']
+    paths:
+      - 'desktop/package.json'
+      - '.github/workflows/desktop-release.yml'
   workflow_dispatch:
 permissions:
   contents: read
@@ -27,9 +31,10 @@ jobs:
       - run: npm ci
       - run: npm test
       - run: npm ci --prefix desktop
-      - name: Verify tag and source versions
+      - name: Verify release source and versions
         shell: bash
-        run: node -e 'const v=require("./desktop/package.json").version;if(process.env.GITHUB_REF_TYPE!=="tag"||process.env.GITHUB_REF_NAME!=="v"+v)throw Error("Run from the matching desktop version tag")'
+        run: |
+          node -e 'const v=require("./desktop/package.json").version,root=require("./package.json").version;if(v!==root)throw Error("Root and desktop versions differ");if(process.env.GITHUB_REF_TYPE==="tag"&&process.env.GITHUB_REF_NAME!=="v"+v)throw Error("Version tag does not match the desktop package");if(process.env.GITHUB_REF_TYPE!=="tag"&&process.env.GITHUB_REF_NAME!=="main")throw Error("Releases require main or the exact version tag")'
       - name: Package Windows installer and portable ZIP
         if: runner.os == 'Windows'
         run: npm run package --prefix desktop -- --win --x64
@@ -110,14 +115,15 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
-          tag="$GITHUB_REF_NAME"
-          version="${tag#v}"
+          version="$(node -p "require('./desktop/package.json').version")"
+          tag="v$version"
+          if [ "$GITHUB_REF_TYPE" = "tag" ] && [ "$GITHUB_REF_NAME" != "$tag" ]; then echo "Wrong release tag"; exit 1; fi
           for file in "Axiom-$version-win-x64.exe" "Axiom-$version-win-x64.zip" "Axiom-$version-mac-arm64.dmg" "Axiom-$version-mac-x64.dmg" "latest.yml" "Axiom-$version-win-x64.exe.blockmap"; do
             test -s "artifacts/$file"
           done
           (cd artifacts && sha256sum * > SHA256SUMS.txt)
           if ! gh release view "$tag" >/dev/null 2>&1; then
-            gh release create "$tag" --verify-tag --draft --title "Axiom Pro $tag" --notes-file desktop/RELEASE_NOTES.md
+            gh release create "$tag" --target "$GITHUB_SHA" --draft --title "Axiom Pro $tag" --notes-file desktop/RELEASE_NOTES.md
           fi
           gh release upload "$tag" artifacts/* --clobber
           gh release edit "$tag" --draft=false --latest

@@ -1,0 +1,24 @@
+name: Pro Editor Regression Tests
+on:
+  pull_request:
+    paths:
+      - 'web/app.js'
+      - 'web/desk-design.js'
+      - 'web/studio.html'
+      - 'web/pro-bulk.css'
+      - 'tests/**'
+      - '.github/workflows/pro-editor-tests.yml'
+  workflow_dispatch:
+
+jobs:
+  pro-editor-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: 'npm'
+      - run: npm ci
+      - run: npm test
