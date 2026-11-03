@@ -122,3 +122,95 @@ body.axiom-workspace.pro-studio.operator-desk .desk-type-dialog{
 @media(prefers-reduced-motion:reduce){
   body.axiom-workspace.pro-studio.operator-desk :is(#slides,.desk-group-slides) :is(.slide-card,button){transition:none}
 }
+
+
+/* Desktop layout refinement after real browser review (1024–1920px).
+   Stronger reading hierarchy, gentler charcoal surfaces, and sensible pane sizes. */
+body.axiom-workspace.pro-studio.operator-desk:not([data-desk-theme=light]){
+  --paper:#15161c;--surface:#1b1d25;--soft:#262833;
+  --line:#343743;--muted:#b1b4c4;--selected:#302940;
+  --selected-border:#947be2;
+}
+body.axiom-workspace.pro-studio.operator-desk .app-layout{
+  grid-template-columns:minmax(195px,var(--desk-left,16%)) minmax(0,1fr) minmax(260px,var(--desk-right,18%))!important;
+}
+body.axiom-workspace.pro-studio.operator-desk .app-layout>main{
+  background:var(--paper)!important;
+}
+body.axiom-workspace.pro-studio.operator-desk .desk-canvas{
+  background:var(--paper)!important;
+}
+body.axiom-workspace.pro-studio.operator-desk .desk-group{
+  padding-top:5px!important;
+  border-bottom-color:color-mix(in srgb,var(--line) 76%,transparent)!important;
+}
+body.axiom-workspace.pro-studio.operator-desk .desk-group-heading{
+  border-bottom:1px solid color-mix(in srgb,var(--line) 58%,transparent);
+  margin-bottom:10px;
+}
+body.axiom-workspace.pro-studio.operator-desk .desk-group-heading>button{
+  font-size:12px!important;
+  font-weight:700!important;
+  color:var(--ink)!important;
+}
+body.axiom-workspace.pro-studio.operator-desk .desk-group-heading small{
+  font-size:10px!important;
+  font-weight:500!important;
+}
+body.axiom-workspace.pro-studio.operator-desk :is(#slides,.desk-group-slides)>button{
+  background:var(--surface)!important;
+  border-color:color-mix(in srgb,var(--line) 95%,transparent)!important;
+}
+body.axiom-workspace.pro-studio.operator-desk :is(#slides,.desk-group-slides)>button:hover{
+  border-color:var(--selected-border)!important;
+  box-shadow:0 0 0 1px color-mix(in srgb,var(--selected-border) 28%,transparent);
+}
+body.axiom-workspace.pro-studio.operator-desk :is(#slides,.desk-group-slides)>button>small{
+  font-size:10.5px!important;font-weight:600!important;
+  color:var(--ink)!important;
+  background:var(--surface)!important;
+  line-height:1.35!important;
+}
+body.axiom-workspace.pro-studio.operator-desk .desk-slide-excerpt{
+  color:var(--muted)!important;opacity:.92;
+  font-size:10px!important;
+}
+body.axiom-workspace.pro-studio.operator-desk .sidebar :is(.navigator-heading,.desk-library-heading) h2{
+  font-size:10.5px!important;
+  letter-spacing:.055em!important;
+}
+body.axiom-workspace.pro-studio.operator-desk .studio-deck{
+  font-size:11px!important;font-weight:500!important;
+}
+body.axiom-workspace.pro-studio.operator-desk .inspector .premium-monitor-tabs button{
+  font-size:10.5px!important;
+  font-weight:600!important;
+}
+body.axiom-workspace.pro-studio.operator-desk .inspector :is(.preview-monitor,.output-monitor) h2{
+  font-size:11.5px!important;
+}
+body.axiom-workspace.pro-studio.operator-desk .desk-playlist-item span{
+  font-size:10.5px!important;
+}
+body.axiom-workspace.pro-studio.operator-desk .desk-heading-order .desk-header-draggable{
+  min-height:32px;
+}
+body.axiom-workspace.pro-studio.operator-desk .desk-heading-order .desk-header-draggable>button{
+  font-size:11.5px!important;
+}
+/* A few more slides on wide monitors without making the thumbnails microscopic. */
+@media (min-width:1650px){
+  body.axiom-workspace.pro-studio.operator-desk :is(#slides,.desk-group-slides){
+    grid-template-columns:repeat(6,minmax(0,1fr))!important;
+  }
+}
+@media (min-width:1200px) and (max-width:1649px){
+  body.axiom-workspace.pro-studio.operator-desk :is(#slides,.desk-group-slides){
+    grid-template-columns:repeat(5,minmax(0,1fr))!important;
+  }
+}
+@media (max-width:1100px){
+  body.axiom-workspace.pro-studio.operator-desk .app-layout{
+    grid-template-columns:minmax(175px,var(--desk-left,16%)) minmax(0,1fr) minmax(230px,var(--desk-right,18%))!important;
+  }
+}
