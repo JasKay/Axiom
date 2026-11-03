@@ -28,3 +28,9 @@ body.axiom-workspace.pro-studio.operator-desk :is(#slides .stage,.desk-group-sli
 body.axiom-workspace.pro-studio.operator-desk #edit-size{font-variant-numeric:tabular-nums}
 @media(max-width:720px){.multi-page-toolbar{gap:5px}.multi-page-toolbar button{padding:6px!important;font-size:10px!important}.bulk-page-dialog{padding:16px}}
 @media(prefers-reduced-motion:reduce){.desk-heading-order .desk-header-draggable{transition:none}}
+
+.page-select-hint{font-size:11px;line-height:1.4;color:var(--muted);margin:4px 0 9px}
+.playlist-drag-grip{display:inline-flex;align-items:center;justify-content:center;color:var(--muted);font-size:19px;min-width:22px;cursor:grab}
+.playlist-entry[draggable=true]{cursor:grab}
+.playlist-entry[draggable=true]:active{cursor:grabbing}
+.playlist-entry:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
