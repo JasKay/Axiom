@@ -34,3 +34,12 @@ function close(){modal.hidden=true;document.body.classList.remove('axiom-tour-op
 function open(){returnFocus=document.activeElement;update(0);modal.hidden=false;document.body.classList.add('axiom-tour-open');modal.querySelector('.axiom-tour-close').focus();}
 document.querySelectorAll('[data-tour-open]').forEach(b=>b.addEventListener('click',open));modal.querySelectorAll('[data-tour-close]').forEach(b=>b.addEventListener('click',close));buttons.forEach((b,i)=>b.addEventListener('click',()=>update(i)));prev.addEventListener('click',()=>update(current-1));next.addEventListener('click',()=>current===steps.length-1?close():update(current+1));modal.addEventListener('keydown',e=>{if(e.key==='Escape'){e.preventDefault();close();}if(e.key==='Tab'){const focusable=[...modal.querySelectorAll('button:not(:disabled),a[href]')].filter(el=>el.getClientRects().length);if(!focusable.length)return;const first=focusable[0],last=focusable[focusable.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}});
 })();
+
+
+/* Desktop-first homepage use-case interaction */
+(()=>{
+const cards=[...document.querySelectorAll('[data-solution]')],title=document.getElementById('solution-title'),copy=document.getElementById('solution-copy');
+if(!cards.length||!title||!copy)return;
+const data={business:['Present your next big idea.','Bring together slides, charts, images and video for meetings and pitches, then present them with a clear view of what is on screen.'],education:['Keep the room engaged.','Prepare lessons and workshops with clear slides, visual material, and presentation controls designed to make delivery feel easier.'],events:['Make every moment count.','Organise content for a keynote or live event, preview the next item, and keep the audience focused on what matters.']};
+cards.forEach(card=>card.addEventListener('click',()=>{const item=data[card.dataset.solution];if(!item)return;cards.forEach(c=>{const selected=c===card;c.classList.toggle('is-selected',selected);c.setAttribute('aria-pressed',String(selected));});title.textContent=item[0];copy.textContent=item[1];}));
+})();
