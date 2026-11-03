@@ -81,3 +81,37 @@
 @media(max-width:600px){.story h1{font-size:clamp(46px,10vw,63px)}.story h2{font-size:clamp(33px,8vw,47px)}.story-hero{padding-block:45px 55px}.story-eyebrow{font-size:9px}.story-actions{align-items:stretch}.story-btn{width:100%}.story-hero-visual{padding:12px 0 30px}.story-editor-shell{border-width:5px;border-radius:12px}.story-visual-label{right:0;bottom:4px;font-size:10px;padding:9px}.story-editor-bar{padding:7px;font-size:9px}.story-hero-note{font-size:11px}.story-audience-grid{gap:10px}.story-audience-content{padding:13px 11px}.story-audience-content strong{font-size:15px}.story-audience-content small{font-size:11px}.story-audience-image{aspect-ratio:4/3}.story-flow-step{padding:22px}.story-download-box{padding:15px}}
 @media(max-width:370px){.story-audience-grid{grid-template-columns:1fr}.story-audience-image{aspect-ratio:16/9}}
 @media(prefers-reduced-motion:reduce){.story-btn,.story-audience-card,.story-audience-image img{transition:none}.story-btn:hover,.story-audience-card:hover{transform:none}.story-audience-card:hover img{transform:none}}
+
+/* Visual-first reset: let real product imagery carry the explanation */
+.story-hero{padding-block:75px 90px;min-height:610px}
+.story-hero-copy>p{max-width:440px;font-size:18px}
+.story-hero-note{margin-top:20px}
+.story-product-visual{position:relative;padding:96px 0 100px;background:#261830;color:#fff;overflow:hidden}
+.story-product-visual:before{content:"";position:absolute;inset:20% -30% auto;background:radial-gradient(ellipse,rgba(157,82,206,.22),transparent 60%);height:650px;pointer-events:none}
+.story-product-intro{position:relative;z-index:1;display:flex;align-items:end;justify-content:space-between;gap:25px;margin-bottom:40px}
+.story-product-intro .story-overline{display:block;color:#d9afe9;margin-bottom:17px}
+.story-product-intro h2{color:#fff}
+.story-product-intro h2 em{color:#dfb2f7}
+.story-product-intro .story-link-button{color:#f3d9ff;white-space:nowrap;border-bottom:1px solid #b78acb;padding-bottom:5px}
+.story-visual-stage{position:relative;z-index:1}
+.story-stage-image{width:100%;max-width:1040px;margin:0 auto;background:#1b1524;padding:9px;border:1px solid #74568a;border-radius:17px;overflow:hidden;box-shadow:0 25px 55px rgba(10,5,17,.3)}
+.story-stage-image img{display:block;width:100%;height:auto;border-radius:9px}
+.story-steps-strip{max-width:970px;margin:38px auto 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.story-steps-strip>div{display:flex;align-items:center;gap:13px;padding:10px 20px;border-left:1px solid #765b86}
+.story-steps-strip span{font-size:12px;color:#ce9ee1}
+.story-steps-strip strong{font:750 23px/1.2 Manrope,sans-serif;color:#fff;letter-spacing:-.045em}
+.story-steps-strip small{margin-left:auto;font-size:12px;color:#cbb7d7}
+.story-audiences-wrap{background:#fff;padding:94px 0 104px}
+.story-solutions-heading{margin-bottom:30px}
+.story-solutions-heading h2{margin-top:13px}
+.story-audience-grid{gap:17px}
+.story-audience-image{aspect-ratio:3/4}
+.story-audience-content{align-items:center;padding:17px 17px 19px;min-height:64px}
+.story-audience-content strong{font-size:19px}
+.story-audience-content>span{grid-row:1}
+.story-download{padding-block:95px 110px}
+.story-download h2{margin:14px 0}
+.story-download-intro>p{font-size:16px}
+@media(max-width:1100px){.story-product-intro{align-items:start;flex-direction:column}.story-audience-image{aspect-ratio:4/5}}
+@media(max-width:800px){.story-steps-strip>div{padding:10px}.story-steps-strip small{display:none}.story-audiences-wrap{padding-block:70px}.story-product-visual{padding-block:72px}}
+@media(max-width:600px){.story-hero{padding-block:40px 58px}.story-product-intro{gap:20px}.story-steps-strip{gap:0;margin-top:21px}.story-steps-strip>div{display:block;text-align:center;padding:6px 7px;border-left:1px solid #755a85}.story-steps-strip>div:first-child{border:0}.story-steps-strip span{display:block;margin-bottom:8px}.story-steps-strip strong{font-size:16px}.story-stage-image{padding:5px;border-radius:10px}.story-audience-image{aspect-ratio:4/5}.story-audience-content{min-height:58px}.story-audience-content strong{font-size:16px}}
