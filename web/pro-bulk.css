@@ -1,0 +1,30 @@
+/* Axiom Pro: multi-page editing and matching authoring previews */
+body.axiom-workspace.pro-studio.operator-desk .multi-page-toolbar{display:flex;align-items:center;flex-wrap:wrap;gap:8px;padding:9px 10px;margin:9px 0;background:color-mix(in srgb,var(--accent) 10%,var(--surface));border:1px solid var(--selected-border);border-radius:9px}
+body.axiom-workspace.pro-studio.operator-desk .multi-page-toolbar[hidden]{display:none!important}
+.multi-page-toolbar strong{margin-right:auto;font-size:12px;white-space:nowrap}
+.multi-page-toolbar button{font-size:11px;padding:7px 10px!important;min-height:30px;border:1px solid var(--line);border-radius:6px}
+body.axiom-workspace.pro-studio.operator-desk #slides .slide-card.multi-selected{outline:2px solid var(--accent)!important;outline-offset:3px;box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 20%,transparent)!important}
+.bulk-page-dialog{width:min(460px,calc(100vw - 30px));max-height:90vh;overflow:auto;border:1px solid var(--line,#b3a5c1);border-radius:16px;background:var(--surface,#24202d);color:var(--ink,#fff);box-shadow:0 25px 75px #0007;padding:25px}
+.bulk-page-dialog::backdrop{background:rgba(0,0,0,.63)}
+.bulk-page-dialog form{display:grid;gap:12px}
+.bulk-page-dialog h2{font:750 22px/1.2 Manrope,sans-serif;margin:0}
+.bulk-page-dialog p{font-size:12px;line-height:1.55;opacity:.75;margin:0 0 6px}
+.bulk-page-dialog label{display:flex;gap:10px;align-items:center;font-size:13px}
+.bulk-page-dialog input[type=checkbox]{accent-color:#9364d5;width:16px;height:16px}
+.bulk-page-dialog select,.bulk-page-dialog input[type=color]{width:100%;min-height:38px;padding:6px;border:1px solid var(--line);border-radius:7px;background:var(--soft,#302b38);color:var(--ink,#fff)}
+.bulk-page-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:12px}
+.bulk-page-actions button{border-radius:8px;padding:10px 15px}
+.desk-heading-order .desk-header-draggable{cursor:grab;padding:5px 6px;border:1px solid transparent;border-radius:6px;transition:background .12s,border-color .12s}
+.desk-heading-order .desk-header-draggable:active{cursor:grabbing}
+.desk-heading-order .desk-header-draggable:hover,.desk-heading-order .desk-header-draggable:focus-visible{background:color-mix(in srgb,var(--accent) 12%,var(--surface));border-color:var(--line)}
+.desk-heading-order .desk-header-draggable.is-drop-target{background:color-mix(in srgb,var(--accent) 18%,var(--surface));border-top:3px solid var(--accent)}
+.desk-heading-order .desk-header-draggable.is-dragging{opacity:.45}
+.desk-heading-order .desk-order-handle{font-size:18px;color:var(--muted);flex:0 0 17px;user-select:none}
+.desk-heading-order .desk-order-index{min-width:23px}
+body.axiom-workspace.pro-studio.operator-desk #slides .stage,
+body.axiom-workspace.pro-studio.operator-desk .desk-group-slides .stage,
+body.axiom-workspace.pro-studio.operator-desk #preview{container-type:inline-size}
+body.axiom-workspace.pro-studio.operator-desk :is(#slides .stage,.desk-group-slides .stage,#preview)>.slide-text:not(.scripture-layout){font-size:calc(var(--desk-fit-font,var(--desk-stage-font,44) * 100cqw / 1100))!important}
+body.axiom-workspace.pro-studio.operator-desk #edit-size{font-variant-numeric:tabular-nums}
+@media(max-width:720px){.multi-page-toolbar{gap:5px}.multi-page-toolbar button{padding:6px!important;font-size:10px!important}.bulk-page-dialog{padding:16px}}
+@media(prefers-reduced-motion:reduce){.desk-heading-order .desk-header-draggable{transition:none}}
