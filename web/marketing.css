@@ -125,3 +125,32 @@ body{background:#fff;color:#191222}
 @media(prefers-reduced-motion:reduce){.v3-solution-art img{transition:none}.v3-solution-detail-photo img{animation:none}}
 
 @media(prefers-reduced-motion:no-preference){.v3-solution-card,.v3-workflow-intro,.v3-finale{animation:v3SubtleEnter .6s ease both}@keyframes v3SubtleEnter{from{opacity:.7;translate:0 10px}to{opacity:1;translate:0 0}}}
+
+/* Unified Axiom marketing system: all generated public content pages */
+:root{--paper:#fff;--ink:#191222;--muted:#64576f;--line:#e9e0ef;--action:#7025ae;--plum:#281631;--lavender:#f6edfc}
+.site-header{background:rgba(255,255,255,.92);border-bottom:1px solid #eae1ed;backdrop-filter:blur(18px)}
+.navigation nav{gap:clamp(12px,1.65vw,26px)}.navigation nav a{white-space:nowrap}
+.site-header .button-primary{background:linear-gradient(125deg,#8215c6,#4a0d75);border-radius:10px}
+.site-header .button-primary:hover{background:linear-gradient(125deg,#9030ce,#58228a)}
+.page-hero{position:relative;max-width:none;width:100%;margin:0;padding:74px max(48px,calc((100vw - 1216px)/2)) 78px;background:radial-gradient(ellipse at 83% 24%,rgba(193,150,238,.22),transparent 42%),linear-gradient(110deg,#fff,#fbf6ff);border-bottom:1px solid #eee5f3}
+.page-hero .eyebrow,.demo-intro .eyebrow{color:#763091;letter-spacing:.13em}
+.page-hero h1,.demo-intro h1{font-size:clamp(44px,5vw,74px);font-weight:780;line-height:1.09;letter-spacing:-.067em;color:#21132e;margin:18px 0 22px;max-width:980px}
+.page-hero>p,.demo-intro>div>p{color:#61516b;font-size:clamp(15px,1.6vw,18px);line-height:1.7;max-width:720px}
+.page-hero .hero-actions{margin-top:27px}.page-hero .button-primary,.demo-intro .button-primary,.guide-footer .button-primary{border-radius:11px;background:linear-gradient(125deg,#8215c6,#4a0d75);box-shadow:0 11px 26px rgba(81,22,128,.16)}
+.guide-row{gap:55px;border-color:#eadfed;padding:75px 0}
+.guide-row img{border:1px solid #e6ddec;border-radius:18px;box-shadow:0 17px 43px rgba(53,22,75,.11);overflow:hidden}
+.guide-row h2{font-size:clamp(30px,3.1vw,46px);line-height:1.15;letter-spacing:-.055em}
+.guide-row p,.guide-row li{color:#62536a}
+.guide-footer{margin-top:48px;padding:48px;background:linear-gradient(120deg,#30183e,#591f73);color:#fff;border-radius:22px}
+.guide-footer h2{color:#fff}.guide-footer .text-link{color:#f4defd}
+.demo-intro{background:radial-gradient(ellipse at 80% 15%,rgba(179,122,231,.18),transparent 45%),#fcf9ff;padding-top:65px;padding-bottom:55px}
+.demo-frame-shell{box-shadow:0 25px 65px rgba(35,15,51,.14);border-radius:17px;overflow:hidden}
+.demo-guidance article{background:#fbf8fe;border:1px solid #ebdff2;border-radius:16px;padding:23px}
+.pricing-grid{padding-top:50px;gap:25px}
+.pricing-card{border:1px solid #eadfed;border-radius:20px;box-shadow:0 15px 40px rgba(51,20,71,.06);background:#fff}
+.pricing-card-church{background:linear-gradient(145deg,#f8f0ff,#fff)}
+.pricing-card .button{border-radius:11px}
+.footer{border-top:1px solid #e9deed}.footer-links a:hover{color:#7f32ae}
+body:has(.page-hero) .page-hero{isolation:isolate}
+@media(max-width:950px){.page-hero{padding:55px 32px}.navigation nav{gap:12px}}
+@media(max-width:700px){.page-hero{padding:44px 19px 53px}.page-hero h1,.demo-intro h1{font-size:clamp(36px,9vw,52px)}.guide-row{padding:40px 0;gap:25px}.guide-footer{padding:27px}.pricing-grid{padding-top:28px}.demo-intro{padding-top:42px}.navigation nav a{white-space:normal}}
