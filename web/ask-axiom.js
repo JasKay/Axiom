@@ -2,7 +2,7 @@
    Rule-based answers; no visitor question is sent to a server. */
 (()=>{'use strict';
 if(document.querySelector('[data-axiom-help]'))return;
-const SUPPORT_EMAIL=''; // Set a confirmed owner-approved inbox before enabling email.
+const SUPPORT_EMAIL='iamjasanyakay@gmail.com'; // Owner-confirmed support contact.
 const SUPPORT_ISSUES='https://github.com/JasKay/Axiom/issues/new';
 const data=[
   {id:'what',title:'What is Axiom?',keywords:['what is axiom','what does axiom do','what is it','presentation software','what can it do','overview'],answer:'Axiom is desktop presentation software for creating, organising and presenting slides, text, images, video and other content. It has separate Preview and live Program views so you can prepare before showing a slide.',links:[['Explore features','/features'],['Try the demo','/demo']]},
