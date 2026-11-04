@@ -42,5 +42,5 @@ test('Unknown questions never get fabricated answers; visitor can request human 
 });
 test('No external API, no visitor question persistence, and confirmed support email',()=>{
  assert.doesNotMatch(source,/fetch\(|XMLHttpRequest|localStorage|sessionStorage/);
- assert.match(source,/const SUPPORT_EMAIL='iamjasanyakay@gmail\\.com';/);
+ assert.ok(source.includes("const SUPPORT_EMAIL='iamjasanyakay@gmail.com';"));
 });
