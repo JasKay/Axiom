@@ -40,7 +40,7 @@ test('Unknown questions never get fabricated answers; visitor can request human 
  assert.equal(d.querySelector('#axiom-help-panel').hidden,true);
  w.close();
 });
-test('No external API, no visitor question persistence, and no unconfirmed email address',()=>{
+test('No external API, no visitor question persistence, and confirmed support email',()=>{
  assert.doesNotMatch(source,/fetch\(|XMLHttpRequest|localStorage|sessionStorage/);
- assert.match(source,/const SUPPORT_EMAIL='';/);
+ assert.match(source,/const SUPPORT_EMAIL='iamjasanyakay@gmail\\.com';/);
 });
