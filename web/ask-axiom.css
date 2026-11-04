@@ -1,0 +1,38 @@
+/* Ask Axiom: intentionally small, quiet and independent of marketing-page themes. */
+.axiom-help{position:fixed;bottom:max(20px,env(safe-area-inset-bottom));right:max(22px,env(safe-area-inset-right));z-index:800;font-family:'DM Sans',sans-serif;font-size:14px;line-height:1.5;color:#251b30}
+.axiom-help *{box-sizing:border-box}
+.axiom-help-toggle{display:flex;align-items:center;justify-content:center;gap:9px;min-height:47px;padding:11px 16px;background:#45265f;color:#fff;border:1px solid rgba(255,255,255,.16);border-radius:40px;box-shadow:0 7px 26px rgba(42,18,61,.22);font:700 13px/1.2 Manrope,sans-serif;transition:background .16s,transform .16s,box-shadow .16s;white-space:nowrap}
+.axiom-help-toggle:hover{background:#603082;transform:translateY(-2px);box-shadow:0 9px 30px rgba(42,18,61,.26)}
+.axiom-help-toggle[aria-expanded=true]{background:#6d4088}
+.axiom-help-mark{font-size:16px;font-weight:500;color:#e4bbfa}
+.axiom-help-panel{position:absolute;bottom:60px;right:0;width:min(364px,calc(100vw - 26px));max-height:min(600px,calc(100dvh - 112px));display:flex;flex-direction:column;overflow:hidden;border-radius:18px;background:#fff;border:1px solid #e7dcec;box-shadow:0 22px 70px rgba(36,19,49,.22);color:#251b30}
+.axiom-help-head{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:17px 19px;background:linear-gradient(130deg,#382144,#5b3274);color:#fff}
+.axiom-help-head>div{display:grid;gap:2px}
+.axiom-help-head strong{font:750 16px/1.3 Manrope,sans-serif;letter-spacing:-.035em}
+.axiom-help-head small{font:400 11px/1.4 'DM Sans',sans-serif;color:#e1d4e8}
+.axiom-help-close{border:none;background:rgba(255,255,255,.12);color:#fff;width:29px;height:29px;min-height:29px;border-radius:50%;font:400 23px/1 Arial,sans-serif;padding:0;display:grid;place-items:center}
+.axiom-help-close:hover{background:rgba(255,255,255,.23)}
+.axiom-help-body{display:flex;flex-direction:column;align-items:flex-start;gap:12px;padding:18px 16px;min-height:130px;max-height:270px;overflow-y:auto;overscroll-behavior:contain;background:#fdfbfe;scrollbar-width:thin}
+.axiom-help-msg{max-width:95%;font:400 12.5px/1.6 'DM Sans',sans-serif}
+.axiom-help-msg p{margin:0;padding:10px 12px;border:1px solid #ebe2ee;background:#fff;border-radius:12px 12px 12px 3px}
+.axiom-help-msg.is-you{align-self:flex-end}
+.axiom-help-msg.is-you p{background:#603481;color:#fff;border-color:#603481;border-radius:12px 12px 3px 12px}
+.axiom-help-links{display:flex;flex-wrap:wrap;gap:7px;margin-top:8px}
+.axiom-help-links a{border:1px solid #ddcae6;color:#633284;background:#fff;padding:5px 9px;border-radius:8px;font:700 11px/1.4 'DM Sans',sans-serif}
+.axiom-help-links a:hover{background:#f6eefa}
+.axiom-help-contact{background:#eee3f4;color:#542771;border:1px solid #d4b6e4;min-height:34px;padding:7px 12px;border-radius:8px;font:700 11.5px/1.4 'DM Sans',sans-serif}
+.axiom-help-contact:hover{background:#e6d3f1}
+.axiom-help-starters{display:flex;gap:6px;flex-wrap:wrap;padding:12px 15px 5px;border-top:1px solid #eee8f1}
+.axiom-help-starters button{border:1px solid #e4d9eb;background:#faf7fc;color:#543765;font:600 10.5px/1.35 'DM Sans',sans-serif;border-radius:99px;min-height:29px;padding:5px 9px}
+.axiom-help-starters button:hover{background:#efe4f6}
+.axiom-help-form{display:grid;gap:6px;padding:8px 15px 3px}
+.axiom-help-form label{font-size:10px;font-weight:700;color:#71657b}
+.axiom-help-entry{display:flex;align-items:stretch;gap:6px}
+.axiom-help-entry input{flex:1;min-width:0;border:1px solid #ded2e5;border-radius:10px;background:#fff;font:400 12px/1.4 'DM Sans',sans-serif;color:#2d2336;padding:10px 12px;outline:0}
+.axiom-help-entry input:focus{border-color:#8e63b0;box-shadow:0 0 0 3px rgba(142,99,176,.15)}
+.axiom-help-entry button{min-width:37px;min-height:37px;padding:0;border:0;border-radius:9px;background:#603481;color:#fff;font-size:20px;line-height:1}
+.axiom-help-entry button:hover{background:#47245f}
+.axiom-help-disclaimer{font-size:10px;line-height:1.4;color:#85778e;margin:0;padding:3px 16px 13px}
+.axiom-help :is(button,a):focus-visible{outline:3px solid #9875c9;outline-offset:2px}
+@media(max-width:640px){.axiom-help{right:12px;bottom:max(13px,env(safe-area-inset-bottom))}.axiom-help-toggle{padding:11px 13px;min-height:43px;font-size:12px}.axiom-help-panel{bottom:53px;width:min(360px,calc(100vw - 24px));max-height:calc(100dvh - 90px)}.axiom-help-body{max-height:clamp(110px,37dvh,260px)}}
+@media(prefers-reduced-motion:reduce){.axiom-help-toggle{transition:none}.axiom-help-toggle:hover{transform:none}}
