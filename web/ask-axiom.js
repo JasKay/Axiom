@@ -41,7 +41,7 @@ const contact=()=>{
  const button=document.createElement('button');button.type='button';button.className='axiom-help-contact';button.textContent=SUPPORT_EMAIL?'✉ Email Axiom support':'Contact Axiom support ↗';
  button.addEventListener('click',()=>{
   const question=(lastQuestion||'I need help with Axiom').slice(0,500);
-  if(SUPPORT_EMAIL){const subject='Axiom support question';const message='Hello Axiom team,\n\n'+question+'\n\nMy device / operating system:\n\nMore details:\n';location.href='mailto:'+encodeURIComponent(SUPPORT_EMAIL)+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(message);}
+  if(SUPPORT_EMAIL){const subject='Axiom support question';const message='Hello Axiom team,\n\n'+question+'\n\nMy device / operating system:\n\nMore details:\n';location.href='mailto:'+SUPPORT_EMAIL+'?subject='+encodeURIComponent(subject)+'&body='+encodeURIComponent(message);}
   else{const url=SUPPORT_ISSUES+'?title='+encodeURIComponent('Axiom support question')+'&body='+encodeURIComponent('Question: '+question+'\n\nDevice / OS:\n\nDetails:');window.open(url,'_blank','noopener,noreferrer');}
  });body.append(button);body.scrollTop=body.scrollHeight;
 };
