@@ -1,6 +1,6 @@
 # Free search setup for Axiom
 
-The public website is built from web/index.html and scripts/templates. scripts/seo-pages.cjs defines eight indexable pages, their canonical URLs, social metadata and structured data. The build creates sitemap.xml. Workspaces, congregation service pages, projection output and demo frames are noindex; only the public marketing pages are in the sitemap. No analytics, paid tools or SEO subscription were added.
+The public website is built from web/index.html and scripts/templates. scripts/seo-pages.cjs defines eight indexable pages, their canonical URLs, social metadata and structured data. The build creates sitemap.xml. Workspaces, congregation service pages, projection output and demo frames are noindex; only the public marketing pages are in the sitemap. Public marketing pages use Vercel Web Analytics for aggregate page views and visitors. Presentation workspaces are not counted as marketing traffic. Web Analytics must also be enabled for the Axiom project in Vercel, and tracking is subject to browser blockers and reporting delays.
 
 ## Connect Google Search Console
 
@@ -20,3 +20,11 @@ Google's instructions: https://support.google.com/webmasters/answer/9008080 and 
 - Add a new public page to scripts/seo-pages.cjs and vercel.json rewrites/redirects. Keep clean canonical URLs in the sitemap; do not add app or service-link URLs.
 - Do not block workspace HTML in robots.txt: crawlers need to read its noindex instruction. Authentication remains the access control.
 - Run npm test before deployment. The SEO tests check metadata, structured data, crawlable links, sitemap coverage, private page exclusions and routing.
+
+## Website visitor analytics
+
+1. In Vercel open the **axiom** project, then **Analytics**. If Web Analytics is not enabled, click **Enable** and redeploy the production branch.
+2. The shared marketing-page header loads Vercel's `/_vercel/insights/script.js`; the Vercel platform serves this route (it is not part of the repository).
+3. Visit `https://www.useaxiom.org/` in an ordinary browser without tracking protection, then check Developer Tools → Network for `/_vercel/insights/script.js` and a pageview request to the insights endpoint.
+4. In Analytics select **Production** and the correct date range; refresh after reporting has processed the visit. Filter by Hostname `www.useaxiom.org` or `useaxiom.org` if needed.
+5. Analytics reports anonymous aggregate traffic, not a named list of people. Ad blockers, browser privacy settings, or disabling analytics can prevent a visit from being counted. Do not send test traffic artificially to inflate metrics.
