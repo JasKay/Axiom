@@ -45,10 +45,11 @@ test('all public marketing pages have four top-level navigation choices, accessi
    if(!href.startsWith('/')||href==='/')continue;
    const route=href.split(/[?#]/)[0];
    if(route==='/'&&href.includes('#'))continue;
-   assert.ok(route==='/app'||route==='/features'||route==='/demo'||route==='/pricing'||route==='/#download'||route==='/#product'||route==='/church-presentation-software'||route==='/guides/sunday-service-running-order'||Object.keys(cases).some(x=>'/'+x===route),page.path+': '+href);
+   assert.ok(route==='/getting-started'||route==='/app'||route==='/features'||route==='/demo'||route==='/pricing'||route==='/#download'||route==='/#product'||route==='/church-presentation-software'||route==='/guides/sunday-service-running-order'||Object.keys(cases).some(x=>'/'+x===route),page.path+': '+href);
   }
  }
 });
+test('Getting started has actionable setup content and lives under Resources',()=>{const d=doc('getting-started');assert.match(d.querySelector('h1').textContent,/first presentation/);assert.ok(d.querySelector('a[href="mailto:iamjasanyakay@gmail.com?subject=Axiom%20setup%20help"]'));assert.ok(doc('').querySelector('#nav-resources a[href="/getting-started"]'));});
 test('related navigation is tailored by page and crosslinks among practical solutions',()=>{
  const event=doc('event-presentation-software'),business=doc('business-presentations'),church=doc('church-presentation-software');
  assert.ok(event.querySelector('.related-pages a[href="/business-presentations"]'));
