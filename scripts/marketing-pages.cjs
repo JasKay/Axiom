@@ -1,6 +1,7 @@
 'use strict';
 const fs=require('node:fs'),path=require('node:path'),{pages,origin,metadata}=require('./seo-pages.cjs');
 const relatedGroups=[
+ {href:'/getting-started',title:'Getting started',description:'From installation to your first presentation'},
  {href:'/features',title:'Features',description:'See what Axiom does in the desktop app'},
  {href:'/demo',title:'Interactive demo',description:'Explore the real sample editor'},
  {href:'/pricing',title:'Pricing',description:'Start free and compare workspace options'},
@@ -13,6 +14,7 @@ const relatedGroups=[
  {href:'/guides/sunday-service-running-order',title:'Service guide',description:'A practical church planning example'}
 ];
 const relatedByPage={
+ 'getting-started':['/features','/demo','/business-presentations','/event-presentation-software'],
  'features':['/business-presentations','/education-presentations','/event-presentation-software','/demo'],
  'demo':['/features','/business-presentations','/event-presentation-software','/pricing'],
  'pricing':['/features','/demo','/church-presentation-software','/event-presentation-software'],
