@@ -7,12 +7,27 @@ function selectProduct(name,focus=false){if(!captions[name])return;for(const tab
 for(const[index,tab]of tabs.entries()){tab.onclick=()=>selectProduct(tab.dataset.product);tab.onkeydown=event=>{let next;if(event.key==='ArrowRight')next=(index+1)%tabs.length;if(event.key==='ArrowLeft')next=(index+tabs.length-1)%tabs.length;if(event.key==='Home')next=0;if(event.key==='End')next=tabs.length-1;if(next===undefined)return;event.preventDefault();selectProduct(tabs[next].dataset.product,true);};}
 for(const link of document.querySelectorAll('[data-open-product]'))link.addEventListener('click',()=>selectProduct(link.dataset.openProduct));
 const menu=document.querySelector('.menu-toggle'),navigation=document.getElementById('main-nav');
-function closeMenu(restore=false){menu.setAttribute('aria-expanded','false');menu.setAttribute('aria-label','Open navigation');navigation.classList.remove('is-open');if(restore)menu.focus();}
-menu.onclick=()=>{const opened=menu.getAttribute('aria-expanded')!=='true';menu.setAttribute('aria-expanded',String(opened));menu.setAttribute('aria-label',opened?'Close navigation':'Open navigation');navigation.classList.toggle('is-open',opened);};
-for(const link of navigation.querySelectorAll('a'))link.addEventListener('click',()=>{const opened=menu.getAttribute('aria-expanded')==='true';closeMenu();if(opened){const target=document.getElementById(link.hash.slice(1));if(target){target.tabIndex=-1;target.focus({preventScroll:true});}}});
-document.addEventListener('keydown',event=>{if(event.key==='Escape'&&menu.getAttribute('aria-expanded')==='true')closeMenu(true);});
+const groups=[...navigation.querySelectorAll('.nav-group')];
+const isMobile=()=>matchMedia('(max-width:950px)').matches;
+function closeSubmenus(except=null){for(const group of groups){if(group===except)continue;const button=group.querySelector('.nav-trigger'),panel=group.querySelector('.nav-dropdown');button.setAttribute('aria-expanded','false');panel.hidden=true;}}
+function closeMenu(restore=false){menu.setAttribute('aria-expanded','false');menu.setAttribute('aria-label','Open navigation');navigation.classList.remove('is-open');closeSubmenus();if(restore)menu.focus();}
+menu.onclick=()=>{const opened=menu.getAttribute('aria-expanded')!=='true';if(!opened)return closeMenu();menu.setAttribute('aria-expanded','true');menu.setAttribute('aria-label','Close navigation');navigation.classList.add('is-open');};
+for(const group of groups){
+ const trigger=group.querySelector('.nav-trigger'),panel=group.querySelector('.nav-dropdown');
+ const show=()=>{closeSubmenus(group);panel.hidden=false;trigger.setAttribute('aria-expanded','true');};
+ const hide=()=>{panel.hidden=true;trigger.setAttribute('aria-expanded','false');};
+ trigger.addEventListener('click',()=>{if(isMobile()){panel.hidden?show():hide();}else show();});
+ group.addEventListener('mouseenter',()=>{if(!isMobile())show();});
+ group.addEventListener('mouseleave',()=>{if(!isMobile())hide();});
+ trigger.addEventListener('keydown',e=>{if(e.key==='ArrowDown'){e.preventDefault();show();panel.querySelector('a')?.focus();}else if(e.key==='Escape'){hide();trigger.focus();}});
+ panel.addEventListener('keydown',e=>{if(e.key==='Escape'){e.stopPropagation();hide();trigger.focus();}});
+ group.addEventListener('focusout',e=>{if(!isMobile()&&!group.contains(e.relatedTarget))hide();});
+}
+for(const link of navigation.querySelectorAll('a'))link.addEventListener('click',()=>{const opened=menu.getAttribute('aria-expanded')==='true';closeMenu();if(opened&&link.origin===location.origin&&link.pathname===location.pathname&&link.hash){const target=document.querySelector(link.hash);if(target){target.tabIndex=-1;target.focus({preventScroll:true});}}});
+document.addEventListener('keydown',event=>{if(event.key==='Escape'){if(groups.some(group=>group.querySelector('.nav-trigger').getAttribute('aria-expanded')==='true'))closeSubmenus();else if(menu.getAttribute('aria-expanded')==='true')closeMenu(true);}});
 document.addEventListener('click',event=>{if(!navigation.contains(event.target)&&!menu.contains(event.target))closeMenu();});
-matchMedia('(min-width:951px)').addEventListener('change',()=>closeMenu());
+matchMedia('(max-width:950px)').addEventListener('change',()=>closeMenu());
+const here=location.pathname.replace(/\/$/,'')||'/';for(const link of navigation.querySelectorAll('a[href]')){if(link.origin===location.origin&&(link.pathname.replace(/\/$/,'')||'/')===here&&!link.hash){link.setAttribute('aria-current','page');}}
 document.getElementById('year').textContent=new Date().getFullYear();
 (async()=>{const host=document.getElementById('desktop-downloads'),status=document.getElementById('desktop-download-status');if(!host||!status)return;try{const response=await fetch('downloads.json',{cache:'no-store'});if(!response.ok)throw Error();const release=await response.json();if(!/^\d+\.\d+\.\d+$/.test(release.version)||!Array.isArray(release.files))throw Error();const windows=/Windows/i.test(navigator.userAgent),files=release.files.slice().sort((a,b)=>Number(windows&&b.label.startsWith('Windows'))-Number(windows&&a.label.startsWith('Windows')));for(const file of files){const url=new URL(file.url);if(url.origin!=='https://github.com'||!url.pathname.startsWith('/JasKay/Axiom/releases/download/v'+release.version+'/'))continue;const link=document.createElement('a'),title=document.createElement('strong'),detail=document.createElement('span'),svg=document.createElementNS('http://www.w3.org/2000/svg','svg'),use=document.createElementNS(svg.namespaceURI,'use');link.className='desktop-download-card';link.href=url.href;link.setAttribute('aria-label','Download Axiom Pro for '+file.label);title.textContent=file.label;detail.className='download-detail';detail.textContent=file.detail;svg.setAttribute('aria-hidden','true');use.setAttribute('href','#download-icon');svg.append(use);link.append(title,detail,svg);host.append(link);}if(!host.children.length)throw Error();status.textContent='Version '+release.version+' · Standalone is free';}catch{status.textContent='Find the latest app using All releases below.';}})();
 for(const link of navigation.querySelectorAll('a')){if(new URL(link.href).pathname===location.pathname&&location.pathname!=='/')link.setAttribute('aria-current','page');}

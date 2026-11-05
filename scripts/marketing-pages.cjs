@@ -1,16 +1,34 @@
 'use strict';
 const fs=require('node:fs'),path=require('node:path'),{pages,origin,metadata}=require('./seo-pages.cjs');
 const relatedGroups=[
- {href:'/features',title:'Explore features',description:'Discover what Axiom can do today'},
- {href:'/demo',title:'Try the live demo',description:'Open a real sample presentation'},
- {href:'/pricing',title:'Pricing & options',description:'Start free on desktop'},
- {href:'/church-presentation-software',title:'For churches',description:'Present worship and Scripture'},
- {href:'/church-service-planning',title:'Service planning',description:'Bring church teams together'},
- {href:'/church-member-notes',title:'Church member notes',description:'Keep shared messages accessible'}
+ {href:'/getting-started',title:'Getting started',description:'From installation to your first presentation'},
+ {href:'/features',title:'Features',description:'See what Axiom does in the desktop app'},
+ {href:'/demo',title:'Interactive demo',description:'Explore the real sample editor'},
+ {href:'/pricing',title:'Pricing',description:'Start free and compare workspace options'},
+ {href:'/business-presentations',title:'For business',description:'Pitch decks, reviews, and meetings'},
+ {href:'/education-presentations',title:'For education',description:'Classrooms, teaching, and training'},
+ {href:'/event-presentation-software',title:'For events',description:'Stage cues, presenters, and run of show'},
+ {href:'/church-presentation-software',title:'For churches',description:'Lyrics, Scripture, and worship'},
+ {href:'/church-service-planning',title:'Service planning',description:'Prepare a service running order'},
+ {href:'/church-member-notes',title:'Church member notes',description:'Published notes and service updates'},
+ {href:'/guides/sunday-service-running-order',title:'Service guide',description:'A practical church planning example'}
 ];
+const relatedByPage={
+ 'getting-started':['/features','/demo','/business-presentations','/event-presentation-software'],
+ 'features':['/business-presentations','/education-presentations','/event-presentation-software','/demo'],
+ 'demo':['/features','/business-presentations','/event-presentation-software','/pricing'],
+ 'pricing':['/features','/demo','/church-presentation-software','/event-presentation-software'],
+ 'business-presentations':['/features','/demo','/pricing','/event-presentation-software'],
+ 'education-presentations':['/features','/demo','/pricing','/business-presentations'],
+ 'event-presentation-software':['/features','/demo','/business-presentations','/pricing'],
+ 'church-presentation-software':['/church-service-planning','/church-member-notes','/guides/sunday-service-running-order','/demo'],
+ 'church-service-planning':['/church-presentation-software','/church-member-notes','/guides/sunday-service-running-order','/pricing'],
+ 'church-member-notes':['/church-presentation-software','/church-service-planning','/pricing','/demo'],
+ 'guides/sunday-service-running-order':['/church-service-planning','/church-presentation-software','/demo','/pricing']
+};
 function relatedPages(current){
  const currentHref='/'+current;
- const cards=relatedGroups.filter(p=>p.href!==currentHref).slice(0,4).map(p=>'<a href="'+p.href+'" class="related-card"><strong>'+p.title+'</strong><span>'+p.description+'</span><b aria-hidden="true">↗</b></a>').join('');
+ const links=relatedByPage[current]||relatedGroups.filter(p=>p.href!==currentHref).slice(0,4).map(p=>p.href);const cards=links.map(href=>relatedGroups.find(p=>p.href===href)).filter(Boolean).map(p=>'<a href="'+p.href+'" class="related-card"><strong>'+p.title+'</strong><span>'+p.description+'</span><b aria-hidden="true">↗</b></a>').join('');
  return '<section class="shell related-pages" aria-label="Continue exploring Axiom"><div class="related-heading"><span class="eyebrow">KEEP EXPLORING</span><h2>Discover more with Axiom.</h2></div><div class="related-grid">'+cards+'</div></section>';
 }
 module.exports=function buildMarketingPages(directory){
