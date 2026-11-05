@@ -16,7 +16,7 @@ for(const group of groups){
  const trigger=group.querySelector('.nav-trigger'),panel=group.querySelector('.nav-dropdown');
  const show=()=>{closeSubmenus(group);panel.hidden=false;trigger.setAttribute('aria-expanded','true');};
  const hide=()=>{panel.hidden=true;trigger.setAttribute('aria-expanded','false');};
- trigger.addEventListener('click',()=>panel.hidden?show():hide());
+ trigger.addEventListener('click',()=>{if(isMobile()){panel.hidden?show():hide();}else show();});
  group.addEventListener('mouseenter',()=>{if(!isMobile())show();});
  group.addEventListener('mouseleave',()=>{if(!isMobile())hide();});
  trigger.addEventListener('keydown',e=>{if(e.key==='ArrowDown'){e.preventDefault();show();panel.querySelector('a')?.focus();}else if(e.key==='Escape'){hide();trigger.focus();}});
