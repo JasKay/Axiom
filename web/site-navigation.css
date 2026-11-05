@@ -1,0 +1,51 @@
+/* Axiom's public navigation: quiet top-level choices, purposeful submenus. */
+.site-header{z-index:120;overflow:visible}
+.navigation{height:76px;gap:24px}
+.navigation .brand{flex:none}
+.navigation #main-nav{display:flex;align-items:center;gap:clamp(7px,1vw,16px);margin:auto}
+.navigation #main-nav .nav-group{position:relative;flex:none}
+.navigation #main-nav .nav-trigger,.navigation #main-nav .nav-direct{display:inline-flex;align-items:center;justify-content:center;gap:9px;height:42px;padding:0 13px;background:transparent;border:1px solid transparent;border-radius:10px;color:#382b42;font:650 13px/1.3 'DM Sans',sans-serif;white-space:nowrap;cursor:pointer;text-decoration:none}
+.navigation #main-nav .nav-trigger:hover,.navigation #main-nav .nav-trigger[aria-expanded=true],.navigation #main-nav .nav-direct:hover,.navigation #main-nav .nav-direct[aria-current=page]{background:#f4ecf8;color:#5a2676;border-color:#eee0f2}
+.navigation #main-nav .nav-trigger:focus-visible,.navigation #main-nav a:focus-visible{outline:3px solid #9061b0;outline-offset:2px}
+.navigation #main-nav .nav-chevron{font-size:17px;font-weight:400;line-height:1;display:inline-block;transition:transform .16s}
+.navigation #main-nav .nav-trigger[aria-expanded=true] .nav-chevron{transform:rotate(180deg)}
+.navigation #main-nav .nav-dropdown{position:absolute;left:0;top:calc(100% + 13px);width:304px;max-width:min(380px,calc(100vw - 40px));display:grid;gap:3px;padding:16px;border:1px solid #ebdeef;background:#fff;border-radius:17px;box-shadow:0 22px 55px rgba(40,18,54,.16);z-index:121}
+.navigation #main-nav .nav-dropdown[hidden]{display:none!important}
+.navigation #main-nav .nav-dropdown:before{position:absolute;content:"";top:-14px;left:0;right:0;height:15px}
+.navigation #main-nav .nav-dropdown-wide{width:350px}
+.navigation #main-nav .nav-dropdown-label{color:#825a92;font-size:10px;font-weight:800;letter-spacing:.13em;padding:4px 10px 7px}
+.navigation #main-nav .nav-dropdown a{display:flex;flex-direction:column;align-items:flex-start;gap:2px;padding:11px 12px!important;border:0!important;border-radius:10px;white-space:normal!important;color:#2f2338!important;text-decoration:none}
+.navigation #main-nav .nav-dropdown a:hover,.navigation #main-nav .nav-dropdown a[aria-current=page]{background:#f7f1fb!important}
+.navigation #main-nav .nav-dropdown a strong{font-size:13px;font-weight:750;letter-spacing:-.02em}
+.navigation #main-nav .nav-dropdown a small{font-size:11px;line-height:1.4;font-weight:450;color:#766580}
+.navigation #main-nav .mobile-login{display:none}
+.navigation-actions{flex:none;gap:17px}
+.navigation-actions .login{font-weight:650}
+@media(max-width:1040px){
+ .navigation{height:70px;gap:16px}
+ .navigation #main-nav{gap:3px}
+ .navigation #main-nav .nav-trigger,.navigation #main-nav .nav-direct{padding-inline:9px;font-size:12px}
+ .navigation-actions{gap:10px}
+ .navigation-actions .button-small{font-size:11px;padding:9px 12px;gap:10px}
+}
+@media(max-width:950px){
+ .navigation{height:70px}
+ .navigation .menu-toggle{order:3;display:flex}
+ .navigation-actions{margin-left:auto}
+ .navigation-actions .login{display:none}
+ .navigation #main-nav{display:none;position:absolute;left:0;right:0;top:calc(100% - 1px);margin:0;padding:15px clamp(18px,5vw,44px) 22px;max-height:calc(100dvh - 70px);overflow-y:auto;align-items:stretch;flex-direction:column;gap:5px;background:#fff;border-bottom:1px solid #e7ddec;box-shadow:0 18px 34px rgba(39,18,56,.12)}
+ .navigation #main-nav.is-open{display:flex}
+ .navigation #main-nav .nav-group{width:100%;position:static}
+ .navigation #main-nav .nav-trigger,.navigation #main-nav .nav-direct{display:flex;width:100%;height:43px;justify-content:space-between;padding:7px 12px;font-size:14px;text-align:left}
+ .navigation #main-nav .nav-dropdown,.navigation #main-nav .nav-dropdown-wide{position:static;width:100%;max-width:none;box-shadow:none;border:0;border-left:2px solid #d4b5e6;border-radius:0;margin:0 0 10px 11px;padding:4px 0 5px 12px;display:flex;flex-direction:column;gap:0;background:transparent}
+ .navigation #main-nav .nav-dropdown:before{content:none}
+ .navigation #main-nav .nav-dropdown-label{padding:8px 10px 4px}
+ .navigation #main-nav .nav-dropdown a{padding:9px 10px!important}
+ .navigation #main-nav .mobile-login{display:block!important;padding:11px 12px!important;color:#7025ae;font-size:13px;font-weight:700}
+}
+@media(max-width:600px){
+ .navigation{height:66px}
+ .navigation #main-nav{max-height:calc(100dvh - 66px)}
+ .navigation-actions .button-small{padding:9px 11px;font-size:11px}
+}
+@media(prefers-reduced-motion:reduce){.navigation #main-nav .nav-chevron{transition:none}}
