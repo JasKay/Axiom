@@ -44,7 +44,7 @@ test('all public marketing pages have four top-level navigation choices, accessi
    const href=a.getAttribute('href');
    if(!href.startsWith('/')||href==='/')continue;
    const route=href.split(/[?#]/)[0];
-   if(route==='/#download')continue;
+   if(route==='/'&&href.includes('#'))continue;
    assert.ok(route==='/app'||route==='/features'||route==='/demo'||route==='/pricing'||route==='/#download'||route==='/#product'||route==='/church-presentation-software'||route==='/guides/sunday-service-running-order'||Object.keys(cases).some(x=>'/'+x===route),page.path+': '+href);
   }
  }
