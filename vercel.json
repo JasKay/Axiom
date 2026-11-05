@@ -149,6 +149,18 @@
   ],
   "rewrites": [
     {
+      "source": "/event-presentation-software",
+      "destination": "/event-presentation-software.html"
+    },
+    {
+      "source": "/education-presentations",
+      "destination": "/education-presentations.html"
+    },
+    {
+      "source": "/business-presentations",
+      "destination": "/business-presentations.html"
+    },
+    {
       "source": "/features",
       "destination": "/features.html"
     },
@@ -182,6 +194,36 @@
     }
   ],
   "redirects": [
+    {
+      "source": "/event-presentation-software.html",
+      "destination": "/event-presentation-software",
+      "permanent": true
+    },
+    {
+      "source": "/event-presentation-software/",
+      "destination": "/event-presentation-software",
+      "permanent": true
+    },
+    {
+      "source": "/education-presentations.html",
+      "destination": "/education-presentations",
+      "permanent": true
+    },
+    {
+      "source": "/education-presentations/",
+      "destination": "/education-presentations",
+      "permanent": true
+    },
+    {
+      "source": "/business-presentations.html",
+      "destination": "/business-presentations",
+      "permanent": true
+    },
+    {
+      "source": "/business-presentations/",
+      "destination": "/business-presentations",
+      "permanent": true
+    },
     {
       "source": "/features/",
       "destination": "/features",
