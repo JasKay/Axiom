@@ -149,6 +149,10 @@
   ],
   "rewrites": [
     {
+      "source": "/getting-started",
+      "destination": "/getting-started.html"
+    },
+    {
       "source": "/event-presentation-software",
       "destination": "/event-presentation-software.html"
     },
@@ -194,6 +198,16 @@
     }
   ],
   "redirects": [
+    {
+      "source": "/getting-started.html",
+      "destination": "/getting-started",
+      "permanent": true
+    },
+    {
+      "source": "/getting-started/",
+      "destination": "/getting-started",
+      "permanent": true
+    },
     {
       "source": "/event-presentation-software.html",
       "destination": "/event-presentation-software",
